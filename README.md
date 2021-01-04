@@ -40,7 +40,7 @@ This is just a quick and dirty guide. Yesterday I stirred together a few things 
 7. You will also need `adb` , "Android Debug Bridge", to connect to your Android device and install the app on it: https://www.fosslinux.com/25170/how-to-install-and-setup-adb-tools-on-linux.htm .
    Oh, and if it's not clear yet, you will need an Android device ;)
 
-8. Make sure your `gcc` is at least version 6. It turned out my Linux distro had gcc 5.4 - a bit of a surprise since I experimented with C recently and was pretty sure I have all the modern stuff. But then I remembered I use clang, not gcc. You can try follow these steps: https://tuxamito.com/wiki/index.php/Installing_newer_GCC_versions_in_Ubuntu
+8. Make sure your `gcc` is at least version 6. It turned out my Linux distro had gcc 5.4 - a bit of a surprise since I experimented with C recently and was pretty sure I have all the modern stuff. But then I remembered I use clang, not gcc. You can try follow these steps: https://tuxamito.com/wiki/index.php/Installing_newer_GCC_versions_in_Ubuntu .
    On top of that, you will need some specific C libraries (like GTK) to build the native image and it varies from one computer to another, so I can't tell you exactly what to do. But it shouldn't be a big problem. Just follow error messages saying that you lack something and google how to install them. 
    On the other hand, it looks like you don't need to install Android SDK manually. GraalVM will do it for you. (But you can use your own installation if you want to) 
 
@@ -48,19 +48,19 @@ This is just a quick and dirty guide. Yesterday I stirred together a few things 
 
 #### Recipe
 
-1. We will create the app with the help of Gluon Mobile - a platform which uses JavaFX to build Java client apps. It looks like this will be **the** way to build Android apps with GraalVM in foreseeable future (https://github.com/oracle/graal/issues/632#issuecomment-643816258). No standard Android widgets - JavaFX instead. It has a lot of interesting implications but that's a story for another day.  https://gluonhq.com/products/mobile/
+1. We will create the app with the help of Gluon Mobile - a platform which uses JavaFX to build Java client apps. It looks like this will be **the** way to build Android apps with GraalVM in foreseeable future (https://github.com/oracle/graal/issues/632#issuecomment-643816258). No standard Android widgets - JavaFX instead. It has a lot of interesting implications but that's a story for another day.  https://gluonhq.com/products/mobile/ .
    You don't need to download anything directly from Gluon Mobile. Maven will do it for you. So, yes, we're using Maven, not SBT, because we need Maven plugins which don't have their SBT equivalents. Install `mvn` if you don't have it yet.
-   By the way, here's a much more detailed explanation how to write a client app with Gluon (in Java): https://docs.gluonhq.com/client/0.1.31/#_overview 
+   By the way, here's a much more detailed explanation how to write a client app with Gluon (in Java): https://docs.gluonhq.com/client/0.1.31/#_overview . 
    A big advantage of this approach is that - in theory at least - we should be able to use a lot of the same stuff for writing apps for Android, iOS, and desktop clients. In my company we have separate teams for that, writing different versions of the same app in different technologies, which is costly and means that we can't help each other as much as we could. On the other hand, we tried to use the same tech stack in the past, and there were reasons why we decided to abandon this approach... Okay, this is also a topic for another day.  
 
-2.  Now, download this dummy app! I based in on HelloGluon from Gluon samples: https://gluonhq.com/developers/samples/
+2.  Now, download this dummy app! I based in on HelloGluon from Gluon samples: https://gluonhq.com/developers/samples/ . 
    In `pom.xml` you will find a list of plugins and dependencies the app uses (well, d'oh, this is the place where we put them, after all). I'd like to say a few words about them.
 
    * Scala 2.13.4. Not much to say here apart from that I'm very happy I see this version number here.
 
-   * JavaFX 15, the UI widgets library. https://openjfx.io/
+   * JavaFX 15, the UI widgets library. https://openjfx.io/ . 
 
-   * Gluon Glisten. I'm not exactly sure yet what's the relation between this and JavaFX. Something something user interface something. https://docs.gluonhq.com/#_glisten_apis
+   * Gluon Glisten. I'm not exactly sure yet what's the relation between this and JavaFX. Something something user interface something. https://docs.gluonhq.com/#_glisten_apis . 
 
    * Then comes a bunch of dependencies that I think are there to enable the app to interact with Android in a number of ways. I decided to keep them, just to know that they exist, but the dummy app only uses "display" and "util" from the list. (it's also possible that I don't understand something here - when I tried to remove some of them, compilation failed).
 
@@ -77,7 +77,7 @@ This is just a quick and dirty guide. Yesterday I stirred together a few things 
      Error: Unsupported type java.lang.invoke.MemberName is reachable: All methods from java.lang.invoke should have been replaced during image building.
      ```
 
-     The issue is known and it should be fixed eventually: https://github.com/oracle/graal/issues/2761
+     The issue is known and it should be fixed eventually: https://github.com/oracle/graal/issues/2761 . 
 
    * In the profiles section, I keep both the desktop and Android profile. This allows for running the app on the computer without the need to have my Android phone around all the time.
 
