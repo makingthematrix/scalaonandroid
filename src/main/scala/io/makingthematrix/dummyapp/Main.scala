@@ -14,34 +14,25 @@ import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.VBox
 
 object Main {
-  def main(args: Array[String]): Unit = {
-    javafx.application.Application.launch(classOf[Main], args: _*)
-  }
+  def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
 }
 
 class Main extends MobileApplication {
-  def logSomething(): Unit = {
-    println("log something from Scala")
-  }
-
-  override def init(): Unit = {
-    addViewFactory(MobileApplication.HOME_VIEW, () => {
-      val fab = new FloatingActionButton(MaterialDesignIcon.SEARCH.text, (e: ActionEvent) => logSomething())
-      val imageView = new ImageView(new Image(this.getClass.getResourceAsStream("openduke.png")))
-      imageView.setFitHeight(200)
-      imageView.setPreserveRatio(true)
-      val label = new Label("Hello, Gluon Mobile!")
-      val root = new VBox(20, imageView, label)
-      root.setAlignment(Pos.CENTER)
-      val view = new View(root) {
-        override protected def updateAppBar(appBar: AppBar): Unit = {
-          appBar.setTitleText("Gluon Mobile")
-        }
+  override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => {
+    val fab = new FloatingActionButton(MaterialDesignIcon.SEARCH.text, (_: ActionEvent) => println("log something from Scala"))
+    val imageView = new ImageView(new Image(this.getClass.getResourceAsStream("openduke.png")))
+    imageView.setFitHeight(200)
+    imageView.setPreserveRatio(true)
+    val root = new VBox(20, imageView, new Label("Hello, Gluon Mobile!"))
+    root.setAlignment(Pos.CENTER)
+    val view = new View(root) {
+      override protected def updateAppBar(appBar: AppBar): Unit = {
+        appBar.setTitleText("Gluon Mobile and Scala 2.13")
       }
-      fab.showOn(view)
-      view
-    })
-  }
+    }
+    fab.showOn(view)
+    view
+  })
 
   override def postInit(scene: Scene): Unit = {
     Swatch.LIGHT_GREEN.assignTo(scene)
@@ -54,5 +45,4 @@ class Main extends MobileApplication {
       scene.getWindow.setHeight(dimension2D.getHeight)
     }
   }
-
 }
