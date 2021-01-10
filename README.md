@@ -36,12 +36,27 @@ This is just a quick and dirty guide. Yesterday I stirred together a few things 
    ```
 
    `gu` should be available now in your console because of `$GRAALVM_HOME/bin` in your `PATH`.
+Also, read this and install whatever you need: https://www.graalvm.org/reference-manual/native-image/#prerequisites
 
-7. You will also need `adb` , "Android Debug Bridge", to connect to your Android device and install the app on it: https://www.fosslinux.com/25170/how-to-install-and-setup-adb-tools-on-linux.htm .
+7. You will need `adb` , "Android Debug Bridge", to connect to your Android device and install the app on it: https://www.fosslinux.com/25170/how-to-install-and-setup-adb-tools-on-linux.htm .
    Oh, and if it's not clear yet, you will need an Android device ;)
 
 8. Make sure your `gcc` is at least version 6. It turned out my Linux distro had gcc 5.4 - a bit of a surprise since I experimented with C recently and was pretty sure I have all the modern stuff. But then I remembered I use clang, not gcc. You can try follow these steps: https://tuxamito.com/wiki/index.php/Installing_newer_GCC_versions_in_Ubuntu .
-   On top of that, you will need some specific C libraries (like GTK) to build the native image and it varies from one computer to another, so I can't tell you exactly what to do. But it shouldn't be a big problem. Just follow error messages saying that you lack something and google how to install them. 
+   On top of that, you will need some specific C libraries (like GTK) to build the native image and it varies from one computer to another, so I can't tell you exactly what to do. But it shouldn't be a big problem. Just follow error messages saying that you lack something and google how to install them. In my case this was the list:
+```
+  libasound2-dev (for pkgConfig alsa)
+  libavcodec-dev (for pkgConfig libavcodec)
+  libavformat-dev (for pkgConfig libavformat)
+  libavutil-dev (for pkgConfig libavutil)
+  libfreetype6-dev (for pkgConfig freetype2)
+  libgl-dev (for pkgConfig gl)
+  libglib2.0-dev (for pkgConfig gmodule-no-export-2.0)
+  libglib2.0-dev (for pkgConfig gthread-2.0)
+  libgtk-3-dev (for pkgConfig gtk+-x11-3.0)
+  libpango1.0-dev (for pkgConfig pangoft2)
+  libx11-dev (for pkgConfig x11)
+  libxtst-dev (for pkgConfig xtst)
+```
    On the other hand, it looks like you don't need to install Android SDK manually. GraalVM will do it for you. (But you can use your own installation if you want to) 
 
 
