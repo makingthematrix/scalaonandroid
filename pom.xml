@@ -19,7 +19,7 @@
         <client.plugin.version>0.1.35</client.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
-        <main.class>io.makingthematrix.dummyapp.Main</main.class>
+        <main.class>io.makingthematrix.fiftystates.FiftyStates</main.class>
         <scala.version>2.13.4</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
@@ -29,6 +29,13 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalameta/svm-subs -->
+        <!-- because of https://github.com/scala/bug/issues/11634 -->
+        <dependency>
+            <groupId>org.scalameta</groupId>
+            <artifactId>svm-subs</artifactId>
+            <version>101.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
