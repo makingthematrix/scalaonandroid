@@ -23,33 +23,41 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
-package io.makingthematrix.fiftystates
+
+package io.makingthematrix.europeanunion
 
 import com.gluonhq.charm.glisten.control.CharmListCell
 import com.gluonhq.charm.glisten.control.ListTile
-import io.makingthematrix.fiftystates.model.{USState, USStates}
-import javafx.scene.Node
-import javafx.scene.image.{Image, ImageView}
+import io.makingthematrix.europeanunion.model.Country
+import javafx.geometry.Insets
+import javafx.scene.image.ImageView
+import javafx.scene.layout.{Background, BackgroundFill, CornerRadii}
+import javafx.scene.paint.Color
 
-object USStateCell {
-  def apply(): USStateCell = new USStateCell(new ListTile(), new ImageView())
+object CountryCell {
+  def apply(): CountryCell = new CountryCell(new ListTile(), new ImageView())
+
+  val ScotlandBackgroundFill = new BackgroundFill(Color.BEIGE, new CornerRadii(1), new Insets(0.0,0.0,0.0,0.0))
 }
 
-final class USStateCell(tile: ListTile, imageView: ImageView) extends CharmListCell[USState] {
+final class CountryCell(tile: ListTile, imageView: ImageView) extends CharmListCell[Country] {
   imageView.setFitHeight(15)
   imageView.setFitWidth(25)
   tile.setPrimaryGraphic(imageView)
   setText(null)
 
-  override def updateItem(item: USState, empty: Boolean): Unit = {
+  override def updateItem(item: Country, empty: Boolean): Unit = {
     super.updateItem(item, empty)
     (Option(item), empty) match {
       case (Some(state), false) =>
         tile.textProperty.setAll(state.toString)
         tile.setWrapText(true)
-        USStates.getImage(item.flag).foreach(imageView.setImage)
+        Country.getImage(item.flag).foreach(imageView.setImage)
         setGraphic(tile)
+        if (state == Country.Scotland) tile.setBackground(new Background(CountryCell.ScotlandBackgroundFill))
       case _ =>
         setGraphic(null)
     }

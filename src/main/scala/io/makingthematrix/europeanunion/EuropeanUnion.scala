@@ -1,17 +1,15 @@
-// based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
-
 /*
  * Copyright (c) 2016, 2020, Gluon
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- *     * Redistributions of source code must retain the above copyright
+ *   * Redistributions of source code must retain the above copyright
  * notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce the above copyright
+ *   * Redistributions in binary form must reproduce the above copyright
  * notice, this list of conditions and the following disclaimer in the
  * documentation and/or other materials provided with the distribution.
- *     * Neither the name of Gluon, any associated website, nor the
+ *   * Neither the name of Gluon, any associated website, nor the
  * names of its contributors may be used to endorse or promote products
  * derived from this software without specific prior written permission.
  *
@@ -25,8 +23,10 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
-package io.makingthematrix.fiftystates
+package io.makingthematrix.europeanunion
 
 import com.gluonhq.attach.display.DisplayService
 import com.gluonhq.attach.util.Platform
@@ -37,16 +37,16 @@ import javafx.scene.Scene
 
 import scala.jdk.FunctionConverters._
 
-object FiftyStates {
-    def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[FiftyStates], args: _*)
+object EuropeanUnion {
+    def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[EuropeanUnion], args: _*)
 }
 
-class FiftyStates extends MobileApplication {
+final class EuropeanUnion extends MobileApplication {
   override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => BasicView())
 
   override def postInit(scene: Scene): Unit = {
-    Swatch.LIGHT_GREEN.assignTo(scene)
-    scene.getStylesheets.add(this.getClass.getResource("style.css").toExternalForm)
+    Swatch.BLUE.assignTo(scene)
+    scene.getStylesheets.add(getClass.getResource("style.css").toExternalForm)
     if (Platform.isDesktop) {
       val dimension2D =
         DisplayService.create.map(((ds: DisplayService) => ds.getDefaultDimensions).asJava).orElse(new Dimension2D(640, 480))

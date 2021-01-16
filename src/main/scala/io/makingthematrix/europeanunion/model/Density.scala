@@ -4,12 +4,12 @@
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- *     * Redistributions of source code must retain the above copyright
+ *   * Redistributions of source code must retain the above copyright
  * notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce the above copyright
+ *   * Redistributions in binary form must reproduce the above copyright
  * notice, this list of conditions and the following disclaimer in the
  * documentation and/or other materials provided with the distribution.
- *     * Neither the name of Gluon, any associated website, nor the
+ *   * Neither the name of Gluon, any associated website, nor the
  * names of its contributors may be used to endorse or promote products
  * derived from this software without specific prior written permission.
  *
@@ -23,13 +23,11 @@
  * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-package io.makingthematrix.fiftystates.model;
-
-/**
  *
- * Population Density (pop/km2)
+ * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
+
+package io.makingthematrix.europeanunion.model
 
 object Density {
     sealed trait Density extends Comparable[Density] {
@@ -48,11 +46,6 @@ object Density {
 
     private val densities = Seq(D000, D010, D050, D100, D250, D500)
 
-    /**
-     *
-     * @param state
-     * @return DENSITY category for the given US State
-     */
-    def stateToDensity(state: USState): Density =
+    def getDensity(state: Country): Density =
         densities.find(d => d.initial >= state.density && d.end < state.density).getOrElse(D000)
 }
