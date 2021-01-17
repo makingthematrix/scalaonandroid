@@ -18,5 +18,5 @@ My goal for further future (overly optimistic, of course) is to write a TRON gam
 
 1. [What do you need](https://github.com/makingthematrix/scalaonandroid/wiki/What-do-you-need)
 2. [How to compile and run an example](https://github.com/makingthematrix/scalaonandroid/wiki/How-to-compile-and-run-an-example)
-2.1. [Dummy App](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) example
-2.2. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) example
+3. [Dummy App](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) example
+4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) example
