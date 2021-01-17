@@ -26,32 +26,9 @@
  *
  * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
-package io.makingthematrix.europeanunion
 
-import com.gluonhq.attach.display.DisplayService
-import com.gluonhq.attach.util.Platform
-import com.gluonhq.charm.glisten.application.MobileApplication
-import com.gluonhq.charm.glisten.visual.Swatch
-import javafx.geometry.Dimension2D
-import javafx.scene.Scene
+package io.makingthematrix.scalaonandroid.europeanunion.model
 
-import scala.jdk.FunctionConverters._
-
-object EuropeanUnion {
-    def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[EuropeanUnion], args: _*)
-}
-
-final class EuropeanUnion extends MobileApplication {
-  override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => BasicView())
-
-  override def postInit(scene: Scene): Unit = {
-    Swatch.BLUE.assignTo(scene)
-    scene.getStylesheets.add(getClass.getResource("style.css").toExternalForm)
-    if (Platform.isDesktop) {
-      val dimension2D =
-        DisplayService.create.map(((ds: DisplayService) => ds.getDefaultDimensions).asJava).orElse(new Dimension2D(640, 480))
-      scene.getWindow.setWidth(dimension2D.getWidth)
-      scene.getWindow.setHeight(dimension2D.getHeight)
-    }
-  }
+final case class Country(name: String, abbr: String, capital: String, population: Int, area: Int, flag: String) {
+  lazy val density: Double = if (area > 0) population.toDouble / area.toDouble else 0.0
 }

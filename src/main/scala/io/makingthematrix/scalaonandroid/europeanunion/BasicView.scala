@@ -27,13 +27,13 @@
  * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
 
-package io.makingthematrix.europeanunion
+package io.makingthematrix.scalaonandroid.europeanunion
 
 import com.gluonhq.charm.glisten.control._
 import com.gluonhq.charm.glisten.mvc.View
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
-import io.makingthematrix.europeanunion.model.Density.Density
-import io.makingthematrix.europeanunion.model.{Country, Density}
+import io.makingthematrix.scalaonandroid.europeanunion.model.Density.Density
+import io.makingthematrix.scalaonandroid.europeanunion.model.{Country, Density}
 import javafx.collections.FXCollections
 import javafx.collections.transformation.FilteredList
 import javafx.event.{ActionEvent, EventHandler}
@@ -44,11 +44,14 @@ import java.util.function.Predicate
 import scala.jdk.CollectionConverters._
 import scala.jdk.FunctionConverters._
 
-import model.Country._
-
 object BasicView {
+  import CountriesRepository._
+
   def apply(): BasicView = {
-    val filteredList = new FilteredList(FXCollections.observableArrayList((countriesList ++ Seq(Scotland)).asJavaCollection), (_: Country) => true)
+    val filteredList = new FilteredList(
+      FXCollections.observableArrayList((euCountries :+ Scotland).asJavaCollection),
+      (_: Country) => true
+    )
     val listView = createListView(filteredList)
     returning(new BasicView(filteredList, listView)) { _.setCenter(listView) }
   }
@@ -63,11 +66,9 @@ object BasicView {
         override def updateItem(item: Country, empty: Boolean) {
           super.updateItem(item, empty)
           if (!empty) {
-            val flag = new Image(getClass.getResourceAsStream("100px-Flag_of_Europe.svg.png"))
-            val euFlag = new Avatar(23, flag)
+            val euFlag = new Avatar(23, new Image(getClass.getResourceAsStream("100px-Flag_of_Europe.svg.png")))
             tile.setPrimaryGraphic(euFlag)
-
-            tile.textProperty.setAll(EuropeanUnion.toString)
+            tile.textProperty.setAll(CountryCell.countryToString(EuropeanUnion))
             // tile.setWrapText(true) causes the header to expand and cover the whole screen
             // TODO: Find out how to handle it. CSS? SceneBuilder?
             setGraphic(tile)
@@ -99,24 +100,24 @@ final class BasicView(filteredList: FilteredList[Country], listView: CharmListVi
     appBar.getMenuItems.setAll(buildFilterMenu.asJavaCollection)
   }
 
-  private def getStatePredicate(population: Double): Predicate[Country] =
-    (state: Country) => state.population >= population * 1_000_000
-
   private def buildFilterMenu = {
+    def getStatePredicate(population: Double): Predicate[Country] =
+      (state: Country) => state.population >= population * 1_000_000
+
     val menuActionHandler: EventHandler[ActionEvent] = { e: ActionEvent =>
       val item = e.getSource.asInstanceOf[MenuItem]
       val population = item.getUserData.asInstanceOf[Double]
       filteredList.setPredicate(getStatePredicate(population))
     }
 
-    val allStates = returning(new RadioMenuItem("All States")) { item =>
+    val allStates = returning(new RadioMenuItem("All Countries")) { item =>
       item.setOnAction(menuActionHandler)
       item.setSelected(true)
     }
 
     val toggleGroup = returning(new ToggleGroup()) { _.getToggles.add(allStates) }
 
-    allStates :: List(0.5, 1.0, 2.5, 5.0).map { d =>
+    allStates :: List(1.0, 5.0, 10.0, 20.0).map { d =>
       returning(new RadioMenuItem("Population > " + d + "M")) { item =>
         item.setUserData(d)
         item.setOnAction(menuActionHandler)

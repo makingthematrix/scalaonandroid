@@ -1,4 +1,4 @@
-package io.makingthematrix
+package io.makingthematrix.scalaonandroid
 
 import javafx.beans.value.{ChangeListener, ObservableValue}
 

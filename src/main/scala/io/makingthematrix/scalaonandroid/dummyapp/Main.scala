@@ -1,4 +1,4 @@
-package io.makingthematrix.dummyapp
+package io.makingthematrix.scalaonandroid.dummyapp
 
 import com.gluonhq.attach.display.DisplayService
 import com.gluonhq.attach.util.Platform

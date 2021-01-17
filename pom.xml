@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.makingthematrix</groupId>
-    <artifactId>dummyapp</artifactId>
-    <version>0.0.1</version>
+    <artifactId>scalaonandroid</artifactId>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
-    <name>DummyApp</name>
+    <name>Scala 2.13 on Android</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
         <client.plugin.version>0.1.35</client.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
-        <main.class>io.makingthematrix.europeanunion.EuropeanUnion</main.class>
+        <main.class>io.makingthematrix.scalaonandroid.europeanunion.Main</main.class>
         <scala.version>2.13.4</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
