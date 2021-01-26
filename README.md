@@ -10,6 +10,7 @@ This is a repo for examples, small tutorials, and some chaotic notes on how to w
  * The app lifecycle, esp. how to manage going to the background and waking up, receiving an event while in the background, etc.
  * Permissions
  * Execution contexts handling
+ 
 If any of them don't work and there are no easy alternatives, it means the whole tech stack is not mature yet. But from what I saw so far I'm carefully optimistic. Especially the fact that so many people work on so many parts of all of this, and my work consists mainly of putting it all together, gives me hope. 
 
 My goal for further future (overly optimistic, of course) is to write a TRON game where players could log in to a server, set up a board, play a game with each other (or maybe even three or four people together) and store the history of their games on the backend. For that I would either use [FXGL](https://github.com/AlmasB/FXGL) or [libGDX](https://libgdx.badlogicgames.com/). But that's in a galaxy far away.
