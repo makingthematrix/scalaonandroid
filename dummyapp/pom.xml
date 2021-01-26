@@ -16,10 +16,10 @@
         <maven.compiler.release>11</maven.compiler.release>
         <javafx.version>15.0.1</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
-        <client.plugin.version>0.1.35</client.plugin.version>
+        <client.plugin.version>0.1.37-SNAPSHOT</client.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
-        <main.class>io.makingthematrix.scalaonandroid.europeanunion.Main</main.class>
+        <main.class>io.makingthematrix.scalaonandroid.dummyapp.Main</main.class>
         <scala.version>2.13.4</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
@@ -156,6 +156,7 @@
                     <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>client-maven-plugin</artifactId>
@@ -247,4 +248,11 @@
             <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
         </repository>
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
