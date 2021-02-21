@@ -7,7 +7,7 @@ project/metals.sbt
 target
 tmp
 .history
-/.idea
+**/.idea
 /*.iml
 /out
 /.idea_modules
