@@ -4,9 +4,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.makingthematrix</groupId>
-    <artifactId>scalaonandroid</artifactId>
-    <version>0.0.2</version>
+    <groupId>io.makingthematrix.scalaonandroid</groupId>
+    <artifactId>dummyapp</artifactId>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>Scala 2.13 on Android</name>
