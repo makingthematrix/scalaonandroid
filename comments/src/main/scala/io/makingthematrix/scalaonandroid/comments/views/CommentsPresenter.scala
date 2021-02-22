@@ -15,16 +15,13 @@ import scala.beans.BeanProperty
 
 class CommentsPresenter extends GluonPresenter[Comments] {
   @Inject
-  @BeanProperty
-  var service: Service = _
+  private var service: Service = _
 
   @FXML
-  @BeanProperty
-  var comments: View = _
+  private var comments: View = _
 
   @FXML
-  @BeanProperty
-  var commentsList: ListView[Comment] = _
+  private var commentsList: ListView[Comment] = _
 
   def initialize(): Unit = {
     comments.showingProperty.addListener((_, _, newValue) => {

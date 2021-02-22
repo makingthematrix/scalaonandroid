@@ -1,7 +1,6 @@
 package io.makingthematrix.scalaonandroid.comments.views
 
 import com.gluonhq.charm.glisten.afterburner.GluonPresenter
-import com.gluonhq.charm.glisten.control.{TextArea, TextField}
 import com.gluonhq.charm.glisten.mvc.View
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
 import io.makingthematrix.scalaonandroid.comments.Comments
@@ -10,25 +9,25 @@ import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.beans.binding.Bindings
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
-import javafx.scene.control.Button
+import javafx.scene.control.{Button, TextArea, TextField}
 
 import javax.inject.Inject
 
 class EditionPresenter extends GluonPresenter[Comments] {
   @Inject
-  var service: Service = _
+  private var service: Service = _
 
   @FXML
-  var edition: View = _
+  private var edition: View = _
 
   @FXML
-  var authorText: TextField = _
+  private var authorText: TextField = _
 
   @FXML
-  var commentsText: TextArea = _
+  private var commentsText: TextArea = _
 
   @FXML
-  var submit: Button = _
+  private var submit: Button = _
 
   def initialize(): Unit = {
     edition
