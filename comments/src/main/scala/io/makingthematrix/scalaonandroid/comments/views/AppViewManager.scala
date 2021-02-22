@@ -6,6 +6,7 @@ import com.gluonhq.charm.glisten.afterburner.{AppView, AppViewRegistry, GluonPre
 import com.gluonhq.charm.glisten.application.MobileApplication
 import com.gluonhq.charm.glisten.control.{Avatar, NavigationDrawer}
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
+import io.makingthematrix.scalaonandroid.comments.views.AppViewManager.name
 import javafx.scene.image.Image
 
 import java.util.Locale
@@ -29,22 +30,31 @@ object AppViewManager {
                     presenterClass: Class[_ <: GluonPresenter[_]],
                     menuIcon: MaterialDesignIcon,
                     flags: Flag*
-                  ) =
-    registry.createView(name(presenterClass), title, presenterClass, menuIcon, flags: _*)
+                  ) = {
+    val theName = name(presenterClass)
+    println(s"AppViewManager creating view $theName, $title, flags = $flags")
+    registry.createView(theName, title, presenterClass, menuIcon, flags: _*)
+  }
 
   private def name(presenterClass: Class[_ <: GluonPresenter[_]]) =
     presenterClass.getSimpleName.toUpperCase(Locale.ROOT).replace("PRESENTER", "")
 
-  def registerDrawer(app: MobileApplication): Unit =
-    registry.getViews.asScala.foreach(_.registerView(app))
+  def registerDrawer(app: MobileApplication): Unit = {
+    registry.getViews.asScala.foreach(v => {
+      println(s"Registering View ${v.getTitle}")
+      v.registerView(app)})
+  }
 
   def registerViews(app: MobileApplication): Unit = {
+    println("AppViewManager registerViews")
     val header = new NavigationDrawer.Header(
       "Gluon Mobile",
       "The Comments App",
-      new Avatar(21, new Image(AppViewManager.getClass.getResourceAsStream("/icon.png")))
+      new Avatar(21, new Image(classOf[AppViewManager].getResourceAsStream("/icon.png")))
     )
+    println(s"header = $header")
     Utils.buildDrawer(app.getDrawer, header, registry.getViews)
   }
-
 }
+
+class AppViewManager

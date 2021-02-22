@@ -16,13 +16,15 @@ object Comments {
 
 class Comments extends MobileApplication {
   override def init(): Unit = {
+    println("Comments Init")
     AppViewManager.registerViews(this)
   }
 
   override def postInit(scene: Scene): Unit = {
+    println(s"Comments postInit ${scene.getClass}")
     AppViewManager.registerDrawer(this)
     Swatch.BLUE.assignTo(scene)
     scene.getWindow
-      .asInstanceOf[Stage].getIcons.add(new Image(this.getClass.getResourceAsStream("/icon.png")))
+      .asInstanceOf[Stage].getIcons.add(new Image(classOf[Comments].getResourceAsStream("/icon.png")))
   }
 }

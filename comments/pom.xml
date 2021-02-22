@@ -134,38 +134,21 @@
             <dependencies>
                 <dependency>
                     <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>cache</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
                     <artifactId>display</artifactId>
                     <version>${attach.version}</version>
                     <classifier>desktop</classifier>
-                    <scope>runtime</scope>
                 </dependency>
                 <dependency>
                     <groupId>com.gluonhq.attach</groupId>
                     <artifactId>lifecycle</artifactId>
                     <version>${attach.version}</version>
                     <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>settings</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
                 </dependency>
                 <dependency>
                     <groupId>com.gluonhq.attach</groupId>
                     <artifactId>storage</artifactId>
                     <version>${attach.version}</version>
                     <classifier>desktop</classifier>
-                    <scope>runtime</scope>
                 </dependency>
             </dependencies>
         </profile>
@@ -235,9 +218,6 @@
                         <list>io.makingthematrix.scalaonandroid.comments.views.CommentsPresenter</list>
                         <list>io.makingthematrix.scalaonandroid.comments.views.EditionPresenter</list>
                     </reflectionList>
-                    <nativeImageArgs>
-                        <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-                    </nativeImageArgs>
                     <bundlesList>
                         <list>org.glassfish.json.messages</list>
                     </bundlesList>
@@ -246,7 +226,6 @@
             </plugin>
         </plugins>
     </build>
-
 
     <repositories>
         <repository>

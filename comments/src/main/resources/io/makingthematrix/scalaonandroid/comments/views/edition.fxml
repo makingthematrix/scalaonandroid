@@ -41,7 +41,7 @@
 
 <View fx:id="edition" prefHeight="600.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="io.makingthematrix.scalaonandroid.comments.views.CommentsPresenter">
+      fx:controller="io.makingthematrix.scalaonandroid.comments.views.EditionPresenter">
     <center>
         <VBox spacing="10.0" BorderPane.alignment="CENTER">
             <padding>

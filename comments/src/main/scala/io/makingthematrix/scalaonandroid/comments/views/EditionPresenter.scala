@@ -14,20 +14,28 @@ import javafx.fxml.FXML
 import javafx.scene.control.Button
 
 import javax.inject.Inject
+import scala.beans.BeanProperty
 
-class EditionPresenter @Inject() (service: Service) extends GluonPresenter[Comments] {
-
-  @FXML
-  private var edition: View = _
-
-  @FXML
-  private var authorText: TextField = _
+class EditionPresenter extends GluonPresenter[Comments] {
+  @Inject
+  @BeanProperty
+  var service: Service = _
 
   @FXML
-  private var commentsText: TextArea = _
+  @BeanProperty
+  var edition: View = _
 
   @FXML
-  private var submit: Button = _
+  @BeanProperty
+  var authorText: TextField = _
+
+  @FXML
+  @BeanProperty
+  var commentsText: TextArea = _
+
+  @FXML
+  @BeanProperty
+  var submit: Button = _
 
   def initialize(): Unit = {
     edition

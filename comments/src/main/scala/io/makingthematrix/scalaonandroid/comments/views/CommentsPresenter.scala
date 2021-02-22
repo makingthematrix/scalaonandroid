@@ -1,4 +1,5 @@
 package io.makingthematrix.scalaonandroid.comments.views
+
 import com.gluonhq.charm.glisten.afterburner.GluonPresenter
 import com.gluonhq.charm.glisten.control.FloatingActionButton
 import com.gluonhq.charm.glisten.mvc.View
@@ -10,16 +11,25 @@ import javafx.fxml.FXML
 import javafx.scene.control.{Label, ListView}
 
 import javax.inject.Inject
+import scala.beans.BeanProperty
 
-class CommentsPresenter @Inject() (service: Service) extends GluonPresenter[Comments] {
+class CommentsPresenter extends GluonPresenter[Comments] {
+  println("Comments presenter constructor")
+
+  @Inject
+  @FXML
+  var service: Service = _
 
   @FXML
-  private var comments: View = _
+  @BeanProperty
+  var comments: View = _
 
   @FXML
-  private var commentsList: ListView[Comment] = _
+  @BeanProperty
+  var commentsList: ListView[Comment] = _
 
   def initialize(): Unit = {
+    println("CommentsPresenter initialize")
     comments.showingProperty.addListener((_, _, newValue) => {
       if (newValue) {
         val appBar = getApp.getAppBar

@@ -11,13 +11,12 @@ case class CommentListCell() extends ListCell[Comment] {
   private val tile = new ListTile
   private var comment: Comment = _
 
-  private val button = MaterialDesignIcon.DELETE.button(_ => showDialog(comment))
-  tile.setSecondaryGraphic(new VBox(button))
+  tile.setSecondaryGraphic(new VBox(MaterialDesignIcon.DELETE.button(_ => showDialog(comment))))
 
   override def updateItem(
-    item:  Comment,
-    empty: Boolean
-  ): Unit = {
+                           item: Comment,
+                           empty: Boolean
+                         ): Unit = {
     super.updateItem(item, empty)
     comment = item
     if (!empty && item != null) {
