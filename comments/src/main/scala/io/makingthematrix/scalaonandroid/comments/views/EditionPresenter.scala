@@ -39,25 +39,25 @@ class EditionPresenter extends GluonPresenter[Comments] {
 
   def initialize(): Unit = {
     edition
-      .showingProperty().addListener({
-        case (_, _, java.lang.Boolean.TRUE) =>
-          val appBar = getApp.getAppBar
-          appBar.setNavIcon(MaterialDesignIcon.MENU.button(_ => getApp.getDrawer.open()))
-          appBar.setTitleText("Edition")
-          submit.setOpacity(1)
-        case _ => ()
-      }: ChangeListener[java.lang.Boolean])
+      .showingProperty().addListener((_, _, newValue) =>
+      if (newValue) {
+        val appBar = getApp.getAppBar
+        appBar.setNavIcon(MaterialDesignIcon.MENU.button(_ => getApp.getDrawer.open()))
+        appBar.setTitleText("Edition")
+        submit.setOpacity(1)
+      }
+    )
 
     submit
       .disableProperty().bind(
-        Bindings.createBooleanBinding(
-          { () =>
-            authorText.textProperty().isEmpty.or(commentsText.textProperty().isEmpty).get
-          },
-          authorText.textProperty(),
-          commentsText.textProperty()
-        )
+      Bindings.createBooleanBinding(
+        { () =>
+          authorText.textProperty().isEmpty.or(commentsText.textProperty().isEmpty).get
+        },
+        authorText.textProperty(),
+        commentsText.textProperty()
       )
+    )
   }
 
   @FXML

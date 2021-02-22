@@ -32,7 +32,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<View fx:id="comments" prefHeight="600.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.65"
+<View fx:id="comments" prefHeight="600.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="io.makingthematrix.scalaonandroid.comments.views.CommentsPresenter">
     <center>

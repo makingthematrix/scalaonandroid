@@ -23,7 +23,6 @@ class Service {
   }
 
   def retrieveComments(): Unit = {
-    println("Service retrieve comments")
     val retrieveList =
       DataProvider.retrieveList(dataClient.createListDataReader(CLOUD_LIST_ID, classOf[Comment]))
     retrieveList

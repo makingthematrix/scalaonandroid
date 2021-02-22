@@ -14,10 +14,8 @@ import javax.inject.Inject
 import scala.beans.BeanProperty
 
 class CommentsPresenter extends GluonPresenter[Comments] {
-  println("Comments presenter constructor")
-
   @Inject
-  @FXML
+  @BeanProperty
   var service: Service = _
 
   @FXML
@@ -29,7 +27,6 @@ class CommentsPresenter extends GluonPresenter[Comments] {
   var commentsList: ListView[Comment] = _
 
   def initialize(): Unit = {
-    println("CommentsPresenter initialize")
     comments.showingProperty.addListener((_, _, newValue) => {
       if (newValue) {
         val appBar = getApp.getAppBar

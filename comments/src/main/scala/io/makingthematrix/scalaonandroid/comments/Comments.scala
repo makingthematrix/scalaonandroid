@@ -7,6 +7,19 @@ import javafx.scene.Scene
 import javafx.scene.image.Image
 import javafx.stage.Stage
 
+class Comments extends MobileApplication {
+  override def init(): Unit = {
+    AppViewManager.registerViews(this)
+  }
+
+  override def postInit(scene: Scene): Unit = {
+    AppViewManager.registerDrawer(this)
+    Swatch.BLUE.assignTo(scene)
+    scene.getWindow
+      .asInstanceOf[Stage].getIcons.add(new Image(classOf[Comments].getResourceAsStream("/icon.png")))
+  }
+}
+
 object Comments {
   def main(args: Array[String]): Unit = {
     //In scala we need to pass the class of the comments class, not of the companion object (which ends with $)
@@ -14,17 +27,5 @@ object Comments {
   }
 }
 
-class Comments extends MobileApplication {
-  override def init(): Unit = {
-    println("Comments Init")
-    AppViewManager.registerViews(this)
-  }
 
-  override def postInit(scene: Scene): Unit = {
-    println(s"Comments postInit ${scene.getClass}")
-    AppViewManager.registerDrawer(this)
-    Swatch.BLUE.assignTo(scene)
-    scene.getWindow
-      .asInstanceOf[Stage].getIcons.add(new Image(classOf[Comments].getResourceAsStream("/icon.png")))
-  }
-}
+
