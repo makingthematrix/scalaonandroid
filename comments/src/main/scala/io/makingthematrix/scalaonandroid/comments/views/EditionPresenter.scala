@@ -8,33 +8,26 @@ import io.makingthematrix.scalaonandroid.comments.Comments
 import io.makingthematrix.scalaonandroid.comments.cloud.Service
 import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.beans.binding.Bindings
-import javafx.beans.value.ChangeListener
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.Button
 
 import javax.inject.Inject
-import scala.beans.BeanProperty
 
 class EditionPresenter extends GluonPresenter[Comments] {
   @Inject
-  @BeanProperty
   var service: Service = _
 
   @FXML
-  @BeanProperty
   var edition: View = _
 
   @FXML
-  @BeanProperty
   var authorText: TextField = _
 
   @FXML
-  @BeanProperty
   var commentsText: TextArea = _
 
   @FXML
-  @BeanProperty
   var submit: Button = _
 
   def initialize(): Unit = {
