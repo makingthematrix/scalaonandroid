@@ -36,7 +36,7 @@ class CommentsPresenter extends GluonPresenter[Comments] {
     })
     val floatingActionButton = new FloatingActionButton(
       MaterialDesignIcon.ADD.text,
-      _ => AppViewManager.commentsView.switchView
+      _ => AppViewManager.editionView.switchView
     )
     floatingActionButton.showOn(comments)
 
