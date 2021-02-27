@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.scene.layout.BorderPane
 
+// look into https://stackoverflow.com/questions/63527596/how-to-solve-fxml-loading-exceptions-in-compiled-javafx-project-using-gluonhq-cl
+
 object Main {
   def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
 }

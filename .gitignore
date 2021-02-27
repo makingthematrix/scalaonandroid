@@ -4,10 +4,12 @@
 *project/project
 *project/target
 *project/metals.sbt
-*target/*
+*/target/*
+target/*
 *tmp/*
 *.history/*
-*.idea/*
+*/.idea/*
+.idea/*
 *.iml
 */out
 *.idea_modules

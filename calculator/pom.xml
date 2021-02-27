@@ -14,9 +14,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>15.0.1</javafx.version>
+        <javafx.version>11.0.2</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
-        <client.plugin.version>0.1.37-SNAPSHOT</client.plugin.version>
+        <client.plugin.version>0.1.38</client.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
         <main.class>io.makingthematrix.scalaonandroid.calculator.Main</main.class>
