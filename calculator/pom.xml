@@ -5,21 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.makingthematrix.scalaonandroid</groupId>
-    <artifactId>europeanunion</artifactId>
+    <artifactId>calculator</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>European Union + Scotland</name>
+    <name>Scala Calculator</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>15.0.1</javafx.version>
+        <javafx.version>11.0.2</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
-        <client.plugin.version>0.1.37-SNAPSHOT</client.plugin.version>
+        <client.plugin.version>0.1.38</client.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
-        <main.class>io.makingthematrix.scalaonandroid.europeanunion.Main</main.class>
+        <main.class>io.makingthematrix.scalaonandroid.calculator.Main</main.class>
         <scala.version>2.13.4</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
@@ -50,6 +50,11 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
         </dependency>
         <dependency>
@@ -179,10 +184,13 @@
                         <list>statusbar</list>
                         <list>storage</list>
                     </attachList>
+                    <!-- https://stackoverflow.com/questions/59592940/java-lang-classnotfoundexception-in-graal-compiled-javafx-application -->
+                    <reflectionList>
+                        <list>javafx.fxml.FXMLLoader</list>
+                        <list>io.makingthematrix.scalaonandroid.calculator.MainController</list>
+                    </reflectionList>
                     <nativeImageArgs>
                         <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-<!--                        <nativeImageArg>-H:DashboardDump=scalaonandroid</nativeImageArg>
-                        <nativeImageArg>-H:+DashboardAll</nativeImageArg>-->
                     </nativeImageArgs>
                 </configuration>
             </plugin>
