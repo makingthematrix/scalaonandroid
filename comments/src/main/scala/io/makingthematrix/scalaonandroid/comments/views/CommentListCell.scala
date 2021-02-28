@@ -7,7 +7,7 @@ import javafx.scene.control.Alert.AlertType
 import javafx.scene.control.{Button, ButtonType, ListCell}
 import javafx.scene.layout.VBox
 
-case class CommentListCell() extends ListCell[Comment] {
+class CommentListCell() extends ListCell[Comment] {
   private val tile = new ListTile
   private var comment: Comment = _
 

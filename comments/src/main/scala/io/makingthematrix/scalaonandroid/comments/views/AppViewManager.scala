@@ -14,7 +14,6 @@ import scala.jdk.CollectionConverters._
 object AppViewManager {
   val registry: AppViewRegistry = new AppViewRegistry()
   val commentsView: AppView = view(
-    "comments",
     "Comments",
     classOf[CommentsPresenter],
     MaterialDesignIcon.COMMENT,
@@ -23,15 +22,17 @@ object AppViewManager {
     HOME_VIEW
   )
   val editionView: AppView =
-    view("edition", "Edition", classOf[EditionPresenter], MaterialDesignIcon.EDIT, SHOW_IN_DRAWER)
+    view("Edition", classOf[EditionPresenter], MaterialDesignIcon.EDIT, SHOW_IN_DRAWER)
 
-  private def view(id: String,
-                   title: String,
+  private def id(presenterClass: Class[_ <: GluonPresenter[_]]): String =
+    presenterClass.getSimpleName.toUpperCase(Locale.ROOT).replace("PRESENTER", "")
+
+  private def view(title: String,
                    presenterClass: Class[_ <: GluonPresenter[_]],
                    menuIcon: MaterialDesignIcon,
                    flags: Flag*
                   ) = {
-    registry.createView(id, title, presenterClass, menuIcon, flags: _*)
+    registry.createView(id(presenterClass), title, presenterClass, menuIcon, flags: _*)
   }
 
   def registerViews(app: MobileApplication): Unit = {

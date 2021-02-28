@@ -8,9 +8,7 @@ import javafx.scene.image.Image
 import javafx.stage.Stage
 
 class Comments extends MobileApplication {
-  override def init(): Unit = {
-    AppViewManager.registerViews(this)
-  }
+  override def init(): Unit = AppViewManager.registerViews(this)
 
   override def postInit(scene: Scene): Unit = {
     AppViewManager.registerDrawer(this)

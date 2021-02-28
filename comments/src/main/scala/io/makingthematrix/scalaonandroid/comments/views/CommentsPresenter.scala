@@ -5,13 +5,12 @@ import com.gluonhq.charm.glisten.control.FloatingActionButton
 import com.gluonhq.charm.glisten.mvc.View
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
 import io.makingthematrix.scalaonandroid.comments.Comments
-import io.makingthematrix.scalaonandroid.comments.model.Comment
 import io.makingthematrix.scalaonandroid.comments.cloud.Service
+import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, ListView}
 
 import javax.inject.Inject
-import scala.beans.BeanProperty
 
 class CommentsPresenter extends GluonPresenter[Comments] {
   @Inject
@@ -37,7 +36,7 @@ class CommentsPresenter extends GluonPresenter[Comments] {
     )
     floatingActionButton.showOn(comments)
 
-    commentsList.setCellFactory(_ => CommentListCell())
+    commentsList.setCellFactory(_ => new CommentListCell())
     commentsList.setPlaceholder(new Label("There are no comments"))
     commentsList.setItems(service.commentsList)
 
