@@ -1,6 +1,7 @@
-package io.makingthematrix.scalaonandroid.calculator
+package calculator
 
-import io.makingthematrix.scalaonandroid.calculator.eval.Eval
+import calculator.eval.Eval
+import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label}
 import javafx.scene.input.MouseEvent
@@ -9,7 +10,7 @@ class MainController {
 
   @FXML private var expression: Label = _
 
-  def onNumberOrOperator(event: MouseEvent): Unit = {
+  def onNumberOrOperator(event: ActionEvent): Unit = {
     val button = event.getSource.asInstanceOf[Button]
     val currentExpr = expression.getText
 
@@ -19,13 +20,13 @@ class MainController {
     }
   }
 
-  def onEvaluate(event: MouseEvent): Unit = {
+  def onEvaluate(event: ActionEvent): Unit = {
     val expr = Eval.Expression(expression.getText)
     val res = expr.evaluate
     expression.setText(if (res.toInt == res) res.toInt.toString else res.toString)
   }
 
-  def onClear(event: MouseEvent): Unit = expression.setText("0")
+  def onClear(event: ActionEvent): Unit = expression.setText("0")
 
   def initialize(): Unit = {
     expression.setText("0")

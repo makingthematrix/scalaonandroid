@@ -1,4 +1,4 @@
-package io.makingthematrix.scalaonandroid.calculator.eval
+package calculator.eval
 
 object Eval {
   sealed trait ExprNode {

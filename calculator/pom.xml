@@ -3,8 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>io.makingthematrix.scalaonandroid</groupId>
+    <groupId>scalaonandroid</groupId>
     <artifactId>calculator</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
@@ -14,12 +13,12 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>11.0.2</javafx.version>
+        <javafx.version>15.0.1</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
         <client.plugin.version>0.1.38</client.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
-        <main.class>io.makingthematrix.scalaonandroid.calculator.Main</main.class>
+        <main.class>calculator.Main</main.class>
         <scala.version>2.13.4</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
@@ -39,16 +38,6 @@
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-base</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-graphics</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
@@ -64,52 +53,7 @@
         </dependency>
         <dependency>
             <groupId>com.gluonhq.attach</groupId>
-            <artifactId>cache</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>connectivity</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>device</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
             <artifactId>display</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>keyboard</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>lifecycle</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>orientation</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>pictures</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>settings</artifactId>
-            <version>${attach.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.gluonhq.attach</groupId>
-            <artifactId>statusbar</artifactId>
             <version>${attach.version}</version>
         </dependency>
         <dependency>
@@ -120,6 +64,16 @@
         <dependency>
             <groupId>com.gluonhq.attach</groupId>
             <artifactId>util</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>lifecycle</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>statusbar</artifactId>
             <version>${attach.version}</version>
         </dependency>
     </dependencies>
@@ -152,6 +106,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
+                <configuration>
+                    <source>9</source>
+                    <target>9</target>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -170,28 +128,17 @@
                     <target>${client.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <attachList>
-                        <list>cache</list>
-                        <list>connectivity</list>
-                        <list>device</list>
                         <list>display</list>
-                        <list>keyboard</list>
-                        <list>lifecycle</list>
-                        <list>local-notifications</list>
-                        <list>orientation</list>
-                        <list>pictures</list>
-                        <list>push-notifications</list>
-                        <list>settings</list>
-                        <list>statusbar</list>
                         <list>storage</list>
+                        <list>lifecycle</list>
+                        <list>statusbar</list>
                     </attachList>
-                    <!-- https://stackoverflow.com/questions/59592940/java-lang-classnotfoundexception-in-graal-compiled-javafx-application -->
-                    <reflectionList>
-                        <list>javafx.fxml.FXMLLoader</list>
-                        <list>io.makingthematrix.scalaonandroid.calculator.MainController</list>
-                    </reflectionList>
                     <nativeImageArgs>
                         <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
                     </nativeImageArgs>
+                    <reflectionList>
+                        <list>calculator.MainController</list>
+                    </reflectionList>
                 </configuration>
             </plugin>
         </plugins>
@@ -209,13 +156,6 @@
             <dependencies>
                 <dependency>
                     <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>cache</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
                     <artifactId>display</artifactId>
                     <version>${attach.version}</version>
                     <classifier>desktop</classifier>
@@ -223,21 +163,14 @@
                 </dependency>
                 <dependency>
                     <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>lifecycle</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>settings</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
                     <artifactId>storage</artifactId>
+                    <version>${attach.version}</version>
+                    <classifier>desktop</classifier>
+                    <scope>runtime</scope>
+                </dependency>
+                <dependency>
+                    <groupId>com.gluonhq.attach</groupId>
+                    <artifactId>lifecycle</artifactId>
                     <version>${attach.version}</version>
                     <classifier>desktop</classifier>
                     <scope>runtime</scope>
@@ -259,10 +192,4 @@
         </repository>
     </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
