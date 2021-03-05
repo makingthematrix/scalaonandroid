@@ -138,6 +138,8 @@
                     </nativeImageArgs>
                     <reflectionList>
                         <list>calculator.MainController</list>
+                        <list>calculator.HistoryController</list>
+                        <list>javafx.scene.control.TitledPane</list>
                     </reflectionList>
                 </configuration>
             </plugin>
