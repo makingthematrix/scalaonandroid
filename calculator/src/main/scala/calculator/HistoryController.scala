@@ -29,8 +29,8 @@ object HistoryController {
   }
 }
 
-class HistoryController {
-  import HistoryController._
+final class HistoryController {
+  import HistoryController.dialog
 
   @FXML private var historyList: ListView[String] = _
 

@@ -14,7 +14,7 @@ object MainController {
   )
 }
 
-class MainController {
+final class MainController {
   import MainController._
 
   @FXML private var expression: Label = _
@@ -42,9 +42,8 @@ class MainController {
   def onClear(event: ActionEvent): Unit = expression.setText("0")
 
   def onNumberOrOperator(event: ActionEvent): Unit = {
-    val button = event.getSource.asInstanceOf[Button]
     val currentExpr = expression.getText
-
+    val button = event.getSource.asInstanceOf[Button]
     idsToSigns.get(button.getId).foreach {
       case "." if !pointAllowed(currentExpr) =>
       case c if currentExpr == "0" || currentExpr == "NaN" => expression.setText(c)
@@ -54,7 +53,7 @@ class MainController {
 
   private def pointAllowed(currentExpr: String): Boolean = {
     val commaIndex = currentExpr.lastIndexOf('.')
-    if (commaIndex == -1) true
-    else operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
+    if (commaIndex > -1) operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
+    else true
   }
 }
