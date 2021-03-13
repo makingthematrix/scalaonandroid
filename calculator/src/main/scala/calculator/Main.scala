@@ -8,9 +8,7 @@ import com.gluonhq.charm.glisten.visual.Swatch
 import javafx.fxml.FXMLLoader
 import javafx.geometry.Dimension2D
 import javafx.scene.Scene
-import javafx.scene.image.Image
 import javafx.scene.layout.BorderPane
-import javafx.stage.Stage
 
 import scala.jdk.FunctionConverters.enrichAsJavaFunction
 
@@ -39,11 +37,8 @@ final class Main extends MobileApplication {
         DisplayService.create
           .map(((ds: DisplayService) => ds.getDefaultDimensions).asJava)
           .orElse(new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT))
-    val stage = scene.getWindow.asInstanceOf[Stage]
-    stage.setWidth(dim.getWidth)
-    stage.setHeight(dim.getHeight)
-    stage.setTitle("Scala Calculator")
-    stage.getIcons.add(new Image("file:ic_launcher.png"))
+    scene.getWindow.setWidth(dim.getWidth)
+    scene.getWindow.setHeight(dim.getHeight)
   }
 }
 

@@ -58,7 +58,6 @@ final class MainController {
 
   private def pointAllowed(currentExpr: String): Boolean = {
     val commaIndex = currentExpr.lastIndexOf('.')
-    if (commaIndex > -1) operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
-    else true
+    if (commaIndex > -1) operators.map(currentExpr.lastIndexOf(_)).max > commaIndex else true
   }
 }
