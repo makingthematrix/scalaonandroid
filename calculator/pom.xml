@@ -19,7 +19,7 @@
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.10</attach.version>
         <main.class>calculator.Main</main.class>
-        <scala.version>2.13.4</scala.version>
+        <scala.version>2.13.5</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
 
@@ -107,8 +107,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>15</source>
+                    <target>15</target>
                 </configuration>
             </plugin>
             <plugin>

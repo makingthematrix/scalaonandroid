@@ -8,7 +8,9 @@ import com.gluonhq.charm.glisten.visual.Swatch
 import javafx.fxml.FXMLLoader
 import javafx.geometry.Dimension2D
 import javafx.scene.Scene
+import javafx.scene.image.Image
 import javafx.scene.layout.BorderPane
+import javafx.stage.Stage
 
 import scala.jdk.FunctionConverters.enrichAsJavaFunction
 
@@ -37,8 +39,11 @@ final class Main extends MobileApplication {
         DisplayService.create
           .map(((ds: DisplayService) => ds.getDefaultDimensions).asJava)
           .orElse(new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT))
-    scene.getWindow.setWidth(dim.getWidth)
-    scene.getWindow.setHeight(dim.getHeight)
+    val stage = scene.getWindow.asInstanceOf[Stage]
+    stage.setWidth(dim.getWidth)
+    stage.setHeight(dim.getHeight)
+    stage.setTitle("Scala Calculator")
+    stage.getIcons.add(new Image("file:ic_launcher.png"))
   }
 }
 
@@ -46,6 +51,7 @@ final class Main extends MobileApplication {
 // https://github.com/mipastgt/JFXToolsAndDemos#fxml-checker
 // https://stackoverflow.com/questions/31237676/add-regular-javafx-node-into-fxml
 // https://www.youtube.com/watch?v=p5ifU9kkp6g
+// https://stackoverflow.com/questions/58452042/how-to-configure-so-i-can-install-more-than-two-apps-from-gluonhq-javafx/58452803#58452803
 // Stages loaded dynamically on top of the main one don't work on Android even if they work on Desktop - use dialogs instead.
 // Don't access @FXML fields from outside of the controller and before `initialize`.
 // FXML runs on reflection

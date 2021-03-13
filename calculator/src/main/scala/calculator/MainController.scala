@@ -28,7 +28,7 @@ final class MainController {
 
   def onEvaluate(event: ActionEvent): Unit = {
     val text = expression.getText
-    val res = Eval.Expression(text).evaluate
+    val res = Eval(text).evaluate
     val resStr = if (res.toInt == res) res.toInt.toString else res.toString
     history :+= s"$text = $resStr"
     expression.setText(resStr)
@@ -40,6 +40,11 @@ final class MainController {
   }
 
   def onClear(event: ActionEvent): Unit = expression.setText("0")
+
+  def onBackspace(event: ActionEvent): Unit = expression.getText match {
+    case ""   =>
+    case text => expression.setText(text.init)
+  }
 
   def onNumberOrOperator(event: ActionEvent): Unit = {
     val currentExpr = expression.getText

@@ -7,6 +7,7 @@ import javafx.scene.control.{Button, Label, ListView}
 import javafx.scene.input.MouseEvent
 
 import scala.jdk.CollectionConverters._
+import scala.jdk.OptionConverters._
 
 object HistoryController {
   private lazy val loader = new FXMLLoader(classOf[HistoryController].getResource("history.fxml"))
@@ -22,8 +23,7 @@ object HistoryController {
   }
 
   def showHistoryDialog(history: Seq[String]): String = {
-    import scala.jdk.OptionConverters._
-    dialog
+    dialog // we need to ensure it's initialized before we call fillHistoryList
     loader.getController[HistoryController].fillHistoryList(history)
     dialog.showAndWait().toScala.getOrElse("")
   }

@@ -33,7 +33,9 @@ object Eval {
     override def evaluate: Double = parse(expression).evaluate
   }
 
-  def parse(expr: String): ExprNode =
+  def apply(expression: String): ExprNode = Expression(expression)
+
+  private def parse(expr: String): ExprNode =
     if (expr.contains('+')) Add(expr.split('+').map(parse))
     else if (expr.contains('-')) {
       if (expr.startsWith("-")) Substract(Seq(Number(0.0), parse(expr.drop(1))))

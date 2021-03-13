@@ -1,9 +1,9 @@
 *.cache/*
 .cache
 *logs/
-*project/project
-*project/target
-*project/metals.sbt
+*/project/project*
+*/project/target*
+*/project/metals.sbt
 */target/*
 target/*
 *tmp/*
@@ -29,3 +29,4 @@ target/*
 *.bloop*
 *.metals*
 *.bsp/*
+*.iml
