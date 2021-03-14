@@ -23,7 +23,7 @@ final class Main extends MobileApplication {
   import Main._
 
   override def init(): Unit = {
-    val root = FXMLLoader.load[BorderPane](classOf[Main].getResource("calculator.fxml"))
+    val root = FXMLLoader.load[BorderPane](classOf[Main].getResource("main.fxml"))
     addViewFactory(MobileApplication.HOME_VIEW, () => new View(root))
   }
 

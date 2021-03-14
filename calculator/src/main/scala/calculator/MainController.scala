@@ -4,18 +4,18 @@ import calculator.eval.Eval
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
+import scala.math.round
 
 object MainController {
-  private val operators = Set('+', '-', '*', '/')
-
   private val idsToSigns = Map(
-    "b1" -> "1", "b2" -> "2", "b3" -> "3", "b4" -> "4", "b5" -> "5", "b6" -> "6", "b7" -> "7", "b8" -> "8", "b9" -> "9", "b0" -> "0",
-    "bPoint" -> ".", "bAdd" -> "+", "bSubstract" -> "-", "bMultiply" -> "*", "bDivide" -> "/"
+    "b1" -> '1', "b2" -> '2', "b3" -> '3', "b4" -> '4', "b5" -> '5', "b6" -> '6', "b7" -> '7', "b8" -> '8', "b9" -> '9', "b0" -> '0',
+    "bPoint" -> '.', "bAdd" -> '+', "bSubstract" -> '-', "bMultiply" -> '*', "bDivide" -> '/'
   )
 }
 
 final class MainController {
-  import MainController._
+  import MainController.idsToSigns
+  import Eval.{operators, numbers}
 
   @FXML private var expression: Label = _
 
@@ -29,7 +29,7 @@ final class MainController {
   def onEvaluate(event: ActionEvent): Unit = {
     val text = expression.getText
     val res = Eval(text).evaluate
-    val resStr = if (res.toInt == res) res.toInt.toString else res.toString
+    val resStr = if (res.toInt == res) res.toInt.toString else (round(res * 10000.0) / 10000.0).toString
     history :+= s"$text = $resStr"
     expression.setText(resStr)
   }
@@ -46,18 +46,36 @@ final class MainController {
     case text => expression.setText(text.init)
   }
 
-  def onNumberOrOperator(event: ActionEvent): Unit = {
-    val currentExpr = expression.getText
-    val button = event.getSource.asInstanceOf[Button]
-    idsToSigns.get(button.getId).foreach {
-      case "." if !pointAllowed(currentExpr) =>
-      case c if currentExpr == "0" || currentExpr == "NaN" => expression.setText(c)
-      case c => expression.setText(s"$currentExpr$c")
+  def onOperator(event: ActionEvent): Unit =
+    idsToSigns.get(event.getSource.asInstanceOf[Button].getId) match {
+      case Some(op) if isOperatorAllowed(op) => updateExpression(op)
+      case _ =>
     }
+
+  def onNumber(event: ActionEvent): Unit =
+    idsToSigns.get(event.getSource.asInstanceOf[Button].getId).foreach(updateExpression)
+
+  def onPoint(event: ActionEvent): Unit =
+    if (isPointAllowed) updateExpression('.')
+
+  private def updateExpression(newSign: Char): Unit = expression.getText match {
+    case currentExpr if currentExpr == "0" || currentExpr == "NaN" => expression.setText(newSign.toString)
+    case currentExpr                                               => expression.setText(s"$currentExpr$newSign")
   }
 
-  private def pointAllowed(currentExpr: String): Boolean = {
+  private def isPointAllowed: Boolean = {
+    val currentExpr = expression.getText
     val commaIndex = currentExpr.lastIndexOf('.')
-    if (commaIndex > -1) operators.map(currentExpr.lastIndexOf(_)).max > commaIndex else true
+    if (commaIndex > -1)
+      operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
+    else
+      currentExpr.lastOption.forall(numbers.contains)
+  }
+
+  private def isOperatorAllowed(operator:Char): Boolean = (expression.getText, operator) match {
+    case (".", _)           => false
+    case (currentExpr, '-') => !currentExpr.lastOption.contains('-')
+    case ("0", _)           => false
+    case (currentExpr, _)   => !currentExpr.lastOption.forall(operators.contains)
   }
 }
