@@ -29,9 +29,12 @@ final class MainController {
   def onEvaluate(event: ActionEvent): Unit = {
     val text = expression.getText
     val res = Eval(text).evaluate
-    val resStr = if (res.toInt == res) res.toInt.toString else (round(res * 10000.0) / 10000.0).toString
-    history :+= s"$text = $resStr"
-    expression.setText(resStr)
+    if (res.isNaN) expression.setText(Double.NaN.toString)
+    else {
+      val resStr = if (res.toInt == res) res.toInt.toString else (round(res * 10000.0) / 10000.0).toString
+      history :+= s"$text = $resStr"
+      expression.setText(resStr)
+    }
   }
 
   def onHistory(event: ActionEvent): Unit = {
@@ -59,8 +62,10 @@ final class MainController {
     if (isPointAllowed) updateExpression('.')
 
   private def updateExpression(newSign: Char): Unit = expression.getText match {
-    case currentExpr if currentExpr == "0" || currentExpr == "NaN" => expression.setText(newSign.toString)
-    case currentExpr                                               => expression.setText(s"$currentExpr$newSign")
+    case currentExpr if numbers.contains(newSign) && (currentExpr == "0" || currentExpr == Double.NaN.toString) =>
+      expression.setText(newSign.toString)
+    case currentExpr =>
+      expression.setText(s"$currentExpr$newSign")
   }
 
   private def isPointAllowed: Boolean = {
@@ -73,9 +78,10 @@ final class MainController {
   }
 
   private def isOperatorAllowed(operator:Char): Boolean = (expression.getText, operator) match {
-    case (".", _)           => false
-    case (currentExpr, '-') => !currentExpr.lastOption.contains('-')
-    case ("0", _)           => false
-    case (currentExpr, _)   => !currentExpr.lastOption.forall(operators.contains)
+    case (".", _)                                               => false
+    case (currentExpr, _) if currentExpr == Double.NaN.toString => false
+    case (currentExpr, '-')                                     => !currentExpr.lastOption.contains('-')
+    case ("0", _)                                               => false
+    case (currentExpr, _)                                       => !currentExpr.lastOption.forall(operators.contains)
   }
 }
