@@ -21,6 +21,7 @@
         <main.class>calculator.Main</main.class>
         <scala.version>2.13.5</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
+        <munit.version>0.7.22</munit.version>
     </properties>
 
     <dependencies>
@@ -75,6 +76,13 @@
             <groupId>com.gluonhq.attach</groupId>
             <artifactId>statusbar</artifactId>
             <version>${attach.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.scalameta/munit -->
+        <dependency>
+            <groupId>org.scalameta</groupId>
+            <artifactId>munit_2.13</artifactId>
+            <version>${munit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -139,7 +147,6 @@
                     <reflectionList>
                         <list>calculator.MainController</list>
                         <list>calculator.HistoryController</list>
-                        <list>javafx.scene.control.TitledPane</list>
                     </reflectionList>
                 </configuration>
             </plugin>
