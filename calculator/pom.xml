@@ -12,8 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>15.0.1</javafx.version>
+        <maven.compiler.release>16</maven.compiler.release>
+        <javafx.version>16</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
         <client.plugin.version>0.1.38</client.plugin.version>
         <charm.version>6.0.6</charm.version>
@@ -115,6 +115,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <release>16</release>
                     <source>15</source>
                     <target>15</target>
                 </configuration>
