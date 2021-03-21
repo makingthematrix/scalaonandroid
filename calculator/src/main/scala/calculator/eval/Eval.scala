@@ -54,7 +54,8 @@ object Eval {
     // https://drive.google.com/file/d/1XEJy1LkOoYD5SdRQDR2rtZcVPpMuFhhV/view?usp=sharing
     @tailrec private def bubbleMinusUp(expr: String): String = {
       val simplifiedExpr =
-        expr.replaceAll("^--", "")
+        expr
+          .replaceAll("^--", "")
           .replaceAll("\\+-", "-")
           .replaceAll("--", "+")
 
@@ -64,20 +65,22 @@ object Eval {
         else ""
 
       if (digraph == "") simplifiedExpr
-      else expr.indexOf(digraph) match {
-        case -1    => simplifiedExpr
-        case index =>
-          val diRemoved =
-            if (digraph == "*-")  simplifiedExpr.replaceFirst("\\*-", "*")
-            else simplifiedExpr.replaceFirst("/-", "/")
-          val prefix = diRemoved.substring(0, index)
-          prefix.findLast(operators.contains) match {
-            case None =>
-              bubbleMinusUp(s"-$diRemoved")
-            case Some(op) =>
-              val (before, after) = diRemoved.splitAt(prefix.lastIndexOf(op) + 1)
-              bubbleMinusUp(s"$before-$after")
-          }
+      else  {
+        val diRemoved =
+          if (digraph == "*-")
+            simplifiedExpr.replaceFirst("\\*-", "*")
+          else
+            simplifiedExpr.replaceFirst("/-", "/")
+
+        val prefix = diRemoved.substring(0, simplifiedExpr.indexOf(digraph))
+
+        prefix.findLast(operators.contains) match {
+          case None =>
+            bubbleMinusUp(s"-$diRemoved")
+          case Some(op) =>
+            val (before, after) = diRemoved.splitAt(prefix.lastIndexOf(op) + 1)
+            bubbleMinusUp(s"$before-$after")
+        }
       }
     }
   }
