@@ -1,6 +1,6 @@
 ### How to cook an Android app in Scala 2.13
 
-This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala 2.13. As you can imagine, even puttnig this whole tech stack together is not an easy task. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
+This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala 2.13. As you can imagine, even putting this whole tech stack together requires some effort. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
  * UI widgets
  * Push notifications (Google Play Services? MicroG? Something else?)
  * Web sockets
