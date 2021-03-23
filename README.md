@@ -17,6 +17,8 @@ My goal for further future (overly optimistic, of course) is to write a TRON gam
 
 #### So, are you ready to try?
 
+If you're like me and before you start anything you need to know its history and context down to the times fish crawled out of the primordial sea - [here's an overview of history of Scala development on Android and its current status as of 2021](https://makingthematrix.wordpress.com/2021/03/17/scala-on-android/). 
+
 1. [What do you need](https://github.com/makingthematrix/scalaonandroid/wiki/What-do-you-need)
 2. [How to compile and run an example](https://github.com/makingthematrix/scalaonandroid/wiki/How-to-compile-and-run-an-example)
 3. [Dummy App](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) 
