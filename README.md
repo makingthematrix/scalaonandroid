@@ -25,3 +25,11 @@ If you're like me and before you start anything you need to know its history and
 4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) 
 5. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) 
 6. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator)
+
+#### Discord
+
+By the way, we got an #android channel on the "Learning Scala" Discord for all things connected to Scala on Android:
+https://discord.gg/XHMt6Yq4
+
+I don't expect a big crowd so literally all things. 
+I'm going to write about the GraalVM stack, but if you're interested in React Native+Scala.js approach, you're more than welcome (actually I need someone to write about that :) ) or if you're into the sbt-android or gradle-scala plugins, or maybe you don't even care that much about Scala but you're interested in one of the other puzzle pieces we can use: GraalVM, Gluon Mobile, Slinky... come and share your ideas :)
