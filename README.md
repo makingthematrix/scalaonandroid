@@ -29,6 +29,7 @@ If you're like me and before you start anything you need to know its history and
 #### Discord
 
 By the way, we got an #android channel on the "Learning Scala" Discord for all things connected to Scala on Android:
+
 https://discord.gg/XHMt6Yq4
 
 I don't expect a big crowd so literally all things. 
