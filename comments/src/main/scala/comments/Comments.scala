@@ -1,11 +1,12 @@
-package io.makingthematrix.scalaonandroid.comments
+package comments
 
 import com.gluonhq.charm.glisten.application.MobileApplication
 import com.gluonhq.charm.glisten.visual.Swatch
-import io.makingthematrix.scalaonandroid.comments.views.AppViewManager
 import javafx.scene.Scene
 import javafx.scene.image.Image
 import javafx.stage.Stage
+
+import comments.views.AppViewManager
 
 class Comments extends MobileApplication {
   override def init(): Unit = AppViewManager.registerViews(this)

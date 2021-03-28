@@ -1,17 +1,19 @@
-package io.makingthematrix.scalaonandroid.comments.views
+package comments.views
 
 import com.gluonhq.charm.glisten.afterburner.GluonPresenter
 import com.gluonhq.charm.glisten.mvc.View
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
-import io.makingthematrix.scalaonandroid.comments.Comments
-import io.makingthematrix.scalaonandroid.comments.cloud.Service
-import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.beans.binding.Bindings
+
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, TextArea, TextField}
 
 import javax.inject.Inject
+
+import comments.Comments
+import comments.cloud.Service
+import comments.model.Comment
 
 class EditionPresenter extends GluonPresenter[Comments] {
   @Inject

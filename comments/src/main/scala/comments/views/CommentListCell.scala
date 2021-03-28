@@ -1,11 +1,12 @@
-package io.makingthematrix.scalaonandroid.comments.views
+package comments.views
 
 import com.gluonhq.charm.glisten.control.{Alert, ListTile}
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
-import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.scene.control.Alert.AlertType
 import javafx.scene.control.{Button, ButtonType, ListCell}
 import javafx.scene.layout.VBox
+
+import comments.model.Comment
 
 class CommentListCell() extends ListCell[Comment] {
   private val tile = new ListTile

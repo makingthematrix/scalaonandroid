@@ -1,13 +1,14 @@
-package io.makingthematrix.scalaonandroid.comments.cloud
+package comments.cloud
 
 import com.gluonhq.cloudlink.client.data.{DataClient, DataClientBuilder}
 import com.gluonhq.connect.ConnectState
 import com.gluonhq.connect.provider.DataProvider
-import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.beans.property.SimpleListProperty
 import javafx.collections.FXCollections
 
 import javax.annotation.PostConstruct
+
+import comments.model.Comment
 
 class Service {
   private val CLOUD_LIST_ID = "comments"

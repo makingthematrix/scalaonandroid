@@ -1,4 +1,4 @@
-package io.makingthematrix.scalaonandroid.comments.views
+package comments.views
 
 import com.gluonhq.charm.glisten.afterburner.AppView.Flag
 import com.gluonhq.charm.glisten.afterburner.AppView.Flag._

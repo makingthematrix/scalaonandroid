@@ -1,16 +1,17 @@
-package io.makingthematrix.scalaonandroid.comments.views
+package comments.views
 
 import com.gluonhq.charm.glisten.afterburner.GluonPresenter
 import com.gluonhq.charm.glisten.control.FloatingActionButton
 import com.gluonhq.charm.glisten.mvc.View
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
-import io.makingthematrix.scalaonandroid.comments.Comments
-import io.makingthematrix.scalaonandroid.comments.cloud.Service
-import io.makingthematrix.scalaonandroid.comments.model.Comment
 import javafx.fxml.FXML
 import javafx.scene.control.{Label, ListView}
 
 import javax.inject.Inject
+import comments.Comments
+import comments.cloud.Service
+import comments.model.Comment
+import javafx.event.ActionEvent
 
 class CommentsPresenter extends GluonPresenter[Comments] {
   @Inject
@@ -32,7 +33,7 @@ class CommentsPresenter extends GluonPresenter[Comments] {
     })
     val floatingActionButton = new FloatingActionButton(
       MaterialDesignIcon.ADD.text,
-      _ => AppViewManager.editionView.switchView
+      (event: ActionEvent) => AppViewManager.editionView.switchView
     )
     floatingActionButton.showOn(comments)
 
