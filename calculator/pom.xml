@@ -141,6 +141,7 @@
                         <list>statusbar</list>
                     </attachList>
                     <nativeImageArgs>
+                        <!-- a workaround for https://github.com/oracle/graal/issues/2761 .-->
                         <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
                     </nativeImageArgs>
                     <reflectionList>

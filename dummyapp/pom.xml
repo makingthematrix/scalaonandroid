@@ -165,21 +165,13 @@
                     <target>${client.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <attachList>
-                        <list>cache</list>
-                        <list>connectivity</list>
-                        <list>device</list>
                         <list>display</list>
-                        <list>keyboard</list>
-                        <list>lifecycle</list>
-                        <list>local-notifications</list>
-                        <list>orientation</list>
-                        <list>pictures</list>
-                        <list>push-notifications</list>
-                        <list>settings</list>
-                        <list>statusbar</list>
                         <list>storage</list>
+                        <list>lifecycle</list>
+                        <list>statusbar</list>
                     </attachList>
                     <nativeImageArgs>
+                        <!-- a workaround for https://github.com/oracle/graal/issues/2761 . -->
                         <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
                     </nativeImageArgs>
                 </configuration>

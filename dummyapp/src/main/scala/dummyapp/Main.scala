@@ -19,7 +19,7 @@ object Main {
   def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
 }
 
-class Main extends MobileApplication {
+final class Main extends MobileApplication {
   override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => {
     val imageView = new ImageView(new Image(this.getClass.getResourceAsStream("openduke.png"))).tap { view =>
       view.setFitHeight(200)
