@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>11</maven.compiler.release>
-        <javafx.version>15.0.1</javafx.version>
+        <javafx.version>16</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
         <client.plugin.version>0.1.38</client.plugin.version>
         <main.class>hellofxml.HelloFXML</main.class>

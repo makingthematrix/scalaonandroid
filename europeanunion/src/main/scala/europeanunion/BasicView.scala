@@ -27,13 +27,13 @@
  * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
 
-package io.makingthematrix.scalaonandroid.europeanunion
+package europeanunion
 
 import com.gluonhq.charm.glisten.control._
 import com.gluonhq.charm.glisten.mvc.View
 import com.gluonhq.charm.glisten.visual.MaterialDesignIcon
-import io.makingthematrix.scalaonandroid.europeanunion.model.Density.Density
-import io.makingthematrix.scalaonandroid.europeanunion.model.{Country, Density}
+import europeanunion.model.Density.Density
+import europeanunion.model.{Country, Density}
 import javafx.collections.FXCollections
 import javafx.collections.transformation.FilteredList
 import javafx.event.{ActionEvent, EventHandler}
@@ -43,6 +43,7 @@ import javafx.scene.image.Image
 import java.util.function.Predicate
 import scala.jdk.CollectionConverters._
 import scala.jdk.FunctionConverters._
+import scala.util.chaining.scalaUtilChainingOps
 
 object BasicView {
   import CountriesRepository._
@@ -53,11 +54,11 @@ object BasicView {
       (_: Country) => true
     )
     val listView = createListView(filteredList)
-    returning(new BasicView(filteredList, listView)) { _.setCenter(listView) }
+    new BasicView(filteredList, listView).tap { _.setCenter(listView) }
   }
 
   private def createListView(filteredList: FilteredList[Country]) =
-    returning(new CharmListView[Country, Density](filteredList)) { view =>
+    new CharmListView[Country, Density](filteredList).tap { view =>
       view.setCellFactory((_: CharmListView[Country, Density]) => CountryCell())
       view.setHeadersFunction((Density.getDensity _).asJava)
       view.setHeaderCellFactory((_: CharmListView[Country, Density])  => new CharmListCell[Country]() {
@@ -85,17 +86,16 @@ final class BasicView(filteredList: FilteredList[Country], listView: CharmListVi
     appBar.setNavIcon(MaterialDesignIcon.STAR.graphic)
     appBar.setTitleText("European Union")
 
-    appBar.getActionItems.add(MaterialDesignIcon.SORT.button({ _ =>
+    appBar.getActionItems.add(MaterialDesignIcon.SORT.button { _ =>
+      listView.setHeaderComparator((d1: Density, d2: Density) => d1.initial - d2.initial)
       if (ascending) {
-        listView.setHeaderComparator((d1: Density, d2: Density) => d1.initial - d2.initial)
         listView.setComparator((s1: Country, s2: Country) => (s1.density - s2.density).toInt)
         ascending = false
       } else {
-        listView.setHeaderComparator((d1: Density, d2: Density) => d2.initial - d1.initial)
         listView.setComparator((s1: Country, s2: Country) => (s2.density - s1.density).toInt)
         ascending = true
       }
-    }))
+    })
 
     appBar.getMenuItems.setAll(buildFilterMenu.asJavaCollection)
   }
@@ -110,15 +110,15 @@ final class BasicView(filteredList: FilteredList[Country], listView: CharmListVi
       filteredList.setPredicate(getStatePredicate(population))
     }
 
-    val allStates = returning(new RadioMenuItem("All Countries")) { item =>
+    val allStates = new RadioMenuItem("All Countries").tap { item =>
       item.setOnAction(menuActionHandler)
       item.setSelected(true)
     }
 
-    val toggleGroup = returning(new ToggleGroup()) { _.getToggles.add(allStates) }
+    val toggleGroup = new ToggleGroup().tap { _.getToggles.add(allStates) }
 
     allStates :: List(1.0, 5.0, 10.0, 20.0).map { d =>
-      returning(new RadioMenuItem("Population > " + d + "M")) { item =>
+      new RadioMenuItem("Population > " + d + "M").tap { item =>
         item.setUserData(d)
         item.setOnAction(menuActionHandler)
         toggleGroup.getToggles.add(item)

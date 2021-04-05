@@ -27,12 +27,12 @@
  * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
 
-package io.makingthematrix.scalaonandroid.europeanunion
+package europeanunion
 
 import com.gluonhq.charm.glisten.control.CharmListCell
 import com.gluonhq.charm.glisten.control.ListTile
-import io.makingthematrix.scalaonandroid.europeanunion.CountryCell.countryToString
-import io.makingthematrix.scalaonandroid.europeanunion.model.Country
+import europeanunion.CountryCell.countryToString
+import europeanunion.model.Country
 import javafx.geometry.Insets
 import javafx.scene.image.ImageView
 import javafx.scene.layout.{Background, BackgroundFill, CornerRadii}

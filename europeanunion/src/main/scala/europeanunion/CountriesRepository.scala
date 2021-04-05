@@ -1,7 +1,7 @@
-package io.makingthematrix.scalaonandroid.europeanunion
+package europeanunion
 
 import com.gluonhq.attach.cache.CacheService
-import io.makingthematrix.scalaonandroid.europeanunion.model.Country
+import europeanunion.model.Country
 import javafx.scene.image.Image
 
 import scala.jdk.OptionConverters._
@@ -59,7 +59,6 @@ object CountriesRepository {
         // Working with JavaFX listeners proved to be a bit tricky. I needed to create a wrapper to simplify dealing with
         // generic types. But still, take note that we use `java.lang.Boolean` here, which we convert to Scala's Boolean,
         // and because of the implicit conversion the line can't be shortened to `ChangeListener4S { if (_) ... }`.
-        // TODO: Try another library for pictures, e.g. Glide.
         cachedImage.errorProperty.addListener(
           ChangeListener4S[java.lang.Boolean]{ newValue => if (newValue) cache.foreach(_.remove(imageUrl)) }
         )

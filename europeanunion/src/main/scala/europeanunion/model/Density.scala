@@ -26,32 +26,26 @@
  *
  * Based on https://github.com/gluonhq/gluon-samples/tree/master/fiftystates
  */
-package io.makingthematrix.scalaonandroid.europeanunion
 
-import com.gluonhq.attach.display.DisplayService
-import com.gluonhq.attach.util.Platform
-import com.gluonhq.charm.glisten.application.MobileApplication
-import com.gluonhq.charm.glisten.visual.Swatch
-import javafx.geometry.Dimension2D
-import javafx.scene.Scene
+package europeanunion.model
 
-import scala.jdk.FunctionConverters._
+object Density {
+  sealed trait Density extends Comparable[Density] {
+    val initial: Int
+    val end: Int
 
-object Main {
-    def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
-}
-
-final class Main extends MobileApplication {
-  override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => BasicView())
-
-  override def postInit(scene: Scene): Unit = {
-    Swatch.BLUE.assignTo(scene)
-    scene.getStylesheets.add(getClass.getResource("style.css").toExternalForm)
-    if (Platform.isDesktop) {
-      val dimension2D =
-        DisplayService.create.map(((ds: DisplayService) => ds.getDefaultDimensions).asJava).orElse(new Dimension2D(640, 480))
-      scene.getWindow.setWidth(dimension2D.getWidth)
-      scene.getWindow.setHeight(dimension2D.getHeight)
-    }
+    override def compareTo(d: Density): Int = initial - d.initial
   }
+
+  case object D000 extends Density { val initial = 0; val end = 10 }
+  case object D010 extends Density { val initial = 10; val end = 50 }
+  case object D050 extends Density { val initial = 50; val end = 100 }
+  case object D100 extends Density { val initial = 100; val end = 250 }
+  case object D250 extends Density { val initial = 250; val end = 500 }
+  case object D500 extends Density { val initial = 500; val end = 10000 }
+
+  private val densities = Seq(D000, D010, D050, D100, D250, D500)
+
+  def getDensity(state: Country): Density =
+    densities.find(d => d.initial >= state.density && d.end < state.density).getOrElse(D000)
 }
