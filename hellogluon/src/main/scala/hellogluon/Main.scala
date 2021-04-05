@@ -1,4 +1,4 @@
-package dummyapp
+package hellogluon
 
 import com.gluonhq.attach.display.DisplayService
 import com.gluonhq.attach.util.Platform
