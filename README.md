@@ -2,7 +2,7 @@
 
 This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala 2.13. As you can imagine, even putting this whole tech stack together requires some effort. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
  * UI widgets
- * Push notifications (Google Play Services? MicroG? Something else?)
+ * Push notifications
  * Web sockets
  * Access to the camera and microphone
  * Android's KeyStore (e.g. for storing encrypted passwords)
@@ -29,6 +29,7 @@ If you're like me and before you start anything you need to know its history and
 #### Discord
 
 There is a #scala-android channel on the official Scala discord: https://discord.gg/UuDawpq7 
+
 And also an #android channel on the "Learning Scala" discord: https://discord.gg/XHMt6Yq4
 
 In both cases, these are channels about all things connected to Scala on Android. I write mostly about the GraalVM stack, but if you're interested in React Native+Scala.js approach, you're more than welcome (actually I need someone to write about that :) ) or if you're into the sbt-android or gradle-scala plugins, or maybe you don't even care that much about Scala but you're interested in one of the other puzzle pieces we can use: GraalVM, Gluon Mobile, Slinky... come and share your ideas :)
