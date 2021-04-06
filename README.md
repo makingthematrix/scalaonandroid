@@ -21,7 +21,7 @@ If you're like me and before you start anything you need to know its history and
 
 1. [What do you need](https://github.com/makingthematrix/scalaonandroid/wiki/What-do-you-need)
 2. [How to compile and run an example](https://github.com/makingthematrix/scalaonandroid/wiki/How-to-compile-and-run-an-example)
-3. [Dummy App](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) 
+3. [HelloGluon](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) 
 4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) 
 5. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) 
 6. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator)
