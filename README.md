@@ -25,6 +25,7 @@ If you're like me and before you start anything you need to know its history and
 4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) 
 5. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) 
 6. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator)
+7. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments)
 
 #### Discord
 
