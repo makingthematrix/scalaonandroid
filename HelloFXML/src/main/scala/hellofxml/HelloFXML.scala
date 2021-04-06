@@ -13,8 +13,7 @@ object HelloFXML {
 class HelloFXML extends Application {
   override def start(primaryStage: Stage): Unit = {
     val root = FXMLLoader.load[AnchorPane](classOf[HelloFXML].getResource("hello.fxml"))
-    val scene = new Scene(root, 400, 600)
-    primaryStage.setScene(scene)
+    primaryStage.setScene(new Scene(root, 400, 600))
     primaryStage.show()
   }
 }

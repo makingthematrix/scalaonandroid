@@ -1,6 +1,6 @@
 package calculator.eval
 
-class EvalSpec extends munit.FunSuite {
+class EvalTest extends munit.FunSuite {
   test("Number") {
     assertEqualsDouble(Eval("4").evaluate, 4.0, 0.001)
     assertEqualsDouble(Eval("-3").evaluate, -3.0, 0.001)

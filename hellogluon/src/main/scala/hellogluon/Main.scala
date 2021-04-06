@@ -26,9 +26,7 @@ final class Main extends MobileApplication {
       view.setPreserveRatio(true)
     }
     new View(new VBox(20, imageView, new Label("Hello, Gluon Mobile!")).tap { _.setAlignment(Pos.CENTER) }) {
-      override protected def updateAppBar(appBar: AppBar): Unit = {
-        appBar.setTitleText("Gluon Mobile and Scala 2.13")
-      }
+      override protected def updateAppBar(appBar: AppBar): Unit = appBar.setTitleText("Gluon Mobile and Scala 2.13")
     }.tap { view =>
       new FloatingActionButton(MaterialDesignIcon.SEARCH.text, (_: ActionEvent) => println("log something from Scala")).tap { _.showOn(view) }
     }
@@ -39,10 +37,12 @@ final class Main extends MobileApplication {
     scene.getStylesheets.add(this.getClass.getResource("styles.css").toExternalForm)
     if (Platform.isDesktop) {
       import scala.jdk.FunctionConverters._
-      val defaultDimensions = (ds: DisplayService) => ds.getDefaultDimensions
-      val dimension2D = DisplayService.create.map(defaultDimensions.asJava).orElse(new Dimension2D(640, 480))
-      scene.getWindow.setWidth(dimension2D.getWidth)
-      scene.getWindow.setHeight(dimension2D.getHeight)
+      scene.getWindow.tap { window =>
+        val defaultDimensions = (ds: DisplayService) => ds.getDefaultDimensions
+        val dimension2D = DisplayService.create.map(defaultDimensions.asJava).orElse(new Dimension2D(640, 480))
+        window.setWidth(dimension2D.getWidth)
+        window.setHeight(dimension2D.getHeight)
+      }
     }
   }
 }
