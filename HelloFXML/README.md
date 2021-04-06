@@ -10,7 +10,7 @@ You can run the app on the desktop with:
 
     mvn javafx:run
 
-Snd then create and run a desktop native image:
+And then create and run a desktop native image:
 
     mvn client:build client:run
 
