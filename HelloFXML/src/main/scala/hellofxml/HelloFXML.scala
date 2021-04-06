@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane
 import javafx.stage.Stage
 
 object HelloFXML {
-  def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[HelloFXML], args: _*)
+  def main(args: Array[String]): Unit = Application.launch(classOf[HelloFXML], args: _*)
 }
 
 class HelloFXML extends Application {

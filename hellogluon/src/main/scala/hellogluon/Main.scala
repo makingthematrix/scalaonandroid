@@ -12,11 +12,12 @@ import javafx.scene.Scene
 import javafx.scene.control.Label
 import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.VBox
+import javafx.application.Application
 
 import scala.util.chaining.scalaUtilChainingOps
 
 object Main {
-  def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
+  def main(args: Array[String]): Unit = Application.launch(classOf[Main], args: _*)
 }
 
 final class Main extends MobileApplication {
