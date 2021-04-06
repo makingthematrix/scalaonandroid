@@ -1,7 +1,7 @@
 
 # HelloFXML
 
-A simple Hello World application with Java 15, JavaFX 15 (with FXML), Scala 2.13, and GraalVM.
+A simple Hello World application built with Java 16, JavaFX 16 (with FXML), Scala 2.13, and GraalVM.
 The code is based on the Gluon sample HelloFXML written in Java. You can read about it [here](https://docs.gluonhq.com/client/#_hellofxml_sample).
 I rewrote it in Scala, and removed the localisation "bundle" as it proved to require some additional research to make it 
 work, and I wanted to keep this example as simple as possible.
