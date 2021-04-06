@@ -13,7 +13,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>16</maven.compiler.release>
         <javafx.version>16</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
         <client.plugin.version>0.1.38</client.plugin.version>
@@ -179,11 +179,6 @@
                         <list>statusbar</list>
                         <list>storage</list>
                     </attachList>
-                    <nativeImageArgs>
-                        <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-<!--                        <nativeImageArg>-H:DashboardDump=scalaonandroid</nativeImageArg>
-                        <nativeImageArg>-H:+DashboardAll</nativeImageArg>-->
-                    </nativeImageArgs>
                 </configuration>
             </plugin>
         </plugins>
