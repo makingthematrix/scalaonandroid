@@ -19,13 +19,14 @@ My goal for further future (overly optimistic, of course) is to write a TRON gam
 
 If you're like me and before you start anything you need to know its history and context down to the times fish crawled out of the primordial sea - [here's an overview of history of Scala development on Android and its current status as of 2021](https://makingthematrix.wordpress.com/2021/03/17/scala-on-android/). 
 
-1. [What do you need](https://github.com/makingthematrix/scalaonandroid/wiki/What-do-you-need)
-2. [How to compile and run an example](https://github.com/makingthematrix/scalaonandroid/wiki/How-to-compile-and-run-an-example)
-3. [HelloGluon](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) 
-4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) 
-5. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) 
-6. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator)
-7. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments)
+Here's a tutorial on [how to build an Android app in Scala](https://makingthematrix.wordpress.com/2021/04/07/how-to-build-an-android-app-in-scala-2-13/)
+
+And here are the examples:
+1. [HelloGluon](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) 
+2. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) 
+3. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) 
+4. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator)
+5. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments)
 
 #### Discord
 
