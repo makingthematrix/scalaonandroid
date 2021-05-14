@@ -1,7 +1,8 @@
-package hellofxml
+package hellofxml2
 
 import com.wire.signals.Signal
-import javafx.application.Application
+import com.wire.signals.ui.UiDispatchQueue
+import javafx.application.{Application, Platform}
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.scene.layout.AnchorPane
@@ -16,6 +17,8 @@ object HelloFXML {
 final class HelloFXML extends Application {
 
   override def start(primaryStage: Stage): Unit = {
+    UiDispatchQueue.setUi(Platform.runLater)
+
     val root = FXMLLoader.load[AnchorPane](classOf[HelloFXML].getResource("hello.fxml"))
     primaryStage.setScene(new Scene(root, 400, 600))
     primaryStage.show()

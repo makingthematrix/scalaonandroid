@@ -29,7 +29,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofxml.HelloFXMLController">
-    <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="238.0" text="Hello JavaFX" visible="false" />
-    <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="280.0" mnemonicParsing="false" text="Click me!" />
+<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofxml2.HelloFXMLController">
+    <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" prefHeight="387.0" prefWidth="400.0" text="Hello JavaFX" visible="false" />
+    <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="448.0" mnemonicParsing="false" text="Click me!" />
 </AnchorPane>

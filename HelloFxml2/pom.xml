@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>scalaonandroid</groupId>
-    <artifactId>hellofxml</artifactId>
+    <artifactId>hellofxml2</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
@@ -14,7 +14,7 @@
         <javafx.version>16</javafx.version>
         <javafx.plugin.version>0.0.5</javafx.plugin.version>
         <client.plugin.version>0.1.38</client.plugin.version>
-        <main.class>hellofxml.HelloFXML</main.class>
+        <main.class>hellofxml2.HelloFXML</main.class>
         <scala.version>2.13.5</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
@@ -45,7 +45,20 @@
         <dependency>
             <groupId>com.wire</groupId>
             <artifactId>wire-signals_2.13</artifactId>
-            <version>0.3.1</version>
+            <version>0.4.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.plokhotnyuk.jsoniter-scala/jsoniter-scala-core -->
+        <dependency>
+            <groupId>com.github.plokhotnyuk.jsoniter-scala</groupId>
+            <artifactId>jsoniter-scala-core_2.13</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.plokhotnyuk.jsoniter-scala/jsoniter-scala-macros -->
+        <dependency>
+            <groupId>com.github.plokhotnyuk.jsoniter-scala</groupId>
+            <artifactId>jsoniter-scala-macros_2.13</artifactId>
+            <version>2.8.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -97,14 +110,14 @@
                     <target>${client.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <reflectionList>
-                        <list>hellofxml.HelloFXMLController</list>
+                        <list>hellofxml2.HelloFXMLController</list>
                     </reflectionList>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>io.github.makingthematrix</groupId>
                 <artifactId>scala-suffix-maven-plugin</artifactId>
-                <version>0.1.0</version>
+                <version>0.2.0</version>
                 <configuration>
                     <libraries>
                         <param>wire-signals</param>
