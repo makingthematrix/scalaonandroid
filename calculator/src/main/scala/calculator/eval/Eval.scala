@@ -36,7 +36,7 @@ object Eval {
 
   final case class Expression(expression: String) extends ExprNode {
     override def evaluate: Double = parse(expression).evaluate
-
+// "-2+5*-3" ->"5" + "3",
     private def parse(expr: String): ExprNode =
       if (expr.lastOption.exists(operators.contains)) parse(expr.init)
       else if (expr.contains('+')) Add(expr.split('+').map(parse))

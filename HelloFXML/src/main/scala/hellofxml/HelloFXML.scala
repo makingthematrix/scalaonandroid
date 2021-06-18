@@ -6,14 +6,12 @@ import javafx.scene.Scene
 import javafx.scene.layout.AnchorPane
 import javafx.stage.Stage
 
-object HelloFXML {
-  def main(args: Array[String]): Unit = Application.launch(classOf[HelloFXML], args: _*)
-}
+object HelloFXML:
+  def main(args: Array[String]): Unit =
+    Application.launch(classOf[HelloFXML], args: _*)
 
-class HelloFXML extends Application {
-  override def start(primaryStage: Stage): Unit = {
+final class HelloFXML extends Application:
+  override def start(primaryStage: Stage): Unit =
     val root = FXMLLoader.load[AnchorPane](classOf[HelloFXML].getResource("hello.fxml"))
     primaryStage.setScene(new Scene(root, 400, 600))
     primaryStage.show()
-  }
-}
