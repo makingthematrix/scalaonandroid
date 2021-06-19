@@ -29,23 +29,18 @@
 
 package europeanunion.model
 
-object Density {
-  sealed trait Density extends Comparable[Density] {
-    val initial: Int
-    val end: Int
+enum Density(val initial: Int, val end: Int) extends Comparable[Density]:
+  override def compareTo(other: Density): Int = other.initial - this.initial
 
-    override def compareTo(d: Density): Int = initial - d.initial
-  }
+  case D000 extends Density(0, 10)
+  case D010 extends Density(10,50)
+  case D050 extends Density(50, 100)
+  case D100 extends Density(100, 250)
+  case D250 extends Density(250, 500)
+  case D500 extends Density(500, 10000)
 
-  case object D000 extends Density { val initial = 0; val end = 10 }
-  case object D010 extends Density { val initial = 10; val end = 50 }
-  case object D050 extends Density { val initial = 50; val end = 100 }
-  case object D100 extends Density { val initial = 100; val end = 250 }
-  case object D250 extends Density { val initial = 250; val end = 500 }
-  case object D500 extends Density { val initial = 500; val end = 10000 }
-
+object Density:  
   private val densities = Seq(D000, D010, D050, D100, D250, D500)
 
   def getDensity(state: Country): Density =
     densities.find(d => d.initial >= state.density && d.end < state.density).getOrElse(D000)
-}

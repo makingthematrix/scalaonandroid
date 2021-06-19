@@ -31,14 +31,14 @@ package europeanunion
 
 import com.gluonhq.charm.glisten.control.CharmListCell
 import com.gluonhq.charm.glisten.control.ListTile
-import europeanunion.CountryCell.countryToString
-import europeanunion.model.Country
+import CountryCell.countryToString
+import model.Country
 import javafx.geometry.Insets
 import javafx.scene.image.ImageView
 import javafx.scene.layout.{Background, BackgroundFill, CornerRadii}
 import javafx.scene.paint.Color
 
-object CountryCell {
+object CountryCell:
   def apply(): CountryCell = new CountryCell(new ListTile(), new ImageView())
 
   val ScotlandBackground = new Background(
@@ -49,7 +49,7 @@ object CountryCell {
     new BackgroundFill(Color.WHITE, new CornerRadii(1), new Insets(0.0,0.0,0.0,0.0))
   )
 
-  def countryToString(country: Country): String = {
+  def countryToString(country: Country): String =
     import country._
     s"""
       $name ($abbr),
@@ -58,10 +58,8 @@ object CountryCell {
       Area (km^2): $area,
       Density (pop/km^2): ${String.format("%.1f", density)}
     """.stripMargin
-  }
-}
 
-final class CountryCell(tile: ListTile, imageView: ImageView) extends CharmListCell[Country] {
+final class CountryCell(tile: ListTile, imageView: ImageView) extends CharmListCell[Country]:
   import CountryCell._
   imageView.setFitHeight(15)
   imageView.setFitWidth(25)
@@ -74,9 +72,9 @@ final class CountryCell(tile: ListTile, imageView: ImageView) extends CharmListC
      the original ones are scrolled out of the screen. It saves resources, but goodbye FP.
      (In short, that's why the country's data is set here in `updateItem` instead of the constructor - it can be changed).
   */
-  override def updateItem(item: Country, empty: Boolean): Unit = {
+  override def updateItem(item: Country, empty: Boolean): Unit =
     super.updateItem(item, empty)
-    (Option(item), empty) match {
+    (Option(item), empty) match
       case (Some(country), false) =>
         tile.textProperty.setAll(countryToString(country))
         tile.setWrapText(true)
@@ -88,6 +86,3 @@ final class CountryCell(tile: ListTile, imageView: ImageView) extends CharmListC
         )
       case _ =>
         setGraphic(null)
-    }
-  }
-}

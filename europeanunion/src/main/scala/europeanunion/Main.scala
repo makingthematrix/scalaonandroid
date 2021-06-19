@@ -37,21 +37,17 @@ import javafx.scene.Scene
 
 import scala.jdk.FunctionConverters._
 
-object Main {
-    def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
-}
+object Main:
+  def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
 
-final class Main extends MobileApplication {
+final class Main extends MobileApplication:
   override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => BasicView())
 
-  override def postInit(scene: Scene): Unit = {
+  override def postInit(scene: Scene): Unit =
     Swatch.BLUE.assignTo(scene)
     scene.getStylesheets.add(getClass.getResource("style.css").toExternalForm)
-    if (Platform.isDesktop) {
+    if (Platform.isDesktop) then
       val dimension2D =
         DisplayService.create.map(((ds: DisplayService) => ds.getDefaultDimensions).asJava).orElse(new Dimension2D(640, 480))
       scene.getWindow.setWidth(dimension2D.getWidth)
       scene.getWindow.setHeight(dimension2D.getHeight)
-    }
-  }
-}

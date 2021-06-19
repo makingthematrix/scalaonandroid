@@ -1,12 +1,12 @@
 package europeanunion
 
 import com.gluonhq.attach.cache.CacheService
-import europeanunion.model.Country
+import model.Country
 import javafx.scene.image.Image
 
 import scala.jdk.OptionConverters._
 
-object CountriesRepository {
+object CountriesRepository:
   private val cache = CacheService.create().toScala.map(_.getCache[String, Image]("images"))
 
   private val wikiPath = "https://upload.wikimedia.org/wikipedia/commons/thumb/"
@@ -50,7 +50,7 @@ object CountriesRepository {
 
   val Scotland: Country = Country("Scotland", "SCO", "Edinburgh", 5463300, 77933, "1/10/Flag_of_Scotland.svg/23px-Flag_of_Scotland.svg.png")
 
-  def getImage(imageUrl: String): Option[Image] = (cache, wikiPath + imageUrl) match {
+  def getImage(imageUrl: String): Option[Image] = (cache, wikiPath + imageUrl) match
     case (Some(c), url) if url.nonEmpty =>
       Option(c.get(url)).orElse {
         val cachedImage = new Image(url, true)
@@ -66,5 +66,4 @@ object CountriesRepository {
         Some(cachedImage)
       }
     case _ => None
-  }
-}
+

@@ -29,6 +29,5 @@
 
 package europeanunion.model
 
-final case class Country(name: String, abbr: String, capital: String, population: Int, area: Int, flag: String) {
-  lazy val density: Double = if (area > 0) population.toDouble / area.toDouble else 0.0
-}
+final case class Country(name: String, abbr: String, capital: String, population: Int, area: Int, flag: String):
+  val density: Double = if (area > 0) population.toDouble / area.toDouble else 0.0
