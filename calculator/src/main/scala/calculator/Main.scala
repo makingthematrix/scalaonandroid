@@ -12,26 +12,24 @@ import javafx.scene.layout.BorderPane
 
 import scala.jdk.FunctionConverters.enrichAsJavaFunction
 
-object Main {
+object Main:
   def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
 
   val DEFAULT_WIDTH: Int = 550
   val DEFAULT_HEIGHT: Int = 650
-}
 
-final class Main extends MobileApplication {
+final class Main extends MobileApplication:
   import Main._
 
-  override def init(): Unit = {
+  override def init(): Unit =
     val root = FXMLLoader.load[BorderPane](classOf[Main].getResource("main.fxml"))
     addViewFactory(MobileApplication.HOME_VIEW, () => new View(root))
-  }
 
-  override def postInit(scene: Scene): Unit = {
+  override def postInit(scene: Scene): Unit =
     Swatch.AMBER.assignTo(scene)
     scene.getStylesheets.add(classOf[Main].getResource("styles.css").toExternalForm)
     val dim =
-      if (Platform.isDesktop)
+      if (Platform.isDesktop) then
         new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT)
       else
         DisplayService.create
@@ -39,5 +37,4 @@ final class Main extends MobileApplication {
           .orElse(new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT))
     scene.getWindow.setWidth(dim.getWidth)
     scene.getWindow.setHeight(dim.getHeight)
-  }
-}
+

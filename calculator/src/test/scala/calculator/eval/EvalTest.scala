@@ -1,6 +1,10 @@
 package calculator.eval
 
-class EvalTest extends munit.FunSuite {
+import munit.Location
+
+class EvalTest extends munit.FunSuite:
+  implicit val location: Location = Location.empty
+
   test("Number") {
     assertEqualsDouble(Eval("4").evaluate, 4.0, 0.001)
     assertEqualsDouble(Eval("-3").evaluate, -3.0, 0.001)
@@ -112,4 +116,4 @@ class EvalTest extends munit.FunSuite {
     assertEqualsDouble(Eval("-3*3*4*-2").evaluate, 72.0, 0.001)
     assertEqualsDouble(Eval("3+4-3*3*4*-2").evaluate, 79.0, 0.001)
   }
-}
+
