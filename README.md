@@ -1,6 +1,6 @@
 ### Scala on Android
 
-This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala 2.13. As you can imagine, even putting this whole tech stack together requires some effort. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
+This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala 2.13 (or, since June 20, 2021, with Scala 3 🎉). As you can imagine, even putting this whole tech stack together requires some effort. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
  * UI widgets
  * Push notifications
  * Web sockets
@@ -22,11 +22,15 @@ If you're like me and before you start anything you need to know its history and
 Here's a tutorial on [how to build an Android app in Scala](https://makingthematrix.wordpress.com/2021/04/07/how-to-build-an-android-app-in-scala-2-13/)
 
 And here are the examples:
-1. [HelloGluon](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) 
-2. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) 
-3. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) 
-4. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator)
-5. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments)
+1. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) - the simplest one, and my "go to" example for debugging any build system issues
+2. [HelloFXML 3](https://github.com/makingthematrix/scalaonandroid/tree/main/HelloFXML3) - same as above, but in Scala 3
+3. [HelloGluon](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) - another minimalistic example
+4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) - shows a scrollable list with country flags downloaded from Wikipedia and some basic Android GUI functionality
+5. [European Union 3](https://github.com/makingthematrix/scalaonandroid/tree/main/europeanunion3) - as above, but in Scala 3
+6. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments) - an app showcasing a bit more complex GUI functionality; thanks @rleibman!
+7. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator) - well, it's a calculator
+8. [Calculator 3](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator3) - also a calculator, and you already know in what
+
 
 #### Discord
 
