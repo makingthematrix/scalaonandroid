@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofxml.HelloFXMLController">
+    <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="400.0" text="Hello JavaFX" visible="false" />
+    <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="280.0" mnemonicParsing="false" text="Click me!" />
+</AnchorPane>
