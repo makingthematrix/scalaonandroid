@@ -37,4 +37,3 @@ final class Main extends MobileApplication:
           .orElse(new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT))
     scene.getWindow.setWidth(dim.getWidth)
     scene.getWindow.setHeight(dim.getHeight)
-
