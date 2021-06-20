@@ -8,6 +8,8 @@ A screenshot: [link](https://drive.google.com/file/d/1RePEsqXzn4lAnzthDefZYHWtzR
 
 The Android APK: [link](https://drive.google.com/file/d/10wjdfZsOKsoDm1WXZCAPNJ0SLnDxD4xP/view?usp=sharing)
 
+(after you download the APK file, you can install it on your Android device with [`adb`](https://www.xda-developers.com/install-adb-windows-macos-linux/))
+
 ### The main view
 
 The main view is a pretty typical calculator with a field displaying the expression and buttons for numbers, operators, and a few special commands. The layout is stored in `src/main/resources/calculator/main.fxml`. To create it, I used Scene Builder and roughly followed [these two tutorial videos](https://youtu.be/p5ifU9kkp6g). The main element of the view (they are called "nodes" in JavaFX) is a `BorderPane` - a rectangle divided into five regions: top, left, right, bottom, and center. To each region, I can add another node. In this case, I use the top region for a `Label` that will display the expression I want to evaluate (and after the evaluation, its result which may become the basis for another expression), and I use the center for a `GridPane`. Other regions won't be used and they will be invisible. The `GridPane` I use is a grid with 4 columns and 5 rows. In each entry, except one, I place a `Button`. I make those buttons spread out to take all the space in the entry, and we give each of them an id, and action: when the button is clicked, the `onEvaluate` method in `MainController` will be called.
