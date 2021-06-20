@@ -9,7 +9,7 @@
     <version>0.0.2</version>
     <packaging>jar</packaging>
 
-    <name>European Union + Scotland</name>
+    <name>European Union 3 + Scotland</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -146,20 +146,9 @@
                         <list>storage</list>
                         <list>lifecycle</list>
                         <list>statusbar</list>
-                        <!--
-                        <list>connectivity</list>
-                        <list>device</list>
-                        <list>keyboard</list>
-                        <list>local-notifications</list>
-                        <list>orientation</list>
-                        <list>pictures</list>
-                        <list>push-notifications</list>
-                        <list>settings</list>
-                        -->
                     </attachList>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>io.github.makingthematrix</groupId>
                 <artifactId>scala-suffix-maven-plugin</artifactId>

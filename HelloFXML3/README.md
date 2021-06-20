@@ -1,22 +1,22 @@
 
 # HelloFXML
 
-A simple Hello World application built with Java 16, JavaFX 16 (with FXML), Scala 2.13, and GraalVM.
+A simple Hello World application built with Java 16, JavaFX 16 (with FXML), Scala 3, and GraalVM.
 The code is based on the Gluon sample HelloFXML written in Java. You can read about it [here](https://docs.gluonhq.com/client/#_hellofxml_sample).
 I rewrote it in Scala, and removed the localisation "bundle" as it proved to require some additional research to make it 
 work, and I wanted to keep this example as simple as possible.
 
 You can run the app on the desktop with:
 
-    mvn javafx:run
+    mvn gluonfx:run
 
 And then create and run a desktop native image:
 
-    mvn client:build client:run
+    mvn gluonfx:build gluonfx:nativerun
 
 If all works, create an Android APK and install it on a connected device with adb:
 
-    mvn -Pandroid client:build client:package
+    mvn -Pandroid gluonfx:build gluonfx:package
     adb install <path to apk>
 
 The main "feature" this example is about is how we can build the GUI of an app in [Scene Builder](https://gluonhq.com/products/scene-builder/) 
@@ -26,14 +26,12 @@ put in the resources folder (in this case `src/main/resources/hellofxml/hello.fx
 where `T` is the type of the node (in this case, `AnchorPane`). The `load` method returns a reference to the root node 
 which we can then put on a scene on the main stage:
 ```
-class HelloFXML extends Application {
-  override def start(primaryStage: Stage): Unit = {
+class HelloFXML extends Application:
+  override def start(primaryStage: Stage): Unit =
     val root = FXMLLoader.load[AnchorPane](classOf[HelloFXML].getResource("hello.fxml"))
     val scene = new Scene(root, 400, 600)
     primaryStage.setScene(scene)
     primaryStage.show()
-  }
-}
 ```
 (fortunately, the example is so small I can explain everything with the actual code)
 
@@ -79,7 +77,7 @@ this way:
 
 And, finally, the controller class:
 ```
-final class HelloFXMLController {
+final class HelloFXMLController:
   @FXML private var button: Button = _
 
   @FXML private var label: Label = _
@@ -89,7 +87,6 @@ final class HelloFXMLController {
       label.setText("JavaFX hello " + System.getProperty("javafx.version"))
       label.setVisible(!label.isVisible)
     })
-}
 ```
 
 The `@FXML` annotations tell JavaFX that the fields `button` and `label` are linked to FXML elements with ids, respectively,

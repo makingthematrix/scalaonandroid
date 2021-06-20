@@ -3,10 +3,10 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>scalaonandroid</groupId>
     <artifactId>hellofxml</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
-    <name>HelloFXML</name>
+    <name>HelloFXML 3</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,7 +15,6 @@
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
         <gluonfx.maven.plugin.version>1.0.1</gluonfx.maven.plugin.version>
         <main.class>hellofxml.HelloFXML</main.class>
-
         <scala.version>3.0.0</scala.version>
         <scala.compat.version>3</scala.compat.version>
     </properties>
@@ -79,7 +78,6 @@
                     <release>16</release>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>gluonfx-maven-plugin</artifactId>
@@ -99,6 +97,23 @@
                 <configuration>
                     <mainClass>${main.class}</mainClass>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.github.makingthematrix</groupId>
+                <artifactId>scala-suffix-maven-plugin</artifactId>
+                <version>0.2.1</version>
+                <configuration>
+                    <libraries>
+                        <param>scala3-library_3</param>
+                    </libraries>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>suffix</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

@@ -23,24 +23,21 @@ Cool, huh? The calculator doesn't support parentheses but this way is as close a
 In the original tutorial video, the history dialog is implemented as a "stage" - a view of the same type as the main one. But this does not work well in mobile applications, for reasons I don't want to explore in this example. Instead, I decided to use a `Dialog` class from Gluon's `charm-glisten` library and fill it with a `ListView`. This is also done with Scene Builder, even though the list view is the only node in the whole FXML file `history.fxml`, because I wanted to present how to access a controller from other parts of the code. The main controller in the calculator is only accessed from the view, but not from another class. If we for example use event streams to carry information across the app, nothing may ever have to access the controller - instead, the controller can subscribe to event streams and react to new events by making changes in the view. But if there is a need to access the controller more directly, this is how we can do it:
 
 ```scala
-object HistoryController {
- private lazy val loader = 
+object HistoryController:
+ private val loader = 
   new FXMLLoader(classOf[HistoryController].getResource("history.fxml"))
 
  ...
 
- def showHistoryDialog(history: Seq[String]): String = {
+ def showHistoryDialog(history: Seq[String]): String =
   ...
   loader.getController[HistoryController].fillHistoryList(history)
   ...
- }
-}
 
-final class HistoryController {
+final class HistoryController:
  ...
  def fillHistoryList(history: Seq[String]): Unit = ...
  ...
-}
 ```
 
 But in this case, we only access the controller from a method in its companion object. We could achieve the same, and with simpler code, if we resign from FXML and write the history dialog only in Scala. I will leave it to you as an exercise :)
