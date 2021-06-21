@@ -12,11 +12,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>16</maven.compiler.release>
         <javafx.version>16</javafx.version>
-        <javafx.plugin.version>0.0.5</javafx.plugin.version>
-        <client.plugin.version>0.1.38</client.plugin.version>
+        <javafx.plugin.version>0.0.6</javafx.plugin.version>
+        <gluonfx.maven.plugin.version>1.0.1</gluonfx.maven.plugin.version>
         <main.class>hellofxml.HelloFXML</main.class>
-
-        <scala.version>2.13.5</scala.version>
+        <scala.version>2.13.6</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
 
@@ -50,7 +49,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.4.0</version>
+                <version>4.5.3</version>
                 <executions>
                     <execution>
                         <id>scala-compile</id>
@@ -86,13 +85,12 @@
                     <mainClass>${main.class}</mainClass>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>com.gluonhq</groupId>
-                <artifactId>client-maven-plugin</artifactId>
-                <version>${client.plugin.version}</version>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>${gluonfx.maven.plugin.version}</version>
                 <configuration>
-                    <target>${client.target}</target>
+                    <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <reflectionList>
                         <list>hellofxml.HelloFXMLController</list>
@@ -109,13 +107,13 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <client.target>host</client.target>
+                <gluonfx.target>host</gluonfx.target>
             </properties>
         </profile>
         <profile>
             <id>android</id>
             <properties>
-                <client.target>android</client.target>
+                <gluonfx.target>android</gluonfx.target>
             </properties>
         </profile>
     </profiles>

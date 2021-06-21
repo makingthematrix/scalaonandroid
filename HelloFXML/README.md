@@ -8,15 +8,15 @@ work, and I wanted to keep this example as simple as possible.
 
 You can run the app on the desktop with:
 
-    mvn javafx:run
+    mvn gluonfx:run
 
 And then create and run a desktop native image:
 
-    mvn client:build client:run
+    mvn gluonfx:build gluonfx:nativerun
 
 If all works, create an Android APK and install it on a connected device with adb:
 
-    mvn -Pandroid client:build client:package
+    mvn -Pandroid gluonfx:build gluonfx:package
     adb install <path to apk>
 
 The main "feature" this example is about is how we can build the GUI of an app in [Scene Builder](https://gluonhq.com/products/scene-builder/) 
@@ -29,8 +29,7 @@ which we can then put on a scene on the main stage:
 class HelloFXML extends Application {
   override def start(primaryStage: Stage): Unit = {
     val root = FXMLLoader.load[AnchorPane](classOf[HelloFXML].getResource("hello.fxml"))
-    val scene = new Scene(root, 400, 600)
-    primaryStage.setScene(scene)
+    primaryStage.setScene(new Scene(root, 400, 600))
     primaryStage.show()
   }
 }
@@ -48,27 +47,26 @@ something when the button is clicked. For this, we can use a controller tied to 
 look into hello.fxml, you will see that the main node has a `fx:controller` field specified, and each of the two elements
 have their `fx:id`s.
 ```
-<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="hellofxml.HelloFXMLController">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hellofxml.HelloFXMLController">
     <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" prefHeight="66.0" prefWidth="238.0" text="Hello JavaFX" visible="false" />
     <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="280.0" mnemonicParsing="false" text="Click me!" />
 </AnchorPane>
 ```
 
 All of them can be set both in text and in Scene Builder. Now we need to create the `HelloFXMLController` class and add it
-to `pom.xml` as a class on the "reflection list" of the Gluon's `client-maven-plugin`. The connection between the FXML view
+to `pom.xml` as a class on the "reflection list" of the Gluon's `gluonfx-maven-plugin`. The connection between the FXML view
 and its controller in JavaFX relies on reflection which I think is a major drawback. It means that we need to maintain
 lists of classes and methods we want to keep available for reflection which in more complex projects will become troublesome.
 (Please look at this discussion for details [link]). In the calculator example I will propose a solution that make it
-a bit easier to handle, but at least in case of controllers we are forced to register them in the `client-maven-plugin`
+a bit easier to handle, but at least in case of controllers we are forced to register them in the `gluonfx-maven-plugin`
 this way:
 ```
 <plugin>
     <groupId>com.gluonhq</groupId>
-    <artifactId>client-maven-plugin</artifactId>
-    <version>${client.plugin.version}</version>
+    <artifactId>gluonfx-maven-plugin</artifactId>
+    <version>${gluonfx.maven.plugin.version}</version>
     <configuration>
-        <target>${client.target}</target>
+        <target>${gluonfx.target}</target>
         <mainClass>${main.class}</mainClass>
         <reflectionList>
             <list>hellofxml.HelloFXMLController</list>
@@ -81,7 +79,6 @@ And, finally, the controller class:
 ```
 final class HelloFXMLController {
   @FXML private var button: Button = _
-
   @FXML private var label: Label = _
 
   def initialize(): Unit =

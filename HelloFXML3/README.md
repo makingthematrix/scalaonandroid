@@ -26,11 +26,10 @@ put in the resources folder (in this case `src/main/resources/hellofxml/hello.fx
 where `T` is the type of the node (in this case, `AnchorPane`). The `load` method returns a reference to the root node 
 which we can then put on a scene on the main stage:
 ```
-class HelloFXML extends Application:
+final class HelloFXML extends Application:
   override def start(primaryStage: Stage): Unit =
     val root = FXMLLoader.load[AnchorPane](classOf[HelloFXML].getResource("hello.fxml"))
-    val scene = new Scene(root, 400, 600)
-    primaryStage.setScene(scene)
+    primaryStage.setScene(new Scene(root, 400, 600))
     primaryStage.show()
 ```
 (fortunately, the example is so small I can explain everything with the actual code)
@@ -79,14 +78,13 @@ And, finally, the controller class:
 ```
 final class HelloFXMLController:
   @FXML private var button: Button = _
-
   @FXML private var label: Label = _
 
   def initialize(): Unit =
-    button.setOnAction((_: ActionEvent) => {
-      label.setText("JavaFX hello " + System.getProperty("javafx.version"))
+    button.setOnAction { (_: ActionEvent) =>
+      label.setText(s"Hello from JavaFX ${System.getProperty("javafx.version")}")
       label.setVisible(!label.isVisible)
-    })
+    }
 ```
 
 The `@FXML` annotations tell JavaFX that the fields `button` and `label` are linked to FXML elements with ids, respectively,
@@ -100,6 +98,32 @@ JavaFX will call it after the controller is initialized. In there, we define wha
 There exists also another way of doing it - we could specify in the button's FXML element the name of the method that
 should be called on click. I will leave it as an exercise for you ;) In both cases, we want to update the text of the label
 and show it, if it's not visible yet, or hide it otherwise.
+
+**Note**: In the moment I'm writing this (June 21, 2021) there are at least two issues with Scala 3 that need to be fixed
+before we can seriously consider moving to Scala 3 on Android.
+1. In `pom.xml` you can see a dependency: `org.scala-lang:scala3-library_3`. Unfortunately that suffix, `_3`, is invalid on
+on Java 11. One solution would be to set `Automatic-Module-Name` in the `MANIFEST.MF` file inside the `scala3-library_3` jar,
+in a similar fashion to how other Scala libraries can do it to be compatible with Java 9+. A temporary workaround is to use
+a Maven plugin I develop: [scala-suffix](https://github.com/makingthematrix/scala-suffix). Under the link you can find
+explanation how it works and in `pom.xml` in this project you can find an example how it can be used to add an entry to
+`MANIFEST.MF` of `scala3-library_3`.
+2. The second issue is more critical. **Right now code written in Scala 3 on GraalVM native image can't use lazy vals**.
+And maybe not only that, but this is where the app crashes first. If you try to use a lazy val, you will get an error in
+runtime similar to this one:
+```
+[INFO] [SUB] Exception in thread "main" scala.runtime.LazyVals$$anon$1
+[INFO] [SUB] 	at scala.runtime.LazyVals$.$init$$$anonfun$3(LazyVals.scala:18)
+[INFO] [SUB] 	at scala.Option.getOrElse(Option.scala:201)
+[INFO] [SUB] 	at scala.runtime.LazyVals$.<clinit>(LazyVals.scala:19)
+[INFO] [SUB] 	at com.oracle.svm.core.classinitialization.ClassInitializationInfo.invokeClassInitializer(ClassInitializationInfo.java:375)
+[INFO] [SUB] 	at com.oracle.svm.core.classinitialization.ClassInitializationInfo.initialize(ClassInitializationInfo.java:295)
+[INFO] [SUB] 	at calculator.Main.<clinit>(Main.scala:16)
+[INFO] [SUB] 	at com.oracle.svm.core.classinitialization.ClassInitializationInfo.invokeClassInitializer(ClassInitializationInfo.java:375)
+[INFO] [SUB] 	at com.oracle.svm.core.classinitialization.ClassInitializationInfo.initialize(ClassInitializationInfo.java:295)
+```
+As I understand, the reason is that the new implementation of lazy vals in Scala 3 [depends on `sun.misc.Unsafe`](https://github.com/lampepfl/dotty/blob/master/library/src/scala/runtime/LazyVals.scala)
+and in the current GraalVM 21.1.0, [`sun.misc.Unsafe` is not supported](https://github.com/oracle/graal/issues/2694). 
+If the fix from this link is not enough, I will open a new ticket.
 
 And that's it. In short, Scene Builder is a very nice tool for GUI design and as we can see there's not much boilerplate
 involved. its main flaw, in my opinion, lies in that JavaFX uses reflection to tie views with controllers. Fortunately,

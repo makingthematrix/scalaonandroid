@@ -14,14 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>16</maven.compiler.release>
         <javafx.version>16</javafx.version>
-        <javafx.plugin.version>0.0.5</javafx.plugin.version>
-        <client.plugin.version>0.1.38</client.plugin.version>
+        <javafx.plugin.version>0.0.6</javafx.plugin.version>
+        <gluonfx.maven.plugin.version>1.0.1</gluonfx.maven.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.11</attach.version>
         <main.class>calculator.Main</main.class>
-        <scala.version>2.13.5</scala.version>
+        <scala.version>2.13.6</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
-        <munit.version>0.7.22</munit.version>
+        <munit.version>0.7.26</munit.version>
     </properties>
 
     <dependencies>
@@ -91,7 +91,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.4.0</version>
+                <version>4.5.3</version>
                 <executions>
                     <execution>
                         <id>scala-compile</id>
@@ -129,10 +129,10 @@
 
             <plugin>
                 <groupId>com.gluonhq</groupId>
-                <artifactId>client-maven-plugin</artifactId>
-                <version>${client.plugin.version}</version>
+                <artifactId>gluonfx-maven-plugin</artifactId>
+                <version>1.0.1</version>
                 <configuration>
-                    <target>${client.target}</target>
+                    <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <attachList>
                         <list>display</list>
@@ -162,36 +162,13 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <client.target>host</client.target>
+                <gluonfx.target>host</gluonfx.target>
             </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>display</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>storage</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-                <dependency>
-                    <groupId>com.gluonhq.attach</groupId>
-                    <artifactId>lifecycle</artifactId>
-                    <version>${attach.version}</version>
-                    <classifier>desktop</classifier>
-                    <scope>runtime</scope>
-                </dependency>
-            </dependencies>
         </profile>
         <profile>
             <id>android</id>
             <properties>
-                <client.target>android</client.target>
+                <gluonfx.target>android</gluonfx.target>
             </properties>
         </profile>
     </profiles>

@@ -18,7 +18,7 @@ object HistoryController {
     d.setContent(loader.load)
     val cancelButton = new Button("Cancel").tap { c =>
       c.setCancelButton(true)
-      c.setOnAction((event: ActionEvent) => d.hide())
+      c.setOnAction { (_: ActionEvent) => d.hide() }
     }
     d.getButtons.add(cancelButton)
   }
@@ -39,10 +39,10 @@ final class HistoryController {
     historyList.getItems.setAll(history.asJavaCollection)
 
   def initialize(): Unit =
-    historyList.setOnMouseClicked((event: MouseEvent) =>
+    historyList.setOnMouseClicked { (_: MouseEvent) =>
       historyList.getSelectionModel.getSelectedItems.asScala.headOption.foreach { expr =>
         dialog.setResult(expr.split("=").last.trim)
         dialog.hide()
       }
-    )
+    }
 }

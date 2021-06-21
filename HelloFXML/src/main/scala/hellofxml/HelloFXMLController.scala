@@ -6,7 +6,6 @@ import javafx.scene.control.{Button, Label}
 
 final class HelloFXMLController {
   @FXML private var button: Button = _
-
   @FXML private var label: Label = _
 
   def initialize(): Unit =

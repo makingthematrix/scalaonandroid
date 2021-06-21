@@ -13,7 +13,7 @@ import javafx.scene.layout.BorderPane
 import scala.jdk.FunctionConverters.enrichAsJavaFunction
 
 object Main:
-  def main(args: Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
+  def main(args: scala.Array[String]): Unit = javafx.application.Application.launch(classOf[Main], args: _*)
 
   val DEFAULT_WIDTH: Int = 550
   val DEFAULT_HEIGHT: Int = 650
