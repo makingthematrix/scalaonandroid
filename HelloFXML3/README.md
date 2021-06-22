@@ -62,10 +62,10 @@ this way:
 ```
 <plugin>
     <groupId>com.gluonhq</groupId>
-    <artifactId>client-maven-plugin</artifactId>
-    <version>${client.plugin.version}</version>
+    <artifactId>gluonfx-maven-plugin</artifactId>
+    <version>${gluonfx.maven.plugin.version}</version>
     <configuration>
-        <target>${client.target}</target>
+        <target>${gluonfx.target}</target>
         <mainClass>${main.class}</mainClass>
         <reflectionList>
             <list>hellofxml.HelloFXMLController</list>
