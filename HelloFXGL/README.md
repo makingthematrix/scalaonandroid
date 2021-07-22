@@ -48,3 +48,6 @@ Instead, I'd suggest to write the `Main` class in Java, make it extend `com.alma
 *) If you look into `pom.xml` you will see a long list of FXGL services I had to put in the `reflectionList` for `gluonfx-maven-plugin`.
 [It would look better if I put them in a seperate file](https://www.graalvm.org/reference-manual/native-image/Reflection/) 
 but Ialso wonder if really all of them need to be on the reflection list even if I don't use them.
+
+**Update**
+It looks like this is GraalVM Native Image issue which started to appear from GraalVM 21.1. The Android app should work if you downgrade to GraalVM 20.0.x and use the old Gluon's `maven-client-plugin` instead of`gluonfx-maven-plugin`. Or you can wait for a fix. 
