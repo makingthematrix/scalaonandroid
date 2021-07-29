@@ -24,7 +24,7 @@ Here's a tutorial on [how to build an Android app in Scala](https://makingthemat
 And here are the examples:
 1. [HelloFXML](https://github.com/makingthematrix/scalaonandroid/wiki/HelloFXML-example) - the simplest one, and my "go to" example for debugging any build system issues
 2. [HelloFXML 3](https://github.com/makingthematrix/scalaonandroid/tree/main/HelloFXML3) - same as above, but in Scala 3
-3. [HelloGluon](https://github.com/makingthematrix/scalaonandroid/wiki/HelloGluon-example-(aka-DummyApp)) - another minimalistic example
+3. [HelloScala](https://github.com/makingthematrix/scalaonandroid/tree/main/HelloScala) - another minimalistic example
 4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) - shows a scrollable list with country flags downloaded from Wikipedia and some basic Android GUI functionality
 5. [European Union 3](https://github.com/makingthematrix/scalaonandroid/tree/main/europeanunion3) - as above, but in Scala 3
 6. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments) - an app showcasing a bit more complex GUI functionality; thanks @rleibman!
