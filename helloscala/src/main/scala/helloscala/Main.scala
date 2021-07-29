@@ -1,4 +1,4 @@
-package hellogluon
+package helloscala
 
 import com.gluonhq.attach.display.DisplayService
 import com.gluonhq.attach.util.Platform
@@ -22,12 +22,12 @@ object Main {
 
 final class Main extends MobileApplication {
   override def init(): Unit = addViewFactory(MobileApplication.HOME_VIEW, () => {
-    val imageView = new ImageView(new Image(this.getClass.getResourceAsStream("openduke.png"))).tap { view =>
+    val imageView = new ImageView(new Image(this.getClass.getResourceAsStream("scalalogo.png"))).tap { view =>
       view.setFitHeight(200)
       view.setPreserveRatio(true)
     }
-    new View(new VBox(20, imageView, new Label("Hello, Gluon Mobile!")).tap { _.setAlignment(Pos.CENTER) }) {
-      override protected def updateAppBar(appBar: AppBar): Unit = appBar.setTitleText("Gluon Mobile and Scala 2.13")
+    new View(new VBox(20, imageView, new Label("Hello, Scala!")).tap { _.setAlignment(Pos.CENTER) }) {
+      override protected def updateAppBar(appBar: AppBar): Unit = appBar.setTitleText("Gluon Mobile + Scala 2.13")
     }.tap { view =>
       new FloatingActionButton(MaterialDesignIcon.SEARCH.text, (_: ActionEvent) => println("log something from Scala")).tap { _.showOn(view) }
     }

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.makingthematrix.scalaonandroid</groupId>
-    <artifactId>hellogluon</artifactId>
+    <artifactId>helloscala</artifactId>
     <version>0.0.2</version>
     <packaging>jar</packaging>
 
-    <name>HelloGluon</name>
+    <name>HelloScala</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.11</attach.version>
-        <main.class>hellogluon.Main</main.class>
+        <main.class>helloscala.Main</main.class>
         <scala.version>2.13.6</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
     </properties>
