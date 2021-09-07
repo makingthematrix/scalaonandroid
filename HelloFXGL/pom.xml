@@ -14,13 +14,17 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>16</maven.compiler.release>
-        <javafx.version>16</javafx.version>
+        <javafx.version>17</javafx.version>
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.11</attach.version>
         <main.class>hellofxgl.Main</main.class>
         <scala.version>2.13.6</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
+        <scala.maven.plugin.version>4.5.3</scala.maven.plugin.version>
+        <fxgl.version>11.17</fxgl.version>
+        <maven.plugin.version>3.8.1</maven.plugin.version>
+        <gluonfx.maven.plugin>1.0.4</gluonfx.maven.plugin>
     </properties>
 
     <dependencies>
@@ -28,13 +32,6 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.scalameta/svm-subs -->
-        <!-- because of https://github.com/scala/bug/issues/11634 -->
-        <dependency>
-            <groupId>org.scalameta</groupId>
-            <artifactId>svm-subs</artifactId>
-            <version>101.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -89,7 +86,7 @@
         <dependency>
             <groupId>com.github.almasb</groupId>
             <artifactId>fxgl</artifactId>
-            <version>11.17</version>
+            <version>${fxgl.version}</version>
         </dependency>
     </dependencies>
 
@@ -98,7 +95,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.5.3</version>
+                <version>${scala.maven.plugin.version}</version>
                 <executions>
                     <execution>
                         <id>scala-compile</id>
@@ -120,7 +117,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -134,7 +131,7 @@
             <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>gluonfx-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>${gluonfx.maven.plugin}</version>
                 <configuration>
                     <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
