@@ -31,6 +31,7 @@ And here are the examples:
 7. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator) - well, it's a calculator
 8. [Calculator 3](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator3) - also a calculator, and you already know in what
 9. [HelloFXGL](https://github.com/makingthematrix/scalaonandroid/tree/main/HelloFXGL) - a minimal example with FXGL, a game engine; for now works only on desktop
+ * Also please look at [my other repo](https://github.com/makingthematrix/ca_art) for examples of cellular automata written in Scala + FXGL. In the future I plan to bring them to Android.
 
 
 #### Discord
