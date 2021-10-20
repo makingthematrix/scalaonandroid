@@ -11,9 +11,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>17</javafx.version>
+        <javafx.version>17.0.1</javafx.version>
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
-        <gluonfx.maven.plugin.version>1.0.5</gluonfx.maven.plugin.version>
+        <gluonfx.maven.plugin.version>1.0.7</gluonfx.maven.plugin.version>
         <main.class>hellofxml.HelloFXML</main.class>
         <scala.version>2.13.6</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
@@ -67,6 +67,8 @@
                 <version>3.8.1</version>
                 <configuration>
                     <release>17</release>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 

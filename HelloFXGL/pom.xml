@@ -13,8 +13,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>16</maven.compiler.release>
-        <javafx.version>17</javafx.version>
+        <maven.compiler.release>17</maven.compiler.release>
+        <javafx.version>17.0.1</javafx.version>
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
         <charm.version>6.0.6</charm.version>
         <attach.version>4.0.11</attach.version>
@@ -143,6 +143,12 @@
                         <list>statusbar</list>
                         <list>lifecycle</list>
                      </attachList>
+                    <!-- <nativeImageArgs>
+                        <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
+                        <nativeImageArg>--verbose</nativeImageArg>
+                        <nativeImageArg>-H:+PrintImageObjectTree</nativeImageArg>
+                        <nativeImageArg>-H:+PrintAnalysisCallTree</nativeImageArg>
+                    </nativeImageArgs> -->
                     <reflectionList>
                         <list>com.almasb.fxgl.audio.AudioPlayer</list>
                         <list>com.almasb.fxgl.core.asset.AssetLoaderService</list>
