@@ -16,10 +16,10 @@
         <javafx.version>17.0.1</javafx.version>
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
         <gluonfx.maven.plugin.version>1.0.7</gluonfx.maven.plugin.version>
-        <charm.version>6.0.6</charm.version>
-        <attach.version>4.0.11</attach.version>
+        <charm.version>6.1.0</charm.version>
+        <attach.version>4.0.13</attach.version>
         <main.class>calculator.Main</main.class>
-        <scala.version>2.13.6</scala.version>
+        <scala.version>2.13.7</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
         <munit.version>0.7.26</munit.version>
     </properties>

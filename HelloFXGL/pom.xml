@@ -16,10 +16,10 @@
         <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>17.0.1</javafx.version>
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
-        <charm.version>6.0.6</charm.version>
-        <attach.version>4.0.11</attach.version>
+        <charm.version>6.1.0</charm.version>
+        <attach.version>4.0.13</attach.version>
         <main.class>hellofxgl.Main</main.class>
-        <scala.version>2.13.6</scala.version>
+        <scala.version>2.13.7</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
         <scala.maven.plugin.version>4.5.3</scala.maven.plugin.version>
         <fxgl.version>11.17</fxgl.version>
@@ -144,8 +144,8 @@
                         <list>lifecycle</list>
                      </attachList>
                     <!-- <nativeImageArgs>
-                        <nativeImageArg>--report-unsupported-elements-at-runtime</nativeImageArg>
-                        <nativeImageArg>--verbose</nativeImageArg>
+                        <nativeImageArg> --report-unsupported-elements-at-runtime</nativeImageArg>
+                        <nativeImageArg> --verbose</nativeImageArg>
                         <nativeImageArg>-H:+PrintImageObjectTree</nativeImageArg>
                         <nativeImageArg>-H:+PrintAnalysisCallTree</nativeImageArg>
                     </nativeImageArgs> -->
