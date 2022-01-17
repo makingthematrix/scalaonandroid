@@ -33,13 +33,35 @@ object Eval {
         case (l, r) => l / r
       }
   }
-
+// "1 + 2 + 3"
   final case class Expression(expression: String) extends ExprNode {
     override def evaluate: Double = parse(expression).evaluate
 
+  // ((1+2)+3)
+    private def findMatchingParens(expr: String): Int =
+      expr.drop(1).foldLeft((0, 1)) {
+        case ((index, 0), _)                         => (index, 0)
+        case ((index, counter), '(')                 => (index + 1, counter + 1)
+        case ((index, counter), ')') if counter == 0 => (index, counter - 1)
+        case ((index, counter), ')')                 => (index + 1, counter - 1)
+        case ((index, counter), _)                   => (index + 1, counter)
+      }._1
+
+  // ((1+2)+3)
+    private def makeParens(expr: String): ExprNode = {
+      val opening = expr.indexOf("(")
+      val closing = opening + findMatchingParens(expr.substring(opening))
+      val inside = expr.substring(opening + 1, closing)
+      val insideExpr = parse(inside)
+      val result = insideExpr.evaluate
+      parse(expr.replace(s"($inside)", result.toString)) // (1+4)*2 -> 5*2
+    }
+
+  // (1+4)*(2+1) // Multiply(Seq(Expression("1+4"), Expression("2+1"))
     private def parse(expr: String): ExprNode =
       if (expr.lastOption.exists(operators.contains)) parse(expr.init)
-      else if (expr.contains('+')) Add(expr.split('+').map(parse))
+      else if (expr.contains('(')) makeParens(expr)
+      else if (expr.contains('+')) Add(expr.split('+').map(parse)) // "1 + 2 + 3" ->"1" , "2", "3"
       else if (expr.contains('-')) {
         if (expr.startsWith("--")) parse(expr.drop(2))
         else if (expr.head == '-') parse(s"0$expr")
@@ -85,5 +107,6 @@ object Eval {
     }
   }
 
+  // 1 + 2 + 3
   def apply(expression: String): ExprNode = Expression(expression)
 }

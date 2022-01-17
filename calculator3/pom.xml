@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>17.0.1</javafx.version>
-        <javafx.plugin.version>0.0.6</javafx.plugin.version>
+        <javafx.plugin.version>0.0.8</javafx.plugin.version>
         <gluonfx.maven.plugin.version>1.0.1</gluonfx.maven.plugin.version>
         <charm.version>6.1.0</charm.version>
         <attach.version>4.0.13</attach.version>

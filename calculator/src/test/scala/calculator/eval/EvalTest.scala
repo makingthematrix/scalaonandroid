@@ -112,4 +112,9 @@ class EvalTest extends munit.FunSuite {
     assertEqualsDouble(Eval("-3*3*4*-2").evaluate, 72.0, 0.001)
     assertEqualsDouble(Eval("3+4-3*3*4*-2").evaluate, 79.0, 0.001)
   }
+
+  test("parentheses") {
+    assertEqualsDouble(Eval("(1+4)*(2+1)").evaluate, 15.0, 0.001)
+    assertEqualsDouble(Eval("((1+2)*3)").evaluate, 9.0, 0.001)
+  }
 }

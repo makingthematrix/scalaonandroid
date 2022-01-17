@@ -3,8 +3,11 @@ package calculator
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
+
 import scala.math.round
-import eval.Eval
+
+import calculator.eval.*
+import calculator.eval.expressions.*
 
 object MainController:
   private val idsToSigns = Map(
@@ -12,9 +15,12 @@ object MainController:
     "bPoint" -> '.', "bAdd" -> '+', "bSubstract" -> '-', "bMultiply" -> '*', "bDivide" -> '/'
   )
 
+  private val numbers = Set('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
+
 final class MainController:
-  import MainController.idsToSigns
-  import Eval.{operators, numbers}
+  import MainController.{idsToSigns, numbers}
+
+  private val parser = Parser()
 
   @FXML private var expression: Label = _
 
@@ -26,13 +32,12 @@ final class MainController:
 
   def onEvaluate(event: ActionEvent): Unit =
     val text = expression.getText
-    val res = Eval(text).evaluate
-    if (res.isNaN) then
-      expression.setText(Double.NaN.toString)
+    val res = run(text).getOrElse("")
+    if res.isEmpty then
+      expression.setText("")
     else
-      val resStr = if (res.toInt == res) res.toInt.toString else (round(res * 10000.0) / 10000.0).toString
-      history :+= s"$text = $resStr"
-      expression.setText(resStr)
+      history :+= s"$text = $res"
+      expression.setText(res)
 
   def onHistory(event: ActionEvent): Unit =
     val result = HistoryController.showHistoryDialog(history)
@@ -65,7 +70,7 @@ final class MainController:
     val currentExpr = expression.getText
     val commaIndex = currentExpr.lastIndexOf('.')
     if (commaIndex > -1) then
-      operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
+      Parser.operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
     else
       currentExpr.lastOption.forall(numbers.contains)
 
@@ -74,4 +79,23 @@ final class MainController:
     case (currentExpr, _) if currentExpr == Double.NaN.toString => false
     case (currentExpr, '-')                                     => !currentExpr.lastOption.contains('-')
     case ("0", _)                                               => false
-    case (currentExpr, _)                                       => !currentExpr.lastOption.forall(operators.contains)
+    case (currentExpr, _)                                       => !currentExpr.lastOption.forall(Parser.operators.contains)
+
+  private def run(line: String): Option[String] =
+    parser
+      .parse(line)
+      .map {
+        case Right(expr) => replForm(parser.dictionary, expr)
+        case Left(error) => error.toString
+      }
+
+  private def replForm(dictionary: Dictionary, expression: Expression): String =
+    expression match
+      case FunctionAssignment(name, args, _) =>
+        s"$name(${args.mkString(", ")}) -> Function"
+      case Assignment(name, Constant(number)) =>
+        s"$name -> $number"
+      case expr =>
+        expr.run(dictionary) match
+          case Right(result) => result.toString
+          case Left(error)   => error.toString
