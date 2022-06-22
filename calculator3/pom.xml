@@ -8,19 +8,19 @@
     <version>0.0.2</version>
     <packaging>jar</packaging>
 
-    <name>Scala 3 Calculator</name>
+    <name>Scala_3_Calculator</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>17.0.1</javafx.version>
+        <maven.compiler.release>11</maven.compiler.release>
+        <javafx.version>18.0.1</javafx.version>
         <javafx.plugin.version>0.0.6</javafx.plugin.version>
-        <gluonfx.maven.plugin.version>1.0.1</gluonfx.maven.plugin.version>
+        <gluonfx.maven.plugin.version>1.0.13</gluonfx.maven.plugin.version>
         <charm.version>6.1.0</charm.version>
         <attach.version>4.0.13</attach.version>
         <main.class>calculator.Main</main.class>
-        <scala.version>3.1.0</scala.version>
-        <scala.compat.version>3</scala.compat.version>
+        <scala.version>3.1.2</scala.version>
+        <scala.compat.version>3.1.2</scala.compat.version>
         <munit.version>0.7.26</munit.version>
     </properties>
 

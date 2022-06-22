@@ -1,0 +1,5 @@
+package hellofxml
+
+trait HelloTrait {
+
+}
