@@ -11,9 +11,9 @@ import scala.jdk.OptionConverters._
 import scala.util.chaining.scalaUtilChainingOps
 
 object HistoryController:
-  private val loader = new FXMLLoader(classOf[HistoryController].getResource("history.fxml"))
+  private lazy val loader = new FXMLLoader(classOf[HistoryController].getResource("history.fxml"))
 
-  private val dialog = new Dialog[String]().tap { d =>
+  private lazy val dialog = new Dialog[String]().tap { d =>
     d.setTitle(new Label("History Dialog"))
     d.setContent(loader.load)
     val cancelButton = new Button("Cancel").tap { c =>
@@ -24,6 +24,7 @@ object HistoryController:
   }
 
   def showHistoryDialog(history: Seq[String]): String =
+    dialog
     loader.getController[HistoryController].fillHistoryList(history)
     dialog.showAndWait().toScala.getOrElse("")
 

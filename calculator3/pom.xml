@@ -5,23 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>scalaonandroid</groupId>
     <artifactId>calculator</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
 
     <name>Scala 3 Calculator</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>17.0.1</javafx.version>
-        <javafx.plugin.version>0.0.6</javafx.plugin.version>
-        <gluonfx.maven.plugin.version>1.0.1</gluonfx.maven.plugin.version>
-        <charm.version>6.1.0</charm.version>
-        <attach.version>4.0.13</attach.version>
+        <maven.compiler.release>19</maven.compiler.release>
+        <javafx.version>19.0.0</javafx.version>
+        <javafx.plugin.version>0.0.8</javafx.plugin.version>
+        <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
+        <charm.version>6.2.2</charm.version>
+        <attach.version>4.0.16</attach.version>
         <main.class>calculator.Main</main.class>
-        <scala.version>3.1.0</scala.version>
+        <scala.version>3.3.0-RC1-bin-20221122-794818b-NIGHTLY</scala.version>
         <scala.compat.version>3</scala.compat.version>
-        <munit.version>0.7.26</munit.version>
+        <munit.version>0.7.29</munit.version>
     </properties>
 
     <dependencies>
@@ -41,12 +41,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
+            <version>19-ea+11</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>${javafx.version}</version>
+            <version>19-ea+11</version>
         </dependency>
         <dependency>
             <groupId>com.gluonhq</groupId>
@@ -81,7 +81,7 @@
         <!-- https://mvnrepository.com/artifact/org.scalameta/munit -->
         <dependency>
             <groupId>org.scalameta</groupId>
-            <artifactId>munit_2.13</artifactId>
+            <artifactId>munit_3</artifactId>
             <version>${munit.version}</version>
             <scope>test</scope>
         </dependency>
@@ -116,13 +116,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>16</release>
+                    <release>19</release>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>gluonfx-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>${gluonfx.maven.plugin.version}</version>
                 <configuration>
                     <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
