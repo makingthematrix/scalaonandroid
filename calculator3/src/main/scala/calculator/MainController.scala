@@ -1,24 +1,30 @@
 package calculator
 
+import calculator.replcalc.Parser
+import calculator.replcalc.run
+
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
+
 import scala.math.round
-import eval.Eval
 
 object MainController:
   private val idsToSigns = Map(
     "b1" -> '1', "b2" -> '2', "b3" -> '3', "b4" -> '4', "b5" -> '5', "b6" -> '6', "b7" -> '7', "b8" -> '8', "b9" -> '9', "b0" -> '0',
     "bPoint" -> '.', "bAdd" -> '+', "bSubstract" -> '-', "bMultiply" -> '*', "bDivide" -> '/'
   )
+  private val operators = Set('+', '-', '*', '/')
+  private val numbers = Set('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
 
 final class MainController:
-  import MainController.idsToSigns
-  import Eval.{operators, numbers}
+  import MainController.*
 
   @FXML private var expression: Label = _
 
   private var history = Seq.empty[String]
+
+  private val parser = Parser()
 
   def initialize(): Unit =
     expression.setText("0")
@@ -26,13 +32,11 @@ final class MainController:
 
   def onEvaluate(event: ActionEvent): Unit =
     val text = expression.getText
-    val res = Eval(text).evaluate
-    if (res.isNaN) then
-      expression.setText(Double.NaN.toString)
-    else
-      val resStr = if (res.toInt == res) res.toInt.toString else (round(res * 10000.0) / 10000.0).toString
-      history :+= s"$text = $resStr"
-      expression.setText(resStr)
+    val restStr = run(parser, text)
+    restStr.foreach { res =>
+      history :+= s"$text = $res"
+      expression.setText(res)
+    }
 
   def onHistory(event: ActionEvent): Unit =
     val result = HistoryController.showHistoryDialog(history)
