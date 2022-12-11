@@ -44,6 +44,16 @@ class ExpressionTest extends munit.FunSuite:
     intercept[ComparisonFailException](eval("1/0", Double.NaN))
   }
 
+  test("Power") {
+    eval("2^2", 4.0)
+    eval("4^0.5", 2.0)
+    eval("2^-1", 0.5)
+    eval("2^0", 1.0)
+    intercept[ComparisonFailException](eval("0^0", Double.NaN))
+    intercept[ComparisonFailException](eval("-1^0.5", Double.NaN))
+    eval("-1^2", 1.0)
+  }
+
   test("Round to zero") {
     eval("(1/3)*3-1/3-1/3-1/3", 0.0)
   }
@@ -221,10 +231,10 @@ class ExpressionTest extends munit.FunSuite:
     parser.parse(str) match
       case None => fail(s"Parsed as 'none': $str")
       case Some(Left(error)) => fail(s"Error: ${error.msg} at line $str")
-      case Some(Right(expr)) =>
+      case Some(Right(_)) =>
 
   private def shouldReturnParsingError(line: String)(implicit parser: Parser = Parser()): Unit =
     parser.parse(line) match
       case None => fail(s"Parsed as 'none': $line")
-      case Some(Left(error)) =>
+      case Some(Left(_)) =>
       case Some(Right(expr)) => fail(s"Parsed with success: $line -> $expr")

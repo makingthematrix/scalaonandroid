@@ -82,7 +82,7 @@ object Parser:
   def isOperator(char: Char, additionalAllowed: Char*): Boolean = 
     operators.contains(char) || additionalAllowed.contains(char)
 
-  val operators: Set[Char] = Set('+', '-', '*', '/', ',', '=')
+  val operators: Set[Char] = Set('+', '-', '*', '/', '^', ',', '=')
 
   // we rely on the order here
   val stages: Seq[Parseable[_ <: Expression]] =
@@ -91,6 +91,7 @@ object Parser:
       Assignment,
       AddSubstract,
       MultiplyDivide,
+      Power,
       UnaryMinus,
       Function,
       Variable,
