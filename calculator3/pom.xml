@@ -12,9 +12,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>19</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>19.0.0</javafx.version>
         <javafx.plugin.version>0.0.8</javafx.plugin.version>
+        <!-- Works with GraalVM CE Java 17 22.1.0, but not higher -->
         <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
         <charm.version>6.2.2</charm.version>
         <attach.version>4.0.16</attach.version>
@@ -114,9 +115,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
                 <configuration>
-                    <release>19</release>
+                    <release>17</release>
                 </configuration>
             </plugin>
             <plugin>
