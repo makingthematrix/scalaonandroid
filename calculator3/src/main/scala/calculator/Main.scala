@@ -18,8 +18,8 @@ import javafx.stage.Stage
 object Main:
   def main(args: scala.Array[String]): Unit = Application.launch(classOf[Main], args: _*)
 
-  val DEFAULT_WIDTH: Int = 550
-  val DEFAULT_HEIGHT: Int = 650
+  val DEFAULT_WIDTH: Int = 620
+  val DEFAULT_HEIGHT: Int = 900
 
 final class Main extends Application:
   import Main._
@@ -36,7 +36,7 @@ final class Main extends Application:
     Swatch.AMBER.assignTo(scene)
     scene.getStylesheets.add(classOf[Main].getResource("styles.css").toExternalForm)
     val dim =
-      if (Platform.isDesktop) then
+      if Platform.isDesktop then
         new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT)
       else
         DisplayService.create

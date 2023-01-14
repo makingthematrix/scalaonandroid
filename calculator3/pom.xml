@@ -79,6 +79,7 @@
             <artifactId>statusbar</artifactId>
             <version>${attach.version}</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.scalameta/munit -->
         <dependency>
             <groupId>org.scalameta</groupId>
@@ -136,6 +137,7 @@
                     <reflectionList>
                         <list>calculator.MainController</list>
                         <list>calculator.HistoryController</list>
+                        <list>calculator.FunctionEditor</list>
                     </reflectionList>
                 </configuration>
             </plugin>

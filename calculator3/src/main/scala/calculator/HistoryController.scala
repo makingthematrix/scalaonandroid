@@ -6,8 +6,9 @@ import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.control.{Button, Label, ListView}
 import javafx.scene.input.MouseEvent
 
-import scala.jdk.CollectionConverters._
-import scala.jdk.OptionConverters._
+import scala.collection.mutable.ArrayBuffer
+import scala.jdk.CollectionConverters.*
+import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
 
 object HistoryController:

@@ -1,21 +1,26 @@
 package calculator
 
-import calculator.replcalc.Parser
-import calculator.replcalc.run
-
+import calculator.replcalc.{Parser, run}
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
 
 import scala.math.round
+import scala.util.chaining.scalaUtilChainingOps
 
 object MainController:
   private val idsToSigns = Map(
     "b1" -> '1', "b2" -> '2', "b3" -> '3', "b4" -> '4', "b5" -> '5', "b6" -> '6', "b7" -> '7', "b8" -> '8', "b9" -> '9', "b0" -> '0',
-    "bPoint" -> '.', "bAdd" -> '+', "bSubstract" -> '-', "bMultiply" -> '*', "bDivide" -> '/'
+    "bPoint" -> '.', "bAdd" -> '+', "bSubstract" -> '-', "bMultiply" -> '*', "bDivide" -> '/',
+    "lParens" -> '(', "rParens" -> ')', "bPower" -> '^'
   )
-  private val operators = Set('+', '-', '*', '/')
+  private val operators = Set('+', '-', '*', '/', '^', '(', ')')
   private val numbers = Set('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
+
+  def createParser(): Parser =
+    Parser().tap { parser =>
+      Storage.readFunctions.foreach(parser.parse)
+    }
 
 final class MainController:
   import MainController.*
@@ -23,8 +28,9 @@ final class MainController:
   @FXML private var expression: Label = _
 
   private var history = Seq.empty[String]
+  private var clearExpression = true
 
-  private val parser = Parser()
+  private val parser = createParser()
 
   def initialize(): Unit =
     expression.setText("0")
@@ -32,17 +38,26 @@ final class MainController:
 
   def onEvaluate(event: ActionEvent): Unit =
     val text = expression.getText
-    val restStr = run(parser, text)
-    restStr.foreach { res =>
-      history :+= s"$text = $res"
-      expression.setText(res)
-    }
+    run(parser, text) match
+      case Right(result) =>
+        history :+= s"$text = $result"
+        expression.setText(result)
+      case Left(error) =>
+        expression.setText(error)
+        clearExpression = true
 
   def onHistory(event: ActionEvent): Unit =
     val result = HistoryController.showHistoryDialog(history)
-    if (result.nonEmpty) then expression.setText(s"${expression.getText}$result")
+    if result.nonEmpty then expression.setText(s"${expression.getText}$result")
 
-  def onClear(event: ActionEvent): Unit = expression.setText("0")
+
+  def onFx(event: ActionEvent): Unit = {
+    val result = FunctionEditor.showDialog()
+    if result.nonEmpty then expression.setText(result)
+  }
+  
+  def onClear(event: ActionEvent): Unit =
+    expression.setText("0")
 
   def onBackspace(event: ActionEvent): Unit = expression.getText match
     case ""   =>
@@ -57,13 +72,15 @@ final class MainController:
     idsToSigns.get(event.getSource.asInstanceOf[Button].getId).foreach(updateExpression)
 
   def onPoint(event: ActionEvent): Unit =
-    if (isPointAllowed) then updateExpression('.')
+    if isPointAllowed then updateExpression('.')
 
-  private def updateExpression(newSign: Char): Unit = expression.getText match
-    case currentExpr if numbers.contains(newSign) && (currentExpr == "0" || currentExpr == Double.NaN.toString) =>
-      expression.setText(newSign.toString)
-    case currentExpr =>
-      expression.setText(s"$currentExpr$newSign")
+  private def updateExpression(newSign: Char): Unit =
+    expression.getText match
+      case currentExpr if clearExpression || currentExpr == "0" =>
+        expression.setText(newSign.toString)
+        clearExpression = false
+      case currentExpr =>
+        expression.setText(s"$currentExpr$newSign")
 
   private def isPointAllowed: Boolean =
     val currentExpr = expression.getText
@@ -73,9 +90,10 @@ final class MainController:
     else
       currentExpr.lastOption.forall(numbers.contains)
 
-  private def isOperatorAllowed(operator:Char): Boolean = (expression.getText, operator) match
+  private def isOperatorAllowed(operator: Char): Boolean = (expression.getText, operator) match
     case (".", _)                                               => false
     case (currentExpr, _) if currentExpr == Double.NaN.toString => false
     case (currentExpr, '-')                                     => !currentExpr.lastOption.contains('-')
     case ("0", _)                                               => false
+    case (currentExpr, '(')                                     => currentExpr.lastOption.forall(operators.contains)
     case (currentExpr, _)                                       => !currentExpr.lastOption.forall(operators.contains)

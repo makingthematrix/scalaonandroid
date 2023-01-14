@@ -10,13 +10,12 @@ package object replcalc:
       .map(replForm(dictionary, _))
       .foreach(println)
 
-  def run(parser: Parser, line: String): Option[String] =
-    parser
-      .parse(line)
-      .map {
-        case Right(expr) => replForm(parser.dictionary, expr)
-        case Left(error) => error.toString
-      }
+  def run(parser: Parser, line: String): Either[String, String] =
+    parser.parse(line) match {
+      case Some(Right(expr)) => Right(replForm(parser.dictionary, expr))
+      case Some(Left(error)) => Left(error.toString)
+      case None              => Left(s"Can't parse: $line")
+    }
 
   private def replForm(dictionary: Dictionary, expression: Expression): String =
     expression match
