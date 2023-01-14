@@ -47,7 +47,7 @@ final class MainController:
         clearExpression = true
 
   def onHistory(event: ActionEvent): Unit =
-    val result = HistoryController.showHistoryDialog(history)
+    val result = FunctionsListController.showDialog(history)
     if result.nonEmpty then expression.setText(s"${expression.getText}$result")
 
 

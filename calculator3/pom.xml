@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>19.0.0</javafx.version>
+        <javafx.version>19-ea+11</javafx.version>
         <javafx.plugin.version>0.0.8</javafx.plugin.version>
         <!-- Works with GraalVM CE Java 17 22.1.0, but not higher -->
         <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
@@ -42,12 +42,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>19-ea+11</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>19-ea+11</version>
+            <version>${javafx.version}</version>
         </dependency>
         <dependency>
             <groupId>com.gluonhq</groupId>
@@ -94,7 +94,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.5.3</version>
+                <version>4.8.0</version>
                 <executions>
                     <execution>
                         <id>scala-compile</id>
@@ -136,7 +136,7 @@
                     </attachList>
                     <reflectionList>
                         <list>calculator.MainController</list>
-                        <list>calculator.HistoryController</list>
+                        <list>calculator.FunctionsListController</list>
                         <list>calculator.FunctionEditor</list>
                     </reflectionList>
                 </configuration>

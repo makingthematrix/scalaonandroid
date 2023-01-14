@@ -11,11 +11,11 @@ import scala.jdk.CollectionConverters.*
 import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
 
-object HistoryController:
-  private lazy val loader = new FXMLLoader(classOf[HistoryController].getResource("history.fxml"))
+object FunctionsListController:
+  private lazy val loader = new FXMLLoader(classOf[FunctionsListController].getResource("history.fxml"))
 
   private lazy val dialog = new Dialog[String]().tap { d =>
-    d.setTitle(new Label("History Dialog"))
+    d.setTitle(new Label("Functions List"))
     d.setContent(loader.load)
     val cancelButton = new Button("Cancel").tap { c =>
       c.setCancelButton(true)
@@ -24,22 +24,22 @@ object HistoryController:
     d.getButtons.add(cancelButton)
   }
 
-  def showHistoryDialog(history: Seq[String]): String =
+  def showDialog(history: Seq[String]): String =
     dialog
-    loader.getController[HistoryController].fillHistoryList(history)
+    loader.getController[FunctionsListController].fillFunctionsList(history)
     dialog.showAndWait().toScala.getOrElse("")
 
-final class HistoryController:
-  import HistoryController.dialog
+final class FunctionsListController:
+  import FunctionsListController.dialog
 
-  @FXML private var historyList: ListView[String] = _
+  @FXML private var functionsList: ListView[String] = _
 
-  def fillHistoryList(history: Seq[String]): Unit =
-    historyList.getItems.setAll(history.asJavaCollection)
+  def fillFunctionsList(history: Seq[String]): Unit =
+    functionsList.getItems.setAll(history.asJavaCollection)
 
   def initialize(): Unit =
-    historyList.setOnMouseClicked { (_: MouseEvent) =>
-      historyList.getSelectionModel.getSelectedItems.asScala.headOption.foreach { expr =>
+    functionsList.setOnMouseClicked { (_: MouseEvent) =>
+      functionsList.getSelectionModel.getSelectedItems.asScala.headOption.foreach { expr =>
         dialog.setResult(expr.split("=").last.trim)
         dialog.hide()
       }
