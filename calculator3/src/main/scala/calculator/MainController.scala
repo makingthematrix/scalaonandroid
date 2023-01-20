@@ -40,11 +40,13 @@ final class MainController:
       Left(s"$name -> $number")
     case Some(Right(expr)) =>
       expr.run(parser.dictionary) match {
-        case Right(res) => Right(res.toString)
+        case Right(res)  => Right(res.toString)
         case Left(error) => Left(error.toString)
       }
-    case Some(Left(error)) => Left(error.toString)
-    case None => Left(s"Can't parse: $line")
+    case Some(Left(error)) => 
+      Left(error.toString)
+    case None => 
+      Left(s"Can't parse: $line")
   }
 
   def initialize(): Unit =
