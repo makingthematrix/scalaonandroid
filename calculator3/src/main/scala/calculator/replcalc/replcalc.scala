@@ -5,11 +5,10 @@ import calculator.replcalc.expressions.{Assignment, Constant, Expression, Functi
 package object replcalc:
   def list(dictionary: Dictionary): Unit =
     dictionary
-      .expressions
-      .toSeq.sortBy(_._1).map(_._2)
+      .list
       .map(replForm(dictionary, _))
       .foreach(println)
-
+  
   def run(parser: Parser, line: String): Either[String, String] =
     parser.parse(line) match {
       case Some(Right(expr)) => Right(replForm(parser.dictionary, expr))

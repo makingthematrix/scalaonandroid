@@ -12,7 +12,7 @@ import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
 
 object FunctionsListController:
-  private lazy val loader = new FXMLLoader(classOf[FunctionsListController].getResource("history.fxml"))
+  private lazy val loader = new FXMLLoader(classOf[FunctionsListController].getResource("functionslist.fxml"))
 
   private lazy val dialog = new Dialog[String]().tap { d =>
     d.setTitle(new Label("Functions List"))
@@ -24,9 +24,9 @@ object FunctionsListController:
     d.getButtons.add(cancelButton)
   }
 
-  def showDialog(history: Seq[String]): String =
+  def showDialog(functionsList: Seq[String]): String =
     dialog
-    loader.getController[FunctionsListController].fillFunctionsList(history)
+    loader.getController[FunctionsListController].fillFunctionsList(functionsList)
     dialog.showAndWait().toScala.getOrElse("")
 
 final class FunctionsListController:
@@ -34,8 +34,8 @@ final class FunctionsListController:
 
   @FXML private var functionsList: ListView[String] = _
 
-  def fillFunctionsList(history: Seq[String]): Unit =
-    functionsList.getItems.setAll(history.asJavaCollection)
+  def fillFunctionsList(list: Seq[String]): Unit =
+    functionsList.getItems.setAll(list.asJavaCollection)
 
   def initialize(): Unit =
     functionsList.setOnMouseClicked { (_: MouseEvent) =>

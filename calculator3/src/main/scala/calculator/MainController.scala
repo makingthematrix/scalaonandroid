@@ -1,6 +1,7 @@
 package calculator
 
-import calculator.replcalc.{Parser, run}
+import calculator.replcalc.Parser
+import calculator.replcalc.expressions.{FunctionAssignment, Assignment, Constant}
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
@@ -27,37 +28,60 @@ final class MainController:
 
   @FXML private var expression: Label = _
 
-  private var history = Seq.empty[String]
   private var clearExpression = true
+  private var memory: Option[String] = None
 
   private val parser = createParser()
+
+  private def evaluate(line: String): Either[String, String] = parser.parse(line) match {
+    case Some(Right(FunctionAssignment(name, args, _))) =>
+      Left(s"$name(${args.mkString(", ")}) -> Function")
+    case Some(Right(Assignment(name, Constant(number)))) =>
+      Left(s"$name -> $number")
+    case Some(Right(expr)) =>
+      expr.run(parser.dictionary) match {
+        case Right(res) => Right(res.toString)
+        case Left(error) => Left(error.toString)
+      }
+    case Some(Left(error)) => Left(error.toString)
+    case None => Left(s"Can't parse: $line")
+  }
 
   def initialize(): Unit =
     expression.setText("0")
     expression.setTextOverrun(OverrunStyle.CLIP)
 
   def onEvaluate(event: ActionEvent): Unit =
-    val text = expression.getText
-    run(parser, text) match
+    evaluate(expression.getText) match
+      case Right(text) =>
+        expression.setText(text)
+      case Left(text) =>
+        expression.setText(text)
+        clearExpression = true
+
+  def onMemoryPlus(event: ActionEvent): Unit =
+    evaluate(expression.getText) match
       case Right(result) =>
-        history :+= s"$text = $result"
-        expression.setText(result)
+        memory = Some(result)
       case Left(error) =>
         expression.setText(error)
         clearExpression = true
 
-  def onHistory(event: ActionEvent): Unit =
-    val result = FunctionsListController.showDialog(history)
-    if result.nonEmpty then expression.setText(s"${expression.getText}$result")
+  def onMemoryReveal(event: ActionEvent): Unit =
+    memory.foreach(updateExpression(_, true))
 
-
-  def onFx(event: ActionEvent): Unit = {
-    val result = FunctionEditor.showDialog()
-    if result.nonEmpty then expression.setText(result)
-  }
+  def onFx(event: ActionEvent): Unit =
+    val text = FunctionEditor.showDialog()
+    if text.nonEmpty then
+      evaluate(text) match
+        case Right(text) =>
+          expression.setText(text)
+        case Left(text) =>
+          expression.setText(text)
+          clearExpression = true
   
   def onClear(event: ActionEvent): Unit =
-    expression.setText("0")
+    expression.setText("0.0")
 
   def onBackspace(event: ActionEvent): Unit = expression.getText match
     case ""   =>
@@ -74,13 +98,18 @@ final class MainController:
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
 
-  private def updateExpression(newSign: Char): Unit =
+  private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
+
+  private def updateExpression(newStr: String, onlyAfterOperator: Boolean = false): Unit =
     expression.getText match
-      case currentExpr if clearExpression || currentExpr == "0" =>
-        expression.setText(newSign.toString)
+      case currentExpr if currentExpr.isEmpty || clearExpression || currentExpr == "0.0" =>
+        expression.setText(newStr)
         clearExpression = false
-      case currentExpr =>
-        expression.setText(s"$currentExpr$newSign")
+      case currentExpr if onlyAfterOperator && operators.contains(currentExpr.last) =>
+        expression.setText(s"$currentExpr$newStr")
+      case currentExpr if !onlyAfterOperator =>
+        expression.setText(s"$currentExpr$newStr")
+      case _ =>
 
   private def isPointAllowed: Boolean =
     val currentExpr = expression.getText

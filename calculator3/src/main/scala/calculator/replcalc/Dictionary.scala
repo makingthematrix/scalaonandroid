@@ -17,7 +17,7 @@ package calculator.replcalc
  */
 
 import calculator.replcalc.Dictionary.isValidName
-import calculator.replcalc.expressions.{Expression, Assignment}
+import calculator.replcalc.expressions.{Assignment, Expression, FunctionAssignment}
 
 final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
   import Dictionary.specialValuesCounter
@@ -54,6 +54,19 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
   inline def specials: Map[String, Expression] = dict.filter(_._1.head == '$')
 
   def copy(updates: Map[String, Expression]): Dictionary = Dictionary(dict ++ updates)
+
+  def list: Seq[Expression] =
+    expressions
+      .toSeq
+      .sortBy(_._1)
+      .map(_._2)
+
+  def list[ExType <: Expression](exType: Class[ExType]): Seq[ExType] =
+    expressions
+      .collect { case (name, expr) if expr.getClass == exType => (name, expr) }
+      .toSeq
+      .sortBy(_._1)
+      .map(_._2.asInstanceOf[ExType])
 
 object Dictionary:
   private var specialValuesCounter: Long = 0L

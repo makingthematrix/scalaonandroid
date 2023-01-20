@@ -36,3 +36,4 @@ def main(args: String*): Unit =
       case ":list"              => list(parser.dictionary)
       case line if line.isEmpty =>
       case line                 => run(parser, line).foreach(println)
+      

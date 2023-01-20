@@ -7,3 +7,8 @@ Label {
     -fx-font-size: 3em;
     -fx-font-weight: bold;
 }
+
+.evaluate-button {
+    -fx-font-size: 4em;
+    -fx-font-weight: bold;
+}

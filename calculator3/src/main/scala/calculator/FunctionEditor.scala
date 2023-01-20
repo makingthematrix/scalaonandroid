@@ -1,8 +1,8 @@
 package calculator
 
-import com.gluonhq.charm.glisten.control.Dialog
+import com.gluonhq.charm.glisten.control.{Dialog, TextArea}
 import javafx.event.ActionEvent
-import javafx.fxml.FXMLLoader
+import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.{Node, Scene}
 import javafx.scene.control.{Button, Label}
 
@@ -16,7 +16,6 @@ object FunctionEditor:
   private lazy val dialog = new Dialog[String]().tap { d =>
     d.setTitle(new Label("Function Editor"))
     d.setContent(loader.load)
-    d.getContent.setStyle(classOf[FunctionEditor].getResource("styles.css").toExternalForm)
     val cancelButton = new Button("Cancel").tap { c =>
       c.setCancelButton(true)
       c.setOnAction { (_: ActionEvent) => d.hide() }
@@ -24,7 +23,11 @@ object FunctionEditor:
 
     val okButton = new Button("OK").tap { c =>
       c.setDefaultButton(true)
-      c.setOnAction { (_: ActionEvent) => d.hide() }
+      c.setOnAction { (_: ActionEvent) =>
+        val text = loader.getController[FunctionEditor].functionEditor.getText
+        d.setResult(text)
+        d.hide()
+      }
     }
 
     d.getButtons.add(okButton)
@@ -34,9 +37,10 @@ object FunctionEditor:
   def showDialog(): String =
     dialog
     dialog.showAndWait().toScala.getOrElse("")
+
 final class FunctionEditor:
   import FunctionEditor.dialog
 
-  def initialize(): Unit = {
-    //dialog
-  }
+  @FXML private var functionEditor: TextArea = _
+
+  def initialize(): Unit = {}

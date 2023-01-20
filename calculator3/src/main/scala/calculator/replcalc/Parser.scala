@@ -53,7 +53,7 @@ final class ParserImpl(override val dictionary: Dictionary,
   override def setup(preprocessor: Preprocessor): Unit =
     this.preprocessor = Some(preprocessor)
 
-  override def copy(updates: Map[String, Expression]): Parser = 
+  override def copy(updates: Map[String, Expression]): Parser =
     Parser(dictionary.copy(updates))
 
   override def parse(line: String): ParsedExpr[Expression] =

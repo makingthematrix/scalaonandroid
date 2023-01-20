@@ -5,8 +5,7 @@
 
 <BorderPane maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.MainController">
    <top>
-       <Label fx:id="expression" alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" 
-              minHeight="150" prefHeight="150.0" prefWidth="320.0" BorderPane.alignment="TOP_CENTER" />
+       <Label fx:id="expression" alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" minHeight="150" prefHeight="150.0" prefWidth="320.0" BorderPane.alignment="TOP_CENTER" />
    </top>
    <center>
        <GridPane minHeight="-Infinity" minWidth="-Infinity" BorderPane.alignment="CENTER">
@@ -38,17 +37,18 @@
            <Button fx:id="bSubstract" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onOperator" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />
            <Button fx:id="b0" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onNumber" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="0" GridPane.rowIndex="4" />
            <Button fx:id="bPoint" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onPoint" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="." GridPane.columnIndex="1" GridPane.rowIndex="4" />
-           <Button fx:id="bEvaluate" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onEvaluate" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="=" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+           <Button fx:id="bPower" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onOperator" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="^" GridPane.columnIndex="2" GridPane.rowIndex="4" />
            <Button fx:id="bAdd" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onOperator" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
 
            <Button fx:id="fx" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onFx" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="fx" GridPane.rowIndex="5" />
            <Button fx:id="lParens" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onOperator" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="(" GridPane.columnIndex="1" GridPane.rowIndex="5" />
            <Button fx:id="rParens" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onOperator" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text=")" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-           <Button fx:id="bPower" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onOperator" prefHeight="25.0" prefWidth="25.0" styleClass="number-button" stylesheets="@styles.css" text="^" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+           <Button fx:id="bEvaluate" defaultButton="true" maxHeight="+Infinity" maxWidth="+Infinity" minHeight="25.0" minWidth="25.0" mnemonicParsing="false" onAction="#onEvaluate" prefHeight="25.0" prefWidth="25.0" styleClass="evaluate-button" stylesheets="@styles.css" text="=" textFill="#c60404" GridPane.columnIndex="3" GridPane.rowIndex="5" />
 
            <Button fx:id="bClear" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="25.0" mnemonicParsing="false" onAction="#onClear" prefWidth="25.0" stylesheets="@styles.css" text="CLEAR" GridPane.columnIndex="3" />
-           <Button fx:id="bHistory" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="25.0" mnemonicParsing="false" onAction="#onHistory" prefWidth="25.0" stylesheets="@styles.css" text="HISTORY" GridPane.columnIndex="2" />
-         <Button fx:id="bBackspace" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="25.0" mnemonicParsing="false" onAction="#onBackspace" prefWidth="25.0" stylesheets="@styles.css" text="BACKSPACE" GridPane.columnIndex="1" />
+           <Button fx:id="bBackspace" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="25.0" mnemonicParsing="false" onAction="#onBackspace" prefWidth="25.0" stylesheets="@styles.css" text="BACK" GridPane.columnIndex="2" />
+           <Button fx:id="bMPlus" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="25.0" mnemonicParsing="false" onAction="#onMemoryPlus" prefWidth="25.0" stylesheets="@styles.css" text="M+" GridPane.columnIndex="1" />
+           <Button fx:id="bMReveal" maxHeight="+Infinity" maxWidth="+Infinity" minWidth="25.0" mnemonicParsing="false" onAction="#onMemoryReveal" prefWidth="25.0" stylesheets="@styles.css" text="MR" GridPane.columnIndex="0" />
        </GridPane>
    </center>
 </BorderPane>
