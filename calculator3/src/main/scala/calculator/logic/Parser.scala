@@ -1,4 +1,4 @@
-package calculator.replcalc
+package calculator.logic
 
 /**
  * Parser
@@ -32,9 +32,9 @@ package calculator.replcalc
  * I consider `Dictionary` to be just a thin wrapper around `Map[String, Expression]`.
  */
 
-import calculator.replcalc.Preprocessor.Flags
-import calculator.replcalc.expressions.Error.ParsingError
-import calculator.replcalc.expressions.*
+import calculator.logic.Preprocessor.Flags
+import calculator.logic.expressions.Error.ParsingError
+import calculator.logic.expressions.*
 
 import scala.util.chaining.*
 

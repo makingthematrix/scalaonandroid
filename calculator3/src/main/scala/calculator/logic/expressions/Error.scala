@@ -1,4 +1,4 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
 /**
  * Error

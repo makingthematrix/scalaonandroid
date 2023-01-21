@@ -1,7 +1,7 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
 import Error.EvaluationError
-import calculator.replcalc.{Dictionary, Parser}
+import calculator.logic.{Dictionary, Parser}
 import Expression.isZero
 
 /**

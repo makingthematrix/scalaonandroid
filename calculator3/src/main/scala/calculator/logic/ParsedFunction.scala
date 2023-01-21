@@ -1,8 +1,8 @@
-package calculator.replcalc
+package calculator.logic
 
-import calculator.replcalc.Dictionary.isValidName
-import calculator.replcalc.expressions.Error
-import calculator.replcalc.expressions.Error.ParsingError
+import calculator.logic.Dictionary.isValidName
+import calculator.logic.expressions.Error
+import calculator.logic.expressions.Error.ParsingError
 
 import scala.annotation.tailrec
 

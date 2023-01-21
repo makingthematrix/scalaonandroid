@@ -1,6 +1,6 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
-import calculator.replcalc.{Dictionary, Parser}
+import calculator.logic.{Dictionary, Parser}
 
 import scala.util.chaining.*
 

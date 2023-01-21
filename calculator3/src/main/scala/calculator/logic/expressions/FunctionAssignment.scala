@@ -1,8 +1,8 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
-import calculator.replcalc.{Dictionary, ParsedFunction, Parser, Preprocessor}
-import calculator.replcalc.ParsedFunction.LineSide
-import calculator.replcalc.Dictionary.isValidName
+import calculator.logic.{Dictionary, ParsedFunction, Parser, Preprocessor}
+import calculator.logic.ParsedFunction.LineSide
+import calculator.logic.Dictionary.isValidName
 
 import scala.util.chaining.*
 

@@ -1,4 +1,4 @@
-package calculator.replcalc
+package calculator.logic
 
 import munit.{ComparisonFailException, Location}
 import scala.util.chaining.*
@@ -215,6 +215,12 @@ class ExpressionTest extends munit.FunSuite:
     eval("f(x)", 3.0)
   }
 
+  test("Native function sqrt") {
+    implicit val parser: Parser = Parser() // the same parser will be used in all evaluations
+    parser.dictionary.addNativeFunction("sqrt", Seq("x"), args => math.sqrt(args.head))
+    eval("sqrt(4)", 2.0)
+    intercept[ComparisonFailException](eval("sqrt(-1)", Double.NaN))
+  }
 
   private def eval(str: String, expected: Double, delta: Double = 0.001)(implicit parser: Parser = Parser()): Unit =
     parser.parse(str) match
@@ -225,7 +231,7 @@ class ExpressionTest extends munit.FunSuite:
       case Some(Right(expr)) =>
         expr.run(parser.dictionary) match
           case Right(result) => assertEqualsDouble(result, expected, delta)
-          case Left(error) => failComparison(s"Error: ${error.msg}", str, expected)
+          case Left(error)   => failComparison(s"Error: ${error.msg}", str, expected)
 
   private def parse(str: String)(implicit parser: Parser = Parser()): Unit =
     parser.parse(str) match

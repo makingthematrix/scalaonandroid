@@ -1,4 +1,4 @@
-package calculator.replcalc
+package calculator.logic
 
 /**
  * Preprocessor
@@ -26,12 +26,12 @@ package calculator.replcalc
  * line - so using non-tail-recursive methods is safe and, on the other hard, their code looks more readable.
  */
 
-import calculator.replcalc.Preprocessor.Flags
-import calculator.replcalc.expressions.{Error, Variable}
-import calculator.replcalc.expressions.Error.PreprocessorError
-import calculator.replcalc.Parser.isOperator
-import calculator.replcalc.Dictionary.isValidName
-import calculator.replcalc.ParsedFunction.LineSide
+import calculator.logic.Preprocessor.Flags
+import calculator.logic.expressions.{Error, Variable}
+import calculator.logic.expressions.Error.PreprocessorError
+import calculator.logic.Parser.isOperator
+import calculator.logic.Dictionary.isValidName
+import calculator.logic.ParsedFunction.LineSide
 
 import scala.annotation.tailrec
 import scala.util.chaining.*

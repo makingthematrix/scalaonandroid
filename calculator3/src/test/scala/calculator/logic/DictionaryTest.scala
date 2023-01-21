@@ -1,7 +1,7 @@
-package calculator.replcalc
+package calculator.logic
 
 import munit.Location
-import calculator.replcalc.expressions.Constant
+import calculator.logic.expressions.Constant
 
 class DictionaryTest extends munit.FunSuite:
   implicit val location: Location = Location.empty

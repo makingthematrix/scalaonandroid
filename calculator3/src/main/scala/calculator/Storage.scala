@@ -14,7 +14,7 @@ object Storage:
       _.getPrivateStorage.toScala.map(p => Paths.get(p.getPath))
     }
   
-  def readFunctions: Seq[String] =
+  def read: Seq[String] =
     dataDirectory.flatMap { dir =>
       val filePath = dir.resolve("functions.txt")
       Try {

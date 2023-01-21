@@ -1,6 +1,6 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
-import calculator.replcalc.Parser
+import calculator.logic.Parser
 
 /**
  * Failure

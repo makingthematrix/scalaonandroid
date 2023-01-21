@@ -1,7 +1,7 @@
 package calculator
 
-import calculator.replcalc.Parser
-import calculator.replcalc.expressions.{FunctionAssignment, Assignment, Constant}
+import calculator.logic.{Dictionary, Parser}
+import calculator.logic.expressions.{Assignment, Constant, FunctionAssignment}
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
@@ -18,11 +18,6 @@ object MainController:
   private val operators = Set('+', '-', '*', '/', '^', '(', ')')
   private val numbers = Set('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
 
-  def createParser(): Parser =
-    Parser().tap { parser =>
-      Storage.readFunctions.foreach(parser.parse)
-    }
-
 final class MainController:
   import MainController.*
 
@@ -31,26 +26,10 @@ final class MainController:
   private var clearExpression = true
   private var memory: Option[String] = None
 
-  private val parser = createParser()
-
-  private def evaluate(line: String): Either[String, String] = parser.parse(line) match {
-    case Some(Right(FunctionAssignment(name, args, _))) =>
-      Left(s"$name(${args.mkString(", ")}) -> Function")
-    case Some(Right(Assignment(name, Constant(number)))) =>
-      Left(s"$name -> $number")
-    case Some(Right(expr)) =>
-      expr.run(parser.dictionary) match {
-        case Right(res)  => Right(res.toString)
-        case Left(error) => Left(error.toString)
-      }
-    case Some(Left(error)) => 
-      Left(error.toString)
-    case None => 
-      Left(s"Can't parse: $line")
-  }
+  private val parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true)
 
   def initialize(): Unit =
-    expression.setText("0")
+    expression.setText("0.0")
     expression.setTextOverrun(OverrunStyle.CLIP)
 
   def onEvaluate(event: ActionEvent): Unit =
@@ -73,7 +52,7 @@ final class MainController:
     memory.foreach(updateExpression(_, true))
 
   def onFx(event: ActionEvent): Unit =
-    val text = FunctionEditor.showDialog()
+    val text = AdvancedEditor.showDialog()
     if text.nonEmpty then
       evaluate(text) match
         case Right(text) =>
@@ -100,6 +79,21 @@ final class MainController:
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
 
+  private def evaluate(line: String): Either[String, String] = 
+    parser.parse(line) match 
+      case Some(Right(FunctionAssignment(name, args, _))) =>
+        Left(s"$name(${args.mkString(", ")}) -> Function")
+      case Some(Right(Assignment(name, Constant(number)))) =>
+        Left(s"$name -> $number")
+      case Some(Right(expr)) =>
+        expr.run(parser.dictionary) match 
+          case Right(res)  => Right(res.toString)
+          case Left(error) => Left(error.toString)
+      case Some(Left(error)) =>
+        Left(error.toString)
+      case None =>
+        Left(s"Can't parse: $line")
+  
   private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
 
   private def updateExpression(newStr: String, onlyAfterOperator: Boolean = false): Unit =

@@ -1,7 +1,7 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
-import calculator.replcalc.{Dictionary, Parser}
-import calculator.replcalc.Parser.isOperator
+import calculator.logic.{Dictionary, Parser}
+import calculator.logic.Parser.isOperator
 
 import scala.annotation.tailrec
 

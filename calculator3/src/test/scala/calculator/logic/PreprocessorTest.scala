@@ -1,7 +1,7 @@
-package calculator.replcalc
+package calculator.logic
 
 import munit.Location
-import calculator.replcalc.Preprocessor.Flags
+import calculator.logic.Preprocessor.Flags
 import scala.util.chaining.*
 
 class PreprocessorTest extends munit.FunSuite:

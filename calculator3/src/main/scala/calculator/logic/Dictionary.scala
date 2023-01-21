@@ -1,4 +1,4 @@
-package calculator.replcalc
+package calculator.logic
 
 /**
  * Dictionary
@@ -16,8 +16,8 @@ package calculator.replcalc
  *    to use those variables anymore.
  */
 
-import calculator.replcalc.Dictionary.isValidName
-import calculator.replcalc.expressions.{Assignment, Expression, FunctionAssignment}
+import calculator.logic.Dictionary.isValidName
+import calculator.logic.expressions.{Assignment, Expression, FunctionAssignment, NativeFunction}
 
 final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
   import Dictionary.specialValuesCounter
@@ -44,7 +44,10 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
     val name = s"$$$specialValuesCounter"
     dict += name -> expr
     name
-
+        
+  inline def addNativeFunction(name: String, argNames: Seq[String], f: Seq[Double] => Double): Boolean = 
+    add(name, NativeFunction(name, argNames, f))
+  
   inline def get(name: String): Option[Expression] = dict.get(name)
 
   inline def contains(name: String): Boolean = dict.contains(name)
@@ -61,12 +64,12 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
       .sortBy(_._1)
       .map(_._2)
 
-  def list[ExType <: Expression](exType: Class[ExType]): Seq[ExType] =
+  def list[T <: Expression](exType: Class[T]): Seq[T] =
     expressions
-      .collect { case (name, expr) if expr.getClass == exType => (name, expr) }
+      .collect { case (name, expr) if expr.getClass == exType => (name, expr.asInstanceOf[T]) }
       .toSeq
       .sortBy(_._1)
-      .map(_._2.asInstanceOf[ExType])
+      .map(_._2)
 
 object Dictionary:
   private var specialValuesCounter: Long = 0L

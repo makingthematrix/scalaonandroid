@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import com.gluonhq.charm.glisten.control.TextArea?>
-
-
-<TextArea fx:id="functionEditor" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200" prefWidth="300" promptText="f(x) =" xmlns="http://javafx.com/javafx/19-ea+11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.FunctionEditor">
-
-
-</TextArea>

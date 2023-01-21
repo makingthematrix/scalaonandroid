@@ -1,8 +1,10 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
-import calculator.replcalc.{Dictionary, ParsedFunction, Parser, Preprocessor}
-import calculator.replcalc.expressions.Error.EvaluationError
-import calculator.replcalc.ParsedFunction.LineSide
+import calculator.logic.{Dictionary, ParsedFunction, Parser, Preprocessor}
+import calculator.logic.expressions.Error.EvaluationError
+import calculator.logic.ParsedFunction.LineSide
+
+import scala.util.{Failure, Success, Try}
 
 /**
  * Function
@@ -26,18 +28,33 @@ import calculator.replcalc.ParsedFunction.LineSide
 final case class Function(name: String, args: Seq[Expression]) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] =
     dict.get(name) match
+      case Some(f: NativeFunction) if f.argNames.length == args.length =>
+        evaluateArgs(dict).flatMap { evaluatedArgs =>
+          Try(f.f(evaluatedArgs)) match
+            case Failure(error) => Left(EvaluationError(error.getMessage))
+            case Success(result) if result.isNaN => Left(EvaluationError("Not a number"))
+            case Success(result) if result.isPosInfinity => Left(EvaluationError("+Infinity"))
+            case Success(result) if result.isNegInfinity => Left(EvaluationError("-Infinity"))
+            case Success(result) => Right(Expression.round(result))
+        }
       case Some(f: FunctionAssignment) if f.argNames.length == args.length =>
-        val evaluatedArgs = args.map(_.run(dict))
-        val evaluationErrors = evaluatedArgs.collect { case Left(error) => error }
-        if evaluationErrors.nonEmpty then
-          Left(EvaluationError(evaluationErrors.mkString("; ")))
-        else
-          val validArgs = evaluatedArgs.collect { case Right(number) => Constant(number) }
+        evaluateArgs(dict).flatMap { evaluatedArgs =>
+          val validArgs = evaluatedArgs.map { Constant(_) }
           val argMap = f.argNames.zip(validArgs).toMap
           val newDict = dict.copy(argMap)
           f.run(newDict)
+        }
       case _ =>
         Left(EvaluationError(s"Function not found: $name with ${args.length} arguments"))
+
+  private def evaluateArgs(dict: Dictionary): Either[Error, Seq[Double]] =
+    val evaluatedArgs = args.map(_.run(dict))
+    val evaluationErrors = evaluatedArgs.collect { case Left(error) => error }
+    if evaluationErrors.nonEmpty then
+      Left(EvaluationError(evaluationErrors.mkString("; ")))
+    else
+      Right(evaluatedArgs.collect { case Right(number) => number })
+
 
 object Function extends Parseable[Function]:
   override def parse(parser: Parser, line: String): ParsedExpr[Function] =

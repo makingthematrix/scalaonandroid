@@ -1,4 +1,4 @@
-package calculator.replcalc.expressions
+package calculator.logic.expressions
 
 /**
  * Expression and Parseable traits
@@ -19,7 +19,7 @@ package calculator.replcalc.expressions
  * or equal to this magic number as if it was zero.
  */
 
-import calculator.replcalc.{Dictionary, Parser}
+import calculator.logic.{Dictionary, Parser}
 
 trait Parseable[T <: Expression]:
   def parse(parser: Parser, line: String): ParsedExpr[T]

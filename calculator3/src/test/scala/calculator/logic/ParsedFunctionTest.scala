@@ -1,4 +1,4 @@
-package calculator.replcalc
+package calculator.logic
 
 import munit.Location
 
