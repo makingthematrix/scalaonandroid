@@ -1,7 +1,7 @@
 package calculator
 
 import calculator.logic.{Dictionary, Parser}
-import calculator.logic.expressions.{Assignment, Constant, FunctionAssignment}
+import calculator.logic.expressions.{Assignment, Constant, FunctionAssignment, NativeFunction}
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
@@ -52,7 +52,7 @@ final class MainController:
     memory.foreach(updateExpression(_, true))
 
   def onFx(event: ActionEvent): Unit =
-    val text = AdvancedEditor.showDialog()
+    val text = AdvancedEditor.showDialog(parser.dictionary)
     if text.nonEmpty then
       evaluate(text) match
         case Right(text) =>
@@ -81,10 +81,12 @@ final class MainController:
 
   private def evaluate(line: String): Either[String, String] = 
     parser.parse(line) match 
-      case Some(Right(FunctionAssignment(name, args, _))) =>
-        Left(s"$name(${args.mkString(", ")}) -> Function")
-      case Some(Right(Assignment(name, Constant(number)))) =>
-        Left(s"$name -> $number")
+      case Some(Right(expr: FunctionAssignment)) =>
+        Left(Dictionary.textForm(expr))
+      case Some(Right(expr: NativeFunction)) =>
+        Left(Dictionary.textForm(expr))
+      case Some(Right(expr: Assignment)) =>
+        Left(Dictionary.textForm(expr))
       case Some(Right(expr)) =>
         expr.run(parser.dictionary) match 
           case Right(res)  => Right(res.toString)

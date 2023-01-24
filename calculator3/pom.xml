@@ -136,7 +136,7 @@
                     </attachList>
                     <reflectionList>
                         <list>calculator.MainController</list>
-                        <list>calculator.FunctionsList</list>
+                        <list>calculator.DictionaryDialog</list>
                         <list>calculator.AdvancedEditor</list>
                     </reflectionList>
                 </configuration>

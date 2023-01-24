@@ -11,8 +11,8 @@ import scala.jdk.CollectionConverters.*
 import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
 
-object FunctionsList:
-  private lazy val loader = new FXMLLoader(classOf[FunctionsList].getResource("functionslist.fxml"))
+object DictionaryDialog:
+  private lazy val loader = new FXMLLoader(classOf[DictionaryDialog].getResource("dictionarydialog.fxml"))
 
   private lazy val dialog = new Dialog[String]().tap { d =>
     d.setTitle(new Label("Functions List"))
@@ -26,11 +26,11 @@ object FunctionsList:
 
   def showDialog(functionsList: Seq[String]): String =
     dialog
-    loader.getController[FunctionsList].fillFunctionsList(functionsList)
+    loader.getController[DictionaryDialog].fillFunctionsList(functionsList)
     dialog.showAndWait().toScala.getOrElse("")
 
-final class FunctionsList:
-  import FunctionsList.dialog
+final class DictionaryDialog:
+  import DictionaryDialog.dialog
 
   @FXML private var functionsList: ListView[String] = _
 

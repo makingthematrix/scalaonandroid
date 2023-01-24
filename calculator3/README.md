@@ -27,7 +27,7 @@ In the original tutorial video, the history dialog is implemented as a "stage" -
 ```scala
 object HistoryController:
  private val loader = 
-  new FXMLLoader(classOf[HistoryController].getResource("functionslist.fxml"))
+  new FXMLLoader(classOf[HistoryController].getResource("dictionarydialog.fxml"))
 
  ...
 
