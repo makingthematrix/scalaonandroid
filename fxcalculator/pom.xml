@@ -1,22 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
     <groupId>scalaonandroid</groupId>
-    <artifactId>hellofxml</artifactId>
-    <version>0.0.2</version>
+    <artifactId>fxcalculator</artifactId>
+    <version>0.0.3</version>
     <packaging>jar</packaging>
 
-    <name>HelloFXML 3</name>
+    <name>Fx Calculator</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
         <javafx.version>20-ea+11</javafx.version>
         <javafx.plugin.version>0.0.8</javafx.plugin.version>
+        <!-- Works with GraalVM CE Java 17 22.1.0, but not higher -->
         <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
-        <main.class>hellofxml.HelloFXML</main.class>
+        <charm.version>6.2.2</charm.version>
+        <attach.version>4.0.16</attach.version>
+        <main.class>fxcalculator.Main</main.class>
         <scala.version>3.3.0-RC2</scala.version>
         <scala.compat.version>3</scala.compat.version>
+        <munit.version>0.7.29</munit.version>
     </properties>
 
     <dependencies>
@@ -26,7 +32,6 @@
             <artifactId>scala3-library_3</artifactId>
             <version>${scala.version}</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.scalameta/svm-subs -->
         <!-- because of https://github.com/scala/bug/issues/11634 -->
         <dependency>
@@ -39,10 +44,48 @@
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-	<dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-glisten</artifactId>
+            <version>${charm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>display</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>storage</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>util</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>lifecycle</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>statusbar</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.scalameta/munit -->
+        <dependency>
+            <groupId>org.scalameta</groupId>
+            <artifactId>munit_3</artifactId>
+            <version>${munit.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -85,8 +128,16 @@
                 <configuration>
                     <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
+                    <attachList>
+                        <list>display</list>
+                        <list>storage</list>
+                        <list>lifecycle</list>
+                        <list>statusbar</list>
+                    </attachList>
                     <reflectionList>
-                        <list>hellofxml.HelloFXMLController</list>
+                        <list>fxcalculator.MainController</list>
+                        <list>fxcalculator.DictionaryDialog</list>
+                        <list>fxcalculator.AdvancedEditor</list>
                     </reflectionList>
                 </configuration>
             </plugin>
@@ -96,6 +147,16 @@
                 <version>${javafx.plugin.version}</version>
                 <configuration>
                     <mainClass>${main.class}</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.*</include>
+                    </includes>
                 </configuration>
             </plugin>
             <plugin>
@@ -135,4 +196,12 @@
             </properties>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>gluon-releases</id>
+            <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
 </project>

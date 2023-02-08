@@ -1,0 +1,14 @@
+Label {
+    -fx-font-size: 2em;
+    -fx-text-fill: -primary-swatch-700;
+}
+
+.number-button {
+    -fx-font-size: 3em;
+    -fx-font-weight: bold;
+}
+
+.evaluate-button {
+    -fx-font-size: 4em;
+    -fx-font-weight: bold;
+}
