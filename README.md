@@ -1,15 +1,15 @@
 ### Scala on Android
 
-This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala 2.13 (or, since June 20, 2021, with Scala 3 🎉). As you can imagine, even putting this whole tech stack together requires some effort. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
- * UI widgets
+This is a repo for examples, small tutorials, and some chaotic notes on how to write Android apps with GraalVM, Gluon Mobile, JavaFX, and Scala. As you can imagine, even putting this whole tech stack together requires some effort. But I managed to do this pretty quickly for something that looks so complex, so I decided, why the hell not, I want to share with you how to do it. My idea is to test all the usual functionalities an Android app should have:
+ * UI widgets [done]
  * Push notifications
- * Web sockets
+ * Web sockets [done]
  * Access to the camera and microphone
  * Android's KeyStore (e.g. for storing encrypted passwords)
  * Intents from other apps (e.g. for file sharing)
  * The app lifecycle, esp. how to manage going to the background and waking up, receiving an event while in the background, etc.
- * Permissions
- * Execution contexts handling
+ * Permissions [done]
+ * Execution contexts handling [done]
  
 If any of them don't work and there are no easy alternatives, it means the whole tech stack is not mature yet. But from what I saw so far I'm carefully optimistic. Especially the fact that so many people work on so many parts of all of this, and my work consists mainly of putting it all together, gives me hope. 
 
@@ -28,16 +28,11 @@ And here are the examples:
 4. [European Union](https://github.com/makingthematrix/scalaonandroid/wiki/European-Union-(and-Scotland)-example) - shows a scrollable list with country flags downloaded from Wikipedia and some basic Android GUI functionality
 5. [European Union 3](https://github.com/makingthematrix/scalaonandroid/tree/main/europeanunion3) - as above, but in Scala 3
 6. [Comments](https://github.com/makingthematrix/scalaonandroid/tree/main/comments) - an app showcasing a bit more complex GUI functionality; thanks @rleibman!
-7. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator) - well, it's a calculator
-8. [Calculator 3](https://github.com/makingthematrix/scalaonandroid/tree/main/calculator3) - also a calculator, and you already know in what
+7. [Calculator](https://github.com/makingthematrix/scalaonandroid/tree/main/fxcalculator) - well, it's a calculator
 9. [HelloFXGL](https://github.com/makingthematrix/scalaonandroid/tree/main/HelloFXGL) - a minimal example with FXGL, a game engine; for now works only on desktop
- * Also please look at [my other repo](https://github.com/makingthematrix/ca_art) for examples of cellular automata written in Scala + FXGL. In the future I plan to bring them to Android.
-
 
 #### Discord
 
 There is a #scala-android channel on the official Scala discord: https://discord.gg/UuDawpq7 
 
-And also an #android channel on the "Learning Scala" discord: https://discord.gg/XHMt6Yq4
-
-In both cases, these are channels about all things connected to Scala on Android. I write mostly about the GraalVM stack, but if you're interested in React Native+Scala.js approach, you're more than welcome (actually I need someone to write about that :) ) or if you're into the sbt-android or gradle-scala plugins, or maybe you don't even care that much about Scala but you're interested in one of the other puzzle pieces we can use: GraalVM, Gluon Mobile, Slinky... come and share your ideas :)
+I write there mostly about the GraalVM stack, but if you're interested in React Native+Scala.js approach, you're more than welcome (actually I need someone to write about that :) ) or if you're into the sbt-android or gradle-scala plugins, or maybe you don't even care that much about Scala but you're interested in one of the other puzzle pieces we can use: GraalVM, Gluon Mobile, Slinky... come and share your ideas :)
