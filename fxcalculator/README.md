@@ -49,7 +49,7 @@ final class AdvancedEditor:
 
 ### Differences in `pom.xml` in comparison to HelloFXML3
 
-If you compare the `pom.xml` file in the Calculator example with the one in the basic HelloFXML, you'll notice that most of the new stuff is Gluon dependencies. They belong to two groups: 
+If you compare the `pom.xml` file in the Calculator example with the one in the basic [HelloFXML3](https://github.com/makingthematrix/scalaonandroid/tree/main/HelloFXML3), you'll notice that most of the new stuff is Gluon dependencies. They belong to two groups: 
 
 1. `charm-glisten` 
 
