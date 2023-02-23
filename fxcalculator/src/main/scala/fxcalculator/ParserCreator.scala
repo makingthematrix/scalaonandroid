@@ -1,7 +1,8 @@
 package fxcalculator
 
-import fxcalculator.logic.expressions.{Constant, NativeFunction}
+import fxcalculator.logic.expressions.{Assignment, Constant, NativeFunction}
 import fxcalculator.logic.{Dictionary, Parser}
+
 import scala.util.chaining.scalaUtilChainingOps
 
 object ParserCreator:
@@ -37,18 +38,18 @@ object ParserCreator:
     f1("ulp", math.ulp)
   )
 
-  private val constants: Map[String, Constant] = Map(
-    "Pi"  -> Constant(math.Pi),
-    "E"   -> Constant(math.E),
-    "Cm"  -> Constant(299792458.0),
-    "Ckm" -> Constant(299792.458)
+  private val assignments: Set[Assignment] = Set(
+    Assignment("Pi", Constant(math.Pi)),
+    Assignment("E", Constant(math.E)),
+    Assignment("Cm", Constant(299792458.0)),
+    Assignment("Ckm", Constant(299792.458))
   )
 
   def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false): Parser =
     val dictionary = Dictionary().tap { dict =>
       if withNativeFunctions then nativeFunctions.foreach(f => dict.add(f.name, f))
-      if withConstants then constants.map { case (name, c) => dict.add(name, c) }
+      if withConstants then assignments.foreach { a => dict.add(a.name, a) }
     }
     Parser(dictionary = dictionary).tap { parser =>
-      if withStorage then Storage.read.foreach(parser.parse)
+      if withStorage then Storage.readIn(parser)
     }

@@ -7,7 +7,7 @@ final case class NativeFunction(name: String, argNames: Seq[String], f: Seq[Doub
   override protected def evaluate(dict: Dictionary): Either[Error, Double] =
     Left(EvaluationError(s"Unable to evaluate a native function $name"))
 
-  override def textForm: String = s"$name(${argNames.mkString(", ")}) -> NativeFunction"
+  override def textForm: String = s"$name(${argNames.mkString(", ")}) = [NativeFunction]"
 
 object NativeFunction:
   inline def f1(name: String, argName: String, f: Double => Double): NativeFunction =

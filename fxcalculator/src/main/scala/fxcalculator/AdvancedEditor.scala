@@ -10,7 +10,7 @@ import scala.jdk.CollectionConverters.*
 import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
 import fxcalculator.logic.Dictionary
-import fxcalculator.logic.expressions.Constant
+import fxcalculator.logic.expressions.{Assignment, Constant, FunctionAssignment, NativeFunction}
 import javafx.scene.Node
 
 object AdvancedEditor:
@@ -43,12 +43,13 @@ final class AdvancedEditor:
     d.getButtons.add(new Button("Functions").tap { c =>
       c.setOnAction { (_: ActionEvent) =>
         val expressions = dictionary.map {
-          _.expressions.map {
-            case (name, Constant(value)) => s"$name -> $value"
-            case (_, expr)               => expr.textForm
+          _.expressions.collect {
+            case (_, expr: Assignment)         => expr.textForm
+            case (_, expr: FunctionAssignment) => expr.textForm
+            case (_, expr: NativeFunction)     => expr.textForm
           }.toSeq
         }.getOrElse(Nil).sorted
-        val result = DictionaryDialog.showDialog(expressions).split("->")(0).trim
+        val result = DictionaryDialog.showDialog(expressions).split("=")(0).trim
         if result.nonEmpty then
           val text = textArea.getText
           val caret = textArea.getCaretPosition
