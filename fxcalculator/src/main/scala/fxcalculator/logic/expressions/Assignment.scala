@@ -27,6 +27,7 @@ import scala.util.chaining.*
  */
 final case class Assignment(name: String, constant: Constant) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] = constant.run(dict)
+  override def textForm: String = s"$name -> ${constant.number}"
 
 object Assignment extends Parseable[Assignment]:
   override def parse(parser: Parser, line: String): ParsedExpr[Assignment] =

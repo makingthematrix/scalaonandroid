@@ -73,31 +73,8 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
 object Dictionary:
   private var specialValuesCounter: Long = 0L
 
-  private val argLetters: Seq[Char] = 'a' to 'z'
-
-  private def genArgName(n: Int): String =
-    val index = n / argLetters.size
-    val offset = n % argLetters.size
-    if index == 0 then argLetters(offset).toString else s"${argLetters(offset)}$index"
-
   def isValidName(name: String, canBeSpecial: Boolean = false): Boolean =
     name.nonEmpty &&
       name.exists(_ != '_') &&
       (name.head.isLetter || name.head == '_' || (canBeSpecial && name.head == '$')) &&
       name.substring(1).forall(ch => ch.isLetterOrDigit || ch == '_')
-
-  def textForm(expr: Expression): String = expr match
-    case FunctionAssignment(name, argNames, _) =>
-      s"$name(${argNames.mkString(", ")}) -> Function"
-    case Function(name, args) =>
-      val argNames = (0 to args.size).map(genArgName)
-      s"$name(${argNames.mkString(", ")}) -> Function"
-    case NativeFunction(name, argNames, _) =>
-      s"$name(${argNames.mkString(", ")}) -> Function"
-    case Assignment(name, Constant(value)) =>
-      s"$name -> $value"
-    case Constant(value) =>
-      s"$value"
-    case Variable(name) =>
-      name
-    case _ => ""

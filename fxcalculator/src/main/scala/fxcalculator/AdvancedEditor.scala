@@ -21,7 +21,7 @@ object AdvancedEditor:
     loader.getController[AdvancedEditor].run(dictionary)
 
 final class AdvancedEditor:
-  import fxcalculator.AdvancedEditor.root
+  import AdvancedEditor.root
 
   @FXML private var textArea: TextArea = _
 
@@ -45,7 +45,7 @@ final class AdvancedEditor:
         val expressions = dictionary.map {
           _.expressions.map {
             case (name, Constant(value)) => s"$name -> $value"
-            case (_, expr) => Dictionary.textForm(expr)
+            case (_, expr)               => expr.textForm
           }.toSeq
         }.getOrElse(Nil).sorted
         val result = DictionaryDialog.showDialog(expressions).split("->")(0).trim

@@ -27,6 +27,7 @@ trait Parseable[T <: Expression]:
 trait Expression:
   protected def evaluate(dict: Dictionary): Either[Error, Double]
   final def run(dict: Dictionary): Either[Error, Double] = evaluate(dict).map(Expression.round(_))
+  def textForm: String = ""
 
 object Expression:
   private val DIVISION_PRECISION: Double = ((1.0/3.0)*3.0)-(1.0/3.0)-(1.0/3.0)-(1.0/3.0)

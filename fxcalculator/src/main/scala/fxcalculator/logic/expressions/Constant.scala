@@ -12,6 +12,7 @@ import fxcalculator.logic.{Dictionary, Parser}
  */
 final case class Constant(number: Double) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] = Right(number)
+  override def textForm: String = number.toString
 
 object Constant extends Parseable[Constant]:
   override def parse(parser: Parser, line: String): ParsedExpr[Constant] =

@@ -22,6 +22,8 @@ final case class Variable(name: String) extends Expression:
       .get(name)
       .map(_.run(dict))
       .getOrElse(Left(EvaluationError(s"Variable not found: $name")))
+
+  override def textForm: String = name
   
 object Variable extends Parseable[Variable]:
   override def parse(parser: Parser, line: String): ParsedExpr[Variable] =

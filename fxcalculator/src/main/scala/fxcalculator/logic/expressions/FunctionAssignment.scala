@@ -23,8 +23,9 @@ import scala.util.chaining.*
  * @param expr The expression associated with the function name and its arguments
  */
 
-final case class FunctionAssignment(name: String, argNames: Seq[String], expr: Expression) extends Expression:
+final case class FunctionAssignment(name: String, argNames: Seq[String], definition: String, expr: Expression) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] = expr.run(dict)
+  override def textForm: String = s"$name(${argNames.mkString(", ")}) -> $definition"
 
 object FunctionAssignment extends Parseable[FunctionAssignment]:
   override def parse(parser: Parser, line: String): ParsedExpr[FunctionAssignment] =
@@ -39,18 +40,18 @@ object FunctionAssignment extends Parseable[FunctionAssignment]:
         case Right(ParsedFunction(name, _)) if parser.dictionary.contains(name) =>
           ParsedExpr.error(s"The function already exists: $name")
         case Right(ParsedFunction(name, arguments)) =>
-          val expressionStr = line.substring(assignIndex + 1)
-          parseAssignment(parser, name, arguments, expressionStr)
+          val definition = line.substring(assignIndex + 1)
+          parseAssignment(parser, name, arguments, definition)
       }
 
-  private def parseAssignment(parser: Parser, name: String, arguments: Seq[String], expressionStr: String): ParsedExpr[FunctionAssignment] =
+  private def parseAssignment(parser: Parser, name: String, arguments: Seq[String], definition: String): ParsedExpr[FunctionAssignment] =
     parser
       .copy(arguments.map(arg => arg -> Variable(arg)).toMap)
-      .parse(expressionStr)
+      .parse(definition)
       .happyPath { expression =>
-        FunctionAssignment(name, arguments, expression).pipe { assignment =>
+        FunctionAssignment(name, arguments, definition, expression).pipe { assignment =>
           parser.dictionary.add(name, assignment)
           ParsedExpr(assignment)
         }
       }
-      .errorIfEmpty(s"Unable to parse: $expressionStr")
+      .errorIfEmpty(s"Unable to parse: $definition")
