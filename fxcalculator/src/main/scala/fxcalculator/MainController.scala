@@ -82,10 +82,12 @@ final class MainController:
   private def evaluate(line: String): Either[String, String] = 
     parser.parse(line) match 
       case Some(Right(expr: FunctionAssignment)) =>
+        Storage.append(expr.textForm)
         Left(expr.textForm)
       case Some(Right(expr: NativeFunction)) =>
         Left(expr.textForm)
       case Some(Right(expr: Assignment)) =>
+        Storage.append(expr.textForm)
         Left(expr.textForm)
       case Some(Right(expr)) =>
         expr.run(parser.dictionary) match 

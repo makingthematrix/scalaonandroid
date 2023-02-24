@@ -6,8 +6,8 @@ import fxcalculator.logic.expressions.Error.EvaluationError
 final case class NativeFunction(name: String, argNames: Seq[String], f: Seq[Double] => Double) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] =
     Left(EvaluationError(s"Unable to evaluate a native function $name"))
-
-  override def textForm: String = s"$name(${argNames.mkString(", ")}) = [NativeFunction]"
+  override def declaration: String = Expression.functionDeclaration(name, argNames)
+  override def textForm: String = s"$declaration = [NativeFunction]"
 
 object NativeFunction:
   inline def f1(name: String, argName: String, f: Double => Double): NativeFunction =

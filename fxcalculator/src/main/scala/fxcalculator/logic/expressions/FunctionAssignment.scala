@@ -25,7 +25,8 @@ import scala.util.chaining.*
 
 final case class FunctionAssignment(name: String, argNames: Seq[String], definition: String, expr: Expression) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] = expr.run(dict)
-  override def textForm: String = s"$name(${argNames.mkString(", ")}) = $definition"
+  override def declaration: String = Expression.functionDeclaration(name, argNames)
+  override def textForm: String = s"$declaration = $definition"
 
 object FunctionAssignment extends Parseable[FunctionAssignment]:
   override def parse(parser: Parser, line: String): ParsedExpr[FunctionAssignment] =

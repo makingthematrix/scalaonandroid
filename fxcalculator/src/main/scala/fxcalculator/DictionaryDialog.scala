@@ -38,7 +38,7 @@ final class DictionaryDialog:
   def initialize(): Unit =
     functionsList.setOnMouseClicked { (_: MouseEvent) =>
       functionsList.getSelectionModel.getSelectedItems.asScala.headOption.foreach { expr =>
-        dialog.setResult(expr.split("=").last.trim)
+        dialog.setResult(expr.split("=").head.trim)
         dialog.hide()
       }
     }

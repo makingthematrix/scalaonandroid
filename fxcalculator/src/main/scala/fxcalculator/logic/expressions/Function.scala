@@ -47,10 +47,9 @@ final case class Function(name: String, args: Seq[Expression]) extends Expressio
         }
       case _ =>
         Left(EvaluationError(s"Function not found: $name with ${args.length} arguments"))
-
-  override def textForm: String =
-    val argNames = (0 to args.size).map(genArgName)
-    s"$name(${argNames.mkString(", ")}) -> Function"
+    
+  override def declaration: String = Expression.functionDeclaration(name, (0 to args.size).map(genArgName))
+  override def textForm: String = s"$declaration = [Function]"
 
   private def evaluateArgs(dict: Dictionary): Either[Error, Seq[Double]] =
     val evaluatedArgs = args.map(_.run(dict))
