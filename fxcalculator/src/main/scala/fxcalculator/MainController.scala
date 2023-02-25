@@ -26,7 +26,7 @@ final class MainController:
   private var clearExpression = true
   private var memory: Option[String] = None
 
-  private val parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true)
+  private lazy val parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true, withStorage = true)
 
   def initialize(): Unit =
     expression.setText("0.0")

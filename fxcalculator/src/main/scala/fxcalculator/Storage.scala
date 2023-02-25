@@ -14,30 +14,25 @@ import scala.jdk.OptionConverters.*
 import scala.util.{Failure, Success, Try}
 
 object Storage:
-  private lazy val dataDirectory: Option[Path] =
+  private lazy val functionsFilePath: Option[Path] =
     Try {
       StorageService.create().toScala.flatMap {
-        _.getPublicStorage("functions").toScala.map(p => Paths.get(p.getPath))
+        _.getPrivateStorage.toScala.map(_.toPath.resolve("functions.txt"))
       }
     } match
       case Success(path) =>
         path
       case Failure(ex) =>
-        error(s"(1) ${ex.getMessage}")
-        None
-
-  private lazy val functionsFilePath: Option[Path] =
-    Try(dataDirectory.map(_.resolve("functions.txt"))) match
-      case Success(path) =>
-        path
-      case Failure(ex) =>
-        error(s"(2) ${ex.getMessage}")
+        error(ex.getMessage)
         None
 
   private def withFilePath[T](f: Path => T): Either[String, T] = functionsFilePath match
     case Some(filePath) =>
       info(s"file path: $filePath")
-      Try(f(filePath)) match
+      Try {
+        if !Files.exists(filePath) then Files.createFile(filePath)
+        f(filePath)
+      } match
         case Success(res) => Right(res)
         case Failure(ex)  => Left(ex.getMessage)
     case None =>
