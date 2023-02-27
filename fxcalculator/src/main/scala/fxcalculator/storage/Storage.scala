@@ -1,23 +1,22 @@
-package fxcalculator
+package fxcalculator.storage
 
 import com.gluonhq.attach.storage.StorageService
 import com.sun.javafx.logging.Logger
-import fxcalculator.logic.{Dictionary, Parser}
-import fxcalculator.logic.expressions.{Assignment, FunctionAssignment}
 import fxcalculator.Logger.*
+import fxcalculator.logic.expressions.{Assignment, FunctionAssignment}
+import fxcalculator.logic.{Dictionary, Parser}
 
 import java.io.File
 import java.nio.file.{Files, Path, Paths, StandardOpenOption}
-import scala.jdk.CollectionConverters.CollectionHasAsScala
-import scala.jdk.CollectionConverters.IterableHasAsJava
+import scala.jdk.CollectionConverters.{CollectionHasAsScala, IterableHasAsJava}
 import scala.jdk.OptionConverters.*
 import scala.util.{Failure, Success, Try}
 
 object Storage:
-  private lazy val functionsFilePath: Option[Path] =
+  private lazy val storageFilePath: Option[Path] =
     Try {
       StorageService.create().toScala.flatMap {
-        _.getPrivateStorage.toScala.map(_.toPath.resolve("functions.txt"))
+        _.getPrivateStorage.toScala.map(_.toPath.resolve("storage.txt"))
       }
     } match
       case Success(path) =>
@@ -26,9 +25,8 @@ object Storage:
         error(ex.getMessage)
         None
 
-  private def withFilePath[T](f: Path => T): Either[String, T] = functionsFilePath match
+  private def withFilePath[T](f: Path => T): Either[String, T] = storageFilePath match
     case Some(filePath) =>
-      info(s"file path: $filePath")
       Try {
         if !Files.exists(filePath) then Files.createFile(filePath)
         f(filePath)
@@ -40,7 +38,6 @@ object Storage:
       Left("Unable to resolve the data file path")
 
   def append(textForm: String): Either[String, Unit] = withFilePath { path =>
-    info(s"append $textForm")
     Files.write(path, Seq(textForm).asJava, StandardOpenOption.APPEND)
   }
 
@@ -49,7 +46,6 @@ object Storage:
     val funcs = dictionary.list(classOf[FunctionAssignment])
     val vars = dictionary.list(classOf[Assignment])
     val textForms = funcs.map(_.textForm) ++ vars.map(_.textForm)
-    info(s"textForms: ${textForms.mkString("\n")}")
     Files.write(path, textForms.asJava, StandardOpenOption.CREATE)
   }
 

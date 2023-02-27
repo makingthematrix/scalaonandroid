@@ -2,6 +2,7 @@ package fxcalculator
 
 import fxcalculator.logic.{Dictionary, Parser}
 import fxcalculator.logic.expressions.{Assignment, Constant, FunctionAssignment, NativeFunction}
+import fxcalculator.storage.Storage
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
