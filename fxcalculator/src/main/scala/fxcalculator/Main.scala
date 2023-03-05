@@ -15,6 +15,8 @@ import scala.jdk.FunctionConverters.enrichAsJavaFunction
 import com.gluonhq.charm.glisten.application.AppManager.HOME_VIEW
 import javafx.stage.Stage
 
+import io.github.makingthematrix.signals3.ui.UiDispatchQueue
+
 object Main:
   def main(args: scala.Array[String]): Unit = Application.launch(classOf[Main], args: _*)
 
@@ -27,6 +29,7 @@ final class Main extends Application:
   private val appManager = AppManager.initialize(postInit)
 
   override def init(): Unit =
+    UiDispatchQueue.setUi(javafx.application.Platform.runLater)
     val root = FXMLLoader.load[BorderPane](classOf[Main].getResource("main.fxml"))
     appManager.addViewFactory(HOME_VIEW, () => new View(root))
 

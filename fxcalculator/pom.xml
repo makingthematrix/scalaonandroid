@@ -40,6 +40,11 @@
             <version>101.0.0</version>
         </dependency>
         <dependency>
+            <groupId>io.github.makingthematrix</groupId>
+            <artifactId>signals3_3</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
@@ -136,7 +141,6 @@
                     </attachList>
                     <reflectionList>
                         <list>fxcalculator.MainController</list>
-                        <list>fxcalculator.DictionaryDialog</list>
                         <list>fxcalculator.AdvancedEditor</list>
                     </reflectionList>
                     <nativeImageArgs>

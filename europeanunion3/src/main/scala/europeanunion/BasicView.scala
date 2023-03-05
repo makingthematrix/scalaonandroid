@@ -83,7 +83,7 @@ final class BasicView(filteredList: FilteredList[Country], listView: CharmListVi
 
     appBar.getActionItems.add(MaterialDesignIcon.SORT.button { _ =>
       listView.setHeaderComparator((d1: Density, d2: Density) => d1.initial - d2.initial)
-      if (ascending) then
+      if ascending then
         listView.setComparator((s1: Country, s2: Country) => (s1.density - s2.density).toInt)
         ascending = false
       else

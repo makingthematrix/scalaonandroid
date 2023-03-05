@@ -2,7 +2,7 @@ package fxcalculator
 
 import fxcalculator.logic.expressions.{Assignment, Constant, NativeFunction}
 import fxcalculator.logic.{Dictionary, Parser}
-import fxcalculator.storage.Storage
+import fxcalculator.functions.Storage
 
 import scala.util.chaining.scalaUtilChainingOps
 

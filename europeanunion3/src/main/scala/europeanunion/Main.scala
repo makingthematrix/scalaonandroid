@@ -18,8 +18,8 @@ object Main:
   def main(args: Array[String]): Unit = Application.launch(classOf[Main], args: _*)
 
 final class Main extends Application:
-
   private val appManager = AppManager.initialize(postInit)
+  
   override def init(): Unit =
     appManager.addViewFactory(HOME_VIEW, () => BasicView())
 

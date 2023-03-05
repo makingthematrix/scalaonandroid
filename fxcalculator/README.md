@@ -27,9 +27,9 @@ In the original tutorial video, the history dialog is implemented as a "stage" -
 
 ```scala
 object AdvancedEditor:
- private val loader = new FXMLLoader(classOf[HistoryController].getResource("dictionarydialog.fxml"))
- private val root: Node = loader.load[Node]()
-
+  private val loader = new FXMLLoader(classOf[AdvancedEditor].getResource("advancededitor.fxml"))
+  private val root: Node = loader.load[Node]()
+    
  ...
 
 final class AdvancedEditor:

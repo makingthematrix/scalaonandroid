@@ -1,4 +1,4 @@
-package fxcalculator.storage
+package fxcalculator.functions
 
 import com.gluonhq.attach.storage.StorageService
 import com.sun.javafx.logging.Logger
