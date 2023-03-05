@@ -19,9 +19,10 @@ import javafx.beans.value.{ChangeListener, ObservableValue}
 import javafx.collections.FXCollections
 import javafx.collections.transformation.FilteredList
 import javafx.scene.Node
+import fxcalculator.Resource.*
 
 object AdvancedEditor:
-  private val loader = new FXMLLoader(classOf[AdvancedEditor].getResource("advancededitor.fxml"))
+  private val loader = new FXMLLoader(url(AdvancedEditorFxml))
   private val root: Node = loader.load[Node]()
 
   def showDialog(dictionary: Dictionary): String = loader.getController[AdvancedEditor].run(dictionary)
