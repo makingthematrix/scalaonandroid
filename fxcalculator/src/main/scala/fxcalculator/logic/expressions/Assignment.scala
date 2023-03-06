@@ -25,7 +25,7 @@ import scala.util.chaining.*
  * @param name Name of the variable
  * @param constant The right side expression evaluated just after parsing and made into a constant
  */
-final case class Assignment(name: String, constant: Constant) extends Expression:
+final case class Assignment(name: String, constant: Constant, isCustom: Boolean = true) extends Expression:
   override protected def evaluate(dict: Dictionary): Either[Error, Double] = constant.run(dict)
   override def declaration: String = name 
   override def textForm: String = s"$name = ${constant.number}"

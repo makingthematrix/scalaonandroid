@@ -11,7 +11,7 @@ import scala.jdk.OptionConverters.*
 import scala.jdk.FunctionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
 import fxcalculator.logic.Dictionary
-import fxcalculator.logic.expressions.{Assignment, Constant, FunctionAssignment, NativeFunction}
+import fxcalculator.logic.expressions.{Assignment, Constant, Expression, FunctionAssignment, NativeFunction}
 import fxcalculator.functions.{FunctionCell, FunctionEntry}
 import io.github.makingthematrix.signals3.Signal
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
@@ -76,12 +76,11 @@ final class AdvancedEditor:
     })
 
   private def populateFunctionsList(dictionary: Dictionary): Unit =
-    val entries: Seq[FunctionEntry] =
-      dictionary.expressions.collect {
-        case (_, expr: Assignment)         => FunctionEntry(expr)
-        case (_, expr: FunctionAssignment) => FunctionEntry(expr)
-        case (_, expr: NativeFunction)     => FunctionEntry(expr)
-      }.toSeq
+    val exprs = dictionary.list
+    val entries =
+      exprs.collect { case expr: Assignment         => FunctionEntry(expr) } ++
+      exprs.collect { case expr: NativeFunction     => FunctionEntry(expr) } ++
+      exprs.collect { case expr: FunctionAssignment => FunctionEntry(expr) }
     val filteredList = new FilteredList(
       FXCollections.observableArrayList(entries.asJavaCollection),
       (_: FunctionEntry) => true

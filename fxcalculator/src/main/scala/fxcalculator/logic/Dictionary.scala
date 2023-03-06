@@ -17,8 +17,10 @@ package fxcalculator.logic
  */
 
 import fxcalculator.logic.expressions.*
+import scala.collection.mutable
 
-final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
+final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
+                       private var chronological: Seq[String] = Seq.empty):
   import Dictionary.{isValidName, specialValuesCounter}
 
   def canAssign(name: String): Boolean =
@@ -28,11 +30,16 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
       case _                         => false
 
   def add(name: String, expr: Expression, canBeSpecial: Boolean = false): Boolean =
-    dict.get(name) match
-      case Some(_ : Assignment) =>
+    (dict.get(name), expr) match
+      case (Some(_ : Assignment), _ : Assignment) =>
         dict += name -> expr
+        chronological :+ name
         true
-      case None if isValidName(name, canBeSpecial) =>
+      case (None, _: FunctionAssignment) =>
+        dict += name -> expr
+        chronological :+ name
+        true
+      case (None, _) if isValidName(name, canBeSpecial) =>
         dict += name -> expr
         true
       case _ =>
@@ -57,18 +64,9 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
 
   def copy(updates: Map[String, Expression]): Dictionary = Dictionary(dict ++ updates)
 
-  def list: Seq[Expression] =
-    expressions
-      .toSeq
-      .sortBy(_._1)
-      .map(_._2)
+  def list: Seq[Expression] = expressions.toSeq.sortBy(_._1).map(_._2)
 
-  def list[T <: Expression](exType: Class[T]): Seq[T] =
-    expressions
-      .collect { case (name, expr) if expr.getClass == exType => (name, expr.asInstanceOf[T]) }
-      .toSeq
-      .sortBy(_._1)
-      .map(_._2)
+  def chronologicalList: Seq[Expression] = chronological.flatMap(dict.get)
 
 object Dictionary:
   private var specialValuesCounter: Long = 0L

@@ -43,9 +43,7 @@ object Storage:
 
   def dump(parser: Parser): Either[String, Unit] = withFilePath { path =>
     val dictionary = parser.dictionary
-    val funcs = dictionary.list(classOf[FunctionAssignment])
-    val vars = dictionary.list(classOf[Assignment])
-    val textForms = funcs.map(_.textForm) ++ vars.map(_.textForm)
+    val textForms = dictionary.chronologicalList.map(_.textForm)
     Files.write(path, textForms.asJava, StandardOpenOption.CREATE)
   }
 

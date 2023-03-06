@@ -14,14 +14,13 @@ object FunctionCell:
     new BackgroundFill(Color.BEIGE, new CornerRadii(1), new Insets(0.0,0.0,0.0,0.0))
   )
 
-  private lazy val trashIcon = new Image(url(TrashPng).toExternalForm)
-
+  private lazy val trashIcon = new Image(stream(TrashPng))
 
 final class FunctionCell(tile: ListTile, imageView: ImageView) extends CharmListCell[FunctionEntry]:
   import FunctionCell._
 
   imageView.setFitHeight(15)
-  imageView.setFitWidth(15)
+  imageView.setFitWidth(10)
 
   /* In Android, cells of a scrollable list can be re-used when they leave the screen.
      Instead of  just sitting there in the memory, waiting to show up again, or being destroyed and recreated,
@@ -32,18 +31,14 @@ final class FunctionCell(tile: ListTile, imageView: ImageView) extends CharmList
   override def updateItem(item: FunctionEntry, empty: Boolean): Unit =
     super.updateItem(item, empty)
     (Option(item), empty) match
-      case (Some(entry: NativeEntry), false) =>
-        tile.textProperty.setAll(entry.declaration)
-        tile.setStyle("italic")
-        tile.setWrapText(true)
-        tile.setPrimaryGraphic(null)
-        setGraphic(tile)
-        //tile.setBackground(background)
-      case (Some(entry: CustomEntry), false) =>
+      case (Some(entry: FunctionEntry), false) =>
         tile.textProperty.setAll(entry.textForm)
         tile.setWrapText(true)
-        imageView.setImage(trashIcon)
-        tile.setPrimaryGraphic(imageView)
+        if entry.isCustom then
+          imageView.setImage(trashIcon)
+          tile.setPrimaryGraphic(imageView)
+        else  
+          tile.setPrimaryGraphic(null)
         setGraphic(tile)
         //tile.setBackground(background)
       case _ =>
