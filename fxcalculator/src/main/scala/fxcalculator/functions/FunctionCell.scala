@@ -1,26 +1,27 @@
 package fxcalculator.functions
 
 import com.gluonhq.charm.glisten.control.{CharmListCell, ListTile}
-import javafx.geometry.Insets
 import javafx.scene.image.{Image, ImageView}
-import javafx.scene.layout.{Background, BackgroundFill, CornerRadii}
-import javafx.scene.paint.Color
+import javafx.scene.layout.{HBox, Priority}
+import javafx.scene.input.MouseEvent
 import fxcalculator.Resource.*
 
+import scala.util.chaining.scalaUtilChainingOps
+
 object FunctionCell:
-  def apply(): FunctionCell = new FunctionCell(new ListTile(), new ImageView())
-
-  private val background = new Background(
-    new BackgroundFill(Color.BEIGE, new CornerRadii(1), new Insets(0.0,0.0,0.0,0.0))
-  )
-
   private lazy val trashIcon = new Image(stream(TrashPng))
 
-final class FunctionCell(tile: ListTile, imageView: ImageView) extends CharmListCell[FunctionEntry]:
-  import FunctionCell._
+final case class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntry => Unit) extends CharmListCell[FunctionEntry]:
+  private val tile = new ListTile().tap { t =>
+    t.setWrapText(true)
+    HBox.setHgrow(t, Priority.ALWAYS)
+  }
 
-  imageView.setFitHeight(15)
-  imageView.setFitWidth(10)
+  private val imageView = new ImageView().tap { view =>
+    view.setFitHeight(15)
+    view.setFitWidth(10)
+    view.setImage(FunctionCell.trashIcon)
+  }
 
   /* In Android, cells of a scrollable list can be re-used when they leave the screen.
      Instead of  just sitting there in the memory, waiting to show up again, or being destroyed and recreated,
@@ -30,16 +31,11 @@ final class FunctionCell(tile: ListTile, imageView: ImageView) extends CharmList
   */
   override def updateItem(item: FunctionEntry, empty: Boolean): Unit =
     super.updateItem(item, empty)
-    (Option(item), empty) match
-      case (Some(entry: FunctionEntry), false) =>
-        tile.textProperty.setAll(entry.textForm)
-        tile.setWrapText(true)
-        if entry.isCustom then
-          imageView.setImage(trashIcon)
-          tile.setPrimaryGraphic(imageView)
-        else  
-          tile.setPrimaryGraphic(null)
+    if !empty then
+      tile.textProperty.setAll(item.textForm)
+      tile.setOnMouseClicked((_: MouseEvent) => selectMe(item))
+      if item.isCustom then
+        imageView.setOnMouseClicked((_: MouseEvent) => deleteMe(item))
+        setGraphic(new HBox(tile, imageView))
+      else
         setGraphic(tile)
-        //tile.setBackground(background)
-      case _ =>
-        setGraphic(null)

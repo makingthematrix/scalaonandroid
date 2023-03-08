@@ -1,25 +1,28 @@
 package fxcalculator
 
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
-import javafx.event.{ActionEvent, EventHandler, EventType}
-import javafx.fxml.{FXML, FXMLLoader}
-import javafx.scene.control.{Button, Label, TextArea}
-import javafx.scene.input.{KeyCode, KeyEvent, MouseEvent}
-
-import scala.jdk.CollectionConverters.*
-import scala.jdk.OptionConverters.*
-import scala.jdk.FunctionConverters.*
-import scala.util.chaining.scalaUtilChainingOps
-import fxcalculator.logic.Dictionary
-import fxcalculator.logic.expressions.{Assignment, Constant, Expression, FunctionAssignment, NativeFunction}
+import fxcalculator.Resource.*
 import fxcalculator.functions.{FunctionCell, FunctionEntry}
-import io.github.makingthematrix.signals3.Signal
+import fxcalculator.logic.Dictionary
+import fxcalculator.logic.expressions.*
+import io.github.makingthematrix.signals3.EventStream
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
 import javafx.beans.value.{ChangeListener, ObservableValue}
 import javafx.collections.FXCollections
 import javafx.collections.transformation.FilteredList
+import javafx.event.{ActionEvent, EventHandler, EventType}
+import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Node
-import fxcalculator.Resource.*
+import javafx.scene.control.{Button, Label, ListView, TextArea}
+import javafx.scene.input.{KeyCode, KeyEvent, MouseEvent}
+
+import java.net.URL
+import java.util.ResourceBundle
+import scala.concurrent.Future
+import scala.jdk.CollectionConverters.*
+import scala.jdk.FunctionConverters.*
+import scala.jdk.OptionConverters.*
+import scala.util.chaining.scalaUtilChainingOps
 
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
@@ -27,21 +30,30 @@ object AdvancedEditor:
 
   def showDialog(dictionary: Dictionary): String = loader.getController[AdvancedEditor].run(dictionary)
 
-final class AdvancedEditor:
+final class AdvancedEditor extends Initializable:
   import AdvancedEditor.root
   import io.github.makingthematrix.signals3.EventContext.Implicits.global
+  import io.github.makingthematrix.signals3.ui.UiDispatchQueue.Ui
 
   @FXML private var textArea: TextArea = _
   @FXML private var functions: CharmListView[FunctionEntry, String] = _
+  private var dictionary: Dictionary = _
 
-  private val selectedEntry = Signal[FunctionEntry]()
+  private val selectedEntry = EventStream[FunctionEntry]()
   selectedEntry.onUi { entry =>
     val text = textArea.getText
     val caret = textArea.getCaretPosition
     textArea.setText(text.substring(0, caret) + entry.declaration + text.substring(caret))
+    if entry.declaration.contains("(") then
+      textArea.selectRange(caret + entry.declaration.indexOf('(') + 1, caret + entry.declaration.length - 1)
+    textArea.requestFocus()
   }
 
-  private var dictionary: Dictionary = _
+  private val deletedEntry = EventStream[FunctionEntry]()
+  deletedEntry.foreach { entry =>
+    dictionary.delete(entry.name)
+    Future { populateFunctionsList() }(Ui)
+  }
 
   private lazy val dialog = new Dialog[String]().tap { d =>
     d.setTitle(new Label("Advanced Editor"))
@@ -62,20 +74,18 @@ final class AdvancedEditor:
     dialog.setResult(text)
     dialog.hide()
 
-  def initialize(): Unit =
+  override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
     textArea.setFocusTraversable(true)
+    textArea.requestFocus()
     textArea.setOnKeyReleased { (key: KeyEvent) =>
       if key.getCode == KeyCode.ENTER then
         val text = textArea.getText.replaceAll("\n", "")
         textArea.setText(text)
         close(text)
     }
-    functions.selectedItemProperty().addListener(new ChangeListener[FunctionEntry] {
-      override def changed(observableValue: ObservableValue[_ <: FunctionEntry], t: FunctionEntry, t1: FunctionEntry): Unit =
-          selectedEntry ! observableValue.getValue
-    })
+    functions.setCellFactory((_: CharmListView[FunctionEntry, String]) => FunctionCell(selectedEntry.publish, deletedEntry.publish))
 
-  private def populateFunctionsList(dictionary: Dictionary): Unit =
+  private def populateFunctionsList(): Unit =
     val exprs = dictionary.list
     val entries =
       exprs.collect { case expr: Assignment         => FunctionEntry(expr) } ++
@@ -85,10 +95,9 @@ final class AdvancedEditor:
       FXCollections.observableArrayList(entries.asJavaCollection),
       (_: FunctionEntry) => true
     )
-    functions.setCellFactory((_: CharmListView[FunctionEntry, String]) => FunctionCell())
     functions.setItems(filteredList)
 
   def run(dictionary: Dictionary): String =
     this.dictionary = dictionary
-    populateFunctionsList(dictionary)
+    populateFunctionsList()
     dialog.showAndWait().toScala.getOrElse("")

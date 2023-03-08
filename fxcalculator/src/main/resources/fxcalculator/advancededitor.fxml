@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.CharmListView?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox prefHeight="479.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.AdvancedEditor">
-   <children>
-      <TextArea fx:id="textArea" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200" prefWidth="300" promptText="f(x) =" styleClass="charm-text-area" wrapText="true">
+<?import com.gluonhq.charm.glisten.control.CharmListView?>
 
-
-</TextArea>
-      <Label text="Functions" />
-      <CharmListView fx:id="functions" prefHeight="228.0" prefWidth="300.0">
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </CharmListView>
-   </children>
+<VBox prefHeight="479.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.AdvancedEditor">
+    <TextArea fx:id="textArea" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              prefHeight="200" prefWidth="300" promptText="f(x) =" styleClass="charm-text-area" wrapText="true">
+    </TextArea>
+    <Label text="Functions">
+        <font>
+          <Font size="10.0"/>
+        </font>
+    </Label>
+    <CharmListView fx:id="functions" prefHeight="228.0" prefWidth="300.0">
+        <padding>
+          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+        </padding>
+    </CharmListView>
 </VBox>

@@ -50,7 +50,15 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
     val name = s"$$$specialValuesCounter"
     dict += name -> expr
     name
-        
+
+  def delete(name: String): Boolean = dict.get(name) match
+    case Some(expr) =>
+      dict -= name
+      chronological = chronological.filterNot(_ == name)
+      true
+    case None =>
+      false
+
   inline def addNativeFunction(name: String, argNames: Seq[String], f: Seq[Double] => Double): Boolean = 
     add(name, NativeFunction(name, argNames, f))
   
@@ -62,11 +70,11 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
 
   inline def specials: Map[String, Expression] = dict.filter(_._1.head == '$')
 
-  def copy(updates: Map[String, Expression]): Dictionary = Dictionary(dict ++ updates)
+  inline def copy(updates: Map[String, Expression]): Dictionary = Dictionary(dict ++ updates)
 
-  def list: Seq[Expression] = expressions.toSeq.sortBy(_._1).map(_._2)
+  inline def list: Seq[Expression] = expressions.toSeq.sortBy(_._1).map(_._2)
 
-  def chronologicalList: Seq[Expression] = chronological.flatMap(dict.get)
+  inline def chronologicalList: Seq[Expression] = chronological.flatMap(dict.get)
 
 object Dictionary:
   private var specialValuesCounter: Long = 0L
