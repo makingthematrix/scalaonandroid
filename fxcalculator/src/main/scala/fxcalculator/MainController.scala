@@ -1,7 +1,7 @@
 package fxcalculator
 
-import fxcalculator.logic.{Dictionary, Parser}
-import fxcalculator.logic.expressions.{Assignment, Constant, FunctionAssignment, NativeFunction}
+import fxcalculator.logic.{Dictionary, EvaluationResults, Evaluator, Parser, Preprocessor}
+import fxcalculator.logic.expressions.{Constant, ConstantAssignment, Error, Expression, FunctionAssignment, NativeFunction}
 import fxcalculator.functions.Storage
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -34,7 +34,7 @@ final class MainController:
     expression.setTextOverrun(OverrunStyle.CLIP)
 
   def onEvaluate(event: ActionEvent): Unit =
-    evaluate(expression.getText) match
+    evaluateLine(expression.getText) match
       case Right(text) =>
         expression.setText(text)
       case Left(text) =>
@@ -42,7 +42,7 @@ final class MainController:
         clearExpression = true
 
   def onMemoryPlus(event: ActionEvent): Unit =
-    evaluate(expression.getText) match
+    evaluateLine(expression.getText) match
       case Right(result) =>
         memory = Some(result)
       case Left(error) =>
@@ -55,11 +55,11 @@ final class MainController:
   def onFx(event: ActionEvent): Unit =
     val text = AdvancedEditor.showDialog(parser.dictionary)
     if text.nonEmpty then
-      evaluate(text) match
-        case Right(text) =>
-          updateExpression(text, true)
-        case Left(text) =>
-          expression.setText(text)
+      evaluateMultiLine(text) match
+        case Right(result) =>
+          updateExpression(result, true)
+        case Left(error) =>
+          expression.setText(error)
           clearExpression = true
   
   def onClear(event: ActionEvent): Unit =
@@ -80,25 +80,34 @@ final class MainController:
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
 
-  private def evaluate(line: String): Either[String, String] = 
-    parser.parse(line) match 
-      case Some(Right(expr: FunctionAssignment)) =>
-        Storage.append(expr.textForm)
-        Left(expr.textForm)
-      case Some(Right(expr: NativeFunction)) =>
-        Left(expr.textForm)
-      case Some(Right(expr: Assignment)) =>
-        Storage.append(expr.textForm)
-        Left(expr.textForm)
-      case Some(Right(expr)) =>
-        expr.run(parser.dictionary) match 
-          case Right(res)  => Right(res.toString)
-          case Left(error) => Left(error.toString)
-      case Some(Left(error)) =>
-        Left(error.toString)
-      case None =>
-        Left(s"Can't parse: $line")
-  
+  private def evaluateMultiLine(text: String): Either[String, String] =
+    val result = new Evaluator(parser).evaluateMultiLine(text)
+    result match
+      case EvaluationResults(_, Some(err), _) =>
+        Left(err.toString)
+      case EvaluationResults(None, _, assignments) if assignments.nonEmpty =>
+        assignments.map(_.textForm).foreach(Storage.append)
+        Left(assignments.head.textForm)
+      case EvaluationResults(Some(res), _, assignments) =>
+        assignments.map(_.textForm).foreach(Storage.append)
+        Right(res.toString)
+      case _ =>
+        Right("")
+
+  private def evaluateLine(line: String): Either[String, String] =
+    val result = new Evaluator(parser).evaluateLine(line)
+    result match
+      case EvaluationResults(_, Some(err), _) =>
+        Left(err.toString)
+      case EvaluationResults(_, _, assignments) if assignments.nonEmpty =>
+        val textForm = assignments.head.textForm
+        Storage.append(textForm)
+        Left(textForm)
+      case EvaluationResults(Some(res), _, _) =>
+        Right(res.toString)
+      case _ =>
+        Right("")
+
   private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
 
   private def updateExpression(newStr: String, onlyAfterOperator: Boolean = false): Unit =
@@ -115,7 +124,7 @@ final class MainController:
   private def isPointAllowed: Boolean =
     val currentExpr = expression.getText
     val commaIndex = currentExpr.lastIndexOf('.')
-    if (commaIndex > -1) then
+    if commaIndex > -1 then
       operators.map(currentExpr.lastIndexOf(_)).max > commaIndex
     else
       currentExpr.lastOption.forall(numbers.contains)

@@ -24,6 +24,14 @@ object Main:
   val DEFAULT_WIDTH: Int = 620
   val DEFAULT_HEIGHT: Int = 900
 
+  lazy val dimensions: Dimension2D =
+    if Platform.isDesktop then
+      new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT)
+    else
+      DisplayService.create
+        .map(((ds: DisplayService) => ds.getDefaultDimensions).asJava)
+        .orElse(new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT))
+
 final class Main extends Application:
   import Main._
 
@@ -39,12 +47,5 @@ final class Main extends Application:
   private def postInit(scene: Scene): Unit =
     Swatch.AMBER.assignTo(scene)
     scene.getStylesheets.add(url(StylesCss).toExternalForm)
-    val dim =
-      if Platform.isDesktop then
-        new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT)
-      else
-        DisplayService.create
-          .map(((ds: DisplayService) => ds.getDefaultDimensions).asJava)
-          .orElse(new Dimension2D(DEFAULT_WIDTH, DEFAULT_HEIGHT))
-    scene.getWindow.setWidth(dim.getWidth)
-    scene.getWindow.setHeight(dim.getHeight)
+    scene.getWindow.setWidth(dimensions.getWidth)
+    scene.getWindow.setHeight(dimensions.getHeight)

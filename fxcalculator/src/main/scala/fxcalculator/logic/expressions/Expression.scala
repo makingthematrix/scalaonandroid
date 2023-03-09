@@ -27,7 +27,6 @@ trait Parseable[T <: Expression]:
 trait Expression:
   protected def evaluate(dict: Dictionary): Either[Error, Double]
   final def run(dict: Dictionary): Either[Error, Double] = evaluate(dict).map(Expression.round(_))
-  def declaration: String = ""
   def textForm: String = ""
 
 object Expression:
@@ -35,5 +34,3 @@ object Expression:
 
   inline def isZero(number: Double): Boolean = scala.math.abs(number) <= DIVISION_PRECISION
   inline def round(number: Double): Double = if isZero(number) then 0.0 else number
-
-  def functionDeclaration(name: String, argNames: Seq[String]): String = s"$name(${argNames.mkString(", ")})"

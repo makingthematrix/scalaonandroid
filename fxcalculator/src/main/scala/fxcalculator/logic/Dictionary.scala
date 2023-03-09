@@ -25,13 +25,13 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
 
   def canAssign(name: String): Boolean =
     dict.get(name) match
-      case Some(_ : Assignment)      => true
-      case None if isValidName(name) => true
-      case _                         => false
+      case Some(_ : ConstantAssignment) => true
+      case None if isValidName(name)    => true
+      case _                            => false
 
-  def add(name: String, expr: Expression, canBeSpecial: Boolean = false): Boolean =
+  def add(name: String, expr: Expression, canBeSpecial: Boolean): Boolean =
     (dict.get(name), expr) match
-      case (Some(_ : Assignment), _ : Assignment) =>
+      case (Some(_ : ConstantAssignment), _ : ConstantAssignment) =>
         dict += name -> expr
         chronological :+ name
         true
@@ -45,6 +45,9 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
       case _ =>
         false
 
+  inline def add(name: String, expr: Expression): Boolean = add(name, expr, false)
+  inline def add(assignment: Assignment): Boolean = add(assignment.name, assignment, false)
+  
   def addSpecial(expr: Expression): String =
     specialValuesCounter += 1
     val name = s"$$$specialValuesCounter"
@@ -52,7 +55,7 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
     name
 
   def delete(name: String): Boolean = dict.get(name) match
-    case Some(expr) =>
+    case Some(_) =>
       dict -= name
       chronological = chronological.filterNot(_ == name)
       true

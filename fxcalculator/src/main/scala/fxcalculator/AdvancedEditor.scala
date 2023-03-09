@@ -1,5 +1,6 @@
 package fxcalculator
 
+import com.gluonhq.attach.util.Platform
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
 import fxcalculator.Resource.*
 import fxcalculator.functions.{FunctionCell, FunctionEntry}
@@ -27,11 +28,12 @@ import scala.util.chaining.scalaUtilChainingOps
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
   private val root: Node = loader.load[Node]()
+  private val isFullscreen: Boolean = !Platform.isDesktop
 
   def showDialog(dictionary: Dictionary): String = loader.getController[AdvancedEditor].run(dictionary)
 
 final class AdvancedEditor extends Initializable:
-  import AdvancedEditor.root
+  import AdvancedEditor.*
   import io.github.makingthematrix.signals3.EventContext.Implicits.global
   import io.github.makingthematrix.signals3.ui.UiDispatchQueue.Ui
 
@@ -55,21 +57,16 @@ final class AdvancedEditor extends Initializable:
     Future { populateFunctionsList() }(Ui)
   }
 
-  private lazy val dialog = new Dialog[String]().tap { d =>
-    d.setTitle(new Label("Advanced Editor"))
+  private lazy val dialog = new Dialog[String](isFullscreen).tap { d =>
+    d.setTitleText("Fx Calculator")
     d.setContent(root)
 
-    d.getButtons.add(new Button("OK").tap { c =>
+    d.getButtons.add(new Button("Run").tap { c =>
       c.setDefaultButton(true)
       c.setOnAction { (_: ActionEvent) => close(textArea.getText) }
     })
-
-    d.getButtons.add(new Button("Cancel").tap { c =>
-      c.setCancelButton(true)
-      c.setOnAction { (_: ActionEvent) => close("") }
-    })
   }
-
+  
   private def close(text: String): Unit =
     dialog.setResult(text)
     dialog.hide()
@@ -88,7 +85,7 @@ final class AdvancedEditor extends Initializable:
   private def populateFunctionsList(): Unit =
     val exprs = dictionary.list
     val entries =
-      exprs.collect { case expr: Assignment         => FunctionEntry(expr) } ++
+      exprs.collect { case expr: ConstantAssignment         => FunctionEntry(expr) } ++
       exprs.collect { case expr: NativeFunction     => FunctionEntry(expr) } ++
       exprs.collect { case expr: FunctionAssignment => FunctionEntry(expr) }
     val filteredList = new FilteredList(

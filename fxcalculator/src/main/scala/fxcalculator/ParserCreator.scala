@@ -1,6 +1,6 @@
 package fxcalculator
 
-import fxcalculator.logic.expressions.{Assignment, Constant, NativeFunction}
+import fxcalculator.logic.expressions.{ConstantAssignment, Constant, NativeFunction}
 import fxcalculator.logic.{Dictionary, Parser}
 import fxcalculator.functions.Storage
 
@@ -39,11 +39,11 @@ object ParserCreator:
     f1("ulp", math.ulp)
   )
 
-  private val assignments: Set[Assignment] = Set(
-    Assignment("Pi", Constant(math.Pi), false),
-    Assignment("E", Constant(math.E), false),
-    Assignment("Cm", Constant(299792458.0), false),
-    Assignment("Ckm", Constant(299792.458), false)
+  private val assignments: Set[ConstantAssignment] = Set(
+    ConstantAssignment("Pi", Constant(math.Pi), false),
+    ConstantAssignment("E", Constant(math.E), false),
+    ConstantAssignment("Cm", Constant(299792458.0), false),
+    ConstantAssignment("Ckm", Constant(299792.458), false)
   )
 
   def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false): Parser =

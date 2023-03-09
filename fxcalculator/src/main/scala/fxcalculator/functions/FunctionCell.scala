@@ -11,15 +11,15 @@ import scala.util.chaining.scalaUtilChainingOps
 object FunctionCell:
   private lazy val trashIcon = new Image(stream(TrashPng))
 
-final case class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntry => Unit) extends CharmListCell[FunctionEntry]:
+final class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntry => Unit) extends CharmListCell[FunctionEntry]:
   private val tile = new ListTile().tap { t =>
     t.setWrapText(true)
     HBox.setHgrow(t, Priority.ALWAYS)
   }
 
   private val imageView = new ImageView().tap { view =>
-    view.setFitHeight(15)
-    view.setFitWidth(10)
+    view.setFitWidth(15)
+    view.setPreserveRatio(true)
     view.setImage(FunctionCell.trashIcon)
   }
 
