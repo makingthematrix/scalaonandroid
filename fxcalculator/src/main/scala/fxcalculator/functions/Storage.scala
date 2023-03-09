@@ -3,7 +3,7 @@ package fxcalculator.functions
 import com.gluonhq.attach.storage.StorageService
 import com.sun.javafx.logging.Logger
 import fxcalculator.Logger.*
-import fxcalculator.logic.expressions.{Assignment, FunctionAssignment}
+import fxcalculator.logic.expressions.{ConstantAssignment, FunctionAssignment}
 import fxcalculator.logic.{Dictionary, Parser}
 
 import java.io.File

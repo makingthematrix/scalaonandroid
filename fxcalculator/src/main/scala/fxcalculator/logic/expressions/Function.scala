@@ -3,7 +3,6 @@ package fxcalculator.logic.expressions
 import fxcalculator.logic.{Dictionary, ParsedFunction, Parser, Preprocessor}
 import fxcalculator.logic.expressions.Error.EvaluationError
 import fxcalculator.logic.ParsedFunction.LineSide
-import fxcalculator.logic.expressions.Function.genArgName
 
 import scala.util.{Failure, Success, Try}
 
@@ -47,10 +46,7 @@ final case class Function(name: String, args: Seq[Expression]) extends Expressio
         }
       case _ =>
         Left(EvaluationError(s"Function not found: $name with ${args.length} arguments"))
-    
-  override def declaration: String = Expression.functionDeclaration(name, (0 to args.size).map(genArgName))
-  override def textForm: String = s"$declaration = [Function]"
-
+  
   private def evaluateArgs(dict: Dictionary): Either[Error, Seq[Double]] =
     val evaluatedArgs = args.map(_.run(dict))
     val evaluationErrors = evaluatedArgs.collect { case Left(error) => error }
@@ -82,10 +78,3 @@ object Function extends Parseable[Function]:
     else
       val validArgs = parsedArgs.collect { case (_, Some(Right(expr))) => expr }
       ParsedExpr(Function(name, validArgs))
-  
-  private val argLetters: Seq[Char] = 'a' to 'z'
-  
-  private def genArgName(n: Int): String =
-    val index = n / argLetters.size
-    val offset = n % argLetters.size
-    if index == 0 then argLetters(offset).toString else s"${argLetters(offset)}$index"

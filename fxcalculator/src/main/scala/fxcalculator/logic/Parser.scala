@@ -39,9 +39,9 @@ import fxcalculator.logic.expressions.*
 import scala.util.chaining.*
 
 trait Parser {
-  val dictionary: Dictionary
+  def dictionary: Dictionary
   def setup(preprocessor: Preprocessor): Unit
-  def copy(updates: Map[String, Expression]): Parser
+  def copy(updates: Map[String, Expression] = Map.empty): Parser
   def parse(line: String): ParsedExpr[Expression]
 }
 
@@ -53,7 +53,7 @@ final class ParserImpl(override val dictionary: Dictionary,
   override def setup(preprocessor: Preprocessor): Unit =
     this.preprocessor = Some(preprocessor)
 
-  override def copy(updates: Map[String, Expression]): Parser =
+  override def copy(updates: Map[String, Expression] = Map.empty): Parser =
     Parser(dictionary.copy(updates))
 
   override def parse(line: String): ParsedExpr[Expression] =
@@ -88,7 +88,7 @@ object Parser:
   val stages: Seq[Parseable[_ <: Expression]] =
     Seq(
       FunctionAssignment,
-      Assignment,
+      ConstantAssignment,
       AddSubstract,
       MultiplyDivide,
       Power,

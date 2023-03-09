@@ -47,5 +47,3 @@ object Power extends Parseable[Power]:
         case (_, Left(error))     => Left(error)
         case (Right(l), Right(r)) => Right(Power(l, r))
       }
-
-

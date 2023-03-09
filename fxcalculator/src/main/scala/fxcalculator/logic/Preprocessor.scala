@@ -34,7 +34,7 @@ import fxcalculator.logic.Dictionary.isValidName
 import fxcalculator.logic.ParsedFunction.LineSide
 
 import scala.annotation.tailrec
-import scala.util.chaining.*
+import scala.util.chaining.scalaUtilChainingOps
 
 trait Preprocessor {
   def setup(parser: Parser): Unit
@@ -68,7 +68,7 @@ object Preprocessor:
 
   object Flags:
     val AllFlagsOn: Flags = Flags()
-
+  
   def removeWhitespaces(line: String): Either[Error, String] =
     if line.exists(_.isWhitespace) then
       Right(line.filterNot(_.isWhitespace))

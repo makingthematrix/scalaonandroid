@@ -1,6 +1,6 @@
 package fxcalculator
 
-import fxcalculator.logic.expressions.{Assignment, Constant, NativeFunction}
+import fxcalculator.logic.expressions.{ConstantAssignment, Constant, NativeFunction}
 import fxcalculator.logic.{Dictionary, Parser}
 import fxcalculator.functions.Storage
 
@@ -8,6 +8,13 @@ import scala.util.chaining.scalaUtilChainingOps
 
 object ParserCreator:
   import NativeFunction.{f1, f2}
+
+  private val constants: Set[ConstantAssignment] = Set(
+    ConstantAssignment("Pi",  Constant(math.Pi),     false),
+    ConstantAssignment("E",   Constant(math.E),      false),
+    ConstantAssignment("Cm",  Constant(299792458.0), false),
+    ConstantAssignment("Ckm", Constant(299792.458),  false)
+  )
 
   private val nativeFunctions: Set[NativeFunction] = Set(
     f1("abs", math.abs),
@@ -26,9 +33,9 @@ object ParserCreator:
     f1("sinh", math.sinh),
     f1("cosh", math.cosh),
     f1("tanh", math.tanh),
+    f1("atan", math.atan),
     f1("asin", math.asin),
     f1("acos", math.acos),
-    f1("atan", math.atan),
     f1("toRadians", math.toRadians),
     f1("toDegrees", math.toDegrees),
     f2("atan2", math.atan2),
@@ -38,18 +45,11 @@ object ParserCreator:
     f1("round", math.rint),
     f1("ulp", math.ulp)
   )
-
-  private val assignments: Set[Assignment] = Set(
-    Assignment("Pi", Constant(math.Pi), false),
-    Assignment("E", Constant(math.E), false),
-    Assignment("Cm", Constant(299792458.0), false),
-    Assignment("Ckm", Constant(299792.458), false)
-  )
-
+  
   def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false): Parser =
     val dictionary = Dictionary().tap { dict =>
-      if withNativeFunctions then nativeFunctions.foreach(f => dict.add(f.name, f))
-      if withConstants then assignments.foreach { a => dict.add(a.name, a) }
+      if withConstants then constants.foreach(dict.add(_))
+      if withNativeFunctions then nativeFunctions.foreach(dict.add(_))
     }
     Parser(dictionary = dictionary).tap { parser =>
       if withStorage then Storage.readIn(parser)
