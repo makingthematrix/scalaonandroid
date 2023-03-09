@@ -45,7 +45,7 @@ object ParserCreator:
     f1("round", math.rint),
     f1("ulp", math.ulp)
   )
-  
+
   def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false): Parser =
     val dictionary = Dictionary().tap { dict =>
       if withConstants then constants.foreach(dict.add(_))

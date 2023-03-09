@@ -46,7 +46,7 @@ final case class Function(name: String, args: Seq[Expression]) extends Expressio
         }
       case _ =>
         Left(EvaluationError(s"Function not found: $name with ${args.length} arguments"))
-  
+
   private def evaluateArgs(dict: Dictionary): Either[Error, Seq[Double]] =
     val evaluatedArgs = args.map(_.run(dict))
     val evaluationErrors = evaluatedArgs.collect { case Left(error) => error }

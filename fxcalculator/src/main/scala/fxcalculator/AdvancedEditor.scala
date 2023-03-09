@@ -66,7 +66,7 @@ final class AdvancedEditor extends Initializable:
       c.setOnAction { (_: ActionEvent) => close(textArea.getText) }
     })
   }
-
+  
   private def close(text: String): Unit =
     dialog.setResult(text)
     dialog.hide()
