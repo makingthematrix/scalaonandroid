@@ -3,9 +3,7 @@ package fxcalculator.logic
 import munit.{ComparisonFailException, Location}
 import scala.util.chaining.*
 
-class ExpressionTest extends munit.FunSuite:
-  implicit val location: Location = Location.empty
-
+class ExpressionTest extends FxCalculatorSuite:
   test("Number") {
     eval("4", 4.0)
     eval("4.12", 4.12)
@@ -221,26 +219,3 @@ class ExpressionTest extends munit.FunSuite:
     eval("sqrt(4)", 2.0)
     intercept[ComparisonFailException](eval("sqrt(-1)", Double.NaN))
   }
-
-  private def eval(str: String, expected: Double, delta: Double = 0.001)(implicit parser: Parser = Parser()): Unit =
-    parser.parse(str) match
-      case None =>
-        failComparison("Parsed as 'none'", str, expected)
-      case Some(Left(error)) =>
-        failComparison(s"Error: ${error.msg}", str, expected)
-      case Some(Right(expr)) =>
-        expr.run(parser.dictionary) match
-          case Right(result) => assertEqualsDouble(result, expected, delta)
-          case Left(error)   => failComparison(s"Error: ${error.msg}", str, expected)
-
-  private def parse(str: String)(implicit parser: Parser = Parser()): Unit =
-    parser.parse(str) match
-      case None => fail(s"Parsed as 'none': $str")
-      case Some(Left(error)) => fail(s"Error: ${error.msg} at line $str")
-      case Some(Right(_)) =>
-
-  private def shouldReturnParsingError(line: String)(implicit parser: Parser = Parser()): Unit =
-    parser.parse(line) match
-      case None => fail(s"Parsed as 'none': $line")
-      case Some(Left(_)) =>
-      case Some(Right(expr)) => fail(s"Parsed with success: $line -> $expr")

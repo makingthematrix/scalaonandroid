@@ -31,11 +31,11 @@ final case class Function(name: String, args: Seq[Expression]) extends Expressio
       case Some(f: NativeFunction) if f.argNames.length == args.length =>
         evaluateArgs(dict).flatMap { evaluatedArgs =>
           Try(f.f(evaluatedArgs)) match
-            case Failure(error) => Left(EvaluationError(error.getMessage))
-            case Success(result) if result.isNaN => Left(EvaluationError("Not a number"))
+            case Failure(error)                          => Left(EvaluationError(error.getMessage))
+            case Success(result) if result.isNaN         => Left(EvaluationError("Not a number"))
             case Success(result) if result.isPosInfinity => Left(EvaluationError("+Infinity"))
             case Success(result) if result.isNegInfinity => Left(EvaluationError("-Infinity"))
-            case Success(result) => Right(Expression.round(result))
+            case Success(result)                         => Right(Expression.round(result))
         }
       case Some(f: FunctionAssignment) if f.argNames.length == args.length =>
         evaluateArgs(dict).flatMap { evaluatedArgs =>

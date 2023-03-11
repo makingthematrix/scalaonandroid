@@ -28,7 +28,7 @@ import scala.util.chaining.scalaUtilChainingOps
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
   private val root: Node = loader.load[Node]()
-  private val isFullscreen: Boolean = !Platform.isDesktop
+  private val isFullscreen: Boolean = true //!Platform.isDesktop
 
   def showDialog(dictionary: Dictionary): String = loader.getController[AdvancedEditor].run(dictionary)
 
@@ -74,12 +74,6 @@ final class AdvancedEditor extends Initializable:
   override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
     textArea.setFocusTraversable(true)
     textArea.requestFocus()
-    textArea.setOnKeyReleased { (key: KeyEvent) =>
-      if key.getCode == KeyCode.ENTER then
-        val text = textArea.getText.replaceAll("\n", "")
-        textArea.setText(text)
-        close(text)
-    }
     functions.setCellFactory((_: CharmListView[FunctionEntry, String]) => FunctionCell(selectedEntry.publish, deletedEntry.publish))
 
   private def populateFunctionsList(): Unit =

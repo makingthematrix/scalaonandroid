@@ -34,7 +34,7 @@ final class MainController:
     expression.setTextOverrun(OverrunStyle.CLIP)
 
   def onEvaluate(event: ActionEvent): Unit =
-    evaluateLine(expression.getText) match
+    evaluate(expression.getText) match
       case Right(text) =>
         expression.setText(text)
       case Left(text) =>
@@ -42,7 +42,7 @@ final class MainController:
         clearExpression = true
 
   def onMemoryPlus(event: ActionEvent): Unit =
-    evaluateLine(expression.getText) match
+    evaluate(expression.getText) match
       case Right(result) =>
         memory = Some(result)
       case Left(error) =>
@@ -55,7 +55,7 @@ final class MainController:
   def onFx(event: ActionEvent): Unit =
     val text = AdvancedEditor.showDialog(parser.dictionary)
     if text.nonEmpty then
-      evaluateMultiLine(text) match
+      evaluate(text) match
         case Right(result) =>
           updateExpression(result, true)
         case Left(error) =>
@@ -80,8 +80,8 @@ final class MainController:
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
 
-  private def evaluateMultiLine(text: String): Either[String, String] =
-    val result = new Evaluator(parser).evaluateMultiLine(text)
+  private def evaluate(text: String): Either[String, String] =
+    val result = Evaluator(parser).evaluate(text)
     result match
       case EvaluationResults(_, Some(err), _) =>
         Left(err.toString)
@@ -90,20 +90,6 @@ final class MainController:
         Left(assignments.head.textForm)
       case EvaluationResults(Some(res), _, assignments) =>
         assignments.map(_.textForm).foreach(Storage.append)
-        Right(res.toString)
-      case _ =>
-        Right("")
-
-  private def evaluateLine(line: String): Either[String, String] =
-    val result = new Evaluator(parser).evaluateLine(line)
-    result match
-      case EvaluationResults(_, Some(err), _) =>
-        Left(err.toString)
-      case EvaluationResults(_, _, assignments) if assignments.nonEmpty =>
-        val textForm = assignments.head.textForm
-        Storage.append(textForm)
-        Left(textForm)
-      case EvaluationResults(Some(res), _, _) =>
         Right(res.toString)
       case _ =>
         Right("")

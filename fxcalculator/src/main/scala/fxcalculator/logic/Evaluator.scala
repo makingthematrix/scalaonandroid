@@ -4,8 +4,16 @@ import fxcalculator.logic.expressions.{Assignment, Error, Expression}
 
 import scala.collection.mutable
 
-final class Evaluator(parser: Parser):
-  def evaluateLine(line: String): EvaluationResults =
+trait Evaluator:
+  def evaluate(text: String): EvaluationResults
+
+final class EvaluatorImpl(parser: Parser) extends Evaluator:
+  import Evaluator.split
+  
+  def evaluate(text: String): EvaluationResults =
+    if text.contains('\n') then evaluateMultiLine(text) else evaluateLine(text)
+  
+  private def evaluateLine(line: String): EvaluationResults =
     parser.parse(line) match
       case None                          => EvaluationResults(error = Some(Error.ParsingError(s"Can't parse: $line")))
       case Some(Left(error))             => EvaluationResults(error = Some(error))
@@ -15,10 +23,9 @@ final class Evaluator(parser: Parser):
           case Right(res)  => EvaluationResults(result = Some(res))
           case Left(error) => EvaluationResults(error = Some(error))
 
-  def evaluateMultiLine(text: String): EvaluationResults =
+  private def evaluateMultiLine(text: String): EvaluationResults =
     val tempParser = parser.copy()
-    val lines = Evaluator.split(text)
-    val expressions = lines.foldLeft[Either[Error, List[Expression]]](Right(Nil)) {
+    val expressions = split(text).foldLeft[Either[Error, List[Expression]]](Right(Nil)) {
       case (Left(err), _)       => Left(err)
       case (Right(exprs), line) =>
         tempParser.parse(line) match
@@ -27,22 +34,22 @@ final class Evaluator(parser: Parser):
           case None              => Left(Error.ParsingError(s"Can't parse: $line"))
 
     }
-
     expressions match
       case Left(error)  => EvaluationResults(error = Some(error))
       case Right(Nil)   => EvaluationResults()
       case Right(exprs) =>
-        val newAssignments = exprs.tail.reverse.collect { case expr: Assignment => expr }
+        lazy val newAssignments = exprs.tail.reverse.collect { case expr: Assignment => expr }
         exprs.head match
-          case _: Assignment =>
-            EvaluationResults(newAssignments = newAssignments)
-          case expr =>
+          case _: Assignment => EvaluationResults(newAssignments = newAssignments)
+          case expr          =>
             expr.run(tempParser.dictionary) match
-              case Left(err) => EvaluationResults(error = Some(err))
+              case Left(err)  => EvaluationResults(error = Some(err))
               case Right(res) => EvaluationResults(result = Some(res), newAssignments = newAssignments)
 
 object Evaluator:
-  def split(text: String): Seq[String] =
+  def apply(parser: Parser): Evaluator = EvaluatorImpl(parser)
+  
+  private[logic] def split(text: String): Seq[String] =
     val lines = new mutable.ArrayBuffer[String]
     val sb = new StringBuilder
 
@@ -51,16 +58,16 @@ object Evaluator:
       if line.nonEmpty then lines.addOne(line)
       sb.clear()
 
-    var parens = 0
+    var p = 0
     text.toCharArray.foreach {
-      case '\n' if parens == 0 => add()
-      case '\n' => // ignore
-      case ' ' => // ignore
-      case '\t' => // ignore
-      case c =>
+      case '\n' if p == 0 => add()
+      case '\n'           => // ignore
+      case ' '            => // ignore
+      case '\t'           => // ignore
+      case c              =>
         sb.addOne(c)
-        if c == '(' then parens += 1
-        else if c == ')' then parens -= 1
+        if c == '(' then p += 1
+        else if c == ')' then p -= 1
     }
     add()
     lines.toSeq
