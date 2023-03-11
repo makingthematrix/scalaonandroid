@@ -48,6 +48,8 @@ final class AdvancedEditor extends Initializable:
     textArea.setText(text.substring(0, selection.getStart) + entry.declaration + text.substring(selection.getEnd))
     if entry.declaration.contains("(") then
       textArea.selectRange(selection.getStart + entry.declaration.indexOf('(') + 1, selection.getStart + entry.declaration.length - 1)
+    else
+      textArea.selectPositionCaret(selection.getStart + entry.declaration.length)
     textArea.requestFocus()
   }
 

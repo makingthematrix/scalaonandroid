@@ -7,7 +7,7 @@ import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Button, Label, OverrunStyle}
 
-import scala.math.round
+import scala.math.{round, ulp}
 import scala.util.chaining.scalaUtilChainingOps
 
 object MainController:
@@ -35,32 +35,26 @@ final class MainController:
 
   def onEvaluate(event: ActionEvent): Unit =
     evaluate(expression.getText) match
-      case Right(text) =>
-        expression.setText(text)
-      case Left(text) =>
-        expression.setText(text)
-        clearExpression = true
+      case Right(result) => expression.setText(result)
+      case Left(error)   => expression.setText(error)
+    clearExpression = true
 
   def onMemoryPlus(event: ActionEvent): Unit =
     evaluate(expression.getText) match
-      case Right(result) =>
-        memory = Some(result)
-      case Left(error) =>
+      case Right(result) => memory = Some(result)
+      case Left(error) => 
         expression.setText(error)
         clearExpression = true
 
-  def onMemoryReveal(event: ActionEvent): Unit =
-    memory.foreach(updateExpression(_, true))
+  def onMemoryReveal(event: ActionEvent): Unit = memory.foreach(updateExpression)
 
   def onFx(event: ActionEvent): Unit =
     val text = AdvancedEditor.showDialog(parser.dictionary)
     if text.nonEmpty then
       evaluate(text) match
-        case Right(result) =>
-          updateExpression(result, true)
-        case Left(error) =>
-          expression.setText(error)
-          clearExpression = true
+        case Right(result) => updateExpression(result)
+        case Left(error)   => expression.setText(error)
+      clearExpression = true
   
   def onClear(event: ActionEvent): Unit =
     expression.setText("0.0")
@@ -75,7 +69,7 @@ final class MainController:
       case _ =>
 
   def onNumber(event: ActionEvent): Unit =
-    idsToSigns.get(event.getSource.asInstanceOf[Button].getId).foreach(updateExpression)
+    idsToSigns.get(event.getSource.asInstanceOf[Button].getId).foreach(updateExpression(_))
 
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
@@ -94,18 +88,21 @@ final class MainController:
       case _ =>
         Right("")
 
-  private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
+  inline private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
 
-  private def updateExpression(newStr: String, onlyAfterOperator: Boolean = false): Unit =
-    expression.getText match
-      case currentExpr if currentExpr.isEmpty || clearExpression || currentExpr == "0.0" =>
-        expression.setText(newStr)
-        clearExpression = false
-      case currentExpr if onlyAfterOperator && operators.contains(currentExpr.last) =>
-        expression.setText(s"$currentExpr$newStr")
-      case currentExpr if !onlyAfterOperator =>
-        expression.setText(s"$currentExpr$newStr")
-      case _ =>
+  private def updateExpression(newStr: String): Unit = expression.getText match
+    case currentExpr if newStr.length == 1 && (operators.contains(newStr.head) || newStr.head == '.') =>
+      expression.setText(s"$currentExpr$newStr")
+      clearExpression = false
+    case currentExpr if currentExpr.isEmpty || clearExpression || currentExpr == "0.0" =>
+      expression.setText(newStr)
+      clearExpression = false
+    case currentExpr if operators.contains(currentExpr.last) || (newStr.length == 1 && numbers.contains(newStr.head)) =>
+      expression.setText(s"$currentExpr$newStr")
+    case currentExpr if numbers.contains(currentExpr.last) && (newStr.length == 1 && (operators.contains(newStr.head) || newStr.head == '.')) =>
+      expression.setText(s"$currentExpr$newStr")
+    case _ =>
+      expression.setText(newStr)
 
   private def isPointAllowed: Boolean =
     val currentExpr = expression.getText
