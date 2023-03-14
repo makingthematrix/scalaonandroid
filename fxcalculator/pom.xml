@@ -144,9 +144,8 @@
                         <list>fxcalculator.AdvancedEditor</list>
                     </reflectionList>
                     <nativeImageArgs>
-                        <nativeImageArg>
-                            -H:IncludeResources=.*
-                        </nativeImageArg>
+                        <nativeImageArg>-H:IncludeResources=.*(png|properties)</nativeImageArg>
+                        <nativeImageArg>-O3</nativeImageArg>
                     </nativeImageArgs>
                 </configuration>
             </plugin>

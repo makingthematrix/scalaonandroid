@@ -4,9 +4,11 @@ import fxcalculator.logic.{Dictionary, EvaluationResults, Evaluator, Parser, Pre
 import fxcalculator.logic.expressions.{Constant, ConstantAssignment, Error, Expression, FunctionAssignment, NativeFunction}
 import fxcalculator.functions.Storage
 import javafx.event.ActionEvent
-import javafx.fxml.FXML
+import javafx.fxml.{FXML, Initializable}
 import javafx.scene.control.{Button, Label, OverrunStyle}
 
+import java.net.URL
+import java.util.ResourceBundle
 import scala.math.{round, ulp}
 import scala.util.chaining.scalaUtilChainingOps
 
@@ -19,7 +21,7 @@ object MainController:
   private val operators = Set('+', '-', '*', '/', '^', '(', ')')
   private val numbers = Set('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
 
-final class MainController:
+final class MainController extends Initializable:
   import MainController.*
 
   @FXML private var expression: Label = _
@@ -29,7 +31,7 @@ final class MainController:
 
   private lazy val parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true, withStorage = true)
 
-  def initialize(): Unit =
+  override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
     expression.setText("0.0")
     expression.setTextOverrun(OverrunStyle.CLIP)
 

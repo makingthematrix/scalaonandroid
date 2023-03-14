@@ -28,7 +28,7 @@ import scala.util.chaining.scalaUtilChainingOps
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
   private val root: Node = loader.load[Node]()
-  private val isFullscreen: Boolean = true //!Platform.isDesktop
+  private val isFullscreen: Boolean = !Platform.isDesktop
 
   def showDialog(dictionary: Dictionary): String = loader.getController[AdvancedEditor].run(dictionary)
 
