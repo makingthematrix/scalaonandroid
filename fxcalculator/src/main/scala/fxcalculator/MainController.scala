@@ -5,7 +5,7 @@ import fxcalculator.logic.expressions.{Constant, ConstantAssignment, Error, Expr
 import fxcalculator.functions.Storage
 import javafx.event.ActionEvent
 import javafx.fxml.{FXML, Initializable}
-import javafx.scene.control.{Button, Label, OverrunStyle}
+import javafx.scene.control.{Alert, Button, Label, OverrunStyle}
 
 import java.net.URL
 import java.util.ResourceBundle
@@ -37,9 +37,11 @@ final class MainController extends Initializable:
 
   def onEvaluate(event: ActionEvent): Unit =
     evaluate(expression.getText) match
-      case Right(result) => expression.setText(result)
-      case Left(error)   => expression.setText(error)
-    clearExpression = true
+      case Right(result) =>
+        expression.setText(result)
+        clearExpression = true
+      case Left(error) =>
+        showError(error)
 
   def onMemoryPlus(event: ActionEvent): Unit =
     evaluate(expression.getText) match
@@ -54,9 +56,11 @@ final class MainController extends Initializable:
     val text = AdvancedEditor.showDialog(parser.dictionary)
     if text.nonEmpty then
       evaluate(text) match
-        case Right(result) => updateExpression(result)
-        case Left(error)   => expression.setText(error)
-      clearExpression = true
+        case Right(result) => 
+          updateExpression(result)
+          clearExpression = true
+        case Left(error) => 
+          showError(error)
   
   def onClear(event: ActionEvent): Unit =
     expression.setText("0.0")
@@ -76,6 +80,11 @@ final class MainController extends Initializable:
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
 
+  private def showError(error: String): Unit =
+    val alert = new Alert(Alert.AlertType.ERROR)
+    alert.setContentText(error)
+    alert.showAndWait()
+  
   private def evaluate(text: String): Either[String, String] =
     val result = Evaluator(parser).evaluate(text)
     result match
