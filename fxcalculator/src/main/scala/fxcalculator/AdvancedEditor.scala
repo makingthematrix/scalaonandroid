@@ -14,7 +14,7 @@ import javafx.collections.transformation.FilteredList
 import javafx.event.{ActionEvent, EventHandler, EventType}
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Node
-import javafx.scene.control.{Button, Label, ListView, TextArea}
+import javafx.scene.control.{Alert, Button, ButtonType, Label, ListView, TextArea}
 import javafx.scene.input.{KeyCode, KeyEvent, MouseEvent}
 
 import java.net.URL
@@ -55,8 +55,20 @@ final class AdvancedEditor extends Initializable:
 
   private val deletedEntry = EventStream[FunctionEntry]()
   deletedEntry.foreach { entry =>
-    dictionary.delete(entry.name)
-    Future { populateFunctionsList() }(Ui)
+    val usages = functionUsages(entry)
+    if usages.isEmpty then deleteEntry(entry)
+    else
+      val alert = new Alert(Alert.AlertType.CONFIRMATION)
+      alert.setContentText(
+        s"""
+           | The function ${entry.declaration} which you are about to delete
+           | is used by the following functions:
+           | ${usages.map(_.name).mkString(", ")}
+           | Do you want to continue?
+           |""".stripMargin
+      )
+      alert.setResult(ButtonType.YES)
+      alert.showAndWait().toScala.foreach(_ => deleteEntry(entry))
   }
 
   private lazy val dialog = new Dialog[String](isFullscreen).tap { d =>
@@ -68,6 +80,16 @@ final class AdvancedEditor extends Initializable:
       c.setOnAction { (_: ActionEvent) => close(textArea.getText) }
     })
   }
+
+  private def deleteEntry(entry: FunctionEntry): Unit =
+    dictionary.delete(entry.name)
+    Future { populateFunctionsList() }(Ui)
+
+  private def functionUsages(entry: FunctionEntry): Seq[FunctionAssignment] =
+    val entryName = entry.name
+    dictionary.list.collect {
+      case f: FunctionAssignment if f.textForm.contains(s"$entryName(") => f
+    }
   
   private def close(text: String): Unit =
     dialog.setResult(text)
