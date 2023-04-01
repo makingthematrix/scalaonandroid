@@ -1,7 +1,7 @@
 package fxcalculator
 
-import fxcalculator.logic.{Dictionary, EvaluationResults, Evaluator, Parser, Preprocessor}
-import fxcalculator.logic.expressions.{Constant, ConstantAssignment, Error, Expression, FunctionAssignment, NativeFunction}
+import fxcalculator.logic.{Dictionary, Evaluator, Parser, Preprocessor}
+import fxcalculator.logic.expressions.{Assignment, Constant, ConstantAssignment, Error, Expression, FunctionAssignment, NativeFunction}
 import fxcalculator.functions.Storage
 import javafx.event.ActionEvent
 import javafx.fxml.{FXML, Initializable}
@@ -53,14 +53,7 @@ final class MainController extends Initializable:
   def onMemoryReveal(event: ActionEvent): Unit = memory.foreach(updateExpression)
 
   def onFx(event: ActionEvent): Unit =
-    val text = AdvancedEditor.showDialog(parser.dictionary)
-    if text.nonEmpty then
-      evaluate(text) match
-        case Right(result) => 
-          updateExpression(result)
-          clearExpression = true
-        case Left(error) => 
-          showError(error)
+    AdvancedEditor.showDialog(parser).foreach(result => updateExpression(round(result).toString))
   
   def onClear(event: ActionEvent): Unit =
     expression.setText("0.0")
@@ -86,19 +79,11 @@ final class MainController extends Initializable:
     alert.showAndWait()
   
   private def evaluate(text: String): Either[String, String] =
-    val result = Evaluator(parser).evaluate(text)
-    result match
-      case EvaluationResults(_, Some(err), _) =>
-        Left(err.toString)
-      case EvaluationResults(None, _, assignments) if assignments.nonEmpty =>
-        assignments.map(_.textForm).foreach(Storage.append)
-        Left(assignments.head.textForm)
-      case EvaluationResults(Some(res), _, assignments) =>
-        assignments.map(_.textForm).foreach(Storage.append)
-        Right(res.toString)
-      case _ =>
-        Right("")
-
+    Evaluator.evaluate(parser, text) match
+      case res: Double => Right(round(res).toString)
+      case err: Error  => Left(err.toString)
+      case ass: Assignment => Right(ass.textForm)
+  
   inline private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
 
   private def updateExpression(newStr: String): Unit = expression.getText match
@@ -130,3 +115,12 @@ final class MainController extends Initializable:
     case ("0", _)                                               => false
     case (currentExpr, '(')                                     => currentExpr.lastOption.forall(operators.contains)
     case (currentExpr, _)                                       => !currentExpr.lastOption.forall(operators.contains)
+
+  private def round(number: Double): String =
+    val v = scala.math.round(number)
+    if v == number then
+      s"${v}.0"
+    else
+      val rest = number - v.toDouble
+      val restRounded = scala.math.round(rest * 100000000.0).toString.reverse.dropWhile(_ == '0').reverse
+      s"${v}.${restRounded}"

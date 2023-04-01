@@ -3,10 +3,10 @@ package fxcalculator
 import com.gluonhq.attach.util.Platform
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
 import fxcalculator.Resource.*
-import fxcalculator.functions.{FunctionCell, FunctionEntry}
-import fxcalculator.logic.Dictionary
+import fxcalculator.functions.{FunctionCell, FunctionEntry, Storage}
+import fxcalculator.logic.{Dictionary, Evaluator, Parser}
 import fxcalculator.logic.expressions.*
-import io.github.makingthematrix.signals3.EventStream
+import io.github.makingthematrix.signals3.Stream
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
 import javafx.beans.value.{ChangeListener, ObservableValue}
 import javafx.collections.FXCollections
@@ -28,9 +28,9 @@ import scala.util.chaining.scalaUtilChainingOps
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
   private val root: Node = loader.load[Node]()
-  private val isFullscreen: Boolean = !Platform.isDesktop
+  private val isFullscreen: Boolean = true //!Platform.isDesktop
 
-  def showDialog(dictionary: Dictionary): String = loader.getController[AdvancedEditor].run(dictionary)
+  def showDialog(parser: Parser): Option[Double] = loader.getController[AdvancedEditor].run(parser)
 
 final class AdvancedEditor extends Initializable:
   import AdvancedEditor.*
@@ -39,9 +39,9 @@ final class AdvancedEditor extends Initializable:
 
   @FXML private var textArea: TextArea = _
   @FXML private var functions: CharmListView[FunctionEntry, String] = _
-  private var dictionary: Dictionary = _
+  private var parser: Parser = _
 
-  private val selectedEntry = EventStream[FunctionEntry]()
+  private val selectedEntry = Stream[FunctionEntry]()
   selectedEntry.onUi { entry =>
     val text = textArea.getText
     val selection = textArea.getSelection
@@ -53,12 +53,15 @@ final class AdvancedEditor extends Initializable:
     textArea.requestFocus()
   }
 
-  private val deletedEntry = EventStream[FunctionEntry]()
+  private val deletedEntry = Stream[FunctionEntry]()
   deletedEntry.foreach { entry =>
+    println(s"delete: $entry")
     val usages = functionUsages(entry)
-    if usages.isEmpty then deleteEntry(entry)
+    println(s"usages: $usages")
+    if usages.isEmpty then
+      deleteEntry(entry)
     else
-      val alert = new Alert(Alert.AlertType.CONFIRMATION)
+      val alert = new Alert(Alert.AlertType.WARNING)
       alert.setContentText(
         s"""
            | The function ${entry.declaration} which you are about to delete
@@ -67,32 +70,52 @@ final class AdvancedEditor extends Initializable:
            | Do you want to continue?
            |""".stripMargin
       )
-      alert.setResult(ButtonType.YES)
+      alert.setResult(ButtonType.OK)
       alert.showAndWait().toScala.foreach(_ => deleteEntry(entry))
   }
 
-  private lazy val dialog = new Dialog[String](isFullscreen).tap { d =>
+  private lazy val dialog = new Dialog[Double](isFullscreen).tap { d =>
     d.setTitleText("Fx Calculator")
     d.setContent(root)
-
     d.getButtons.add(new Button("Run").tap { c =>
       c.setDefaultButton(true)
-      c.setOnAction { (_: ActionEvent) => close(textArea.getText) }
+      c.setOnAction { (_: ActionEvent) => runScript(textArea.getText).foreach(close) }
     })
   }
 
+  private def runScript(text: String): Option[Double] =
+    Evaluator.evaluate(parser, text) match
+      case ass: Assignment =>
+        val alert = new Alert(Alert.AlertType.INFORMATION)
+        alert.setContentText(s"You created a new assignment: ${ass.textForm}")
+        Future { populateFunctionsList() }(Ui)
+        alert.showAndWait()
+        Storage.dump(parser.dictionary)
+        None
+      case result: Double =>
+        Some(result)
+      case error: Error =>
+        val alert = new Alert(Alert.AlertType.ERROR)
+        alert.setContentText(error.toString)
+        alert.setResult(ButtonType.CLOSE)
+        alert.showAndWait()
+        None
+
   private def deleteEntry(entry: FunctionEntry): Unit =
-    dictionary.delete(entry.name)
+    println(s"deleteEntry($entry)")
+    parser.dictionary.delete(entry.name)
     Future { populateFunctionsList() }(Ui)
+    Storage.dump(parser.dictionary)
 
   private def functionUsages(entry: FunctionEntry): Seq[FunctionAssignment] =
     val entryName = entry.name
-    dictionary.list.collect {
-      case f: FunctionAssignment if f.textForm.contains(s"$entryName(") => f
+    parser.dictionary.chronologicalList.collect {
+      case f: FunctionAssignment if f.definition.contains(s"$entryName(") => f
     }
   
-  private def close(text: String): Unit =
-    dialog.setResult(text)
+  private def close(result: Double): Unit =
+    dialog.setResult(result)
+    Storage.dump(parser.dictionary)
     dialog.hide()
 
   override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
@@ -101,7 +124,7 @@ final class AdvancedEditor extends Initializable:
     functions.setCellFactory((_: CharmListView[FunctionEntry, String]) => FunctionCell(selectedEntry.publish, deletedEntry.publish))
 
   private def populateFunctionsList(): Unit =
-    val exprs = dictionary.list
+    val exprs = parser.dictionary.list
     val entries =
       exprs.collect { case expr: ConstantAssignment => FunctionEntry(expr) } ++
       exprs.collect { case expr: NativeFunction     => FunctionEntry(expr) } ++
@@ -112,7 +135,7 @@ final class AdvancedEditor extends Initializable:
     )
     functions.setItems(filteredList)
 
-  def run(dictionary: Dictionary): String =
-    this.dictionary = dictionary
+  def run(parser: Parser): Option[Double] =
+    this.parser = parser
     populateFunctionsList()
-    dialog.showAndWait().toScala.getOrElse("")
+    dialog.showAndWait().toScala

@@ -7,7 +7,6 @@ import scala.util.chaining.*
 
 class EvaluatorTest extends FxCalculatorSuite:
   test("dummy test") {
-    val parser: Parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true)
-    implicit val evaluator: Evaluator = Evaluator(parser)
+    given parser: Parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true)
     eval2("sin(Pi)+1", 1.0)
   }

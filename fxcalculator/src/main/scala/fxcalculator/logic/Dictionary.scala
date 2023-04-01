@@ -20,7 +20,7 @@ import fxcalculator.logic.expressions.*
 import scala.collection.mutable
 
 final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
-                       private var chronological: Seq[String] = Seq.empty):
+                       private var chronological: Seq[Assignment] = Seq.empty):
   import Dictionary.{isValidName, specialValuesCounter}
 
   def canAssign(name: String): Boolean =
@@ -31,13 +31,14 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
 
   def add(name: String, expr: Expression, canBeSpecial: Boolean): Boolean =
     (dict.get(name), expr) match
-      case (Some(_ : ConstantAssignment), _ : ConstantAssignment) =>
-        dict += name -> expr
-        chronological :+ name
+      case (Some(_ : ConstantAssignment), a : ConstantAssignment) =>
+        dict += name -> a
+        chronological = chronological.filterNot(_.name == name) :+ a
         true
-      case (None, _: FunctionAssignment) =>
-        dict += name -> expr
-        chronological :+ name
+      case (None, a: FunctionAssignment) =>
+        println(s"adding a function: ${a.textForm}")
+        dict += name -> a
+        chronological = chronological :+ a
         true
       case (None, _) if isValidName(name, canBeSpecial) =>
         dict += name -> expr
@@ -57,7 +58,7 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
   def delete(name: String): Boolean = dict.get(name) match
     case Some(_) =>
       dict -= name
-      chronological = chronological.filterNot(_ == name)
+      chronological = chronological.filterNot(_.name == name)
       true
     case None =>
       false
@@ -77,7 +78,7 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
 
   inline def list: Seq[Expression] = expressions.toSeq.sortBy(_._1).map(_._2)
 
-  inline def chronologicalList: Seq[Expression] = chronological.flatMap(dict.get)
+  inline def chronologicalList: Seq[Assignment] = chronological
 
 object Dictionary:
   private var specialValuesCounter: Long = 0L

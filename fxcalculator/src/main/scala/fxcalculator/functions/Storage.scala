@@ -12,11 +12,15 @@ import scala.jdk.CollectionConverters.{CollectionHasAsScala, IterableHasAsJava}
 import scala.jdk.OptionConverters.*
 import scala.util.{Failure, Success, Try}
 
+import upickle.default.*
+
 object Storage:
+  given rw: ReadWriter[FunctionEntry] = macroRW
+
   private lazy val storageFilePath: Option[Path] =
     Try {
       StorageService.create().toScala.flatMap {
-        _.getPrivateStorage.toScala.map(_.toPath.resolve("storage.txt"))
+        _.getPrivateStorage.toScala.map(_.toPath.resolve("functions.json"))
       }
     } match
       case Success(path) =>
@@ -37,16 +41,19 @@ object Storage:
       error("Unable to resolve the data file path")
       Left("Unable to resolve the data file path")
 
-  def append(textForm: String): Either[String, Unit] = withFilePath { path =>
-    Files.write(path, Seq(textForm).asJava, StandardOpenOption.APPEND)
-  }
+  def dump(dictionary: Dictionary): Either[String, Unit] = withFilePath { path =>
+    given rw: ReadWriter[FunctionEntry] = macroRW
+    val list = dictionary.chronologicalList.collect {
+      case c: ConstantAssignment if c.isCustom => FunctionEntry(c)
+      case f: FunctionAssignment => FunctionEntry(f)
+    }
 
-  def dump(parser: Parser): Either[String, Unit] = withFilePath { path =>
-    val dictionary = parser.dictionary
-    val textForms = dictionary.chronologicalList.map(_.textForm)
-    Files.write(path, textForms.asJava, StandardOpenOption.CREATE)
+    val jsonStr = write(list)
+    Files.writeString(path, jsonStr, StandardOpenOption.CREATE)
   }
 
   def readIn(parser: Parser): Either[String, Unit] = withFilePath { path =>
-    Files.readAllLines(path).asScala.foreach(parser.parse)
+    if Files.exists(path) then
+      val entries: Seq[FunctionEntry] = read[Seq[FunctionEntry]](path.toFile)
+      entries.foreach { entry => parser.parse(entry.textForm) }
   }

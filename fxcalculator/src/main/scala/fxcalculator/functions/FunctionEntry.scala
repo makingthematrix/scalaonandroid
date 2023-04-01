@@ -10,5 +10,5 @@ object FunctionEntry:
     FunctionEntry(assignment.name, assignment.declaration, assignment.constant.number.toString, assignment.isCustom)
   def apply(function: FunctionAssignment): FunctionEntry = 
     FunctionEntry(function.name, function.declaration, function.definition, true)
-  def apply(native: NativeFunction): FunctionEntry = 
+  def apply(native: NativeFunction): FunctionEntry =
     FunctionEntry(native.name, native.declaration, "", false)

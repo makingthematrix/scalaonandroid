@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <javafx.version>20-ea+11</javafx.version>
+        <javafx.version>20</javafx.version>
         <javafx.plugin.version>0.0.8</javafx.plugin.version>
         <!-- Works with GraalVM CE Java 17 22.1.0, but not higher -->
         <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
@@ -42,8 +42,52 @@
         <dependency>
             <groupId>io.github.makingthematrix</groupId>
             <artifactId>signals3_3</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>com.github.plokhotnyuk.jsoniter-scala</groupId>
+            <artifactId>jsoniter-scala-core_3</artifactId>
+            <version>2.21.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.plokhotnyuk.jsoniter-scala</groupId>
+            <artifactId>jsoniter-scala-macros_3</artifactId>
+            <version>2.21.3</version>
+            <scope>provided</scope>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.lihaoyi/upickle -->
+
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>geny_3</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>upack_3</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>ujson_3</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>upickle-implicits_3</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>upickle-core_3</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lihaoyi</groupId>
+            <artifactId>upickle_3</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -174,6 +218,12 @@
                 <configuration>
                     <libraries>
                         <param>scala3-library_3</param>
+                        <param>ujson_3</param>
+                        <param>upack_3</param>
+                        <param>upickle_3</param>
+                        <param>geny_3</param>
+                        <param>upickle-implicits_3</param>
+                        <param>upickle-core_3</param>
                     </libraries>
                 </configuration>
                 <executions>
