@@ -52,3 +52,21 @@ object Evaluator:
     }
     add()
     lines.toSeq
+
+  def round(number: Double): String =
+    val v = scala.math.floor(number)
+    if v == number then
+      number.toString
+    else
+      val vabs = scala.math.abs(v)
+      val restStr =
+        (scala.math.round((scala.math.abs(number) - vabs) * 1000000.0) / 1000000.0)
+          .toString
+          .drop(2)
+          .reverse
+          .dropWhile(_ == '0')
+          .reverse
+      if scala.math.signum(number) == 1.0 then
+        s"${vabs.toLong}.$restStr"
+      else
+        s"-${vabs.toLong}.$restStr"

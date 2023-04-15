@@ -9,7 +9,6 @@ import javafx.scene.control.{Alert, Button, Label, OverrunStyle}
 
 import java.net.URL
 import java.util.ResourceBundle
-import scala.math.{round, ulp}
 import scala.util.chaining.scalaUtilChainingOps
 
 object MainController:
@@ -53,7 +52,7 @@ final class MainController extends Initializable:
   def onMemoryReveal(event: ActionEvent): Unit = memory.foreach(updateExpression)
 
   def onFx(event: ActionEvent): Unit =
-    AdvancedEditor.showDialog(parser).foreach(result => updateExpression(round(result).toString))
+    AdvancedEditor.showDialog(parser).foreach(result => updateExpression(Evaluator.round(result)))
   
   def onClear(event: ActionEvent): Unit =
     expression.setText("0.0")
@@ -80,8 +79,8 @@ final class MainController extends Initializable:
   
   private def evaluate(text: String): Either[String, String] =
     Evaluator.evaluate(parser, text) match
-      case res: Double => Right(round(res).toString)
-      case err: Error  => Left(err.toString)
+      case res: Double     => Right(Evaluator.round(res))
+      case err: Error      => Left(err.toString)
       case ass: Assignment => Right(ass.textForm)
   
   inline private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
@@ -115,12 +114,3 @@ final class MainController extends Initializable:
     case ("0", _)                                               => false
     case (currentExpr, '(')                                     => currentExpr.lastOption.forall(operators.contains)
     case (currentExpr, _)                                       => !currentExpr.lastOption.forall(operators.contains)
-
-  private def round(number: Double): String =
-    val v = scala.math.round(number)
-    if v == number then
-      s"${v}.0"
-    else
-      val rest = number - v.toDouble
-      val restRounded = scala.math.round(rest * 100000000.0).toString.reverse.dropWhile(_ == '0').reverse
-      s"${v}.${restRounded}"
