@@ -13,20 +13,23 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>16</maven.compiler.release>
-        <javafx.version>16</javafx.version>
-        <javafx.plugin.version>0.0.6</javafx.plugin.version>
-        <charm.version>6.0.6</charm.version>
-        <attach.version>4.0.11</attach.version>
+        <maven.compiler.release>17</maven.compiler.release>
+        <javafx.version>20</javafx.version>
+        <javafx.plugin.version>0.0.8</javafx.plugin.version>
+        <!-- Works with GraalVM CE Java 17 22.1.0, but not higher -->
+        <gluonfx.maven.plugin.version>1.0.16</gluonfx.maven.plugin.version>
+        <charm.version>6.2.2</charm.version>
+        <attach.version>4.0.16</attach.version>
         <main.class>helloscala.Main</main.class>
-        <scala.version>2.13.6</scala.version>
-        <scala.compat.version>2.13</scala.compat.version>
+        <scala.version>3.3.0-RC3</scala.version>
+        <scala.compat.version>3</scala.compat.version>
+        <munit.version>0.7.29</munit.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
+            <artifactId>scala3-library_3</artifactId>
             <version>${scala.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.scalameta/svm-subs -->
@@ -93,7 +96,7 @@
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
                 <artifactId>scala-maven-plugin</artifactId>
-                <version>4.5.3</version>
+                <version>4.8.0</version>
                 <executions>
                     <execution>
                         <id>scala-compile</id>
@@ -115,7 +118,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
@@ -129,18 +132,20 @@
             <plugin>
                 <groupId>com.gluonhq</groupId>
                 <artifactId>gluonfx-maven-plugin</artifactId>
-                <version>1.0.1</version>
+                <version>${gluonfx.maven.plugin.version}</version>
                 <configuration>
                     <target>${gluonfx.target}</target>
                     <mainClass>${main.class}</mainClass>
                     <attachList>
-                        <list>device</list>
                         <list>display</list>
                         <list>storage</list>
-                        <list>util</list>
-                        <list>statusbar</list>
                         <list>lifecycle</list>
-                     </attachList>
+                        <list>statusbar</list>
+                    </attachList>
+                    <nativeImageArgs>
+                        <nativeImageArg>-H:IncludeResources=.*(png|properties)</nativeImageArg>
+                        <nativeImageArg>-O3</nativeImageArg>
+                    </nativeImageArgs>
                 </configuration>
             </plugin>
         </plugins>
