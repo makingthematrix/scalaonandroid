@@ -44,17 +44,7 @@
             <artifactId>signals3_3</artifactId>
             <version>1.1.0</version>
         </dependency>
-<!--        <dependency>
-            <groupId>com.github.plokhotnyuk.jsoniter-scala</groupId>
-            <artifactId>jsoniter-scala-core_3</artifactId>
-            <version>2.21.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.plokhotnyuk.jsoniter-scala</groupId>
-            <artifactId>jsoniter-scala-macros_3</artifactId>
-            <version>2.21.3</version>
-            <scope>provided</scope>
-        </dependency>-->
+
         <!-- https://mvnrepository.com/artifact/com.lihaoyi/upickle -->
 
         <dependency>
@@ -106,6 +96,11 @@
         <dependency>
             <groupId>com.gluonhq.attach</groupId>
             <artifactId>display</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>keyboard</artifactId>
             <version>${attach.version}</version>
         </dependency>
         <dependency>

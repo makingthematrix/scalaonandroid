@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
 <?import com.gluonhq.charm.glisten.control.CharmListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.AdvancedEditor">
-    <TextArea fx:id="textArea" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity"
-              prefHeight="300" prefWidth="320" promptText="f(x) =" styleClass="charm-text-area" wrapText="true">
+<VBox maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.AdvancedEditor">
+    <TextArea fx:id="textArea" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300" prefWidth="320" promptText="f(x) =" styleClass="charm-text-area" wrapText="true">
     </TextArea>
     <Label text="Functions">
         <font>
-          <Font size="10.0"/>
+            <Font size="10.0" />
         </font>
     </Label>
-    <CharmListView fx:id="functions" prefHeight="300.0" prefWidth="320.0">
+    <CharmListView fx:id="functions" prefHeight="320.0" prefWidth="320.0">
         <padding>
-          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
         </padding>
     </CharmListView>
+    <Button fx:id="removeAll" alignment="CENTER_RIGHT" mnemonicParsing="false" text="Remove all custom" minHeight="25.0">
+        <font>
+            <Font size="10.0" />
+        </font>
+    </Button>
 </VBox>

@@ -1,6 +1,6 @@
 package fxcalculator
 
-import com.gluonhq.attach.util.Platform
+import com.gluonhq.attach.util.{Platform, Services}
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
 import fxcalculator.Resource.*
 import fxcalculator.functions.{FunctionCell, FunctionEntry, Storage}
@@ -15,7 +15,8 @@ import javafx.event.{ActionEvent, EventHandler, EventType}
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Node
 import javafx.scene.control.{Alert, Button, ButtonType, Label, ListView, TextArea}
-import javafx.scene.input.{KeyCode, KeyEvent, MouseEvent}
+import javafx.scene.input.{InputMethodEvent, KeyCode, KeyEvent, MouseEvent}
+import javafx.stage.Popup
 
 import java.net.URL
 import java.util.ResourceBundle
@@ -28,7 +29,7 @@ import scala.util.chaining.scalaUtilChainingOps
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
   private val root: Node = loader.load[Node]()
-  private val isFullscreen: Boolean = true //!Platform.isDesktop
+  private val isFullscreen: Boolean = !Platform.isDesktop
 
   def showDialog(parser: Parser): Option[Double] = loader.getController[AdvancedEditor].run(parser)
 
@@ -39,6 +40,7 @@ final class AdvancedEditor extends Initializable:
 
   @FXML private var textArea: TextArea = _
   @FXML private var functions: CharmListView[FunctionEntry, String] = _
+  @FXML private var removeAll: Button = _
   private var parser: Parser = _
 
   private val selectedEntry = Stream[FunctionEntry]()
@@ -55,9 +57,7 @@ final class AdvancedEditor extends Initializable:
 
   private val deletedEntry = Stream[FunctionEntry]()
   deletedEntry.foreach { entry =>
-    println(s"delete: $entry")
     val usages = functionUsages(entry)
-    println(s"usages: $usages")
     if usages.isEmpty then
       deleteEntry(entry)
     else
@@ -74,35 +74,38 @@ final class AdvancedEditor extends Initializable:
       alert.showAndWait().toScala.foreach(_ => deleteEntry(entry))
   }
 
-  private lazy val dialog = new Dialog[Double](isFullscreen).tap { d =>
+  private lazy val dialog: Dialog[Double] = new Dialog[Double](isFullscreen).tap { d =>
     d.setTitleText("Fx Calculator")
     d.setContent(root)
     d.getButtons.add(new Button("Run").tap { c =>
       c.setDefaultButton(true)
-      c.setOnAction { (_: ActionEvent) => runScript(textArea.getText).foreach(close) }
+      c.setOnAction { (_: ActionEvent) =>
+        runScript(textArea.getText) match
+          case Some(result) => close(result)
+          case None => textArea.requestFocus()
+      }
     })
+    if !isFullscreen then
+      d.getButtons.add(new Button("Cancel").tap { c =>
+        c.setCancelButton(true)
+        c.setOnAction { (_: ActionEvent) => dialog.hide() }
+      })
   }
 
   private def runScript(text: String): Option[Double] =
     Evaluator.evaluate(parser, text) match
       case ass: Assignment =>
-        val alert = new Alert(Alert.AlertType.INFORMATION)
-        alert.setContentText(s"You created a new assignment: ${ass.textForm}")
         Future { populateFunctionsList() }(Ui)
-        alert.showAndWait()
         Storage.dump(parser.dictionary)
+        InfoBox.show(s"You created a new assignment: ${ass.textForm}")
         None
       case result: Double =>
         Some(result)
       case error: Error =>
-        val alert = new Alert(Alert.AlertType.ERROR)
-        alert.setContentText(error.toString)
-        alert.setResult(ButtonType.CLOSE)
-        alert.showAndWait()
+        InfoBox.show(error.toString)
         None
 
   private def deleteEntry(entry: FunctionEntry): Unit =
-    println(s"deleteEntry($entry)")
     parser.dictionary.delete(entry.name)
     Future { populateFunctionsList() }(Ui)
     Storage.dump(parser.dictionary)
@@ -122,6 +125,17 @@ final class AdvancedEditor extends Initializable:
     textArea.setFocusTraversable(true)
     textArea.requestFocus()
     functions.setCellFactory((_: CharmListView[FunctionEntry, String]) => FunctionCell(selectedEntry.publish, deletedEntry.publish))
+    removeAll.setOnAction { (_: ActionEvent) => removeAllCustomEntries() }
+
+  private def removeAllCustomEntries(): Unit =
+    val dict = parser.dictionary
+    val customEntries = dict.list.collect {
+      case c: ConstantAssignment if c.isCustom => c
+      case f: FunctionAssignment => f
+    }
+    customEntries.foreach(ce => dict.delete(ce.name))
+    Future { populateFunctionsList() }(Ui)
+    Storage.dump(dict)
 
   private def populateFunctionsList(): Unit =
     val exprs = parser.dictionary.list

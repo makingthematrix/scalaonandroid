@@ -40,7 +40,7 @@ final class MainController extends Initializable:
         expression.setText(result)
         clearExpression = true
       case Left(error) =>
-        showError(error)
+        InfoBox.show(error)
 
   def onMemoryPlus(event: ActionEvent): Unit =
     evaluate(expression.getText) match
@@ -71,11 +71,6 @@ final class MainController extends Initializable:
 
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
-
-  private def showError(error: String): Unit =
-    val alert = new Alert(Alert.AlertType.ERROR)
-    alert.setContentText(error)
-    alert.showAndWait()
   
   private def evaluate(text: String): Either[String, String] =
     Evaluator.evaluate(parser, text) match
