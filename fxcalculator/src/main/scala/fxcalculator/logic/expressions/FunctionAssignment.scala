@@ -6,6 +6,8 @@ import fxcalculator.logic.Dictionary.isValidName
 
 import scala.util.chaining.*
 
+import fxcalculator.utils.Logger.*
+
 /**
  * Function assignment
  *

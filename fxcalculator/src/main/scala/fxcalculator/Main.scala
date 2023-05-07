@@ -14,7 +14,8 @@ import javafx.scene.layout.BorderPane
 import scala.jdk.FunctionConverters.enrichAsJavaFunction
 import com.gluonhq.charm.glisten.application.AppManager.HOME_VIEW
 import javafx.stage.Stage
-import Resource.*
+import fxcalculator.utils.Resource.*
+import fxcalculator.utils.Logger
 
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue
 
@@ -39,6 +40,7 @@ final class Main extends Application:
 
   override def init(): Unit =
     UiDispatchQueue.setUi(javafx.application.Platform.runLater)
+    Logger.init(classOf[Main], "FxCalculator")
     val root = FXMLLoader.load[BorderPane](url(MainFxml))
     appManager.addViewFactory(HOME_VIEW, () => new View(root))
 

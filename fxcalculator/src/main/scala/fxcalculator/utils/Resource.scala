@@ -1,7 +1,8 @@
-package fxcalculator
+package fxcalculator.utils
 
 import java.io.InputStream
 import java.net.URL
+import fxcalculator.Main
 
 enum Resource(val value: String):
   case StylesCss          extends Resource("styles.css")
@@ -10,5 +11,5 @@ enum Resource(val value: String):
   case AdvancedEditorFxml extends Resource("advancededitor.fxml")
 
 object Resource:
-  def url(res: Resource): URL = classOf[Resource].getResource(res.value)
-  def stream(res: Resource): InputStream = classOf[Resource].getResourceAsStream(res.value)
+  def url(res: Resource): URL = classOf[Main].getResource(res.value)
+  def stream(res: Resource): InputStream = classOf[Main].getResourceAsStream(res.value)

@@ -2,10 +2,11 @@ package fxcalculator
 
 import com.gluonhq.attach.util.{Platform, Services}
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
-import fxcalculator.Resource.*
-import fxcalculator.functions.{FunctionCell, FunctionEntry, Storage}
+import fxcalculator.utils.Resource.*
+import fxcalculator.functions.{FunctionCell, FunctionEntry}
 import fxcalculator.logic.{Dictionary, Evaluator, Parser}
 import fxcalculator.logic.expressions.*
+import fxcalculator.utils.Storage
 import io.github.makingthematrix.signals3.Stream
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
 import javafx.beans.value.{ChangeListener, ObservableValue}
@@ -25,6 +26,8 @@ import scala.jdk.CollectionConverters.*
 import scala.jdk.FunctionConverters.*
 import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
+
+import fxcalculator.utils.Logger.*
 
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
@@ -95,9 +98,10 @@ final class AdvancedEditor extends Initializable:
   private def runScript(text: String): Option[Double] =
     Evaluator.evaluate(parser, text) match
       case ass: Assignment =>
-        Future { populateFunctionsList() }(Ui)
+        info(s"runScript done: $text")
         Storage.dump(parser.dictionary)
         InfoBox.show(s"You created a new assignment: ${ass.textForm}")
+        Future { populateFunctionsList() }(Ui)
         None
       case result: Double =>
         Some(result)

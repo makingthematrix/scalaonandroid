@@ -1,8 +1,8 @@
 package fxcalculator
 
-import fxcalculator.logic.expressions.{ConstantAssignment, Constant, NativeFunction}
+import fxcalculator.logic.expressions.{Constant, ConstantAssignment, NativeFunction}
 import fxcalculator.logic.{Dictionary, Parser}
-import fxcalculator.functions.Storage
+import fxcalculator.utils.Storage
 
 import scala.util.chaining.scalaUtilChainingOps
 
@@ -46,11 +46,12 @@ object ParserCreator:
     f1("ulp", math.ulp)
   )
 
-  def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false): Parser =
+  def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false, reset: Boolean = false): Parser =
     val dictionary = Dictionary().tap { dict =>
       if withConstants then constants.foreach(dict.add(_))
       if withNativeFunctions then nativeFunctions.foreach(dict.add(_))
     }
+    if reset then Storage.reset()
     Parser(dictionary = dictionary).tap { parser =>
       if withStorage then Storage.readIn(parser)
     }

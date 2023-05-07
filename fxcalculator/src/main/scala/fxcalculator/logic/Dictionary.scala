@@ -36,7 +36,6 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
         chronological = chronological.filterNot(_.name == name) :+ a
         true
       case (None, a: FunctionAssignment) =>
-        println(s"adding a function: ${a.textForm}")
         dict += name -> a
         chronological = chronological :+ a
         true

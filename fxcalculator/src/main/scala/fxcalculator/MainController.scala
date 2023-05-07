@@ -2,7 +2,6 @@ package fxcalculator
 
 import fxcalculator.logic.{Dictionary, Evaluator, Parser, Preprocessor}
 import fxcalculator.logic.expressions.{Assignment, Constant, ConstantAssignment, Error, Expression, FunctionAssignment, NativeFunction}
-import fxcalculator.functions.Storage
 import javafx.event.ActionEvent
 import javafx.fxml.{FXML, Initializable}
 import javafx.scene.control.{Alert, Button, Label, OverrunStyle}

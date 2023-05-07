@@ -38,6 +38,8 @@ import fxcalculator.logic.expressions.*
 
 import scala.util.chaining.*
 
+import fxcalculator.utils.Logger.*
+
 trait Parser {
   def dictionary: Dictionary
   def setup(preprocessor: Preprocessor): Unit

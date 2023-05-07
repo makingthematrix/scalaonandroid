@@ -4,7 +4,7 @@ import com.gluonhq.charm.glisten.control.{CharmListCell, ListTile}
 import javafx.scene.image.{Image, ImageView}
 import javafx.scene.layout.{HBox, Priority}
 import javafx.scene.input.MouseEvent
-import fxcalculator.Resource.*
+import fxcalculator.utils.Resource.*
 
 import scala.util.chaining.scalaUtilChainingOps
 
