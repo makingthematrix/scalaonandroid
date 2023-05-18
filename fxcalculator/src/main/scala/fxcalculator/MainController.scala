@@ -72,7 +72,7 @@ final class MainController extends Initializable:
     if isPointAllowed then updateExpression('.')
   
   private def evaluate(text: String): Either[String, String] =
-    Evaluator.evaluate(parser, text) match
+    Evaluator.evaluate(parser, text).result match
       case res: Double     => Right(Evaluator.round(res))
       case err: Error      => Left(err.toString)
       case ass: Assignment => Right(ass.textForm)

@@ -9,7 +9,7 @@ import fxcalculator.utils.Resource.*
 import scala.util.chaining.scalaUtilChainingOps
 
 object FunctionCell:
-  private lazy val trashIcon = new Image(stream(TrashPng))
+  private lazy val trashIcon = new Image(stream(ClosePng))
 
 final class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntry => Unit) extends CharmListCell[FunctionEntry]:
   private val tile = new ListTile().tap { t =>

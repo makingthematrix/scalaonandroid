@@ -48,8 +48,8 @@ object ParserCreator:
 
   def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false, reset: Boolean = false): Parser =
     val dictionary = Dictionary().tap { dict =>
-      if withConstants then constants.foreach(dict.add(_))
-      if withNativeFunctions then nativeFunctions.foreach(dict.add(_))
+      if withConstants then constants.foreach(c => dict.add(c.name, c))
+      if withNativeFunctions then nativeFunctions.foreach(nf => dict.add(nf.name, nf))
     }
     if reset then Storage.reset()
     Parser(dictionary = dictionary).tap { parser =>

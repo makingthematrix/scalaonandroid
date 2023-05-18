@@ -96,33 +96,35 @@ final class AdvancedEditor extends Initializable:
   }
 
   private def runScript(text: String): Option[Double] =
-    Evaluator.evaluate(parser, text) match
-      case ass: Assignment =>
-        info(s"runScript done: $text")
-        Storage.dump(parser.dictionary)
-        InfoBox.show(s"You created a new assignment: ${ass.textForm}")
-        Future { populateFunctionsList() }(Ui)
-        None
+    val evInfo = Evaluator.evaluate(parser, text)
+    info(s"runScript done: $text")
+    if evInfo.assignments.nonEmpty then
+      parser.customAssignments.add(evInfo.assignments.map(_._2))
+      Storage.dump(parser.customAssignments)
+      Future { populateFunctionsList() }(Ui)
+    evInfo.result match
       case result: Double =>
         Some(result)
+      case _: Assignment =>
+        InfoBox.show(s"You created a new assignment: ${evInfo.assignments.last._2}")
+        None
       case error: Error =>
         InfoBox.show(error.toString)
         None
 
   private def deleteEntry(entry: FunctionEntry): Unit =
-    parser.dictionary.delete(entry.name)
-    Future { populateFunctionsList() }(Ui)
-    Storage.dump(parser.dictionary)
+    if parser.delete(entry.name) then 
+      Future { populateFunctionsList() }(Ui)
+      Storage.dump(parser.customAssignments)
 
   private def functionUsages(entry: FunctionEntry): Seq[FunctionAssignment] =
     val entryName = entry.name
-    parser.dictionary.chronologicalList.collect {
+    parser.dictionary.list.collect {
       case f: FunctionAssignment if f.definition.contains(s"$entryName(") => f
     }
   
   private def close(result: Double): Unit =
     dialog.setResult(result)
-    Storage.dump(parser.dictionary)
     dialog.hide()
 
   override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
@@ -132,21 +134,23 @@ final class AdvancedEditor extends Initializable:
     removeAll.setOnAction { (_: ActionEvent) => removeAllCustomEntries() }
 
   private def removeAllCustomEntries(): Unit =
-    val dict = parser.dictionary
-    val customEntries = dict.list.collect {
-      case c: ConstantAssignment if c.isCustom => c
-      case f: FunctionAssignment => f
-    }
-    customEntries.foreach(ce => dict.delete(ce.name))
+    parser.reset()
     Future { populateFunctionsList() }(Ui)
-    Storage.dump(dict)
+    Storage.reset()
 
   private def populateFunctionsList(): Unit =
     val exprs = parser.dictionary.list
     val entries =
       exprs.collect { case expr: ConstantAssignment => FunctionEntry(expr) } ++
       exprs.collect { case expr: NativeFunction     => FunctionEntry(expr) } ++
-      exprs.collect { case expr: FunctionAssignment => FunctionEntry(expr) }
+      exprs.collect {
+        case expr: FunctionAssignment =>
+          parser
+            .customAssignments
+            .get(expr.name)
+            .map { case (declaration, definition) => FunctionEntry(expr, declaration, definition) }
+            .getOrElse(FunctionEntry(expr))
+      }
     val filteredList = new FilteredList(
       FXCollections.observableArrayList(entries.asJavaCollection),
       (_: FunctionEntry) => true

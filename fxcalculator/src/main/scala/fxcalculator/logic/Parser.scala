@@ -42,12 +42,21 @@ import fxcalculator.utils.Logger.*
 
 trait Parser {
   def dictionary: Dictionary
+  def customAssignments: CustomAssignments
   def setup(preprocessor: Preprocessor): Unit
   def copy(updates: Map[String, Expression] = Map.empty): Parser
   def parse(line: String): ParsedExpr[Expression]
+  
+  final def delete(name: String): Boolean =
+    dictionary.delete(name) && customAssignments.delete(name)
+  
+  final def reset(): Unit =
+    dictionary.reset()
+    customAssignments.reset()
 }
 
-final class ParserImpl(override val dictionary: Dictionary, 
+final class ParserImpl(override val dictionary: Dictionary,
+                       override val customAssignments: CustomAssignments,
                        private var preprocessor: Option[Preprocessor]) extends Parser:
   self =>
   import Parser.*
@@ -56,7 +65,7 @@ final class ParserImpl(override val dictionary: Dictionary,
     this.preprocessor = Some(preprocessor)
 
   override def copy(updates: Map[String, Expression] = Map.empty): Parser =
-    Parser(dictionary.copy(updates))
+    Parser(dictionary.copy(updates), customAssignments.copy())
 
   override def parse(line: String): ParsedExpr[Expression] =
     preprocess(line) match
@@ -74,8 +83,10 @@ final class ParserImpl(override val dictionary: Dictionary,
       case None      => Left(ParsingError("The preprocessor is not set up"))
 
 object Parser:
-  def apply(dictionary: Dictionary = Dictionary(), flags: Flags = Flags.AllFlagsOn): Parser =
-    new ParserImpl(dictionary, None).tap { parser =>
+  def apply(dictionary: Dictionary = Dictionary(), 
+            customAssignments: CustomAssignments = CustomAssignments(), 
+            flags: Flags = Flags.AllFlagsOn): Parser =
+    new ParserImpl(dictionary, customAssignments, None).tap { parser =>
       val preprocessor = Preprocessor(flags = flags)
       parser.setup(preprocessor)
       preprocessor.setup(parser)

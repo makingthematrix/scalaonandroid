@@ -24,7 +24,7 @@ abstract class FxCalculatorSuite extends munit.FunSuite:
             Double.NaN
 
   def eval2(str: String, expected: Double, delta: Double = 0.001)(using parser: Parser = Parser()): Double =
-    Evaluator.evaluate(parser, str) match
+    Evaluator.evaluate(parser, str).result match
       case result: Double  => 
         assertEqualsDouble(result, expected, delta)
         result
@@ -34,6 +34,8 @@ abstract class FxCalculatorSuite extends munit.FunSuite:
       case ass: Assignment => 
         failComparison(s"Expected a result, got an assignment: $ass", str, expected)
         Double.NaN
+      case other =>
+        fail(s"Unable to evaluate: $other")
         
   def parse(str: String)(using parser: Parser = Parser()): Unit =
     parser.parse(str) match

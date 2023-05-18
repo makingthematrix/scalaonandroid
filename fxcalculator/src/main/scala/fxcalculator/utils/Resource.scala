@@ -7,6 +7,7 @@ import fxcalculator.Main
 enum Resource(val value: String):
   case StylesCss          extends Resource("styles.css")
   case TrashPng           extends Resource("trash.png")
+  case ClosePng           extends Resource("close.png")
   case MainFxml           extends Resource("main.fxml")
   case AdvancedEditorFxml extends Resource("advancededitor.fxml")
 

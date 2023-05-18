@@ -6,10 +6,13 @@ import scala.collection.mutable
 
 object Evaluator:
   type EvaluationResult = Error | Double | Assignment
-  def evaluate(parser: Parser, text: String):  EvaluationResult =
+
+  final case class EvaluationInfo(result: EvaluationResult, assignments: Seq[(Assignment, String)])
+
+  def evaluate(parser: Parser, text: String):  EvaluationInfo =
     val lines = split(text)
     if lines.isEmpty then
-      Error.ParsingError(s"Can't parse: $text")
+      EvaluationInfo(Error.ParsingError(s"Can't parse: $text"), Nil)
     else
       val tempParser = parser.copy()
       object Failed:
@@ -17,8 +20,13 @@ object Evaluator:
           case error: Error => Some(error)
           case _            => None
       lines.collectFirst { case Failed(error) => error } match
-        case Some(error) => error
-        case None        => lines.map(run(parser, _)).last
+        case Some(error) => EvaluationInfo(error, Nil)
+        case None        =>
+          val results = lines.map(line => run(parser, line) -> line)
+          EvaluationInfo(
+            result = results.last._1,
+            assignments = results.collect { case (ass: Assignment, line) => ass -> line }
+          )
 
   private[logic] def run(parser: Parser, line: String):  EvaluationResult =
     parser.parse(line) match

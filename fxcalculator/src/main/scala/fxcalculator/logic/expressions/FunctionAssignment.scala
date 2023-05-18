@@ -35,26 +35,23 @@ object FunctionAssignment extends Parseable[FunctionAssignment]:
     if !line.contains("=") then
       ParsedExpr.empty
     else
-      val assignIndex   = line.indexOf('=')
-      val assignmentStr = line.substring(0, assignIndex)
-      ParsedFunction.parse(assignmentStr, LineSide.Left).flatMap {
+      ParsedFunction.parse(line.takeWhile(_ != '='), LineSide.Left).flatMap {
         case Left(error) =>
           ParsedExpr.error(error)
         case Right(ParsedFunction(name, _)) if parser.dictionary.contains(name) =>
           ParsedExpr.error(s"The function already exists: $name")
         case Right(ParsedFunction(name, arguments)) =>
-          val definition = line.substring(assignIndex + 1)
-          parseAssignment(parser, name, arguments, definition)
+          parseAssignment(parser, name, arguments, line)
       }
 
-  private def parseAssignment(parser: Parser, name: String, arguments: Seq[String], definition: String): ParsedExpr[FunctionAssignment] =
+  private def parseAssignment(parser: Parser, name: String, arguments: Seq[String], line: String): ParsedExpr[FunctionAssignment] =
+    val definition = line.substring(line.indexOf('=') + 1)
     parser
       .copy(arguments.map(arg => arg -> Variable(arg)).toMap)
       .parse(definition)
       .happyPath { expression =>
-        FunctionAssignment(name, arguments, definition, expression).pipe { assignment =>
-          parser.dictionary.add(assignment)
-          ParsedExpr(assignment)
-        }
+        val assignment = FunctionAssignment(name, arguments, definition, expression)
+        parser.dictionary.add(assignment)
+        ParsedExpr(assignment)
       }
       .errorIfEmpty(s"Unable to parse: $definition")

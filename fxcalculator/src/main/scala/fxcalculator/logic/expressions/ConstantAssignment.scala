@@ -35,21 +35,23 @@ object ConstantAssignment extends Parseable[ConstantAssignment]:
     if !line.contains("=") then
       ParsedExpr.empty
     else
-      val assignIndex = line.indexOf('=')
-      parseAssignment(parser, line.substring(0, assignIndex), line.substring(assignIndex + 1))
+      parseAssignment(parser, line)
 
-  private def parseAssignment(parser: Parser, name: String, expressionStr: String): ParsedExpr[ConstantAssignment] =
+  private def parseAssignment(parser: Parser, line: String): ParsedExpr[ConstantAssignment] =
+    val assignIndex = line.indexOf('=')
+    val name = line.substring(0, assignIndex)
     if !Dictionary.isValidName(name) then
       ParsedExpr.error(s"Invalid variable name: $name")
     else if !parser.dictionary.canAssign(name) then
       ParsedExpr.error(s"Unable to assign to: $name")
     else
+      val expressionStr = line.substring(assignIndex + 1)
       parser
         .parse(expressionStr)
         .happyPath { expression =>
           Some {
             expression.run(parser.dictionary).map { number =>
-              ConstantAssignment(name, Constant(number)).tap(parser.dictionary.add(_))
+              ConstantAssignment(name, Constant(number)).tap(assignment => parser.dictionary.add(assignment))
             }
           }
         }

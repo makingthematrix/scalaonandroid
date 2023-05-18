@@ -18,9 +18,9 @@ package fxcalculator.logic
 
 import fxcalculator.logic.expressions.*
 import scala.collection.mutable
+import scala.util.chaining.*
 
-final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
-                       private var chronological: Seq[Assignment] = Seq.empty):
+final class Dictionary(private var dict: Map[String, Expression] = Map.empty):
   import Dictionary.{isValidName, specialValuesCounter}
 
   def canAssign(name: String): Boolean =
@@ -33,11 +33,9 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
     (dict.get(name), expr) match
       case (Some(_ : ConstantAssignment), a : ConstantAssignment) =>
         dict += name -> a
-        chronological = chronological.filterNot(_.name == name) :+ a
         true
       case (None, a: FunctionAssignment) =>
         dict += name -> a
-        chronological = chronological :+ a
         true
       case (None, _) if isValidName(name, canBeSpecial) =>
         dict += name -> expr
@@ -45,8 +43,8 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
       case _ =>
         false
 
-  inline def add(name: String, expr: Expression): Boolean = add(name, expr, false)
-  inline def add(assignment: Assignment): Boolean = add(assignment.name, assignment, false)
+  def add(name: String, expr: Expression): Boolean = add(name, expr, false)
+  def add(assignment: Assignment): Boolean = add(assignment.name, assignment, false)
   
   def addSpecial(expr: Expression): String =
     specialValuesCounter += 1
@@ -57,7 +55,6 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
   def delete(name: String): Boolean = dict.get(name) match
     case Some(_) =>
       dict -= name
-      chronological = chronological.filterNot(_.name == name)
       true
     case None =>
       false
@@ -77,7 +74,12 @@ final class Dictionary(private var dict: Map[String, Expression] = Map.empty,
 
   inline def list: Seq[Expression] = expressions.toSeq.sortBy(_._1).map(_._2)
 
-  inline def chronologicalList: Seq[Assignment] = chronological
+  def reset(): Unit =
+    dict = dict.filter {
+      case (_, c: ConstantAssignment) if c.isCustom => false
+      case (_, _: FunctionAssignment) => false
+      case _ => true
+    }
 
 object Dictionary:
   private var specialValuesCounter: Long = 0L
