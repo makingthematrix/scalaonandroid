@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mvn -Pandroid gluonfx:build gluonfx:package
+mvn -X -e -Pandroid clean gluonfx:build gluonfx:package

@@ -23,7 +23,7 @@ package fxcalculator
  * as it often helps with the other two, but I believe there are exceptions).
  */
 
-import fxcalculator.logic.{Dictionary, Evaluator, Parser, Preprocessor}
+import fxcalculator.logic.{Dictionary, Evaluator, Parser, ParserCreator, Preprocessor}
 import fxcalculator.logic.expressions.{Assignment, Constant, ConstantAssignment, Error, Expression, FunctionAssignment, NativeFunction}
 
 import scala.util.chaining.*

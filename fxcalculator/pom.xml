@@ -179,8 +179,8 @@
                         <list>statusbar</list>
                     </attachList>
                     <reflectionList>
-                        <list>fxcalculator.MainController</list>
-                        <list>fxcalculator.AdvancedEditor</list>
+                        <list>fxcalculator.ui.MainController</list>
+                        <list>fxcalculator.ui.AdvancedEditor</list>
                     </reflectionList>
                     <nativeImageArgs>
                         <nativeImageArg>-H:IncludeResources=.*(png|properties)</nativeImageArg>

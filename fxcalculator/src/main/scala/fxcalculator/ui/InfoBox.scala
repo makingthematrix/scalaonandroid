@@ -1,13 +1,12 @@
-package fxcalculator
+package fxcalculator.ui
 
 import com.gluonhq.charm.glisten.control.Dialog
+import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
 import javafx.event.ActionEvent
 import javafx.scene.control.Button
 
-import scala.util.chaining.scalaUtilChainingOps
 import scala.concurrent.Future
-
-import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
+import scala.util.chaining.scalaUtilChainingOps
 
 object InfoBox:
   def show(text: String): Unit =

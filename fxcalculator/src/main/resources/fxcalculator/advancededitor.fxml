@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.AdvancedEditor">
+<VBox maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.ui.AdvancedEditor">
     <TextArea fx:id="textArea" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300" prefWidth="320" promptText="f(x) =" styleClass="charm-text-area" wrapText="true">
     </TextArea>
     <Label text="Assignments">

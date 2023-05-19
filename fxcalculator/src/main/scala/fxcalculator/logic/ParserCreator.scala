@@ -1,4 +1,4 @@
-package fxcalculator
+package fxcalculator.logic
 
 import fxcalculator.logic.expressions.{Constant, ConstantAssignment, NativeFunction}
 import fxcalculator.logic.{Dictionary, Parser}

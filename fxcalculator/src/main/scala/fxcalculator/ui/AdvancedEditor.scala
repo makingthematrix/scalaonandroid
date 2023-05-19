@@ -1,11 +1,13 @@
-package fxcalculator
+package fxcalculator.ui
 
 import com.gluonhq.attach.util.{Platform, Services}
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
-import fxcalculator.utils.Resource.*
-import fxcalculator.logic.{AssignmentEntry, Dictionary, Evaluator, Parser}
 import fxcalculator.logic.expressions.*
+import fxcalculator.logic.{AssignmentEntry, Dictionary, Evaluator, Parser}
+import fxcalculator.utils.Logger.*
+import fxcalculator.utils.Resource.*
 import fxcalculator.utils.Storage
+import fxcalculator.ui.{ AssignmentCell, InfoBox}
 import io.github.makingthematrix.signals3.Stream
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue.*
 import javafx.beans.value.{ChangeListener, ObservableValue}
@@ -14,7 +16,7 @@ import javafx.collections.transformation.FilteredList
 import javafx.event.{ActionEvent, EventHandler, EventType}
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Node
-import javafx.scene.control.{Alert, Button, ButtonType, Label, ListView, TextArea}
+import javafx.scene.control.*
 import javafx.scene.input.{InputMethodEvent, KeyCode, KeyEvent, MouseEvent}
 import javafx.stage.Popup
 
@@ -25,7 +27,6 @@ import scala.jdk.CollectionConverters.*
 import scala.jdk.FunctionConverters.*
 import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
-import fxcalculator.utils.Logger.*
 
 object AdvancedEditor:
   private val loader = new FXMLLoader(url(AdvancedEditorFxml))
@@ -111,7 +112,7 @@ final class AdvancedEditor extends Initializable:
         None
 
   private def deleteEntry(entry: AssignmentEntry): Unit =
-    if parser.delete(entry.name) then 
+    if parser.delete(entry.name) then
       Future { populateList() }(Ui)
       Storage.dump(parser.customAssignments)
 

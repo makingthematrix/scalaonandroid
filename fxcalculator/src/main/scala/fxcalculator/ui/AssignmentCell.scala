@@ -1,4 +1,4 @@
-package fxcalculator
+package fxcalculator.ui
 
 import com.gluonhq.charm.glisten.control.{CharmListCell, ListTile}
 import fxcalculator.logic.AssignmentEntry

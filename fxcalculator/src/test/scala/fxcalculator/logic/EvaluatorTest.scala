@@ -1,6 +1,5 @@
 package fxcalculator.logic
 
-import fxcalculator.ParserCreator
 import munit.{ComparisonFailException, Location}
 
 import scala.util.chaining.*
