@@ -2,9 +2,8 @@ package fxcalculator.utils
 
 import com.gluonhq.attach.storage.StorageService
 import com.sun.javafx.logging.Logger
-import fxcalculator.functions.FunctionEntry
 import fxcalculator.logic.expressions.{ConstantAssignment, FunctionAssignment}
-import fxcalculator.logic.{CustomAssignments, Dictionary, Parser}
+import fxcalculator.logic.{AssignmentEntry, CustomAssignments, Dictionary, Parser}
 import fxcalculator.utils.Logger.*
 import upickle.default.*
 

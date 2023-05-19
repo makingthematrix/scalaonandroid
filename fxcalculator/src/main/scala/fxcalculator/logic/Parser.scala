@@ -37,7 +37,6 @@ import fxcalculator.logic.expressions.Error.ParsingError
 import fxcalculator.logic.expressions.*
 
 import scala.util.chaining.*
-
 import fxcalculator.utils.Logger.*
 
 trait Parser {
@@ -46,6 +45,7 @@ trait Parser {
   def setup(preprocessor: Preprocessor): Unit
   def copy(updates: Map[String, Expression] = Map.empty): Parser
   def parse(line: String): ParsedExpr[Expression]
+  def assignments: Seq[AssignmentEntry]
   
   final def delete(name: String): Boolean =
     dictionary.delete(name) && customAssignments.delete(name)
@@ -81,6 +81,18 @@ final class ParserImpl(override val dictionary: Dictionary,
     preprocessor match
       case Some(pre) => pre.process(line)
       case None      => Left(ParsingError("The preprocessor is not set up"))
+
+  override def assignments: Seq[AssignmentEntry] =
+    val exprs = dictionary.list
+      exprs.collect { case expr: ConstantAssignment => AssignmentEntry(expr) } ++
+        exprs.collect { case expr: NativeFunction => AssignmentEntry(expr) } ++
+        exprs.collect {
+          case expr: FunctionAssignment =>
+            customAssignments
+              .get(expr.name)
+              .map { case (declaration, definition) => AssignmentEntry(expr, declaration, definition) }
+              .getOrElse(AssignmentEntry(expr))
+        }  
 
 object Parser:
   def apply(dictionary: Dictionary = Dictionary(), 

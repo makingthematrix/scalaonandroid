@@ -3,8 +3,7 @@ package fxcalculator
 import com.gluonhq.attach.util.{Platform, Services}
 import com.gluonhq.charm.glisten.control.{CharmListView, Dialog}
 import fxcalculator.utils.Resource.*
-import fxcalculator.functions.{FunctionCell, FunctionEntry}
-import fxcalculator.logic.{Dictionary, Evaluator, Parser}
+import fxcalculator.logic.{AssignmentEntry, Dictionary, Evaluator, Parser}
 import fxcalculator.logic.expressions.*
 import fxcalculator.utils.Storage
 import io.github.makingthematrix.signals3.Stream
@@ -26,7 +25,6 @@ import scala.jdk.CollectionConverters.*
 import scala.jdk.FunctionConverters.*
 import scala.jdk.OptionConverters.*
 import scala.util.chaining.scalaUtilChainingOps
-
 import fxcalculator.utils.Logger.*
 
 object AdvancedEditor:
@@ -42,11 +40,11 @@ final class AdvancedEditor extends Initializable:
   import io.github.makingthematrix.signals3.ui.UiDispatchQueue.Ui
 
   @FXML private var textArea: TextArea = _
-  @FXML private var functions: CharmListView[FunctionEntry, String] = _
+  @FXML private var assignments: CharmListView[AssignmentEntry, String] = _
   @FXML private var removeAll: Button = _
   private var parser: Parser = _
 
-  private val selectedEntry = Stream[FunctionEntry]()
+  private val selectedEntry = Stream[AssignmentEntry]()
   selectedEntry.onUi { entry =>
     val text = textArea.getText
     val selection = textArea.getSelection
@@ -58,7 +56,7 @@ final class AdvancedEditor extends Initializable:
     textArea.requestFocus()
   }
 
-  private val deletedEntry = Stream[FunctionEntry]()
+  private val deletedEntry = Stream[AssignmentEntry]()
   deletedEntry.foreach { entry =>
     val usages = functionUsages(entry)
     if usages.isEmpty then
@@ -68,7 +66,7 @@ final class AdvancedEditor extends Initializable:
       alert.setContentText(
         s"""
            | The function ${entry.declaration} which you are about to delete
-           | is used by the following functions:
+           | is used by the following assignments:
            | ${usages.map(_.name).mkString(", ")}
            | Do you want to continue?
            |""".stripMargin
@@ -101,7 +99,7 @@ final class AdvancedEditor extends Initializable:
     if evInfo.assignments.nonEmpty then
       parser.customAssignments.add(evInfo.assignments.map(_._2))
       Storage.dump(parser.customAssignments)
-      Future { populateFunctionsList() }(Ui)
+      Future { populateList() }(Ui)
     evInfo.result match
       case result: Double =>
         Some(result)
@@ -112,12 +110,12 @@ final class AdvancedEditor extends Initializable:
         InfoBox.show(error.toString)
         None
 
-  private def deleteEntry(entry: FunctionEntry): Unit =
+  private def deleteEntry(entry: AssignmentEntry): Unit =
     if parser.delete(entry.name) then 
-      Future { populateFunctionsList() }(Ui)
+      Future { populateList() }(Ui)
       Storage.dump(parser.customAssignments)
 
-  private def functionUsages(entry: FunctionEntry): Seq[FunctionAssignment] =
+  private def functionUsages(entry: AssignmentEntry): Seq[FunctionAssignment] =
     val entryName = entry.name
     parser.dictionary.list.collect {
       case f: FunctionAssignment if f.definition.contains(s"$entryName(") => f
@@ -130,34 +128,22 @@ final class AdvancedEditor extends Initializable:
   override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
     textArea.setFocusTraversable(true)
     textArea.requestFocus()
-    functions.setCellFactory((_: CharmListView[FunctionEntry, String]) => FunctionCell(selectedEntry.publish, deletedEntry.publish))
+    assignments.setCellFactory((_: CharmListView[AssignmentEntry, String]) => AssignmentCell(selectedEntry.publish, deletedEntry.publish))
     removeAll.setOnAction { (_: ActionEvent) => removeAllCustomEntries() }
 
   private def removeAllCustomEntries(): Unit =
     parser.reset()
-    Future { populateFunctionsList() }(Ui)
+    Future { populateList() }(Ui)
     Storage.reset()
 
-  private def populateFunctionsList(): Unit =
-    val exprs = parser.dictionary.list
-    val entries =
-      exprs.collect { case expr: ConstantAssignment => FunctionEntry(expr) } ++
-      exprs.collect { case expr: NativeFunction     => FunctionEntry(expr) } ++
-      exprs.collect {
-        case expr: FunctionAssignment =>
-          parser
-            .customAssignments
-            .get(expr.name)
-            .map { case (declaration, definition) => FunctionEntry(expr, declaration, definition) }
-            .getOrElse(FunctionEntry(expr))
-      }
+  private def populateList(): Unit =
     val filteredList = new FilteredList(
-      FXCollections.observableArrayList(entries.asJavaCollection),
-      (_: FunctionEntry) => true
+      FXCollections.observableArrayList(parser.assignments.asJavaCollection),
+      (_: AssignmentEntry) => true
     )
-    functions.setItems(filteredList)
+    assignments.setItems(filteredList)
 
   def run(parser: Parser): Option[Double] =
     this.parser = parser
-    populateFunctionsList()
+    populateList()
     dialog.showAndWait().toScala

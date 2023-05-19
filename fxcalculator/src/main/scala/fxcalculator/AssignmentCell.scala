@@ -1,17 +1,18 @@
-package fxcalculator.functions
+package fxcalculator
 
 import com.gluonhq.charm.glisten.control.{CharmListCell, ListTile}
-import javafx.scene.image.{Image, ImageView}
-import javafx.scene.layout.{HBox, Priority}
-import javafx.scene.input.MouseEvent
+import fxcalculator.logic.AssignmentEntry
 import fxcalculator.utils.Resource.*
+import javafx.scene.image.{Image, ImageView}
+import javafx.scene.input.MouseEvent
+import javafx.scene.layout.{HBox, Priority}
 
 import scala.util.chaining.scalaUtilChainingOps
 
-object FunctionCell:
+object AssignmentCell:
   private lazy val trashIcon = new Image(stream(ClosePng))
 
-final class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntry => Unit) extends CharmListCell[FunctionEntry]:
+final class AssignmentCell(selectMe: AssignmentEntry => Unit, deleteMe: AssignmentEntry => Unit) extends CharmListCell[AssignmentEntry]:
   private val tile = new ListTile().tap { t =>
     t.setWrapText(true)
     HBox.setHgrow(t, Priority.ALWAYS)
@@ -20,7 +21,7 @@ final class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntr
   private val imageView = new ImageView().tap { view =>
     view.setFitWidth(15)
     view.setPreserveRatio(true)
-    view.setImage(FunctionCell.trashIcon)
+    view.setImage(AssignmentCell.trashIcon)
   }
 
   /* In Android, cells of a scrollable list can be re-used when they leave the screen.
@@ -29,7 +30,7 @@ final class FunctionCell(selectMe: FunctionEntry => Unit, deleteMe: FunctionEntr
      the original ones are scrolled out of the screen. It saves resources, but goodbye FP.
      (In short, that's why the entry's data is set here in `updateItem` instead of the constructor - it can be changed).
   */
-  override def updateItem(item: FunctionEntry, empty: Boolean): Unit =
+  override def updateItem(item: AssignmentEntry, empty: Boolean): Unit =
     super.updateItem(item, empty)
     if !empty then
       tile.textProperty.setAll(item.textForm)

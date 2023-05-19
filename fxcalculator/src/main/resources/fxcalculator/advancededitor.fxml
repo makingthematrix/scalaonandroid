@@ -11,12 +11,12 @@
 <VBox maxHeight="+Infinity" maxWidth="+Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxcalculator.AdvancedEditor">
     <TextArea fx:id="textArea" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300" prefWidth="320" promptText="f(x) =" styleClass="charm-text-area" wrapText="true">
     </TextArea>
-    <Label text="Functions">
+    <Label text="Assignments">
         <font>
             <Font size="10.0" />
         </font>
     </Label>
-    <CharmListView fx:id="functions" prefHeight="320.0" prefWidth="320.0">
+    <CharmListView fx:id="assignments" prefHeight="320.0" prefWidth="320.0">
         <padding>
           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
         </padding>

@@ -42,8 +42,7 @@ object ParserCreator:
     f2("hypot", math.hypot),
     f1("ceil", math.ceil),
     f1("floor", math.floor),
-    f1("round", math.rint),
-    f1("ulp", math.ulp)
+    f1("round", math.rint)
   )
 
   def createParser(withNativeFunctions: Boolean = false, withConstants: Boolean = false, withStorage: Boolean = false, reset: Boolean = false): Parser =
