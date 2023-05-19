@@ -8,7 +8,7 @@ class PreprocessorTest extends munit.FunSuite:
   implicit val location: Location = Location.empty
 
   private def setup(flags: Flags = Flags.AllFlagsOn): Preprocessor =
-    val parser: Parser = new ParserImpl(Dictionary(), CustomAssignments(), None)
+    val parser: Parser = new ParserImpl(Dictionary(), Memory(), None)
     new PreprocessorImpl(Some(parser), flags).tap { parser.setup }
 
   private def evalParens(line: String, prefix: String = "", suffix: String = "")(implicit pre: Preprocessor = setup()): Unit =

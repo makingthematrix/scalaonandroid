@@ -41,31 +41,28 @@ import fxcalculator.utils.Logger.*
 
 trait Parser {
   def dictionary: Dictionary
-  def customAssignments: CustomAssignments
+  def memory: Memory
   def setup(preprocessor: Preprocessor): Unit
   def copy(updates: Map[String, Expression] = Map.empty): Parser
   def parse(line: String): ParsedExpr[Expression]
   def assignments: Seq[AssignmentEntry]
-  
-  final def delete(name: String): Boolean =
-    dictionary.delete(name) && customAssignments.delete(name)
-  
-  final def reset(): Unit =
-    dictionary.reset()
-    customAssignments.reset()
+  def delete(name: String): Boolean
+  def reset(): Unit
+  def store(lines: Seq[String]): Unit
+  def readIn(): Unit
 }
 
 final class ParserImpl(override val dictionary: Dictionary,
-                       override val customAssignments: CustomAssignments,
+                       override val memory: Memory,
                        private var preprocessor: Option[Preprocessor]) extends Parser:
   self =>
   import Parser.*
-  
+
   override def setup(preprocessor: Preprocessor): Unit =
     this.preprocessor = Some(preprocessor)
 
   override def copy(updates: Map[String, Expression] = Map.empty): Parser =
-    Parser(dictionary.copy(updates), customAssignments.copy())
+    Parser(dictionary.copy(updates), memory.copy())
 
   override def parse(line: String): ParsedExpr[Expression] =
     preprocess(line) match
@@ -88,17 +85,27 @@ final class ParserImpl(override val dictionary: Dictionary,
         exprs.collect { case expr: NativeFunction => AssignmentEntry(expr) } ++
         exprs.collect {
           case expr: FunctionAssignment =>
-            customAssignments
+            memory
               .get(expr.name)
               .map { case (declaration, definition) => AssignmentEntry(expr, declaration, definition) }
               .getOrElse(AssignmentEntry(expr))
-        }  
+        }
+
+  override def delete(name: String): Boolean = dictionary.delete(name) && memory.delete(name)
+
+  override def reset(): Unit =
+    dictionary.reset()
+    memory.reset()
+
+  override def store(lines: Seq[String]): Unit = memory.add(lines)
+
+  override def readIn(): Unit = for {lines <- memory.readIn()} yield lines.foreach(parse)
 
 object Parser:
-  def apply(dictionary: Dictionary = Dictionary(), 
-            customAssignments: CustomAssignments = CustomAssignments(), 
+  def apply(dictionary: Dictionary = Dictionary(),
+            memory: Memory = Memory(),
             flags: Flags = Flags.AllFlagsOn): Parser =
-    new ParserImpl(dictionary, customAssignments, None).tap { parser =>
+    new ParserImpl(dictionary, memory, None).tap { parser =>
       val preprocessor = Preprocessor(flags = flags)
       parser.setup(preprocessor)
       preprocessor.setup(parser)

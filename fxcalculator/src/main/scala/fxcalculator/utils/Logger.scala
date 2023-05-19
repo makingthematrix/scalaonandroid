@@ -2,19 +2,19 @@ package fxcalculator.utils
 
 import java.util.logging.{Logger as JLogger, *}
 
+private class Logger[T] private (mainClass: Class[T], tag: String, maxLines: Int):
+  private val logger: JLogger = {
+    LogManager.getLogManager.readConfiguration(mainClass.getResourceAsStream("logging.properties"))
+    JLogger.getLogger(mainClass.getName)
+  }
+
+  def log(level: Level, str: String): Unit =
+    str.split("\n").take(maxLines).foreach { line => logger.log(level, s"$tag: $line") }
+
 object Logger:
-  private class Logger[T](mainClass: Class[T], tag: String, maxLines: Int = 10):
-    private val logger: JLogger = {
-      LogManager.getLogManager.readConfiguration(mainClass.getResourceAsStream("logging.properties"))
-      JLogger.getLogger(mainClass.getName)
-    }
-
-    def log(level: Level, str: String): Unit =
-      str.split("\n").take(maxLines).foreach { line => logger.log(level, s"$tag: $line") }
-
   private var instance: Option[Logger[_]] = None
 
-  def init[T](mainClass: Class[T], tag: String, maxLines: Int = 10): Unit =
+  def init[T](mainClass: Class[T], tag: String, maxLines: Int = 15): Unit =
     instance = Some(new Logger(mainClass, tag, maxLines))
 
   def log(level: Level, str: String): Unit = instance.foreach(_.log(level, str))

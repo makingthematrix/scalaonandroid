@@ -1,9 +1,6 @@
 package fxcalculator.utils
 
 import com.gluonhq.attach.storage.StorageService
-import com.sun.javafx.logging.Logger
-import fxcalculator.logic.expressions.{ConstantAssignment, FunctionAssignment}
-import fxcalculator.logic.{AssignmentEntry, CustomAssignments, Dictionary, Parser}
 import fxcalculator.utils.Logger.*
 import upickle.default.*
 
@@ -52,24 +49,17 @@ object Storage:
       error(s"Unable to resolve the data file path for $storageFilePath")
       Left(s"Unable to resolve the data file path for $storageFilePath")
 
-  def dump(customAssignments: CustomAssignments): Either[String, Unit] = withFilePath { path =>
-    info(s"path: $path")
-    info(s"lines: ${customAssignments.lines}")
-    val jsonStr = write(customAssignments.lines)
+  def dump(lines: Seq[String]): Either[String, Unit] = withFilePath { path =>
+    val jsonStr = write(lines)
     import StandardOpenOption.*
-    info(s"writing down: $jsonStr")
     Files.writeString(path, jsonStr, CREATE, WRITE, TRUNCATE_EXISTING)
   }
 
-  def readIn(parser: Parser): Either[String, Unit] = withFilePath { path =>
-    info(s"path: $path")
+  def readIn(): Either[String, Seq[String]] = withFilePath { path =>
     if Files.exists(path) && Files.size(path) > 0 then
-      val str = Files.readString(path)
-      info(str)
-      val lines: Seq[String] = read[Seq[String]](path.toFile)
-      info(s"reading in: $lines")
-      lines.foreach { parser.parse }
-      parser.customAssignments.add(lines)
+      read[Seq[String]](path.toFile)
+    else
+      Seq.empty
   }
 
   def reset(): Unit = withFilePath { Files.deleteIfExists }

@@ -46,10 +46,10 @@ object REPL:
 
   private def run(parser: Parser, text: String): Unit =
     val evInfo = Evaluator.evaluate(parser, text)
-    evInfo.assignments.foreach { case (_, line) =>
-      parser.customAssignments.add(line)
-      println(s"You created a new assignment: $line")
-    }
+    if evInfo.assignments.nonEmpty then
+      val lines = evInfo.assignments.map(_._2)
+      parser.store(lines)
+      lines.foreach { line => println(s"You created a new assignment: $line") }
     evInfo.result match
       case result: Double => println(result)
       case error: Error => println(error.toString)

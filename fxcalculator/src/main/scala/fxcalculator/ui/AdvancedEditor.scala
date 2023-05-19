@@ -98,8 +98,7 @@ final class AdvancedEditor extends Initializable:
     val evInfo = Evaluator.evaluate(parser, text)
     info(s"runScript done: $text")
     if evInfo.assignments.nonEmpty then
-      parser.customAssignments.add(evInfo.assignments.map(_._2))
-      Storage.dump(parser.customAssignments)
+      parser.store(evInfo.assignments.map(_._2))
       Future { populateList() }(Ui)
     evInfo.result match
       case result: Double =>
@@ -112,9 +111,7 @@ final class AdvancedEditor extends Initializable:
         None
 
   private def deleteEntry(entry: AssignmentEntry): Unit =
-    if parser.delete(entry.name) then
-      Future { populateList() }(Ui)
-      Storage.dump(parser.customAssignments)
+    if parser.delete(entry.name) then Future { populateList() }(Ui)
 
   private def functionUsages(entry: AssignmentEntry): Seq[FunctionAssignment] =
     val entryName = entry.name

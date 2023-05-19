@@ -1,7 +1,7 @@
 package fxcalculator.logic
 
 import fxcalculator.logic.expressions.{Constant, ConstantAssignment, NativeFunction}
-import fxcalculator.logic.{Dictionary, Parser}
+import fxcalculator.logic.{Dictionary, Memory, Parser}
 import fxcalculator.utils.Storage
 
 import scala.util.chaining.scalaUtilChainingOps
@@ -50,7 +50,8 @@ object ParserCreator:
       if withConstants then constants.foreach(c => dict.add(c.name, c))
       if withNativeFunctions then nativeFunctions.foreach(nf => dict.add(nf.name, nf))
     }
-    if reset then Storage.reset()
-    Parser(dictionary = dictionary).tap { parser =>
-      if withStorage then Storage.readIn(parser)
+    val memory = Memory(withStorage)
+    if reset then memory.reset()
+    Parser(dictionary = dictionary, memory = memory).tap { parser =>
+      if withStorage then parser.readIn()
     }
