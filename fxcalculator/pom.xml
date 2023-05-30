@@ -20,7 +20,7 @@
         <charm.version>6.2.2</charm.version>
         <attach.version>4.0.16</attach.version>
         <main.class>fxcalculator.Main</main.class>
-        <scala.version>3.3.0-RC3</scala.version>
+        <scala.version>3.3.0</scala.version>
         <scala.compat.version>3</scala.compat.version>
         <munit.version>0.7.29</munit.version>
     </properties>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>io.github.makingthematrix</groupId>
             <artifactId>signals3_3</artifactId>
-            <version>1.1.0</version>
+            <version>1.1.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.lihaoyi/upickle -->
