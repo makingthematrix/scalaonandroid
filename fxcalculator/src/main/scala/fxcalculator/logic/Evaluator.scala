@@ -24,7 +24,7 @@ object Evaluator:
         case None        =>
           val results = lines.map(line => run(parser, line) -> line)
           EvaluationInfo(
-            result = results.last._1,
+            result = round(results.last._1),
             assignments = results.collect { case (ass: Assignment, line) => ass -> line }
           )
 
@@ -61,7 +61,7 @@ object Evaluator:
     add()
     lines.toSeq
 
-  def round(number: Double): String =
+  private[logic] def round(number: Double): String =
     val v = scala.math.floor(number)
     if v == number then
       number.toString

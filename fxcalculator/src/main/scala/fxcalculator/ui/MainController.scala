@@ -52,7 +52,7 @@ final class MainController extends Initializable:
   def onMemoryReveal(event: ActionEvent): Unit = memory.foreach(updateExpression)
 
   def onFx(event: ActionEvent): Unit =
-    AdvancedEditor.showDialog(parser).foreach(result => updateExpression(Evaluator.round(result)))
+    AdvancedEditor.showDialog(parser).foreach(updateExpression)
   
   def onClear(event: ActionEvent): Unit =
     expression.setText("0.0")
@@ -74,7 +74,7 @@ final class MainController extends Initializable:
   
   private def evaluate(text: String): Either[String, String] =
     Evaluator.evaluate(parser, text).result match
-      case res: Double     => Right(Evaluator.round(res))
+      case res: Double     => Right(res)
       case err: Error      => Left(err.toString)
       case ass: Assignment => Right(ass.textForm)
   
