@@ -33,7 +33,7 @@ object AdvancedEditor:
   private val root: Node = loader.load[Node]()
   private val isFullscreen: Boolean = !Platform.isDesktop
 
-  def showDialog(parser: Parser): Option[Double] = loader.getController[AdvancedEditor].run(parser)
+  def showDialog(parser: Parser): Option[String] = loader.getController[AdvancedEditor].run(parser)
 
 final class AdvancedEditor extends Initializable:
   import AdvancedEditor.*
@@ -76,7 +76,7 @@ final class AdvancedEditor extends Initializable:
       alert.showAndWait().toScala.foreach(_ => deleteEntry(entry))
   }
 
-  private lazy val dialog: Dialog[Double] = new Dialog[Double](isFullscreen).tap { d =>
+  private lazy val dialog: Dialog[String] = new Dialog[String](isFullscreen).tap { d =>
     d.setTitleText("Fx Calculator")
     d.setContent(root)
     d.getButtons.add(new Button("Run").tap { c =>
@@ -94,15 +94,15 @@ final class AdvancedEditor extends Initializable:
       })
   }
 
-  private def runScript(text: String): Option[Double] =
+  private def runScript(text: String): Option[String] =
     val evInfo = Evaluator.evaluate(parser, text)
     info(s"runScript done: $text")
     if evInfo.assignments.nonEmpty then
       parser.store(evInfo.assignments.map(_._2))
       Future { populateList() }(Ui)
     evInfo.result match
-      case result: Double =>
-        Some(result)
+      case _: Double =>
+        Some(evInfo.resultAsString)
       case _: Assignment =>
         InfoBox.show(s"You created a new assignment: ${evInfo.assignments.last._2}")
         None
@@ -119,7 +119,7 @@ final class AdvancedEditor extends Initializable:
       case f: FunctionAssignment if f.definition.contains(s"$entryName(") => f
     }
   
-  private def close(result: Double): Unit =
+  private def close(result: String): Unit =
     dialog.setResult(result)
     dialog.hide()
 
@@ -141,7 +141,7 @@ final class AdvancedEditor extends Initializable:
     )
     assignments.setItems(filteredList)
 
-  def run(parser: Parser): Option[Double] =
+  def run(parser: Parser): Option[String] =
     this.parser = parser
     populateList()
     dialog.showAndWait().toScala

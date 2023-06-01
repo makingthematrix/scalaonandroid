@@ -7,7 +7,15 @@ import scala.collection.mutable
 object Evaluator:
   type EvaluationResult = Error | Double | Assignment
 
-  final case class EvaluationInfo(result: EvaluationResult, assignments: Seq[(Assignment, String)])
+  final case class EvaluationInfo(result: EvaluationResult, assignments: Seq[(Assignment, String)]):
+    lazy val resultAsString: String = result match
+      case number: Double => round(number)
+      case a: Assignment  => a.textForm
+      case error: Error   => error.toString
+      
+    lazy val isError: Boolean = result match
+      case _: Error => true
+      case _        => false
 
   def evaluate(parser: Parser, text: String):  EvaluationInfo =
     val lines = split(text)
@@ -23,10 +31,8 @@ object Evaluator:
         case Some(error) => EvaluationInfo(error, Nil)
         case None        =>
           val results = lines.map(line => run(parser, line) -> line)
-          EvaluationInfo(
-            result = round(results.last._1),
-            assignments = results.collect { case (ass: Assignment, line) => ass -> line }
-          )
+          val assignments = results.collect { case (ass: Assignment, line) => ass -> line }
+          EvaluationInfo(results.last._1, assignments)
 
   private[logic] def run(parser: Parser, line: String):  EvaluationResult =
     parser.parse(line) match

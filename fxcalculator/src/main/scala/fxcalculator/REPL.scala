@@ -50,7 +50,4 @@ object REPL:
       val lines = evInfo.assignments.map(_._2)
       parser.store(lines)
       lines.foreach { line => println(s"You created a new assignment: $line") }
-    evInfo.result match
-      case result: Double => println(result)
-      case error: Error => println(error.toString)
-      case _ =>
+    println(evInfo.resultAsString)

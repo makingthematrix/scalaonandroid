@@ -73,10 +73,8 @@ final class MainController extends Initializable:
     if isPointAllowed then updateExpression('.')
   
   private def evaluate(text: String): Either[String, String] =
-    Evaluator.evaluate(parser, text).result match
-      case res: Double     => Right(res)
-      case err: Error      => Left(err.toString)
-      case ass: Assignment => Right(ass.textForm)
+    val evaluated = Evaluator.evaluate(parser, text)
+    if evaluated.isError then Left(evaluated.resultAsString) else Right(evaluated.resultAsString)
   
   inline private def updateExpression(newSign: Char): Unit = updateExpression(newSign.toString)
 
