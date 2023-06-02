@@ -10,7 +10,7 @@ import javafx.scene.layout.{HBox, Priority}
 import scala.util.chaining.scalaUtilChainingOps
 
 object AssignmentCell:
-  private lazy val trashIcon = new Image(stream(ClosePng))
+  private lazy val closeIcon = new Image(stream(ClosePng))
 
 final class AssignmentCell(selectMe: AssignmentEntry => Unit, deleteMe: AssignmentEntry => Unit) extends CharmListCell[AssignmentEntry]:
   private val tile = new ListTile().tap { t =>
@@ -21,7 +21,7 @@ final class AssignmentCell(selectMe: AssignmentEntry => Unit, deleteMe: Assignme
   private val imageView = new ImageView().tap { view =>
     view.setFitWidth(15)
     view.setPreserveRatio(true)
-    view.setImage(AssignmentCell.trashIcon)
+    view.setImage(AssignmentCell.closeIcon)
   }
 
   /* In Android, cells of a scrollable list can be re-used when they leave the screen.

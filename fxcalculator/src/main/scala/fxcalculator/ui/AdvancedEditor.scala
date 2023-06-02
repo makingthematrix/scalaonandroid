@@ -42,7 +42,8 @@ final class AdvancedEditor extends Initializable:
 
   @FXML private var textArea: TextArea = _
   @FXML private var assignments: CharmListView[AssignmentEntry, String] = _
-  @FXML private var removeAll: Button = _
+  @FXML private var resetButton: Button = _
+  @FXML private var aboutButton: Button = _
   private var parser: Parser = _
 
   private val selectedEntry = Stream[AssignmentEntry]()
@@ -104,10 +105,10 @@ final class AdvancedEditor extends Initializable:
       case _: Double =>
         Some(evInfo.resultAsString)
       case _: Assignment =>
-        InfoBox.show(s"You created a new assignment: ${evInfo.assignments.last._2}")
+        InfoBox.showText(s"You created a new assignment: ${evInfo.assignments.last._2}")
         None
       case error: Error =>
-        InfoBox.show(error.toString)
+        InfoBox.showText(error.toString)
         None
 
   private def deleteEntry(entry: AssignmentEntry): Unit =
@@ -127,9 +128,10 @@ final class AdvancedEditor extends Initializable:
     textArea.setFocusTraversable(true)
     textArea.requestFocus()
     assignments.setCellFactory((_: CharmListView[AssignmentEntry, String]) => AssignmentCell(selectedEntry.publish, deletedEntry.publish))
-    removeAll.setOnAction { (_: ActionEvent) => removeAllCustomEntries() }
+    resetButton.setOnAction { (_: ActionEvent) => reset() }
+    aboutButton.setOnAction { (_: ActionEvent) => InfoBox.showText(text(About)) }
 
-  private def removeAllCustomEntries(): Unit =
+  private def reset(): Unit =
     parser.reset()
     Future { populateList() }(Ui)
     Storage.reset()

@@ -40,7 +40,7 @@ final class MainController extends Initializable:
         expression.setText(result)
         clearExpression = true
       case Left(error) =>
-        InfoBox.show(error)
+        InfoBox.showText(error)
 
   def onMemoryPlus(event: ActionEvent): Unit =
     evaluate(expression.getText) match

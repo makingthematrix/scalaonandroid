@@ -1,0 +1,7 @@
+Here you can write more complex mathematical expressions using the keyboard, and a list of functions and constants. You can also define your own expressions. For example, if you write
+
+inc(x) = x + 1
+
+and click "Run", it will create a new function which will increment the given number by 1. The expression will be stored, so you can access it the next time you open the calculator.
+
+Fx Calculator is written in Scala 3, with JavaFX and Gluon libraries for GUI, and GraalVM Native Image for compilation. It's a pretty unique combination of technologies for an Android app. If you want to learn more, go to https://github.com/makingthematrix/scalaonandroid

@@ -9,12 +9,15 @@ import scala.concurrent.Future
 import scala.util.chaining.scalaUtilChainingOps
 
 object InfoBox:
-  def show(text: String): Unit =
-    val dialog = new Dialog[Unit]()
-    dialog.setContentText(text)
-    dialog.setAutoHide(true)
-    dialog.getButtons.add(new Button("Ok").tap { b =>
-      b.setDefaultButton(true)
-      b.setOnAction { (_: ActionEvent) => dialog.hide() }
-    })
+  def showText(text: String): Unit =
+    val dialog = createDialog.tap { _.setContentText(text) }
     Future { dialog.showAndWait() }(Ui)
+
+  private def createDialog: Dialog[Unit] =
+    new Dialog[Unit]().tap { dialog =>
+      dialog.setAutoHide(true)
+      dialog.getButtons.add(new Button("Ok").tap { b =>
+        b.setDefaultButton(true)
+        b.setOnAction { (_: ActionEvent) => dialog.hide() }
+      })
+    }

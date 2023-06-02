@@ -183,7 +183,7 @@
                         <list>fxcalculator.ui.AdvancedEditor</list>
                     </reflectionList>
                     <nativeImageArgs>
-                        <nativeImageArg>-H:IncludeResources=.*(png|properties)</nativeImageArg>
+                        <nativeImageArg>-H:IncludeResources=.*(png|properties|txt|css)</nativeImageArg>
                         <nativeImageArg>-O3</nativeImageArg>
                     </nativeImageArgs>
                 </configuration>
@@ -264,5 +264,4 @@
             <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
         </repository>
     </repositories>
-
 </project>
