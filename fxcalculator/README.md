@@ -1,6 +1,6 @@
 ## Fx Calculator
 
-This is a simple, but an actually practical app for both Android and desktop. It's built with Java 17, JavaFX 20 (with FXML), Scala 3.3.0-RC2, and GraalVM 22.1.0.
+This is a simple, but an actually practical app for both Android and desktop. It's built with Java 17, JavaFX 20 (with FXML), Scala 3.3, and GraalVM 22.1.0.
 
 [The Android APK, v1.0.0](https://github.com/makingthematrix/scalaonandroid/raw/main/fxcalculator/Fx%20Calculator.apk)
 
