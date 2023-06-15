@@ -2,9 +2,9 @@
 
 This is a simple, but an actually practical app for both Android and desktop. It's built with Java 17, JavaFX 20 (with FXML), Scala 3.3.0-RC2, and GraalVM 22.1.0.
 
-The Android APK, v1.0.0: [link](https://github.com/makingthematrix/scalaonandroid/raw/main/fxcalculator/Fx%20Calculator.apk)
+[The Android APK, v1.0.0](https://github.com/makingthematrix/scalaonandroid/raw/main/fxcalculator/Fx%20Calculator.apk)
 
-A screenshot: [link](https://drive.google.com/file/d/1RePEsqXzn4lAnzthDefZYHWtzRmOEy5N/view?usp=sharing)
+[Screenshot](https://drive.google.com/file/d/1RePEsqXzn4lAnzthDefZYHWtzRmOEy5N/view?usp=sharing)
 
 (after you download the APK file, you can install it on your Android device with [`adb`](https://www.xda-developers.com/install-adb-windows-macos-linux/)) or you can download it directly to your phone.
 
