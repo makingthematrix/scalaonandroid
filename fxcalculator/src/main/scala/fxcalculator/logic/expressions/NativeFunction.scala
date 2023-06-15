@@ -16,3 +16,4 @@ object NativeFunction:
   inline def f2(name: String, argName1: String, argName2: String, f: (Double, Double) => Double): NativeFunction =
     NativeFunction(name, Seq(argName1, argName2), args => f(args(0), args(1)))
   inline def f2(name: String, f: (Double, Double) => Double): NativeFunction = f2(name, "x", "y", f)
+  
