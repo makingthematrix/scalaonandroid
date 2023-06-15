@@ -18,8 +18,7 @@ Look into [the HelloFXML 3 example](https://github.com/makingthematrix/scalaonan
 
 ### The Advanced Editor dialog
 
-The Advanced Editor allows you to type on the Android's (or laptop's) keyboard instead of clicking on buttons. In this mode, you have access to a bunch of hardcoded functions and constants. You can write new ones, e.g. `f(x) = x + 1` creates the function `f` which takes one argument `x` and returns `x+1`. These new functions are not stored, so when you shut down Fx Calculator, you will lose them. Fortunately, it's not a big deal to persist them. I just need a bit more time.
-The logic is written by me from scratch. [Here you can find a detailed explanation how it works + the REPL version of this calculator](https://github.com/makingthematrix/replcalc).
+The Advanced Editor allows you to type on the Android's (or laptop's) keyboard instead of clicking on buttons. In this mode, you have access to a bunch of hardcoded functions and constants. You can write new ones, e.g. `f(x) = x + 1` creates the function `f` which takes one argument `x` and returns `x+1`. These new functions are stored in a JSON file, so when you shut down Fx Calculator, you will not lose them. However, there are some limitations: A function can call another function but there are no loops or recursion. They can't be overloaded, and if you want to change the definition of a function, you need to delete it first, and then write it again - and that only if the function is not called by another. In the end, this is just a calculator, not a programming language interpreter.
 
 ### Back to JavaFX details
 
