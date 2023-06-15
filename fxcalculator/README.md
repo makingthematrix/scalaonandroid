@@ -6,7 +6,7 @@ Below I will try to explain how it's all done, but before that, I'd like to emph
 
 A screenshot: [link](https://drive.google.com/file/d/1RePEsqXzn4lAnzthDefZYHWtzRmOEy5N/view?usp=sharing)
 
-The Android APK: [link](https://drive.google.com/file/d/10wjdfZsOKsoDm1WXZCAPNJ0SLnDxD4xP/view?usp=sharing)
+The Android APK: [link](https://github.com/makingthematrix/scalaonandroid/raw/main/fxcalculator/Fx%20Calculator.apk)
 
 (after you download the APK file, you can install it on your Android device with [`adb`](https://www.xda-developers.com/install-adb-windows-macos-linux/))
 
