@@ -1,0 +1,3 @@
+cd target/gluonfx/aarch64-android/gvm
+zipalign -p -f -v 4 Fx\ Calculator.aab Fx\ Calculator.aligned.aab
+apksigner sign --min-sdk-version 26 --ks /opt/maven/conf/my-upload-key.keystore ./Fx\ Calculator.aligned.aab
