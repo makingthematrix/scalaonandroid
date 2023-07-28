@@ -16,7 +16,6 @@ import com.gluonhq.charm.glisten.application.AppManager.HOME_VIEW
 import javafx.stage.Stage
 import fxcalculator.utils.Resource.*
 import fxcalculator.utils.Logger
-
 import io.github.makingthematrix.signals3.ui.UiDispatchQueue
 
 object Main:
