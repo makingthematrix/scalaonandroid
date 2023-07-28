@@ -260,6 +260,9 @@
             <properties>
                 <gluonfx.target>android</gluonfx.target>
                 <android.release>true</android.release>
+                <debuggable>false</debuggable>
+                <android.debuggable>false</android.debuggable>
+                <release>true</release>
             </properties>
         </profile>
     </profiles>
