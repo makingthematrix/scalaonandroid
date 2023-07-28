@@ -1,14 +1,12 @@
 ## Fx Calculator
 
-This is a simple, but an actually practical app for both Android and desktop. It's built with Java 17, JavaFX 20 (with FXML), Scala 3.3.0-RC2, and GraalVM 22.1.0. GUI is based on [a JavaFX tutorial](https://www.youtube.com/watch?v=p5ifU9kkp6g) by Kody Simpson and consists of the main view made in Scene Builder and an Advanced Editor dialog that pops up after clicking a button.
+This is a simple, but an actually practical app for both Android and desktop. It's built with Java 17, JavaFX 20 (with FXML), Scala 3.3, and GraalVM 22.1.0.
 
-Below I will try to explain how it's all done, but before that, I'd like to emphasise that my work here is only about putting together puzzle pieces done by other people - the GraalVM team, the Gluon Mobile team, all contributors to JavaFX, and many more. Even the logic behind parsing and evaluating the expression you can type in the calculator was possible only because thanks to Martin Odersky and the whole Scala team it's so easy to reason about these things in my favourite language.
+[The Android APK, v1.0.0](https://github.com/makingthematrix/scalaonandroid/raw/main/fxcalculator/Fx%20Calculator.apk)
 
-A screenshot: [link](https://drive.google.com/file/d/1RePEsqXzn4lAnzthDefZYHWtzRmOEy5N/view?usp=sharing)
+[Screenshot](https://drive.google.com/file/d/1RePEsqXzn4lAnzthDefZYHWtzRmOEy5N/view?usp=sharing)
 
-The Android APK: [link](https://drive.google.com/file/d/10wjdfZsOKsoDm1WXZCAPNJ0SLnDxD4xP/view?usp=sharing)
-
-(after you download the APK file, you can install it on your Android device with [`adb`](https://www.xda-developers.com/install-adb-windows-macos-linux/))
+(after you download the APK file, you can install it on your Android device with [`adb`](https://www.xda-developers.com/install-adb-windows-macos-linux/)) or you can download it directly to your phone.
 
 ### The main view
 
