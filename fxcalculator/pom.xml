@@ -23,7 +23,8 @@
         <scala.version>3.3.0</scala.version>
         <scala.compat.version>3</scala.compat.version>
         <munit.version>0.7.29</munit.version>
-        <android.release>true</android.release>
+        <app.identifier>${main.class}</app.identifier>
+        <app.description>Fx Calculator</app.description>
     </properties>
 
     <dependencies>
@@ -190,6 +191,12 @@
                     <releaseConfiguration>
                         <versionCode>1</versionCode>
                         <versionName>1.0.0</versionName>
+                        <vendor>Maciej Gorywoda</vendor>
+                        <appLabel>Fx Calculator</appLabel>
+                        <providedKeyStorePath>${android-keystore-path}</providedKeyStorePath>
+                        <providedKeyStorePassword>${android-keystore-password}</providedKeyStorePassword>
+                        <providedKeyAlias>${android-key-alias}</providedKeyAlias>
+                        <providedKeyAliasPassword>${android-key-password}</providedKeyAliasPassword>
                     </releaseConfiguration>
                 </configuration>
             </plugin>
@@ -259,10 +266,12 @@
             <id>android</id>
             <properties>
                 <gluonfx.target>android</gluonfx.target>
-                <android.release>true</android.release>
-                <debuggable>false</debuggable>
-                <android.debuggable>false</android.debuggable>
-                <release>true</release>
+                <app.identifier>io.github.makingthematrix.fxcalculator</app.identifier>
+                <version.code>1.0.0</version.code>
+                <provided.keystore.path>${android-keystore-path}</provided.keystore.path>
+                <provided.keystore.password>${android-keystore-password}</provided.keystore.password>
+                <provided.key.alias>${android-key-alias}</provided.key.alias>
+                <provided.key.alias.password>${android-key-password}</provided.key.alias.password>
             </properties>
         </profile>
     </profiles>

@@ -8,8 +8,7 @@
                />
 
     <application android:label='Fx Calculator'
-                 android:icon="@mipmap/ic_launcher"
-                 android:debuggable="false">
+                 android:icon="@mipmap/ic_launcher">
         <activity android:name='com.gluonhq.helloandroid.MainActivity'
                   android:exported="true"
                   android:configChanges="orientation|keyboardHidden"
