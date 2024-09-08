@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: src/FunctionalLoops.scala
+  visible: true
+  placeholders:
+  - offset: 135
+    length: 65
+    placeholder_text: /*insert the corner case condition for the factorial evaluation*/
+    initial_state:
+      length: 65
+      offset: 135
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: OfelZ7luo5NmNxmRAIdQug==
+  - offset: 211
+    length: 50
+    placeholder_text: //insert the common case factorial expression here
+    initial_state:
+      length: 50
+      offset: 211
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 36lgh/giBFZCpXuEfxq1Yrvp4TH2ocdJCojMQ+fkZas=
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPcB8e+dGn7z/LlbOEZ+AUEXv5kUzKRv7rImkePrmZlv3QqydJEE1LTOAw2FHlKLzjc0/Q5zS58XjIasEjzA8gZWDtNq/ZqFBVsAq9WSXxhhVsdnJnWxfiiXvi0FtZ4MvwIElx7/oULDid/GOh6joN+1y4nxYN3B8xUvaNRqJjDcGZUTzC3leoYSq0/P0/DsQ3NQMvtdDv9/VpeSmewZciCL5a3ggXHj1WTeyBbLstO85HgK7U3C1Jom3A4EwpSaNafjR6nT2Hh/Syco5tRu0XGRwLnOlIZ4PduBFXtpRSGJmho9b/PTHSycwq1a5VePjvbvX3XU29VbRW0+w2TDtqzIfvNRVTrmNZv9/HksWuy/yOjeDwgmsH0ja5uv9yLF/lL00C1tDsg+oXNyCijBmdVA==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: DMs3F42lOQyl0V5CqwRdMA0DYv7r3JuePvU8M1osZeNwnI5qk+QFFD+inN/McLHuDeIFZkyHbN4RLXfnnJT7tQng2dha41aX4zGAOYNXQIa1nQOqOAWwWa9saKE+Fp1i/gJLla9qRyfGyq/pu7iMoRoor9njuSm3Q6vkpWw8YpS/Jg4teUNHrCxtfq+kzJcayDTFX5QNyPKbaBQDHMSy/sxSGaXES4Bn8UKaNH2kIhIO9ZkdvSSkZRaY95xZTtobsY1+gav0wfPYSThI+SRothEZIxWAGvfzr9+wh3UFuz9aNSZnhkiVuEpFp/W2w1MA40vylDqwl5O19jQJufNUAuZE7Z5NMV/nPdyOLpw6RA8NC9+IeJ9W4gjVdUIoVp3zmLo5yfT9wIyDvlm+WuG8zzfFQ2eVsMRoUNLBCpdYgfI=
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: ROs6Kdneud4fLGkBLNSztSnEz8zUZanu/kx1gRAqtSUiwLGhuyAnD5E4tHyp++fAYWSOZtEqtSxwSR/iJWWnXPcuQUDidGnq43ZVbuBhB/Rqj6WhFERbCMgTDNBBqGgW7r7uhBFKeSaFsP/YX6YILSM4Z6ZhRyW0XB6l2grq/yBvsVgWfV/ShCse4uR5dWS/+Y7zQRjV+gGq+lHk3Q1eMqLbDhQFNNcV31Cjk0O1iQe48iU+jf5SbznVPVNc3nVgfzPouQ5LbVx6xULdknMuVmHueOyrKXE8oJgoUAGg8+wt5Fq1JLLik5PPsaguoR8Nak8LmJFQnyHUrzDyQO4iu78XlwsRfRoIfw/Y/OCnjpg=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Functional+Loops+/+Conditional+Expressions
+status: Unchecked
+record: -1

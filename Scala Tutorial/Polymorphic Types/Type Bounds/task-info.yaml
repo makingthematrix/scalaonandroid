@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: DLzNaTl6Y8rmThehn0P8EObvtYla+zsv7L0hoRFl8CzYABpJtfke7nt78q09Ij9Oua4xaD2wGK7EZvsoNfHBLwG+hTDCEnxdtQnzwTdZ+71S4MoA3LSgcOGRUjXUOJwfyXxRf1CX9Fi2vstyjLLVMjB/K1MkL887vISrf93Qz6hcqg33llYEjPgpZQ4on0BFvmwnehijah/WoqeuYKWcylmsBfAx3RwGcosUOlhfj10GeCfs0ak5cYWI7JcpRBBxoweqM2srLQtA0Cuc8Zn8oTxDRWFQhPUF5bRitLhOsjKZdJxkVt2emoDriyMd+C9ax6GhttmaBOyeelHpjtk3Gg==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: NLjVy5MuAGJmSSrCX6LNs/bmWnAiYK/7esYn58P7S1Wd7qD6utxkkmTB92FrcAd76OFOp4uKCN6i4Bs7yahu+CaYleGdGiHUQXd1wpTCxr7/7DD9DB7ERfaoUjSavJR93Sm5XrIlgPaeDIfgUIbacHwCaQfZm/aDAWaOtIfSiFOoaRcf2pzmqO/F5quUuKgdizfvi0E1O0wpsSBl3B00aeDJmDcSZnosw7FzJS8YrOklNxkdFpHZpXON5zRYihToC8nmyqecIsP5vshGOHTZf2aYC+P920AGoEgT6+/ptmyn5z+y4SDiOFsDJoOF5aG//NjWaGbpsol+5QHvTWxrpTI10UOT6mGN9cvL8kkUCGhgenbRKZD86qlLZM/Y6fv3vgQILWdgHQUDWZJFKmhyXwsyT/rIQkBlwsDorm3PWpWaOCd7jfUZugRvEqXzDIw537zd6cBboTlPpyLlEcRNNciuZgetWOmrwYD92lL0mKR503m5efoLGhRz6i5Jd3hqfqZYpSoMkxsyuO+k0cmw9qFFAmGcEZF1ERhRIy/mee6csvpqNiDNMdXplhnfMhVjWK4O78mv4nM/Q7Q5osv9koT7Op9QS4gq/HwS+LeSGWcnZldmFi0ZK93hu3gGavBJp508ShZ6TA/Mo6PxF7v2zE/CKAENFWAgFrl3Pi4f5SDKwvqndJJrsjtb6+Q7OPJL
+  learner_created: false
+- name: src/TypeBounds.scala
+  visible: true
+  placeholders:
+  - offset: 149
+    length: 54
+    placeholder_text: /*insert a correct lower bound Type to include Zebra*/
+    initial_state:
+      length: 54
+      offset: 149
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: mKWaPdbaIJxjomizhe8hkQ==
+  - offset: 207
+    length: 48
+    placeholder_text: /*insert an upper bound type to include Animal*/
+    initial_state:
+      length: 48
+      offset: 207
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: QoGm00HdCM5kF5Iw8Gj66Q==
+  encrypted_text: r2arf0t1M/pq2jzzpK6OzGxzE99U7NeF8I5MD3NIOjP0mD+R4UIQEbpQoxdJ3P/wvQ5nJq5TXZtJODxQmOJaum6zxP2XAFpZk0cBinVk5O1+s2+KSzWYUz31V4Te2QiHBR15+fEEd5V3SlRI8sTO/Z9ebhzrTgPsWmQowrY9gEue/BWo2xlSWFVadh13bTp6yoS5/7UcbameeK/ULiS4lp9pn36CXoHQEbLG+pb1BTiTjCe4o7ZwIt/FCJBjFRFObKM7WZt8ZG2u6O/rGXTYstwMR4aNmghd3l7rdtb2g1VfhnvXTCP3AGdxQC8uQxLILBUwYAsbjFz7PjK8r21LYy2ckcIMFTMskqe5a3z++FBT9o1DSH2aaJPsMh+vXj/WhLXuyDbE2AhmPYiqaBfovpH7TFI/Gick6r7KYwJawIUysxMgrdrhAXj0Kz+1N/14IahhZCsZ8N1we7Vub/sBTB8nliFEcGNLsxf6/Ff0mgdJ04YuGSIW3OjFI6na3RC/JWwRwTBe91U/Dj7Twhcbs5n3CtuZngXxUbgrZd9KUW9jpvnlXtu9AbwMw8o2GZezUm2sPY3oUEPjPFppqPes+E/L9AlaymbCoACwloczhtH8sQUkSYyUu6YEB5sI616ln93mu4bpCiaWL/nUKfbZOnAv2caLLg81V8IqnX8ZKvTSz1b//ZOkxwUDPsVs81Dc4YiCqqJUq7gRkbtE7kks2iueUl1LTgq14my3AlsygIEYenIDOIK2nAqzNN2QeKmQ
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Polymorphic+Types+/+Type+Bounds
+status: Unchecked
+record: -1

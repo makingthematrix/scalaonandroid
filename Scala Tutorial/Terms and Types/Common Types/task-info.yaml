@@ -1,0 +1,58 @@
+type: edu
+files:
+- name: src/TermsAndTypes.scala
+  visible: true
+  placeholders:
+  - offset: 68
+    length: 36
+    placeholder_text: //invoke the toHexString method here
+    initial_state:
+      length: 36
+      offset: 68
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 0aKVkLtClUYEYK6/R3bv9g==
+  - offset: 160
+    length: 35
+    placeholder_text: /*invoke the contains method here*/
+    initial_state:
+      length: 35
+      offset: 160
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: lkdolGbE8XEpPwG0ZRekXA==
+  - offset: 245
+    length: 31
+    placeholder_text: /*invoke the drop method here*/
+    initial_state:
+      length: 31
+      offset: 245
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: NTjeIf5943NSfA4BaDYFNw==
+  - offset: 326
+    length: 31
+    placeholder_text: /*invoke the take method here*/
+    initial_state:
+      length: 31
+      offset: 326
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Wo9xGNvZJDQnmj1XPs7i9Q==
+  encrypted_text: UcgL+R8IXc8lr4iVSSjnXcFgo1QVYyvRs+PN0JCprsB2B4fDfnX5L+PN+t4dllFZMQ+0cw8m3MYBd8iG2fVhPE7b2jmj8HyUuNa/zLiEzBrBOFkbzwd2iHwq5axMGOU01cJ6L0fVuzy/YfCUXd3EGYVI5+BGsYxxyrV5Ddr79yVkb8myPbolcZ4lHmDNersD8mf7K1ijlEnXf9Bv12/3h1xgB5KGSssfd6LoneL2+HROhxmSvl1aWecInze15mmOu1wvaETF6XJDLpKL7tNP67Vckr3xMnQ2UjkqkrrXE3zWxEffx6nuIVRiIC3tY9PGJhOvhfY5KYZptRCj3xgMIsl5cfX4kApuhxFCmwxKEvRU09BHvoFhc0BPDZbZby230iu70ZWft2D9ehovNS845KhueGaK06Aisc7eNl1QIhXjTge8Hd8l+0tP3t0OXzyFmuW1qanlXkPQfMzk1UDq9plAnc2WZ6E0HUL72+B648s3S6li1AydNhd6xjWANo8+/5vYv4HrkFq1aDl3j/xFXXq+CrR71E6ucfQlBulcATY4NGA28PxE0bsE9+C1m+IYvtLyZrX3eI9iHDM2Xhwb3g0PpuTDWI9+k4UtBvykejtgJMFBzlN5FTyodrbRMJo8BRmbXQkfIBwIaeK2JmkdIwf49AMdVNURUhkLFkt+6dsjw3Nw9Gt+4ybAmE/hlzvfWBhv1vt5AoANQdEcwK52MA==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66oso28gfKVT+VBKAtLQux6hhJIvfjJqITu+TVPK5WEe6pdcGSE+PBXbIELQ8gq19jmudcFoODkPXHzv1zxwk57/kTVxLp7XxYKwa84TlPsZ9B+Pa7JTHcS/vdE0XFEwAsollduXlW4SmiqvMaSD+ns3THmfFr+/kITMvcItCZ07OeQK3pF0jqnHRGgm6/aFDvLVy6OUn1zIh1JmYkJzN9Opow4p0IFGK+8UYMe9rj3BrLm3+QhEZAGnSb8u7KDVC8LlBFsfzB/fu0rl2OKswq8Ea8qUS9BPmB6CUeK8Xhh1f34dawcGPw4D/CWcPlljuSiFOifaeM/rMdMeln52bD8Cc7kSyUJQqXfrMaJsRRgTCdEfY85kKUnw9YjY6xTnnsz2KcTANkcftIAeOEYq3T4GRBiVXmTOqzEqqvdM/6aCdAZ8lNCoi2PtKk0zxa9JWJNQSFGVRrTOnZhE5gYvnv4fgEerUz8O1fo03/rd81lUjAszbxBqt8PoGdHoMwr8MtmOgB5ADVGTGPFqj/NMf2Mg==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: mgwk9nioat2nPqMuTXjpD6W8nWhCGwkefi8npDY6HrUXFhBUIBBLltDxv2H4RjGDyUgo2J5+ZCZaFFqf3aMyGlKp3F2LHlJjr1u9Iprnhd1TLkQbd32867usLY1c28aJPmS4xD3JPujfBwVTlZBZW6VSy+jSmNAXxik3cjr+lL1RFcKE0hGvY/84FHeseUk/5R8/PPlhvbGkxiYGEl5XyzwwKFOl4VDRsH6SnvxdbpZl4+5lXLbIPQSLDi2zFKjdI5hzfwZwxguvjJ0iQKcqOCyxxYtfNIV06uMDQW1uqwqgzKZHLNVMtz9iQi8qn2rhDt5s8jOShgxJFVS3mStMUA==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Terms+and+Types+/+Common+Types
+status: Unchecked
+record: -1

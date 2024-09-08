@@ -33,13 +33,13 @@ object ParsedFunction:
   def parse(line: String, lineSide: LineSide): Option[Either[Error, ParsedFunction]] =
     Preprocessor.findParens(line, functionParens = true).map {
       case Left(error) =>
-        Left(error)
+        Left(error).withRight[ParsedFunction]
       case Right((_, closing)) if closing + 1 < line.length =>
-        Left(ParsingError(s"Unrecognized chunk of a function expression: ${line.substring(closing + 1)}"))
+        Left(ParsingError(s"Unrecognized chunk of a function expression: ${line.substring(closing + 1)}")).withRight[ParsedFunction]
       case Right((opening, closing)) =>
         val name = line.substring(0, opening)
         if !isValidName(name) then
-          Left(ParsingError(s"Invalid function name: $name"))
+          Left(ParsingError(s"Invalid function name: $name")).withRight[ParsedFunction]
         else
           val argStr    = line.substring(opening + 1, closing)
           val arguments = splitByCommas(argStr)
@@ -48,9 +48,9 @@ object ParsedFunction:
             case argName if lineSide == LineSide.Left && !isValidName(argName) => argName
           }
           if errors.nonEmpty then
-            Left(ParsingError(s"Invalid argument(s): ${errors.mkString(", ")}"))
+            Left(ParsingError(s"Invalid argument(s): ${errors.mkString(", ")}")).withRight[ParsedFunction]
           else
-            Right(ParsedFunction(name, arguments))
+            Right(ParsedFunction(name, arguments)).withLeft[Error]
     }
 
   def splitByCommas(line: String): List[String] = splitByCommas(line, Nil)

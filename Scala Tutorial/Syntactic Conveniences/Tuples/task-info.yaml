@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: waD9erolCRToP+R5ShQnOguoFLg9Ig7Na12XIXYk98TIxWfs56lLYS76rsOC2iFMwSEBRgzH4Vlnw4QKxmIS6SR2n0V6LHdqJ1ZJPYGFObne+0Az8UHm5n8RHhdcxAZJkZu5O1/M/ySwqoTOJg9V1BdJRZUSRpoVhDFWNFvFFgoY+LTDfvi/PthhJm0CpSATvEfyEzfDDioPO9W6sarMDgXHSnJdzp0OQ9pNcf52P3GWXT9+1fbf7wvI/KUwNG+A6X9d97UNQCkkaJpo3GvcD/pHw8VGK78u6G2olaKHm4FVKHYdVigTfm+funLdUbv3ln75mYzMP+mpBLDrScxARw==
+  learner_created: false
+- name: src/SyntacticConveniences.scala
+  visible: true
+  placeholders:
+  - offset: 152
+    length: 25
+    placeholder_text: /*create the tuple here*/
+    initial_state:
+      length: 25
+      offset: 152
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 2oNEhoxzWWg6xNEZHQjcUQ==
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNP1RkXBhIfsd1C3T4e+majaJsga4DWEFEYvSPXvHuv4LZcFYWi3iJCdPMBrp7OtqmYbx5PmXOcnscHlPDmUnI/hyumATAk1V6VEnY91gb29iBNElyx3Y/4YOiABsX8UI9yLCnPGW8hBm2ww9WU2d/ojdwt9lPVlHNjVK5STy/H6miXfa4A8pWCCKXAtnjYQrFGHEcNDIF3Sk4qQdZsBGpH3SGTrAVI3DBNsmBFskJJHc5jiKp1DThUA7aRkgXHPlbwiNpe6xag3XYj9x27S0WYCk6ec7x61xFhBnE4qxq8VKuCD/yChzntQ8RE+YpCMCwPkRyxrVweL1vHZmSc07PDDkA/iY1gEEGG0zdtRP2EPyDHpz0J5KYuTPozy1c3HFenLvD+e4DcdAqweZmRroAHE1f/6j8WsdicKKctP772Nv4HHiD7HoRK2XSRo9ZjW9Vc+IyIcyByV4OQQ8aR9XM3EsrgI/3xAU8J9nUsCJcFcLC8ZmwWqY62kN9/e5uVyz7W3liTcBCSGK8s/7unhMP6JA==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQe2freK4kQcatYaq/tcW2iP+AqA4Fuc7C0GMlg/Xb070HmHzFnamvbm9lXgqJ65T4B//EPpW8+n8MR/LU5wOxVviOep+sevmzO1X3Bi0GNpAZov8QZddbW/L17KfSjNSwpYqaVSVTLKd6xx7sXSe7YCw=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Syntactic+Conveniences+/+Tuples
+status: Unchecked
+record: -1

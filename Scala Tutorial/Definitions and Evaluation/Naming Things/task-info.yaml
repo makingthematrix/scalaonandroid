@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: src/DefinitionsAndEvaluation.scala
+  visible: true
+  placeholders:
+  - offset: 33
+    length: 52
+    placeholder_text: // Complete the method evaluating the area of a disk
+    initial_state:
+      length: 52
+      offset: 33
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: BPrPxsoPO0ddRfXxWyDgbA==
+  - offset: 120
+    length: 48
+    placeholder_text: // the expression lacks the square of the radius
+    initial_state:
+      length: 48
+      offset: 120
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: G97UoodIbAZtbkhJF1i5Gg==
+  encrypted_text: i8F5NSWZkYfxbxwk1XoDKsUPGfiC61Hc8BCSBg1IuyF2npol6V2IOksW21JkFDiSGQEp7orGeej8lR3n8/62GYqG+qrKUqnK6ocGRcTWXFkybdOKsz9mBk1Kr/98IZMqwUGB/1jcxMfS5uDwq+Mnm/FQE/io6H0c+IjgacLg1njD4VyPQDCYM3y2zLuqodzBw8+9fy/bPysMPsL498ycRqIjwE9LHqW0jBI0yF383trzdFTvUR4tlEL04OG+vB1vx8F7jcto03a7CutC2+ddKzZxynVOvpRzVPnOIQIGU8sV6lm8vRDqChGlfUnXy+7V
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: O1IRlHi2fciJ3j7Tu/p5owe22BsaoZOIfylscKnY8Gapi4F1W/zUnZ9NMM08N7c3T+Fa9A6cf9SR2S/LsNSNLgEZXx1+4UpPIH2sqBwPg0KkICnDn2rRg4DCb9JIK484SHLPg/Kov4A8kdKNBeaq4HopU0EaXm1CeFEGXyeJgkws3bGMdEnrhZiBZOnNLirc8RdNnlLYZjUEWZ4wEcvXC/8B4PD2VC13uXWwge913WaNHtCpL8p8E3imHhh99lFlOgr4pydnLEkjbWizkIt3dAHKJcFxYO6kf4UwyCPzNH9ePG2AtXe5MP272BHipYwp
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: /1xTAEIXgkDA+HR46qu7RVETV/vQ0aOmHD1XS9QIbcJxU344zT3CcnPYAyfp6PlbXzx3mnMj6HvvbiaAfMtvE0uIOq4f2Q25S1oNEMtTDiJbS4KYF8i9kkgNXS40gkyM38hLqC0nbfSVi6iloLG6KYhJ5rHh41D3KkH8NV0owtgEQdhOhW3bol9KR2Jr6bS0IvfjT6ld2nhY3DgpIa9nH352202iqZ8yBXWe+nFYGdnKuCrGwAIf/9izJG5t63AnWX8Eq3r7avffBp4k9VqAno2bzix/WFsKfzt+6N+oGWXjfVhsWDQ1UFdwkeIi8Dfs9GRHF4Lb3Vs1Elfjnb5BOQ==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Definitions+and+Evaluation+/+Naming+Things
+status: Unchecked
+record: -1

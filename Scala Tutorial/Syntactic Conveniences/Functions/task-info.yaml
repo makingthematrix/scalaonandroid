@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: test/TestSpec.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvomoopzbqj7Pd57oflAZlQU6ccvcNwwSALLpSsUvVFjqH0ESK6f5zZ1MI/rTrQq8gTHLh0Oo3uv1qX5XP3bINvYOIo1NxUxCQ8NDzgJMAL/AWBf6WZn7UYd+4GrYPVQEe1BJIQQVRdzSTmGY7zvADHCUDFBxNOId90Kn0u29w2AWGJZXtydCaHa5eWUZ3GoLcpAeCpc+rYLk6zvu+n4M/HLB4g3IOh+PvdsoXfytnwkByO3ognOTJTbYlfDldEXGSW6aDsi2LEYK8ZCncrgWU0q4bbgWOT+kQ67KJTpn7Vfx
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: zdKixBHvODIwdwpW2sXZ8TQ9m1Ql9qRQg5b1xUoQUsWeOPet4LQHGRae/mJ5WsY+U2Xfr3RFvizt6QtYYbVqQjZbNNIWkgIprit/D6GC0WUCS4TJHjBSIO+mWLGAtOriLnWH4bsYB53ExkudigfzxMBCqrPBESqcrq+dFkggL8ckCONVE27xswQFOvWlGlzRhIDQC5LvIxeQXNumzJiRHFviCUinXcXPi2X12C19Dam1/SkJ8XSKCBv13HtsAWZugd2wI+sJFHXouis+pK2O/sVBIgPpiUoVRbcZLPAv4NgdmZEmgpBpJ1K/1B4d1lJ6V2tuzotR6IxD2T4U294bNw==
+  learner_created: false
+- name: src/SyntacticConveniences.scala
+  visible: true
+  placeholders:
+  - offset: 159
+    length: 25
+    placeholder_text: /*complete the function*/
+    initial_state:
+      length: 25
+      offset: 159
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: x7QXUC9gZhJ4KtpwqCe7DA==
+  encrypted_text: jJUx1tpukjcrBtxswiSML/4k75YlWbINyvWhC7iCzReFkiqA0YhFFKKgTRRk6ImvXebIHIcPdeN+OQgLFGYdk0jUUsVyOTTw6fiJC1PInneKVZcr+n3DU22Lg7ypyVCPdOhr8KguQq9WfsKAhBNlLh1vi/e8jrWXPuWppvVOplFHfvR9GH1j4NzdIEtlINBbgyoH7iK8hHCDa1mko2waplaUaGKywcbFUyuKIcn2Ezr4tAvFWqKIkKrvtkTxSmfnzqACJ8lENPQ3JXXNjl19vtjY6bMDbLihP/BsgvK+LDNREjGCOeX1oOXlujZIy+stvI4MPYYXKibzH0ikKJkgD3BpfzS7t1vA2Cd9Nf0Oel9jyJbTx8JoFUJ1VXjznexNw6CzsR2QNJ6Zvr8m4fvj4BJ14lm2PB642sMdorkmlUxhFfeRHFHC7jnlZrM/nBftQ1OunQai/ZZw53HbT1Snv/jwteDq9hTnIEcw81F6uXMMAq/VTnhrwAJxOd0tnk72DjNYYBr84WOsVRZDj8r5ndxZdkxD8G+HxztPyt5jQNm5W4O2FXhThSXeuljdiw9oBe/NReYolDQKnTwII6DxYuDWcbvK4ZW9iSNGtEKNN27qhZcrQjPHks4O9TpD5Rd3nz96SlUjjTaS8L3VN6HbZFjrzz/0s8+mjEofKm9518I+ua/KwXnQGGMJNejGv9vM3NdPq7CFJd9WsQ6iy3+lbg==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Syntactic+Conveniences+/+Functions
+status: Unchecked
+record: -1

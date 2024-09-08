@@ -1,0 +1,20 @@
+type: theory
+files:
+- name: src/Main.scala
+  visible: true
+  encrypted_text: cHBmRtEewKkCYuG2g9CW/EeMQN6J8nJXrg76vMcM1HTYF/WKE6P0y7YATY6xwp88Kw19TRYgYNkIxwcKvswI+2If01ULw4N++AVu55DorQzaD3nIKE4vVFR5tfU3sQGI1U/IalYyhDrVayebin68/Q==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: 5VIICC3J8LkocJqfijz31R/Ak4XgzYmShBnlGOlj6ucu8I+bY2qaBnF/FM/yzclTutQXxzQBjVzJPX1CqTUbp6pc2OJKaVDI4xzD/WhRNfMbnVIsBMXNHD40QRpUvK+gbOmhBnQj0E7ffvCJ+zlrH6CMBySLtTK/iPSm/Oa1cZo7IMYY69dd3eeSIyxTTr7L4idIBD+8e2RyHEaOm4FjuBf7/tK61GdFZsQKe8RvaQNwDlICKBvQIPtBZ85as3swlis9FckrNJ2RQT+kKuO/w+Oz0aGODnoekep1jZLqTwvmQbFuM853aKzU+i4lZdYh0IhED6Umxz1Bdc9aYnid8Q==
+  learner_created: false
+- name: edu_context_menu_run.png
+  visible: false
+  learner_created: false
+- name: edu_editor.png
+  visible: false
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Navigating+Around+/+Editor
+status: Solved
+record: -1
+post_submission_on_open: true

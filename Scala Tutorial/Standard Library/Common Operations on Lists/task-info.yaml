@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: src/StandardLibrary.scala
+  visible: true
+  placeholders:
+  - offset: 153
+    length: 29
+    placeholder_text: /*map the x values to x + 1*/
+    initial_state:
+      length: 29
+      offset: 153
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Mxeq2SNoA/9zmmBs8o5vbCNlp7z0czuse8xiDemc0Hc=
+  - offset: 244
+    length: 48
+    placeholder_text: /*filter the x values to return only even ones*/
+    initial_state:
+      length: 48
+      offset: 244
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: C8QaqFV8H5LqpbtCieeVp9j5c/rpMuIepqAZkWs9kCg=
+  - offset: 355
+    length: 46
+    placeholder_text: /*use flatMap to return the option for x + 1*/
+    initial_state:
+      length: 46
+      offset: 355
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: quWfMl/uzxB5/AmirOpjSh5y/ATgNIjfIVgybkkVhGw=
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPiPwW3obbX3up0w0vGK8p7j2SYDeNZtjxMcHx04Of6tdmMSGwuIZNfw9R24f5eIZZbc31her9GefeKi0nRdKpSNf1weXRS90cduoejIuW/7j2YsgnWAIW3EHGTkTeXM6NV2lVsJCNOcisJx4J6DNq65jBK+bil1bhnjf1zkIeNDSgZsPNRHKyucLkT9wAkOaujD6uu9OShGi/d/7dBPAmEuCPVercDyaG9uU0AFftjMocRqoF4NaL/jspTSHaAPPc5S2PudCq0Wohza5rN8U/wYjlceItQ9gM5/CVb9bh6wXLSIcTn1tXEHQYNAUWlG4TmmXPDyydM55RXVlfrrU4cBCz53t9TXpNj+5WLCuwWiz1mECP3dJHGcHID7Q3HeacPVanprJaI0iGIgRe8Jd87h8rwL00mzcbEvXz39PwWn1VtXH9S+bZ/JSs6RNAwg1QW+nhKGl0Z6oe07E1a0rMhBqbadunJ/15DtFsGJNxbGrHRzELxNanr5sHZ18Qvu+B4+Lz7AIo9tQeZoEu3nKvSBGxIfH+Tlsp8F4lBptbdmb7kLc34iV7Z0POMv3kRqUZi9kWgbk7MSUGPH4LPlwIVf7R6W61gVPeB5mVFu2eCXkiJdxaQbpCE6s23EH6TeqfHPUj1lDf8NFipFoP62TsBPxg6pdX+4YZsOq2YRCBTf2WXBtNSoCjdn+5JCSMSahpzbiPS2A7y7T45wnJHOkl0cWOBxrfYI9d5FuJK9eihGDZ4rb7OIrhnR9UI5u+ONv9iYrpbfE0e+5YWZSk3kqtT4nq1eiSnczzFi5Gjskn2YU=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66oso28gfKVT+VBKAtLQux6hpsQEmbW5akSIe9plnuHtQInnNW6ZlAUQMTqhZTxFVk22+wbvjZ+7Gxf8PcmoBo5KnpahsP/NXE4SmtII04+kF9wLmWO7BuWVRBVyJS4CjydrPiOS+Ux5mMKRA0xQTh3JukcGxJ4qNKIXrL2XOkzjSY4sZllZzyKzbYCtVymVI6wyLMJLix0zetBoluxCGEZGxUo1VWxm9ynD/eHG1EV+obZYx5SZzrysP+8rv8gxVwUgodW8Tbd5WnHueonFq25KpE4jkfkMuipjER60ZJRuDYVqw4ePnC7HVPeftZrSCnp+6Izl94gPX5WC+2JFaLjYdW10UILfiNHskSc/sbwrU/jhVXwijhEZVBn6X+sUii7iGB+GDbDofu2eY+QYNB+1jIOmCPhUAXN612KXvUUmnHbqnlrGF327iwTTyCIkHquX8vPc2/i8KdQbGYsv/TqjncfDJaFOUzU8Fpg7HCi0hwezNzLhlIMFgw4RkY4jUOirYLP10vlrFsT5D5wWWGEDrffOqdYmwds/0CJhr8vec5vfe4Y349wal1RGxKkyDj1FEqEPh6b2E+/Xr2whgxSVVr/JLPorfO8wdlIIw8lI8WJWOm/qDoAgCZtty9CMlB8DDt5wXLhNl1hdHtzkuA5Q==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: mgwk9nioat2nPqMuTXjpDx/OLSqEGPpRkTy+mtdncavTiL9HYBCg54KN8/qADumwPz36qMCQVC2yZ50dkMPAET9gllg3/d6USBXMTDjg4crQvumM3+OaThqf6qPYxju2qw0EAWS+rgROw1Ah4gNRWQWYJVHAFxZwAaFgaS7VEXhdlx1evYCZBrXmsa7vFMuLIN3bqbmtebfx9uigVWRPKDiROfusR5bH/Ul44MvGk6gI2Y6Zh8DDLSRjSVExIedpaf9pmE4jf8+arihd9AD7VjwwWNSVMs5kCk8FttoTK9yHSZhDjX84ZhGNYV30QRqq8j5olmRGHvOS9sudMXskGDD6cGAOMJDYweuk6oibMRc=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Standard+Library+/+Common+Operations+on+Lists
+status: Unchecked
+record: -1

@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: src/StandardLibrary.scala
+  visible: true
+  placeholders:
+  - offset: 130
+    length: 44
+    placeholder_text: /*map the successful results with triple()*/
+    initial_state:
+      length: 44
+      offset: 130
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: jLeRGB2NxdqqYhHOYAfY4g==
+  encrypted_text: 1RzS5P5yXHr8EFsf93qujpsXz8jBjgZJAFUpN94+wJj8xh9imhvRgl0OV5jkcTjLfDcAggcqfUg5aLO1OO+9xxE8X5UOF0oCX5/lvQkmiGkEfyd7Z+B8GK0011e30VrSocfewQfUfPypySEp0XXQMgeZ2ytS3hGtCzRL06tvOVjE8InAH/8apR+fkYdGWIg1qWJOIxV658kNNYfQWZOwF4I4XmrGAFwTtYi7rc3LyMuoDj5p7ZnFv9QZp7YJFAo2sMqvxI/QdYsXcZ3wzlgetoLy588r0b5yc/Ch6+tYAyJsqJ8X64QNrMh4jJvzxYKGmLEPEmJIJ35V1TCvRvX86/ElLpauAQyYP0tlrcGWVKP4g1PMn738ETomagYinHkug1ODi+LtzMj2x+FlI9plVtdR27G/lRJWGo6isOzbtdQ=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: NmZOPorEK/EIeBe2UY1e78gPxnb++z6UzpWIvrltkaCjgCo09CrVM3yiVYTNIvWP9jRdgzuBcFGrs3P2IQMkWapAQtJZfMDxsvNGKhkQ1+BGWKnbQQtNhSnvHrJLCprhCbMw7rJFc1optRffkLTUhUYcU1bp9Cfu/b9AB3E98Mpc7Lqr+vDC7kc6pknLmBGPEzRyZIyLHvC6yUYBVpjFSCcpmWMfaMwxUFZ1mh3JZoKI0WRP3nki50i/F261vmWhC1lMGGU8BhhYBod4yuFRCdeLj17tUYPGJgvPAAhaXCHcFcy9/xuaWDM69kAfCNnGi84QBy9JkHwL8XDl5SOQiurQ9slGgqnAAXMwscW8V5qSZNmoq/oz2wzFR6pi8ucK21ZgdV6T0v8w057slm9VLjn42Wub1LUOcOjlSVQG8J1pQ1GbweshNU2NAJMH8/3mBtBM5uKVwrF6mVVbwFtHJAgalFaqJc3hiqhCgn44UYWxjr0Huu9Yg8Lom+A/LCRX
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: OqkVuTLuK6WoMtYdWPbma8VSLyXNGIXZ5PYFkZaleQvIl5p2M8fgGkBLcfJcI+zPqviyy0IGTO9FjaHPUKujWesXqQ+gzFq/cV4S4qu0ZizEbRdIURrteHeSwfXszg4GpW7paepWv2SijNUDicMRoAGDsQNkKk6ZlDUvnS8cqPJ1LRd+M4FheWCRRHH9BiLDoYYTlyyDpzY//s2NuhzOgwLYm5HqoEUW4KDO8Y6iUElGCjHwJTAI5psaRst4EP323luwa3WNntm1M2leQ6aMJ8G4oZJ1HeXZkJHp7mSZDt0p/ciTt1hjjpdtvh8j7d7l+PYdQKzf/XudXRINCe3w2g==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Standard+Library+/+Error+Handling
+status: Unchecked
+record: -1

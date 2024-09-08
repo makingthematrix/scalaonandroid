@@ -1,0 +1,41 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: frsvYEM9gGSOU6caLf3g628vfPMsICZP610pq4zYy+ersVcoMtq0eqwnc1pGmVPFQbF3KKrlBnkUvhHo815G1IYIrraz2NDbfyZzQ9ZTvWZZLP863kYCBgOInxy6RQ173Nan0mzpKjulaNbhDP9CsU1BqzRj5PSguzF4j/3jbkV9Q6aG1j7fZHxAHFNRXx2JOS0Bd4Gbg5FzZKFoRBMIWQsuPwBtGB8Uf9ZG/yRwSJCAd2s6smlZp9hOE2OKdiGIa56NHVQPNBtarXw8+0frLtZQCMEXxQOFcMuXhemj4x2BvIrsNHpkhrMjazmyMre7Y21//eWRS1snAupzUiTq4sr024OZZkc6zY38DppsZB4=
+  learner_created: false
+- name: src/PolymorphicTypes.scala
+  visible: true
+  placeholders:
+  - offset: 94
+    length: 47
+    placeholder_text: /*insert what we should return in case of Nil*/
+    initial_state:
+      length: 47
+      offset: 94
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: i7w+f2Kv3evAy8vez+mEpg==
+  - offset: 161
+    length: 56
+    placeholder_text: /*insert what we should add for an element of the list*/
+    initial_state:
+      length: 56
+      offset: 161
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: lwNEwpsx4AQ99zSWQdD8fw==
+  encrypted_text: 7rPHTNi/A8Yk1Tl8PexarosgezT04hbJvgBeXxea0l0MiBWkygmpr2I0j4dmCJXAnEAqfLcCPciMa6V1klSSU26J84nCU9g+A9Xq+koLcLtKK1xA1X4puWXWHPGerW5raIegJJH4Ix0/YW4JOpL6vSbHRduHRrUz+djmwPhhCBYQ0SFLoR9LFs28/yEIEGzh/OWbfcjFQbHE6RSIJq9cD2xWzYpqveEbIW3x4VUrsfKsFK6c0FhWbXVyrjnfEJAOvHSgDxYU+3YVayMoWRUNneh5mSw4TRZ4J9XG6Re2A6LB4fHdJwr/72ocLli6VRMQHE+6oIDP4eWFyuRhc5SbktFdvAyXyAKfZ07K0DvOzBgtefZY6Pj2zzyfTz23goWB1mMWzNP274u5v2aYEKj5w3/KCQE2CYWVvPqMUg4Sm4H0ceSMnkGLGCBC7O+c9gNcUH4ENN4qu16EZI3NMk5RywfIrG2qkIheDydyqBBZlK+zS9tAUJPrhQMrVqFR5Yku
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66oso28gfKVT+VBKAtLQux6vxZkNtPTMwj93adiUYlCTvHT3DMpjy0NrrR0w5GbZORLCZVkeqvAUnj4qDkRPjJsNWChHSm6I+J6I5EIhcglx1zeYNxFzWeaekUmuqy+wWEUTRTfRE21ZPBg7QfNqVSW4NdXsKb8+tOwra09HWQkJhaTBuxRDv/u3iLS3uVjbbsDC+1eyNCPr39RXJ4hr4Kx1njSNrU7QbmA7izANH0T19zm9IYL1ZLO0P9+6t7st2f5JVE2CUUyL/Xt85tL5um8g==
+  learner_created: false
+- name: animals.svg
+  visible: false
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Polymorphic+Types+/+Polymorphic+Types
+status: Unchecked
+record: -1

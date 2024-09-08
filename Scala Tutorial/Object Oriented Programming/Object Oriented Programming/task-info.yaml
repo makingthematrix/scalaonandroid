@@ -1,0 +1,43 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: BeBWuHK39/1JQkRKFHv7FhDFwTfEd38OUlaGiqCglxXlPy7DBKn6LxV6CnEo6O0cAvXP7oNtCnhuDIVAImdDKo1U1BTY0C9C/QQo1Y8Yrgepk9F9/9IsEEkT7V+Cl6bzd8qWeumZ+MLF3an55k8rPtsmuoKP2A07FpwC5/cbwkECobCSukyiUQwW+2Qr1j/qE/C9GbPETilT1WfvKdh+YlRrjxQ+juJHeMk4aIN3u+REthp17XkOE70j8UHTrloRTe4f3tHlHik1SEbT2WQHfo1Nsjx/E0rOEnvTR++3W6+PwFKJBIzUhRgkIQ9wPStinlvExSg7+b7uz5QJyJD4xvAd9pxJoxTlxTWhPutkAyo=
+  learner_created: false
+- name: src/ObjectOrientedProgramming.scala
+  visible: true
+  placeholders:
+  - offset: 101
+    length: 35
+    placeholder_text: /*Create a NonEmpty contatining 7*/
+    initial_state:
+      length: 35
+      offset: 101
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: phEzg8qK4j+vGbNGBcFCv+faFZgHBsW7h4QhU3gg054=
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPO4GLGqR0vgEPNu3+s06wwpzIE0uFqncaX8nkfNdOoy2mPNu2ws1whtnC7n2LEFChYB4dt5ZgqSBMESmV46tNcEGAPzdVSDF91wAl0cB1moRk/rbcnUWrQmDw80lNm6aKSS4Sd6lUsQoEjf5JLhRw+k7VY4VBvMPjnT0p3rSkEMVJ5vu1OKERpMH3KCke3VQgziDQUWdGhElWCWlCey/s6Ju58URuiJxYjwDNy2LBDw8Dn78d7K0f5kLD4rvV6mPACwnWOWJNgt/2Dyu9VBwTCg==
+  learner_created: false
+- name: scala_type_hierarchy.png
+  visible: false
+  learner_created: false
+- name: src/IntSet.scala
+  visible: true
+  encrypted_text: +D8NZ66KVm6OCZOr5NXbECAKVxSW1XwDsvtrC8kh7vyxEQZHzJh592xEhGcpoQAmX3JaJHyvL6BjnbEa9njZIN9+ekmhDkr7ci1Iw2QWMSJI6RyefBPQV7u3UIP5tL0J
+  learner_created: false
+- name: src/Empty.scala
+  visible: true
+  encrypted_text: uDBDUdZ3+4PChTn/Nl8Ybv7TtEMEF2nkXPLOdr0i32eoji+WmNEt1RdFGkijOu/xKFb/ROCts6TaCFnQUNW72XTnydL3cbpV8OkHx3mduk1se2vNhhIMjg3noWb+o+KrWqEOui8gz0GQQ/GHYy0GHZdhbneHxqwici4Dx9B6DlCVkiyapDoC44CCu/c4EBVT
+  learner_created: false
+- name: src/NonEmpty.scala
+  visible: true
+  encrypted_text: aJTKGAORpKIEBtoTaFOOFxcskXHkNXjFa/zZdjpoN41k7YAGEaXw+w9QLS+gzSewqdBniDAJIGn3FZetNVZrubkG1oKW2Et/G64xWKSIMAd7zhwaMKAbxMYwy+ihfsA695pNsrmVYwk3CT8rm7bges4sIjU3fQ/2wmq0yNzDdKY0A0cVqDmuozAzMChBz3hqdmQ2sCwod5hFnw3hjCL6LnkgnqPdpOh6lOg+zzXFnELcUR61qy2hp79oewF0XuDdZAIo/hmcAlSNGo7CtSZCXWnJocZaChj0UZvFQ8k7CHNEqtzw90U2wlbDWui9pvZwRcyUvxqKvgmCEFYOA1/vUVllmInM+IR1dMlLbhOmoyXw2echsbFLQTLeAgNb/NCIW/MHqhRiQqv8+g08LUhje2FOLBwwsrEBgYOYp9X/suEiAD0X7qUGCKvm1tsT9Ld13xi0wSLf3WDoszUov77SAfpGr2SRfmie2omADDujimk=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQez2bLGDjuyOZyWRYaEzcb4tSCH6m5dIto5rMrlHN8eWzq0QFpo9H6r8TH7NRENpKM0WB0iQVbkl7l61564m/hQBwZPZZcyHPISzcNIv/biH6cQkJJki10X/EWb5+luqZ5f7eTok/wG/dbtDJYBeOX1KGua5A98XGnETHNK6+Jclfs0uttXq6/p9oVdblqpxMuH53AQjGyKBn26+HorxNrGU=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=OOP+/+Object+Oriented+Programming
+status: Unchecked
+record: -1

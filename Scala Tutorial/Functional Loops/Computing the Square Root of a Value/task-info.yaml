@@ -1,0 +1,39 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: TUiaZ/8zYhVmHrpT1DX+d2x7MHsTMqoytTwC3VLB9NqE4vHTloatj0MqT55LHJwqW/nvGCOta2CtWudYsOPMPzXCj7IZqoy1MonAzxtKkbkrsxHhO24jbuGqd+sZlDsAgn3zzOtArK4d/WUgqsCCVsm1k9V2T9WUAwjXjOQfz6GOerLXjOqgQ3DSKGDsfRnO6awXltcaxIxpUbShMu9Yxt8sKd5507VxWK/Wvv2Zi4DQbPYeDYQjNXHyoFYYTmIm0ExNfLudWEluhrt9m8VsMMwf9bL/sgFQjWqQt/SVtCVDInQn89MIdtUqjdci4+WVYGP3OZQNmebwycx1D8Z8meJrT//2gQH/TFN2xfBlrImZYL+ONQ431SwMXWsT199U
+  learner_created: false
+- name: src/ComputingSquareRoot.scala
+  visible: true
+  placeholders:
+  - offset: 155
+    length: 36
+    placeholder_text: //you can just return the guess here
+    initial_state:
+      length: 36
+      offset: 155
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: X7fb/+LPi72L1UIq3NT1WA==
+  - offset: 275
+    length: 67
+    placeholder_text: //here we need to place an expression for evaluating a better
+      guess
+    initial_state:
+      length: 67
+      offset: 275
+    initialized_from_dependency: false
+    selected: true
+    status: Unchecked
+    encrypted_possible_answer: 7wxd8ht/cPVmTKrbXeMMCCX36RbePg2ty6muHhi2QB0=
+  encrypted_text: Z7NdhO2mCR3RJ9VG5AgGZIpuDlw22tZLKIsrVwCOUfMKzf9MHiKnbtySIDXmeuA4GVoYNIrl8b6rl63vIaw8YwhGIrPUsTY4+Ppu+28fg6RvQ72Y57GI26WEsjuRtHlRntBRnANV10bipNO2cBhGUQWVzMtsMNlzemOzz29ve+jTTrNQu8EAGk7TmcOj+sz95wLEfE2+vavmNWbrBMrih9E9u2Mm1xY8lKsoVjGQUVXisyhidwUaFCbUpHxRTjnUR0Ew3KScLuH182PWDm7dtijnJKueljO31v0I3J2/yha0UbOrnPaVV0MUfAykFcG3KuFlnaEWVLqGAFYDzMPOTypWvXse5Zr6u9wvKfJ4U4DHNgZvXQUnO/1/oQPp7cu2gCyMU24GE7VFoj6AwWnZbcwp3T4ccW1XpIqUQs7xrM5HmAN/awWY5MWm0fLpRAIHgWgqm6kSxa3TQjifhqPGWPRgVNDfixmT1MFuHzWeu8L9L0rDseh5fKZLfMymufhJugWFMeRVtCLwI2CptIU8ZnltEgK+VEwMc1a2f4KR6gHBOKd+V4xfH4Fy+xIA8WJQPT8S7hThuBAz6ecp7nvNnviEI30gYI9lh9kKCszFsgAZ8jx1fcIPE/K8qXhXtOppTK0vD3eNDqJXioNMFv5P3QAZ6I00w0kQ3uJ6J7ijLdDzYsXhgXeQOT6RwN6+JEmF
+  learner_created: false
+- name: test/TestSpec.scala
+  visible: false
+  encrypted_text: vV4mWbw2aOO+exjLEcFuWfaS9HYg1UpRZBGPw0jw2pxLqK4DtqwI9mZPsWkJ3oLs6l6mQfI/7Cqcovwg0GJBm0BJSIbrDuYwUpfY2xnMz+HgCzmX1DlEd3/dQMfU0sn798hNkQMqE4cAFghtDE6/JlG61CftfRPloPNLzDNTpzRjMGW20E7KmZ3s5jBpL6ERDtamis1dNxmsZej8vc7l/pFH6PkDuLBJCr/y38MXaqtAu0mLT3sUwqy4UCOA9Gu/DLY0HEPnF7ewZyEX/SRsn9mbp1ORCAebRmcnkMbzniA8rR8L2I0FfgGxhnLh3mHE4kk8LJSPhCdTXcAqfvfuQQ==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Functional+Loops+/+Computing+the+Square+Root+of+a+Value
+status: Unchecked
+record: -1

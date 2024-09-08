@@ -1,0 +1,39 @@
+type: edu
+files:
+- name: src/StandardLibrary.scala
+  visible: true
+  placeholders:
+  - offset: 60
+    length: 69
+    placeholder_text: /*insert the correct condition for evaluating if the list is
+      sorted*/
+    initial_state:
+      length: 69
+      offset: 60
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 3m16AGEdgytAD65e4yOPgM05OAtxRKHXw8OBmn9Mx30=
+  - offset: 220
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 220
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: N14iS7q2yQOPUv/9CJs1Dg==
+  encrypted_text: 1RzS5P5yXHr8EFsf93qujlEjnTBzXPoyVp0KKZJn5aLGJ7kM/yRtV+57RPIsqe2X9aEp+Zl32Hzfsd/lEg50SL4lIVJA5w7s/uFCTN7IEyTF7TnQioSnCM5jNiIFzNpvIxqjB6FXU3WcELvXofarSo8QtfJJs7jTmr6mb+sjQnLtUE2ueC7NyhihjQXZ2lSwmdhwBG+YpoMihXQKr7FTDlpdKibIy6tQYx8EtWIAyeRxU2t2l2ntirl08ekvhDLwj68ZqUSi8O0/iCNfLPhfeIxIOkwy6gqX7UufgveJ4aXqIEUkNQ/iS86cxYPrcb6yUODpgUON2HHGAMctNxMjQm4nLXhSeN1afqtjm2CVkMQZpGjDKRf0Q1PlnjMxvu1dPsP4FBLjwhtE1CEO2qQO00SZLHXlmsUDzlM0cyUpWN33OMtBnXKaIb8IWrhj9JMTfVner6hheCTYiFWKNzrdlYZBT9zdKC3QAFM75m05ChHuX4fRTLZkUkS7e5mj/A06C+cR2BS0jZ6zTGL2OeTnahcgvyMSYEdBfPjRQyUPZX0=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: NmZOPorEK/EIeBe2UY1e72GIVVaDmYDd7EOpA0757moNPGCQH33vFJ4LTaaeIyAbHf81tMqG+svubxIKkAI3ony5hc/vWxzhPnLMNk/xOT/DK7yEEeKq9493/YmQLtWjfPo4k+TrhOigRmyw98wPqlhCy+gTiyWC/8wvtTP74Itlxv9b9NSxFmw/Ofu5IcYT1xjkJ0cMA3o36iGXUPvzP5eIGsmLKlYJ8J4wzPks2uAI5yqpxZYQ6Ycza073XDgeRAPGch16ZeMUM6mapmj5OWIjZn+XK+JwijR736F4wWtWshFjtSf4lyuZX1Z+I43J6n2sicUNQFz9inWiyO4+/1uCN0AtZgPJO3GJvPbcSo/hI1cR3JCjQzo8qm8IRZ42Ax5mfBH1CJWW6W5wWTwMoUkpA6+BvEXEcx6g3p/GFTq6kyUuLt1xcqziMhx9u/GVhDnhdcw+CG35qLzrXyhBqeWARrXqQSuCN2w8sWM0tYRJLi/qLH99jkamk2s0ZztH
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: dLt6NZCreVw9wKwCjcOp7mbLpxCOu8RwhdL1fJqsJoI+qEr3BXqhm35eHGTfp6C0BZ/nDoa5TYZfrfb0UgBzYOFupGtutybiIdRsjSAm7vTgILPk1Rtd4bhBbV3ytlY23s8IUuWKxDoQpWsOMMrAsseYk5WrV3a9C6W9DQpKqhVZc9jb9XokriMfaEKbSchyHdxnv7UDCwNI/CAIIW4kEhsEgtPgJta6u0TGkqsMy2LZhCeH00MU4pJj8y2KN4P6jKgm9wF7gXIR1/LnZpdDvQbCAcxRnh67xcD7Un18PE2WO2gvGtRD83Jhi0VivlbWxoXKZBxWNxE8WWqe+oJmvA==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Standard+Library+/+List
+status: Unchecked
+record: -1

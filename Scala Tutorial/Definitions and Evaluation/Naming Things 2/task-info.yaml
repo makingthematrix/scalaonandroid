@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: src/DefinitionsAndEvaluation.scala
+  visible: true
+  placeholders:
+  - offset: 123
+    length: 31
+    placeholder_text: // reuse the square method here
+    initial_state:
+      length: 31
+      offset: 123
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: jxZiF8iDFGyR0Sd6zPpfaA==
+  encrypted_text: i8F5NSWZkYfxbxwk1XoDKhVKoMPUv1wZh9+4HMeeUe/znkBVV+ZuDTFST3eB26rqxG8VAm8+LQZ/h1Kt0UQcAM8BEWuQllUFjpoUtPbP7SR0/6kvlx75xc+RP/qMiUVEKI8GYqGNyL6Dg0Yulnp+su4M4blVHQzjFOhFb6ll8wEewane61v0F5BaKPEy32OS60COnbuhlAaouLIfEPBly73KpZmaOqvxLLuAgp6k6P2wLjuX4jBR8JMcruNuHp1iV6qQhGFiUa0cFvu7O+78Odnnb7OsX+9LmcFztsG7wnrvsaN1DOd4joh4an5RFCDC
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQe/BTEPgE/ncZKu+mUEJCjyMRXFn5YlhQinnHqkq0L5/yvcpVzOu2C+xCnoa7U1dDIf0q/IeQChGtAMnO8MARy5r3CSDTd0jb8/F6ItUHXYGM1uKg9XX1PE4KYCM8EI8DhiEKqe1N+CM8/LJnJPvgczDdnTSsZ+omiBx51VJ/iCjXj64HGvLv7kZ4RXhZaT5caO6LWP+dKA3rbFIADhk1DyNEXrH7+JxmI2EbwAWBPvug7/q8zD/06aDJr1GO63LhtM1ckywv10yCUxkrOa1AuXNT/3AXaD7bEEmjxWwiwo/VK21q0v+D2u7G6TL423oLp2LGEdUwzsy4221Zz4gXrIDo6J84Tt7fx2jHy0Jd/ify63X6OaHqYVDRxWMbygiI/bxTeKG7F4DXrM21nX6V92YO7bU7vtU3cGCJW36qzIGvVQAPSLz6ceb9apLk+aP/l3qSXAcqULdqt2j5vUCfdR8=
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: /1xTAEIXgkDA+HR46qu7RWiCQ6TErtfzWaZBcUOUBtnrQ3mVQA2MdrLd2daypX84M7dWidJxBw6niVetIHKF8Ekpjnk4hz90awKzpwB+rRcpRX8CwVpkUbiWCX6qFnBYYIiA05ckiOyIBf3oZOaJyCWnr02pJdapXHkt3dNoGw8W8bI4gNbkx8qVkMcnzHQ6Ax8aubl/qEwhZsGPJAxAP4LGD9pg5wrnk8aD1XDkU70mx2pmZNrgdurqM7yCvbcU5DRT66lOVf6g25BCJzvjt001xs0ZA0meBOVlx93ErNufRxM94n1aMToDHBoMA9coBYP8tjNNJZPoowhhu1sC3A==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Definitions+and+Evaluation+/+Naming+Things2
+status: Unchecked
+record: -1

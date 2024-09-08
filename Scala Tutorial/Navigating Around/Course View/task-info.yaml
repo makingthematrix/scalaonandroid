@@ -1,0 +1,17 @@
+type: theory
+files:
+- name: src/Main.scala
+  visible: true
+  encrypted_text: cHBmRtEewKkCYuG2g9CW/EeMQN6J8nJXrg76vMcM1HTYF/WKE6P0y7YATY6xwp88Kw19TRYgYNkIxwcKvswI+2If01ULw4N++AVu55DorQzaD3nIKE4vVFR5tfU3sQGI1U/IalYyhDrVayebin68/Q==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: IEtI305GODbrFCnN2V26UaWJUsFr38l7zQjG0rrRG1KdnRwtrDr2taOLgifK7b26RQxxqtYJdZING8pb5F1MLGD2sGDXv77ifJqRZ5Vo9J3wYTB0wVM8GlA0/qmogin0UaIwpQPqeuCKQmyHZrujwKymMcpIItDpto0S39HCC2vzZSb6kn50jbdyvUv6OCJ8dM0CFnfhW+G8s+zdTTAo2v/GL+Qp22oGlqpXt/vzIJpGdxS51Fp/KMZWyKsIRZ//Dgc07hwWE5J/K5pJ9iD00JuSw3+HMc6JzpBpkzWqGOdJxVIIq9pox3RpTuriMb7s7NBbyR3dzLmUQebWBU+UjA==
+  learner_created: false
+- name: edu_course_view.png
+  visible: false
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Navigating+Around+/+Course+View
+status: Solved
+record: -1
+post_submission_on_open: true

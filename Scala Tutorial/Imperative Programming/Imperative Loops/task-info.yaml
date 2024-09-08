@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: fzpND9GQREbVi1Yr8Dtm9HQ4XKyZb85l16yAeXbcqnFuCEpKqQnQYbuyPYAlicR1oMSLiu+bp6FeLzmko+lUN3y6DTagSpEjauiMmUHQa0F/2mMSjZxHJuS4pFK07Zd5nuQqQYJ6gmwJXQcAXOCgEPVDr43EC+5K+akF1I791UUuOMXi2K2y83CZLniQgx8xVaKRoXRznddJSrZSYWUnj9RbY7FmwfABO1OWMVX/uqs1j/8RybbnAPcE8cKmm4tmpFLs1W5jO42BJ83STyocyIXb4DK/mNIJ0RhhP+hox0BnSr5JF0zOOKpud3leOI+pX/rb25fwsB8XMdK78NshxQ==
+  learner_created: false
+- name: src/ImperativeProgramming.scala
+  visible: true
+  placeholders:
+  - offset: 80
+    length: 34
+    placeholder_text: /*insert the initial resul value*/
+    initial_state:
+      length: 34
+      offset: 80
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: oa+nVSRiKi7L3SNrfCrSCA==
+  - offset: 132
+    length: 30
+    placeholder_text: /*insert the initial i value*/
+    initial_state:
+      length: 30
+      offset: 132
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 1jv4oI924ZkXwBNnWzUX/A==
+  - offset: 224
+    length: 21
+    placeholder_text: /*insert the i step*/
+    initial_state:
+      length: 21
+      offset: 224
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: oa+nVSRiKi7L3SNrfCrSCA==
+  encrypted_text: xcXv22LdTaO6A4H8cLBR/tJxwC+Fl6UitW2RNXiB3WG0OhDQeFK3+3UURHAil98y7kXS3+kqCxCQAePi1Y2TSV0icbllcgr+inIvufq1Lfm5htRvfdSPljlHhE8kP19a2bIBvnIYuFaNbOQmD8/EYOGhQ6dIrx6k1c5WP2Wt/WBJYMlupMvBuaMSXK8+PgotIb/zzvrx5acxz9RZ2yWu9jd9YUJPfKkWdyNff/P/lcuEIBYUJonqUM/EUKTr2VitJrbIwBe4ZJGWOLmLIih5e8d/0EiRBzOmLg7W086RRm3cpR41Otsj1K2cvKh06Ju4yP2nu8+5kar+nSthl4OHC9riFIQvw53q515W+XjPv1nXGut/LjG3QYi8ej16J3nIvjX3lIR3aseRTkP/BEhwhhq6stff2PyQzpcwGed2RMHv+Q0qBalxKNyW7wwfcuccjAP3ljJaCXxrZJK9tqxM6Y4xPcsEdyrHpQ+/a3zDXyEmJ4CVvDg+jtDbdfmTeiRrhiUtCnQs4jcyiuEONUEz2g==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: XyJmK8NGOP32/NKeHoAGotsvBKRRvWbO0PX5PhSvL4XqQvRNGNJcKisE/e8Cmf3kozb+m/ykXrB5eUid4+0wV0TaoN8/ypHCr1CpoS+ymQ7sZ0p0sOf67W4/eRszwQiX7Gn2nDfQdZPlbPzfUgSxtGJa6NB3eyjHAt2DPh5zBHozYcB1iyEPHmdJ1X7BJ8BF1NQ9qHxMWrZjEaQCNVX3tE3ZJPCpDU3hj1+cEc6v3eENzF4tmljw+jQsIjBLYRMa7WAvsNAbJdhJQkZDlNFaAhajHm9YnR0KpG7C76p/xiGFaPIDXeaqFND7Hr+I+T8uHlOmvcwkuhwlUIfUJcjKgsOVNsZyZqRgUYEDeZXQcE4rFkzt8+s/v7gevVZEuwos6SmBuumzcO49eJYuV3+kK7llWfKyL/UyeQiaSjTSfuI=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Imperative+Programming+/+Imperaive+Loops
+status: Unchecked
+record: -1

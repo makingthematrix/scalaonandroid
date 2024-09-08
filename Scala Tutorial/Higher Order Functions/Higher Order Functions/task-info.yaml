@@ -1,0 +1,58 @@
+type: edu
+files:
+- name: src/HigherOrderFunctions.scala
+  visible: true
+  placeholders:
+  - offset: 50
+    length: 56
+    placeholder_text: /*put here an appropriate type of an f input parameter*/
+    initial_state:
+      length: 56
+      offset: 50
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 7lNeNQvZWlk0Zv+0kEvLNg==
+  - offset: 110
+    length: 54
+    placeholder_text: /*put here an appropriate type of an f output result*/
+    initial_state:
+      length: 54
+      offset: 110
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 7lNeNQvZWlk0Zv+0kEvLNg==
+  - offset: 272
+    length: 7
+    placeholder_text: // TODO
+    initial_state:
+      length: 7
+      offset: 272
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: oa+nVSRiKi7L3SNrfCrSCA==
+  - offset: 312
+    length: 45
+    placeholder_text: /*here you need to insert initial acc value*/
+    initial_state:
+      length: 45
+      offset: 312
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: /gxBgZ9DkPurQeAhOZGqYg==
+  encrypted_text: 14kW6HCtQyMaEZkKMs6BpbIA0UXdifO6D5OyVJqmtwPvcXBCOQnj2xZO05v7l6HT6vZGZ6qHdtK7gmODVlf4C+0KCkqVsWmWoCJ4mRfv/ujbKPWIUkH8TH6NNAZ66CFl+rzAK+4/G9sUMejgPm2+Dzs2clFQtL5MEyPsRLTO/0TO8IlmDyQ/srDl721SAg9s/U5Oj8hjwnVtx0iXvyycwJzP+LmfT2kBd9aSs25C7HkbDrBsr/eEN62phVvJ7UOFgprjN0/d5NjdUlTkF4VRPpIuW6BBUjL179aRE5906UOH6Q6fA7H8jaC6EwWg7Pz0yrRcheIk3clRviAIjXA0sONPUamFApUz8t7fD/df6IcJTfPyWDxzhL1hfnE+KnX05h0d7Nnd4KphTcxei6v+X5XzRAUfZ4gy3ZKPSwgDRsVA9n5gQ48raSYuxITgvd6WMiIw6/r9Fov6i09m7nE72vnxMwSpajXfYzb1L75WPd5GEBkk2bpDAeKS+cxJRu6YE5iln3AJx4ViUGc0/bcryEVlfmAtoXmE7vJhRllZDgHMQHT7pvI3ZotiYmJLipeoswhq8bQwvFr63EtgGNWKYMJWqdiU2tVB0IE9MsmkJDk=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: aC9BgyhKHcoqFU4OM11mZiGSz1h5l7jmxxSX19KxBtl9y1mkabdVB+FCE4tBImsHTDJKu7Mpi/fhSZZu2bujQFnEqZGzcO2QHZOoJhpwgpeHW4Xf7mH3iKrnoHFsniwC9cwzlRR+gBehZVIH/9iN2vIPsWd+iYZksgfJkbNaEDl4Pj2HVmHCRqCsdGgBw7mE011kwdRToJ40keqs0zCqGbILQF9rKWeh/+ncaWvvdRu1U+cINzhtKS0LZ6jPiJLgWCqbVm5asTc5vgHxVGEXak7bgGyhTEkJNXytqEDFwvA6BzlQYVDlyxNd/S3ls2kA
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: T/7Kc60qyV5v6gGn8LZKLIS5BG3KhQTIA/kVhakP30P4sGhVOnlqkUJNmYl4V5OzKiau5lUFqOvvCm1qevkwQUKRVJrAlsRA2DwhvG6EY/G6WS+Xh6wqlrP0q1iHetJhDmMVII6yJ6c7+kXdU2gegPPuTwRhR7USMpsA4RuY1ug/EouSOGqpIvrrb/hUhOAzmohwzgg3ERTafxCHb9q6rollcfojdbZ/aytVLWRo/P1dwa/nqZmtTdg5xKu58AE6YyA1NJaGxZAtKpGBL+uUOU9jLoieTVmriYtAxWmcuOzixgODolJrFWSVHnazMxTYe/3TxMz9Ysl1Y7uvi/B0Zi35e/mjMBx0K9LrnFE6gVU=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Higher+Order+Functions
+status: Unchecked
+record: -1

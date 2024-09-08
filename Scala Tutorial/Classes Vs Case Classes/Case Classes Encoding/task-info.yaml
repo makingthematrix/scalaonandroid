@@ -1,0 +1,22 @@
+type: theory
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: yG6X5oz352Kv9pkXgVIrT0cdRbBELn/bMVo5dGiCr6zy8EsoAeBzfKJBbOyzQcEU30fCVW/L3/FbzPs6fWhMqozq/E3N0SMcF3IBgfIxt9BxyRzntYamBlXkS1dewICwVSqn7yQhRXBAScXyacoCnMCeit5VG1ACsiu+llVIrkaMwBagwzYF1Vr3JcckkrNLtlp4r0TGo/QiW1gENYnVPuzujuKHfo4cPlF+NzY0MrvOaSpn54FJzBwLKcpgO9xmFEfWWIOttJs+hUN41+VU6Ef4bGzK08DxusJpTDCIIOrBX6ZxWPkmry66v6jzzqyxSb/jc74Eas4HP13YMFM+SaYgOhuYIiVZqRQqZ4SJrbM=
+  learner_created: false
+- name: src/ClassesVsCaseClasses.scala
+  visible: true
+  encrypted_text: 0MGrmWNGmk/nEffREwqgN3QxgfN/oUyTqHsTgL9guoIMQbn8eNcY1q/us7hnQREHrnbCv3hizArzqKG2pt5DCJCYlzzKThnjNLGzay2cGU0do/7fKi2p5OIi/74Y7RaCNqpEOOZvhjGidNfYADYAwwPeUQPaNSR/4yyqHd+kKATZ5NGVnJDkCykgbpgK0vPk/EI2tTl6hQ0liUPU8+dX6V0bw4nzuab+fWk6FX2QViPpLwKXCvD+eKkvx3OyD585i1pml4ueFOe+zGDrnpQ0K8/FVyafiio8LMRssotGVUdHcQ5BLDCXpvVzC7fbH0QxUW9i70AlzyhScvZqIbX7XQ==
+  learner_created: false
+- name: src/Note.scala
+  visible: true
+  encrypted_text: 02bDg2ELV+BWCjPe2uNtyCtAELsTwAek3R0o5zw6RSEbjxSDWYjJK9N67FnX4q+nWUtf6Utl4nuGY+K+dh+9bw==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvmqRNu1mvNz386xnx0ZDE49FDSTSMOClZP22GUw7AOBmmoLdczyx67dym2cSRq1VxcVhGmk7X/XB7RXgFZRJep95XokPClGnxjNp2ukDzEyVbZiQ1P9SB9u4Mq3TiqHKpw==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Classes+vs+Case+Classes+/+Case+Classes+Encoding
+status: Unchecked
+record: -1
+post_submission_on_open: true

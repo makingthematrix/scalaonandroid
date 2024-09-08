@@ -1,0 +1,19 @@
+type: theory
+files:
+- name: src/Main.scala
+  visible: true
+  encrypted_text: cHBmRtEewKkCYuG2g9CW/EeMQN6J8nJXrg76vMcM1HTYF/WKE6P0y7YATY6xwp88Kw19TRYgYNkIxwcKvswI+2If01ULw4N++AVu55DorQzaD3nIKE4vVFR5tfU3sQGI1U/IalYyhDrVayebin68/Q==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: WbMXABOVi+5+dcBZeoTxRI+RPB4qPzfc28lpMUoXkD2wtHU3DNfo635mXiRXSSg9fF1HCXwU8eoSMmdzhVC0WuClIJSdNB1ZFqjgtMkwfxsIZau7viLfumelJ5X9zt+deMjLhFrULY2pkKJlSNxwM7wxTuBgi1IpLmvaQLwT5xRjgHJoaM25OSu9C8em86jmd7NmwN5WmFmvF4lof/5xO8VP9ZfEzWvcJzoJV+rfKaLUK8jlTYZMtPrAoJMhSPOW8NxXKKqhFe9j61E3VBDj1cN9W83NKHMZSyObW84f+fLZ3iP/vRQHumD9PBlN+atwfLJT6mdizh6YgcxovNkN2g==
+  learner_created: false
+- name: edu_course_overview.png
+  visible: false
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Navigating+Around+/+First+Steps
+status: Solved
+feedback:
+  time: "Thu, 16 Mar 2023 10:08:02 UTC"
+record: -1
+post_submission_on_open: true

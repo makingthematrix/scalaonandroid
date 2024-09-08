@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: +YF6N4fm15HikG4hZSs4LyXLdBHu6HXLNE1hMXUx+qpbilkyfmlU2cZbPwxT01cAlZSOzxbLNdgKVJxARjo+tytF5TFKtWOIPiEfyGCqYP7RmYVnOq2wX3oPKfVGZtHIFT1+4Svu0e+IbkYMIU3yuvj9G7I/UwCUwSk6kKbtLXdhOrA3Z8NMBKJZFnpqCSw8TAZNdfcnO+R3c/9SLj0JcpcA3bh7XL+KnasLEExrsx9Iwr99suUoTFFHE42w4ey7IUvMAGiUx9r/sG0v5u/Imoo0Z97qcm3o0iqQ+VMIV271ecAXjsxIU3c9Y8lncv5jfS0sh+mKTv8n3SbKI0f1Vg==
+  learner_created: false
+- name: src/LazyEvaluation.scala
+  visible: true
+  placeholders:
+  - offset: 171
+    length: 54
+    placeholder_text: /*complete the declaration for y to be executed lazy*/
+    initial_state:
+      length: 54
+      offset: 171
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ec8sWCHJyqRWFztRTjqnIA==
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPeckAVdTwwpqiXQq2rXt+03DUitL48aE9xRTU3zwkWbaKlEA19s0paq/qXVKRVw1f4vEwh3bG49R24xOeprCwg1KKmXxJWu3J3VSfH3PdkoB0a99T3TLlJDfvu5rq7a4ltNrX4iXYVCXO9ePjuG2ryYoZK8WcLfLThaRTP2WsGUqFsibstIVmNV9tum/mmGoEOxMAXoLYIHEL6+u5crgQvwlBp+yXSKN/0CXpQiXeq1Xs2Yd2pq5br4zpbzVAZL/iMPbHuWcD+AnZlEZ2vuDROEtK58jpwvA34Cc4CNsNO15olpq6kxK5P7HM2B67ofahVczVG4hmEED7pYEtb/q0k4ZP9f5V7MBSo9R1wD0YdmxFFWgURQzfGvCmia3EpWAh2DHGrUjgwhMqzCaEed9RFC/0Kg+hngwA8ciZcOmyCPDBkUF0PArJuYZWoWB62i3b7oNENCWb+jIrHVQprRmgkUpOn8kmzG3blwLEHyCLgv0=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: GouLHUoeKkKMfp6F0CbLuFAGMUPePzsZfuMJFi1Gm/rEGciDK69POTSn7DrCDfqDiWs7qvg+DjvnaQjUel7wa8exfo1fSb6TJ9Q4dcazbrxHghjxxKMGqeBPZdOcummAPGUZFOS+9Pfzz/TakSW5F7qR9A++wZhOUqi9SiygPGA328zxHfjT1281SA0r6ygm8fEZg1l+O1mKwQkB8+RFKgm1KBEWlOdPZMbPTziaGKhdxCLfPuDfcp/l2ZP+1DfTpr9Ulys/it+HOxf9iH8ZApWbLXv3d4Jq/9H0sWPwjs8q/IEMXSnUvgtkkwwFfglfkL8xWuGTFFqcIn9G3Rpor+yvHGSzhyaBEeBtKKu5xH0=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Lazy+Evaluation+/+Lazy+Evaluation
+status: Unchecked
+record: -1

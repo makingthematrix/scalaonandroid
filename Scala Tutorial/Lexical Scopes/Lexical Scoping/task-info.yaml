@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: src/LexicalScopes.scala
+  visible: true
+  placeholders:
+  - offset: 185
+    length: 50
+    placeholder_text: /*insert the x variable from the Bar object here*/
+    initial_state:
+      length: 50
+      offset: 185
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: tumYzgMT9c+iD24LGJ1bFg==
+  - offset: 238
+    length: 59
+    placeholder_text: /*here you need to insert the x value from the Foo object*/
+    initial_state:
+      length: 59
+      offset: 238
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: +lmZ3yvWx63T+/wRKj2UbA==
+  encrypted_text: G+i86Zxqw1bIIj/9dIj4dhqg7BB8CUXmKWvg8Q27bABWGYgiCnaltxMaLdFHLI2ZNeEQy9hxNjdwJPLUREys1csU1XJnkGD/JJTweWSU03LlzDcQMxeQFCIfHdGPgr0Jc2E0S4LcMIsBeM4SsRX9ItyKX6snLyYiUEMr8L9l636TSJxeSstpULYNgVBrYCZ9S/PJBIjDGqjZ2gMxY/S7f9jD9M0WaXvqBkW/Li2nq4amEd9d6/+zuwms1LLan+r0vMZWMcC8zKIkOt733wRLXlFs6NrONh3ZfngiwMJhlmZzEZr3/u2Dzj71uIOmgoDM8JIZn6TJSa/Hrdp+2asT2B57aesB2/MCbAqWbgpIl14qiJDkBgklR83r4APUhUqjyfiP/LMpus7+WPrjIkxknb5v2HCzU1iu8Lhcfzw1arHsBgdeBt1Rh3eq2UF1nugEUUno5TokGPMT2YCBMG7pQCAmbCg/S3dxzp8EQe9pHJudDHITSv1eZq69uQGV7VvXOZUCN3zcPhKsW7c6wXTP7Q==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQe0Ngr7sea0Y253JoxCwYAuCKhRaWOEQUVSjUSHdG5mbeKEeQEIqvKnXbxDFz75hLwVYfJvCb4KOYjAT/LgTcFPPIT0EddGS3OZn9Dm387wA7fbv23E/ydzLT/7VfgGy9mg==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: Iqhc2HlcE/Dm47TwMQ/o/VpcqAttgWFCkJ/CPEQ9FXWML4DsLj13u+JBOWpltRSLC9fz92yb3sL0KZJZti99aKzOhXD6G7U4f0ZidRjm8/jbVwxUmuodV1I0LYsbBXEQwzitoD4Hn69I2IT4FzBVBkTKOx8m057CsjiIbPdPOvT+SvgJtygedIJbgKQFCXoK7p4hQNrLj7jY2yeaa3lgfqHKT1IcZ6WeejabaD0MLt5Htd1Po0IokzJI1Fb6zhkC4yPC/aj24F5pj/wnEMg8n9/4GtQE2sgzamvdJnJXdQzkrqNk4SJlBhvC6myuGyAIC38Uq5FX+lONHLacKS76mg==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Lexical+Scopes+/+Lexical+Scoping
+status: Unchecked
+record: -1

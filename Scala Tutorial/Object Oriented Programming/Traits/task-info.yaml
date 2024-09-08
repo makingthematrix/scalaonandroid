@@ -1,0 +1,41 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: G1xN+QxKBej/9MN3IY70k8EgIW0vzhHUMo0kslPe7MIHUIm7OuY6JiJgFwMcHEH63kM4jF07x5YFqXjq9uKYA3GLZQ/8lpyeEvmAoAttBys4zMEJNQcSWYVBMS47u0vxwaWvYwtigshq5NGp6RJWtme31Wge8Fj/6WyeGlU4tLh5utKAJuc3BGgkdcGRkxqtnkGcW6x4ERuYsp9pYqZUvi9N0fsILykv39JMTAX2nCinLtjtwABEK1staRB+0xp57Jzrvzz511NmGjVr2FbLdhGIv6rBwRnBgMXtaXG0cAybEtSuAe5Qkzcnr9ijYjMOkVoutwhjlqceMHbfPT1jrg==
+  learner_created: false
+- name: src/ObjectOrientedProgramming.scala
+  visible: true
+  placeholders:
+  - offset: 392
+    length: 36
+    placeholder_text: /*insert an appropriate expression*/
+    initial_state:
+      length: 36
+      offset: 392
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ND0SQ74Rr+qPq0ekriCWpQ==
+  - offset: 513
+    length: 36
+    placeholder_text: /*insert an appropriate expression*/
+    initial_state:
+      length: 36
+      offset: 513
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: TvkAO4Rw2/fCeCvcFkZ1HA==
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPO4GLGqR0vgEPNu3+s06wwv9Q7uxZgpffJks3uyAC1RVwQ3Ix261J0Gkm84aOMXaAOdQxvl8MMKimDBhQNgOy3/YHtwTfmP4JHrs7G/4antZXFWIlt+J2VtY7rM4OKtSG56b/rFvIUgw5XIm3WaawVj6Df29qXGMiiYlMMVSwf5flf/xE0qYs9V18n+AeQfg6bYPoSKfSJ2UhG98/HfD2EtzPqbGcFfyUfk+fLrgDP0eU96JefxuAiRLK/qfL2FV4+Zqa84UAmN2cvLjNb88pmri3rC15FdbO9q06orfocZwB+QE5VoIu9l3g8Avtsnj+QT2hPIUEt5p4ld5rz4/AQQTHJDpc7ZgMDfZzyROSk6kQFFqD5rOuiCSL/PVIzcVjEcJyurkgnxEl26+oKvTNyv1apgHS7detacKz2FWZFo+JQHNjMBcMxs/pIB0c5QqyCKmt4BbF+q1LQb5lAH785mJd5uWanOdKGC04YO+G/eNTBABHf106chnPuNLeDrPvayETR9nTnGj1sptTr+nkUVTPtm0YFDz0n/KZDh91gAMjQ06/HxJRM6Du/79WVOigH6tPL/lcb3P3hXAdWi538dlES8x4/dnadfLYpdPskVWK/XIoEWZqYDTmHYUsjUhaXbftV4V4GGyVIlOMcQEpt47UBe1evN2E6VdXtH6YeJkfojsNHONokzEbIb8UupNJr6LUfnlsaSesi5PbXGyIzK4mnMkOoZUIgWJ2cN46+WOFkuwZUzKJ1injVwMv4uyu086ip5jlXkFdUtvAmZ0ymUUY0+rBFNI0uZDAsflq2Yufl0qApK6aC8SgnNF9x4yBXYLjb+9VwThcEug2n/EztFTCo9jyoY3zOZkgE0eiZ7g=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: v7lz8AFsMExoy77KfJNcsqD6/GuGuycOGbWoi1uMxizulSLql+YnNNP9MJVh5jMaPxkHNbJ5gjfw0AOFBI6IucYzTeYYP2sULItZeMrxgZrm+cPrgst10REciE7KFJepKS0DCOKGdDGnzmvJ7f8BxNZn/ZvqJAt41baaPx/8vzoUuNuD9tNosF/pY/HPcMCwiyrlo7sVFr8fnCIBTxfTDIEo3LawWRwva81SnFRlp3+4giiQEyrnPfk4Wsbdg4gamc0MugYg4RcErV1l9DPtOLg0zpwe7fJsHNfVm7H1xqPw/qKqdKXfrpt/PO8nl1kWGbwoplPPSdhrtQ6E7aQp8A13jVmjif9NjVCsURagMiSbfPTDw/zqFsjBASmMfkUc9EfxAZ1uTUHRw8yDYMqPfw==
+  learner_created: false
+- name: scala_type_hierarchy.png
+  visible: false
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=OOP+/+Traits
+status: Unchecked
+record: -1

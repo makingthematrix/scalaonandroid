@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: src/TailRecursion.scala
+  visible: true
+  placeholders:
+  - offset: 94
+    length: 57
+    placeholder_text: //you need to complete the tail recursion annotation here
+    initial_state:
+      length: 57
+      offset: 94
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: /ZxQPe3muAb94PouFmw4IQ==
+  encrypted_text: 0ra2eezFszjLZtBYFWPNmSdZ9099ZQgksA8IkUgoXqa+We1C12YXAQ2gAj4Qs0uSUT5RbqoWnap77/AyZySiVpwNxfgi8MUn40aGKeW42U9eZj1YgtD4eWCElbOjiCOo8wV6OB1f/IyYszBWgZ9JaD3N2ZwHqsBDIWBx12oNQK4j/TY650DkGcHFna3pIj1wPgEkkPiOz3mDe+6D0kamGOVvT1qwsdyrBcns6qwbMhO4LmLW8gMkc9AJOnvwSGvFMSr9gM5dKcCKjnwM9MKOWLPrcMlOB/HousyNpoPPQawnd0jEM6scAEo1W3mH5PJHCibGOKYjxw7nRMh8Yt5Ttr9wKMPE2+almpoj8giZr5vScvojm6fkEMTLK0/HXR4x1ETO1MGlgY94SrzpEgZhBRZFzJSOIf/xZ9PuGDV26ExlnaC4HQYf3d9jnB5eAGx3qS58I+/mjuhSged44avzhQ==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQe/+Rk0YgypJLYgZun3cwzXBQd0ZLwv1h6kxbXwHU1lDIBjiHuRLc3EAhQi9pXt3Di/WZG3Eg02sfWmzkDjgOZp3RF4nXEWOfIrNDsq3KIlpt/hKo6Avr+WlknTTvTvyKc/j4M1MKFvxsVQ3cPDSqbTOvhOR5jQZut6tD1JDf7ESJjwzSCdcPpYQEqy+Jq/h2jQ==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: 9MIY44OXO6URJPRRfY6sjMBaI1N6KgoRewsu1bU9RwqsFUlWYfXFUEG0ti9cZVvoFIiHwTMZ4nWPUxnd8uDgkmThdBhZPkEhkrySHmzZk8RcYdbfsPQ3f4kkprAObJcgypbGi9RKICksMqIEcflQGd9320H2e9lYSshwOfpQSdANSSAX9j2OVWCFsMNsAO5R7tY+NqYcp2CZNlYx7SJNxIQPmSVjNP9coU3zuYahNNf50jzFMFsiIUep54gqzZeBYBbQsVY/d6u4IJkraMMMklYTamK7KwR8iaV85MhQFqdAK1olgao1VOLZp0Rh9nfDINLSeZUNGB7Tw2tb+YZqbinLnYBfhIcjBP7rO516yDg=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Tail+Recursion+/+Recursive+Function+Application
+status: Unchecked
+record: -1

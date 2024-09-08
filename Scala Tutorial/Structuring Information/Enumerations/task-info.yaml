@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: src/StructuringInformation.scala
+  visible: true
+  placeholders:
+  - offset: 369
+    length: 24
+    placeholder_text: //return half of a whole
+    initial_state:
+      length: 24
+      offset: 369
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 5mwr/a3X7DxtibtxgAPIEQ==
+  - offset: 400
+    length: 60
+    placeholder_text: "/*this should be one of the casesq, for a quarter duration*/"
+    initial_state:
+      length: 60
+      offset: 400
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: BNk0zQCys89Je9eBAqP6Lw==
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPlpRhGTNy0Iswqstf9vSFtPO79d+F8uK3vJrTfycW9x/0PjrFe1WnU4U7JywT91l3KOl+Eo/foAne8oEr64IkpuP8RxiF8nVGgpnffCZMi4mqsSHcaKHFF9ea9TSa6vZF3xYO1s76ccABBPIJKptvTUy2c8LXJTiPlHsrTvBdFy0dpznB9IJz3TKtKESGbBD9FtxGeTjSej4XhcID5i4EnCFU85BtpB4tGQ1cc2mI5xOpR3Lw9Q+BphsXVINKB9utgiPFtV8xEn+qgIA2t9ABtcVqsX7qpWE2edbL3MA6M/AHfZ9BvTEH/AMpWx1v1TT5X1Wuac6znn96QFUkv8de1U1v7wzp13DKE16N6HrzoBQY65vP9Ypmqo4hWIPMhsYVQY+j+pq8f7On9+5UGonOFnpuMwWwgLH/l7X0dvViPN4CJqx7tNJnXDqqTp56+hwWAhLJVI3wzOkwBfKrukZFNM9rOoz97bxCP3BWrLKDCgz5XIipsRJGL85SORlbxbazN5CtV3CMlmGP/K7msOC15Ya9QHvoi4sPrxKQw5BBUZpZXNazMSDgPX0xKif9/kEWevSHPUGkH0Y9jVO42x72limrr29dLRCtSPW6ZZxZkSmnJcmdRoHzrQMCMew9EEdpLoDYYfg4aJ6DLnupcOPtTMIrT24AEw0afIS/kUpa4R70Of2KmGUIMAG7at7v3zJ+JYQumtYTNU3AqX4N0CR79OHzz0MgQWh1QAKQV5gRkhr3FO3iiMHHPvBsjCXvqRaVH6BfDydJvyYSAscukEiBHA==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: D7Kqws90SXHbWhE+rSs+NaXLSpYjm2KRX+UglG0tx9A9faouZXoDyq6wLGWFKjTFiBVQzIMb/8tParFd5bZMZcRoQ1TZnuzXHvg59XWnUlORAC3PV7/FjU8Zw6nqpv4jUwuSZlec4pvkTKlLxn1rPU1qWzsbE8+PELkg/hZ4zke99etJFEKwSotbd0fxcf9/yWAR1B+D84hjJeaoiu7iMkcYwYClVwQOpnBHRWexZbWVX/YTvjkIZ1riMkR+DmD2fZmYkMwtcGxjSkvJ3GPresa425ZrbkxuccBdPEcXlNjcm9pGzICKIRITSz3n7DG54ji74COfG87DdByteBQXK5BvjeqjHgKQHMjOOfowBbW07M8G2UmLYFLWNVxtLEdrGLEc9PIyO/Wr6X7E1erQfs48A7gaxep0HOBfS2krP1EOuYTOc0Luz9Zf4UAsDe6yTt92N3j8W8LlgphUSuu2X0ci2s+YDBG1i21w4gE/Fxg=
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: sRixuPr9PfpW4uQtU/fItrIqK+gubVeHXOJw/KBes8zR2Yt77jdNDq6gOB3vJV/eD6PRKIyPr5jXE/p6jyowW6ZC0XUM3iUe7dBGHxHWzRGyDfwz/CsGZ4MnTArupeKvQly85CTpdig6oX7yfPFS1x6cSi7dZQ6i+mI7tmQ+Tu6piPv7PpFjWJ0LSldvDNpirMbMyXu3fjHCVxU2QuzZs0JzIKvZAuEpCmZAyaQRy76fPyYPk7jeCu8Af0JDIDtT9kWBSPIIxDgJLRl5HEsBOJh4RlJLB3SdnntQLmxrvdQzUFmNLsEXvWa1PG0ovQcwulMrGyZbJfH+eq76kX47dA==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Structuring+Information+/+Enumerations
+status: Unchecked
+record: -1

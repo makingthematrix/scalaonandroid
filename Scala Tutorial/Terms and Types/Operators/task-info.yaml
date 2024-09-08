@@ -1,0 +1,29 @@
+type: edu
+files:
+- name: src/TermsAndTypes.scala
+  visible: true
+  placeholders:
+  - offset: 73
+    length: 82
+    placeholder_text: "//insert the upper boundary of the range here, it should be\
+      \ of an appropriate type"
+    initial_state:
+      length: 82
+      offset: 73
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: MLcncFemOCq1pOmRWXqSfg==
+  encrypted_text: UcgL+R8IXc8lr4iVSSjnXei9mZTk9Q8vRmqyYGzsOsIbQve+KjuvrjTFrqCk7BxX95CVkJXxFyWv3OO4ZYcXkYs5dC5KpyOBnb1nEy6gzZziKRVdcYotZmROhMhOC8rfYFa405/Xa6mFdWPfcgvEC7Z+0SUQ0gxAdqGhOXCHP/5vZy23GivYYu5Xi0nR01D8HWKTc7pxb4xhEzObih65ngAe3C7dCZ0dWxrvv0KBc8z9ip6Qj2oahpZ7k/phN3IPhfKmJeS7h6SwGZOmcO1++KRLRNQhZ5OHFdcIXnKfUpRhjOswt/za2ZNASJUOkKA5
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvmqRNu1mvNz386xnx0ZDE49FDSTSMOClZP22GUw7AOBmmoLdczyx67dym2cSRq1VxZ+D09zPHKMFZEExu2KPx/aKQHj5q2sT4GplCRgMI69DL4dZCHaSNFPamQpiB/aCN5OtG+NAXW9/CB3aaeCfWxjETTI09ta6uWVmAEIsHaDNxCpqy3KVOWH/LSOn0Auae8mHuLqUlVBmBx92ZmE54KGgtbhBRby3JLh1X5pvYJf4X35Wd0MYL1iMTCf4T3vhag8tLqhKKusPzWpZzt6dCr1HYhMSvJPZbZoFtjLVTRpHy5c/koqHPtJ1p0Jyx0j2WCcQiPFWhBvltMCIOe3cf0k=
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: +HzC5XxHfDRu4bTPBm/7rO7G9LYwfZZiTr76eqUmUjJChsffM922fs1Mfb39f9vOR/ZsHJE0tKi1uj1JafLFxOWoJeAf8UDSGuQf112+ARt05wOh8lV5vQSjQZqpklMcuOuCSPVtKhn4UkUwChB2Git+WmOHnz5/QnE1P7BjPCDPrOISwWJ+/rk43ElN6BOM1it5UX5fQNCE424oLbTqX12uJFiU1ShQDPka4PoDQGyeWbcW9a2xW65lg4GKWatE+Em6lAdYbiecNin5uG6QkXdbYPXPbnT0HwpRL7skHSBn5GF/Hw6sDcXHehah+t+/E1PtOgpCHefF9b5oF6VEcw==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Terms+and+Types+/+Operators
+status: Unchecked
+record: -1

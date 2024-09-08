@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: src/TermsAndTypes.scala
+  visible: true
+  placeholders:
+  - offset: 80
+    length: 58
+    placeholder_text: //Invoke a method here making all of the letters uppercase
+    initial_state:
+      length: 58
+      offset: 80
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 7x89m+DAv3lp2unqZnQDtw==
+  - offset: 179
+    length: 64
+    placeholder_text: //invoke a method here to return an absolute value of the number
+    initial_state:
+      length: 64
+      offset: 179
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 8pSTf9smc9SAT+aDNNwR6g==
+  encrypted_text: UcgL+R8IXc8lr4iVSSjnXc39cAT5Sdrx3mVDK/dauiVzJWWbxplck8F1Z9H42M6yYJj/HElJccQHW7sstxrn6pVJS91itpZGhUkZwqvEknoZAH/yokFe2IFQKKtvv83lQCs8z+XtpAXhEGMfFKIx6vN0zR2EEqdcuVjLFPv+mDI7LIDOmoi+ZlPymCjvtLHqommiD1F78PoqtfPtEecpA4/XSAjRpLOxqqZ1dW8tAJ5SvlVewQBobvVs8rHx2yCQQfgmJtzZP3B63YN9OXGpiyx+Ww5jaNaBpGc26wXfbTMQcfIeYcF3kthkzt+GHt0C2si85CP7F0UlMMKSLyVo5rWSxmUFKNc/+/pKwPHj2t3T7OI8Pdne8yQwh0M34TZ887tBAWx4O9T4mm53o87KF+z4Cez64PyrAwkWTg2XF1qcufyDUXjRjZeMIGb5kyrjv+AXbFOdcPYP8ibFHGbcSs45w60WDLTxyveovEDglps=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2eQF2NhuiWiL0S008vxSNPucQ27zErFOVjBHLulPNznjgOKNAZkHVzgY7u1dmX6z+EtuBADa2fI8Aop94UQVpl2FHXiQh+yfCWlqbmITe7VkU/NOIFHMldTl4OQXO6vWrgnC5Gb5c2ZV1nMeK+a+ZDNRKey6SlN50USlKdPK7qTVOQp4xrDLzD4+aIuE9vk/NmU0dlpx4KgXFOdP7AFIVMyw67qOLdEtPe0+7zlLdAgkhrCHzo0K028hOTygNceVL1iOdxo+y9adHkIIrmnonFw
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: SmwbPOqcRExfz8lzx8L+NIlgehNwDyqVcY7X6IpR6RHtn5qZ1FkrEEuj9+UPxlwyDcZiVAy0IdSblycqnzY6+Ho3c6jk1881vx19quFVz5OCG2vqXJR2AE7SPM7IMJRuQzrb0eQswUDOhXASx81ox/X34j4XXo/YpzeXPgi5OkbF9Pc4AuiohPfdZ6uYVoPncYqkiOoAVmQNx8l7PrXlDUjQzmirOTPKvq+E8kO2al4bPL8hre0mjHOptPVytB3JnJSr7G6LmWDgVSY/Xba+nU4ZLjj2kh8Ni3ekDPJXZ0RbLZWWIlbRJqxSOlmH3cNcpvOP70Z5rUii5L4R0tIr8w==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Terms+and+Types+/+Method+Calls
+status: Unchecked
+record: -1

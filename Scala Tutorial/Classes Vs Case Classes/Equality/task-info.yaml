@@ -1,0 +1,66 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: MS/2RzVof1vk9EvQ6LBp+5+4uG0y4qBzr7p8CIoURJcYQIGDDXt7HyZMU02bqgWGfyABc99xAsKTOsndfdG95sLY23rqjnLdPVJlGcJDbK9GlH3ThUGI8HiXsd9bBqE9zjRgMfbU6EsGSuu3MaCSNXCXkDh43WP9Ou22KJRXEb0SqsHX9/E246fEpU6/IVU1fwdgdhKOX35lahdP2xe8ajnhFFDEQTwE7lM3jgnW627XxUmVllN3As7O+fo9dIpgyRFrPQeSRH49IwYVIuC/w7svQPHHwY0gX2rLucpOXLIggx8EoPSlSmyHTH5+t4OhGy/bqgOxB6ea6yU2/pG2Xg==
+  learner_created: false
+- name: src/BankAccount.scala
+  visible: true
+  encrypted_text: z0tFZ8HhYOILK8nNqh4vGL2tIWWJ39p0XGis9JdMRpXj8Dbdl+dBHOHOJgRWOutK07bM9hutRG54hD4+4MDIApwYu5lSgphJcP/piZIkhfP75z48OI4T5ZJx8J0tycIKt2mmKEEHoXoxLnAwfk5M3wAmYNzt34zgelAXmzQMMKHrcQPiXJsp03Wh7mpBXr4JgJR3CFc0MxWjKqLqad3MUOECLYOJahpOOIv7pnMvK+TnPLWpCnFs4s6V47oFSUGL80pfY8Jm0jP8PgIvd1R3k7XOLGfMvDn/ZF5aluGVWDCQaxTc8o1elqAYXuui8IWaR3XoZ4AfD5AgXouJYp9MuxMNVNQopc+UogbWumTG+a8kb9vPoJ0FCa60bSaARuDnBIWBYwvm7QWrIvivdBV7suVlPN66FYSXHKgkM9Cyqy0=
+  learner_created: false
+- name: src/Note.scala
+  visible: true
+  encrypted_text: 02bDg2ELV+BWCjPe2uNtyCtAELsTwAek3R0o5zw6RSEbjxSDWYjJK9N67FnX4q+nWUtf6Utl4nuGY+K+dh+9bw==
+  learner_created: false
+- name: src/ClassesVsCaseClasses.scala
+  visible: true
+  placeholders:
+  - offset: 50
+    length: 33
+    placeholder_text: /*create a new BankAccount here*/
+    initial_state:
+      length: 33
+      offset: 50
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 3mt++Urfr5eL1zCiG2sseg==
+  - offset: 105
+    length: 33
+    placeholder_text: /*create a new BankAccount here*/
+    initial_state:
+      length: 33
+      offset: 105
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 3mt++Urfr5eL1zCiG2sseg==
+  - offset: 155
+    length: 53
+    placeholder_text: /*create a new c3 note here with a quarter duration*/
+    initial_state:
+      length: 53
+      offset: 155
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: /xnNPHbaAb2XQF0ajzVJ7lO77nL0NasC5LxXuJC7c9I=
+  - offset: 224
+    length: 53
+    placeholder_text: /*create a new c3 note here with a quarter duration*/
+    initial_state:
+      length: 53
+      offset: 224
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: /xnNPHbaAb2XQF0ajzVJ7lO77nL0NasC5LxXuJC7c9I=
+  encrypted_text: 0MGrmWNGmk/nEffREwqgN9zzup28EmW3e4tbhc3/nNHglXaXcTmARvvOla9Iw8E2g9I3u/PqEJ00EVUJ1KH4bAfmVEC/Cxic+y8b+rU6iLyEKf5p/pL+tUKKJGBkhtyFDNupfoJ2TUglWmg2PzXIJGm8cIIIuzWRTI4+l1LldJq7PLnagnUkKXa9sVnGB9CI/4DbPyVSXbEA2YepxhyTQYL0Gz9EeP84RbOYgSyCNlc3kzb9ybeiecGxAeHlCbT17Nnadm8nEBpNGMYKV0pkIhBBYCZo9mIV//HdgTav92XHh/CmJuP0EIQWpp7YLEcAkU0lmNwFv67j+DT0rIMACTQUgeHbsUEIUhhK952Cf1NmRNG0a3EwqiXKqpbc56JG1xqmYVVONeXHKfIAui3fZB9ZQstv35zT1B07sfiHqJBqAIIa3PubXf446fxUQmWcigpgYDyEUPs7A7RD/ApVPO6UENjG55aLquJMIYE62KQBCSAvOp5AS46EuTgbKAclEr46UWMQmeMjeJ/t2Va6Lg==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: NAWzTr5C3v+ck0OGNW8EklYT5LDvFASTIQ0CcyJpnx44c/LD9CD8C+txN77nau3bKp/PE1TAOrEC5Nb2aO3OS3dAqYloT7SqEzzJoD+jl0t+6OvZSXvHWNe/whVofjFjHDz37XEzQladhCHU9SqCf1z/kMsHozLEeOjR4P4VBLgLW7dLnkto5RrDeO3y6TD/i+vcD6t6HMJfTNjcO/CKtFWWTVaUW590U97cC/9ilu3P8pcAmXNF8ttiL6Afy0RY2WoVV2s/C+Z0+7zr+Fk4f1RvUNDXvymaXxB8yhIyDe+6ZU+DJm7/UynfFn/qdv4jRIQZjP2W4G6BVMTahcKW3cA7pbDkeJqIJJ8BzMnTLd18bse3/StTho9vlmeSDeyscgThaiToafz4YL8AprznYg==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Classes+vs+Case+Classes+/+Equality
+status: Unchecked
+record: -1

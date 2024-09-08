@@ -28,7 +28,11 @@ final class MainController extends Initializable:
   private var clearExpression = true
   private var memory: Option[String] = None
 
-  private lazy val parser = ParserCreator.createParser(withNativeFunctions = true, withConstants = true, withStorage = true)
+  private lazy val parser = ParserCreator.createParser(
+    withNativeFunctions = true,
+    withConstants = true,
+    withStorage = true
+  )
 
   override def initialize(url: URL, resourceBundle: ResourceBundle): Unit =
     expression.setText("0.0")

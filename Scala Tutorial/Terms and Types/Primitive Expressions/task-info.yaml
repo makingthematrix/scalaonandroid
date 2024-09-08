@@ -1,0 +1,41 @@
+type: edu
+files:
+- name: src/TermsAndTypes.scala
+  visible: true
+  placeholders:
+  - offset: 69
+    length: 8
+    placeholder_text: //Finish the greetings here
+    initial_state:
+      length: 27
+      offset: 69
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: shdfxurpUzdNeAjLYu06QA==
+  - offset: 122
+    length: 1
+    placeholder_text: "//Insert a number here, so the sum will be 4"
+    initial_state:
+      length: 44
+      offset: 141
+    initialized_from_dependency: false
+    selected: true
+    status: Solved
+    encrypted_possible_answer: qQkBIfYQhtpNT7QVomJkqA==
+  encrypted_text: UcgL+R8IXc8lr4iVSSjnXWPcpx1iXtdE3Jq+OUAiX54+6vZbIc5IA/54GSZtVJG8ZuNhq0HBQpMyVjkdEilzDNY4MiKdwsEoQ9jpzJCAz76mQKysvg7aLPPxpZyghVUUEZ5RbUQwwsl4BHSlwliA93fJ6TxVunJKzTbMDozfKoWHx4WkNUfCh6sbOHJoOTSDmHlxsZNrHwOD/Pw0ZueMhNWFcpuXL0pw9D3s9xdB+tvHJosuchE0z8hVZyJUagndqxric1G75glyHLG88eP6UkXXq8Y+CKpkRrgerbVSLBJJI0YahK0I0JPfu4bP9F4TvvjqxN4VnSeie9KVgvZJ+DBd5olqlu6o/Eg2+NzMiT0W+KfFOnfCtz+NbAENE9jo1Une64cnNoEPRdTRWthluQ==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66oso28gfKVT+VBKAtLQux6ibOZ5Sf2mvkF5jU0XCB4KFgFNf8uRTWVrEoz7iK4ae6dXpswYlZF9PmTYK4GMtXyF1CBtFMfCEf7xOQC3Ta61fSLHc8kApQ2zQiZzeRS31w2bD/0sEZ7lXy7i71vCkfxJwWjlBkshhj0IGPzsg1uE4gt3zraSNxS/2n+NIEuYRKrGYIBZAFRpCoNse4IqdRpT2BnHq7SF1zVsFsENt2GnMnTdJucfLlZ24HQo0km+6fVl4N+ggHywowO4ziUpQxHg==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: 9K5V0KXiu8sqc0TwKy+aOYeGFG8CfbN2fh66orrBzK4JWvjjf7AH5okdysorrqC8CN4+SxB3M9z+vIhu0SDTbqGRGtnmDGteLlesjZYFuP918ccsBB44pfPyK4laOr5hOgkCRcKZhnhKHsLrqIkIvjEwnhWdp160SWjOpF4qca5NrEWO7bAr3wifgyOoBy6fkNpbjN3IKFmA79FPrdllrQV8lcyt1P5ObU7lNRwMhgyFWoggEB4+JrUh5HtJCLgbmwIscHXpRnkCzwsWMmMzrjFUHimUaM5h1I4obrDcoKOToWo3Ukq2JMjLhvhLBkMBWutTMU40iOkFq+Y/f3i/60uNcte4J8mfWKH6aDaYDJU=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Terms+and+Types+/+Primitive+Expressions
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 16 Mar 2023 11:23:21 UTC"
+record: -1

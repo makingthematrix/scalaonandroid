@@ -1,0 +1,42 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: r7W9MBBg9f8sbID7sBDHapNMCGxEdjpn1dhCEMkd85JGeZFTuKcfA+q64tdrFJlIfPp0xIpOz6imwbs4C35P74kQ+TgKKChkCmIepo/NXUDE1yq8cOkfmygQeJejhuwfF5Y8V1vU0NBBcdnuPETNyZlVGkgwysCh7zuFSehNIHQ08+1gOnevaf2ATy0IrV4dYpoJG1+ihhn+NREXT52bVg2kKc5d1S/3Wn40WBgXzOfLaxfJdPoQSQTXD1DaFKhnqRP/p39EHw6oO8lDLhV6nwPbXycybHGFyVrZbFDQzyrK2WF7iengTVGFGitDBJICh9vpLpk7jkvW70Koaj+XNA==
+  learner_created: false
+- name: src/ImperativeProgramming.scala
+  visible: true
+  encrypted_text: xcXv22LdTaO6A4H8cLBR/uGLfCg7eBRKhTN7ghhbZU0zCclub9QkMly7LTxgXdJ++e6RVMvw/uYNPFKaJ8Zo9RLUwH/ELyIoy7sWYm+SrNFfzmUhxR9NnaGrR1Haggc5jj4OzV/yJWoW+UgMYnQvWywhdEeV21LLeDK9v1ERPwn4Mz08RDwH7KrX9QIMgoisy6RBfnNDGm1+C3hot3RaC9t79+Kq/DohumviObyPsV4hqG0cLh9ag0JLbFsPm/8U
+  learner_created: false
+- name: src/BankAccount.scala
+  visible: true
+  placeholders:
+  - offset: 112
+    length: 46
+    placeholder_text: /*add the expression for the updated balance*/
+    initial_state:
+      length: 46
+      offset: 112
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: uxfUQcH482bnPT3LrqrZzUkBz+jejUTpv4IBmqCENUQ=
+  - offset: 269
+    length: 46
+    placeholder_text: /*add the expression for the updated balance*/
+    initial_state:
+      length: 46
+      offset: 269
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: lf8C8GkYt4lUz08f5taBUTKoJUOFbaxFnertTkqFbA8=
+  encrypted_text: z0tFZ8HhYOILK8nNqh4vGExinuBwkJWd00kTpo8wmKNiS64KKRev1zDVb+RRW7XUl8hcEVxLmYNgkKfukgG5xJXe+Yc81Re4ae1wfFnXczYSBvGiAgHUi1Ztl5OOwtgs6Vsrr8QenrujVvr5WqZxVJwQkrkVqKCaS1iW79g8cQAZF2VpdclCkSJA/0qgX+DzIVljTi85q5fxRE6nrzkFxl0O6QBQII0efEYT8wZ+iHgF4CmM2Io71deT4/YssHuvP4sVXCi2YcUe9uZ7SqMri6VP15XovhIDr7HAZVcSdmxUZwT/MQZFM80U8eOcvBNecB7H8gNj186cG3juhY7BhxdSo8olz3Zsy6oIqJp/ULf2rk/zwwjAgbs1kkugrcAtY4s108YmO1ZgOPQAhIsnoPtrZj3aCMSzCxJ1y1kj6CRb8rThRdVsLrMi/KG+Nt9SeoOcfB5pK8yKaBGuIEq9A9beTfZgo0ZSe5fRzL7i4XryN2d0yNKH2Mswgb5L94H4
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQe1gpEt13vnsd9ASnCTWf7DgDClVob1gPQONFPQpzeKtui+b4f33o3e1ioFKL2hn3CAmJn4B3uH2anKhl6Bz1bkK54obhFp0RKz7DCDtWD2hKzYebXVHzDJ/8mD+FKIOvI1Dh4BNztCikaxY4UbIC8fve3jKRQSfnyWddHw5T937ZkCI6k7dMoT+VBClRceIZ9NeC8dtGUtx05LNYdLpEGF9ZTin7e7PFshMslB3/pZR0
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Imperative+Programming+/+Stateful+Objects
+status: Unchecked
+record: -1

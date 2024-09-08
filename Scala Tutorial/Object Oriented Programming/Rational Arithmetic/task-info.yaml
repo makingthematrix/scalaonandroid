@@ -1,0 +1,40 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: xa+QSWAsGP2mTSQZXl561ULKILrKrXsBMwFSHvPwsk+TuUKW+xo6RxvAYB2rxe1PEqLpUnvJiucMEePP8h1IUdgAY/U9OaMXiDfQxTPBja0YCezXTB75mpXhTxmj6ZG6e810i/+jKXezrBlTI1E6FgiCTGeUSZFytdtMcRi8TgZm2fYOmLyR08vvRrrRlh173fud6K6ZXFGCPXXa1x3JdG9MciieKzfxAIyOSS7HNtvCBBqfSifSZhE/4iu1GK6VUQSDb67KPTPn/qUSLR5A6zsW2DZKVsTckfV1DPTWwNXeBpj7iVnTyRJGH7Uz3QVphcQ90f4TOMNRj15KchDLqSDmI9RmoxEsaVf+aMEgfv0=
+  learner_created: false
+- name: src/RationalArithmetic.scala
+  visible: true
+  placeholders:
+  - offset: 561
+    length: 80
+    placeholder_text: /*create a Rational with appropriate expressions for numerator
+      and denomenator*/
+    initial_state:
+      length: 80
+      offset: 561
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: TyR1z1EOij+7K52ITyVuhmPgpybNS/yEAa8SvsLe5SntmwLxIggW3wlCVZ+WbChyz6rTN0W4EUPuczMCWrThWFFTqXc15HHYay4lVHHWzPs=
+  - offset: 674
+    length: 80
+    placeholder_text: /*create a Rational with appropriate expressions for numerator
+      and denomenator*/
+    initial_state:
+      length: 80
+      offset: 674
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: TyR1z1EOij+7K52ITyVuhmPgpybNS/yEAa8SvsLe5Sm6yZCaf4rxm5DFKNS7ZUqp5UJOhovCOKZ2Eppic2936e+5l814vs5B93FdAUWzVoo=
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPz06CG+dSvT9jB33HcuXA5UEMjt+krbz+sfR7ixXL3dbdw5be0Fx3eblkLF52U4AGF94oLwNtKWWO5Rn2j5HnLLSTlCvhowOUyvwGntAjR8AFmOY5fBBAEguduGsUd4tUfthvBJZDjerJrh2B599VtKt1keUHx/xSrXPSecr8UqyKy0Ksu9pbF6WV4WC+x2Jt+UrZyURht3TqrFTF7m/FxELzC04xNG1MKL5KtgBXsqt28ziXvGDPu0/m7hNLIbu1MAoOKAiHsjPeAz434+pgRmfpYWcbraW7Gvx1prHVKkszXvTzaQC+BU8CBHRtLecr1vkIJ9LgdJnynlawEXGMhHELu//razwqaNJuv8hDYTpfyfWdN21dKogYuHCBQmYKyh2FwHVMzooVBoUqchW4Dn8/Ld+TDjfvqC62y5+KOcmCe+HDL35ldQ4i9AvEv7gKygd/RbmkLM+ug3ABC20EMfXJx519cEL6uasmvmPPitzgvzp6O2O4NFx8IGX5fK2K3JVLpAnQWO4ec87cGrHJf2wI5+DuESJ1oYlUECoXU2pL56mHwI37seN1sOzgdqA5tB7ahlQkU/fxxL6eFX21gTHjbgqWfIG0o9hd79AikjEfQBDQEC1rLp9BW0V0s4wPazl5f+hFParC1cj+lxsaxIRPhD+GRililG9zhPh2xBuOASDfqfnAqM5hbSz3/vLc63Zln92gqMnS+vwP+bRiWw7+ep3yHE8kBqu3S2wG0h4p6eCzq+Fzd/jzDOJvR5vQMUhgS/MkxCPwCahA3hfYZaw4ey0od/js4bu3EN/xE7UsgEpc8iyCglor+bik9AINR2Sn6ftmVzw5nlVEpdAK+ZuvgsZhiq5bBkz0kGD0diWayh7NG+xY5XpcUltOTEO4f6HZ6fcAXA/W8QabMLTRB29rT9xim11LyrlKsZt00o5d3jjeXUV4B9z0XiqKz7XxXT0Spq6dJuKw3VfXFm2gfyerGtG8XXqR7eNs8PXHqoiNK8KinklL60nXf2/9CVsQYooH83fwTnQOGkY65la+1Lu4Qd3YyWyRTmLAiDu2D97/BL5LRvnSTpDgtCz6m+TSK2sy0Iu/j61y9Gg8TAEK87i8RR23DJVr/C/xGXwfDdV7c1lbR8GET3pN/0QjmGKLznNQUw6tEsOTzZprXcXbAvGpvOyH5A61zzrieI0I2IAzFu9IM7TNJ7s5mwkc69OFQev0/vq0yvtPIHJaOtutZKpan71WxP6AjPv/rHEsbb68+8Aqm9CcG4zrzcSYj2e5+igId5U6iD4uoUOc+ZwzbZNgIrXvl8N+y4znYzBs9sCNuCf4WMLsXB0oHUB2+NOn2iuewoAWmPIa321LsG2uvg6pOOCfwZNKnQSoiBHdzmlvR6CJAb9O5L3Pq+gkCJRauEToYejk5YO/hoggSWb0yg==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: e0Y7Oy4oE6yLnuaNMBH+vvON/JnKQre366gnioeYZ+RYbbwZ3s9jDrpLgCsRTz02h7TTZOHCYdAUbG+imTgNECdCEEgYIdEyujcj9+WNye8sfdbs7Sug9GpfJTVJMlUZenDT2FeSpXe4kARyvTweaCLCgkuZFqK1XR2ImCoh22yf+ZZ8+IvuUIZmU2RRt67N7EnUE251UaVYF9h9jNss/t5slJGX6VNjGi6N90KcKVYVFxygqS31oXm2nol27bauumB/nisqO2ixvDnPfWWB1TW1b6P8ELr5ZWg55mEovaO0NGPKBMqtscXandX93F0n5QgFbbDoBfTQ8ty8nIpKX1Y/SP/ZB3v5MlNDRlDHDhVfPlz0X2Igg5G1fLZAcDRHRhpD7o1FN5ikf8m2ZHxTWOW14mIieftfEteRfeQVgOxoak4Pgc9EloXz/Z3AzR/xi5wIpCBR6vJzN04naENFnSqGlyvUgtEDnUEwlsoKrRkBmmSGDTN11Wh0SHXwWTF5X76MIYfK+Z0eTUL/ikYrCPd9tparyXwmAbISy81N2XKNb7NWkUz5R+xIXOSHorAmiyn1XbfeGs+cBJNNMiqvHrE281B5j7RL8YDD9DXTjsz6tFw69OmMTUf19zGuUkopHnj1VGpBbx8gFYm1GayDyw==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=OOP+/+Rational+Arithmetic
+status: Unchecked
+record: -1

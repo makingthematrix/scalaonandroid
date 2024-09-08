@@ -26,14 +26,12 @@ package fxcalculator.logic
  * line - so using non-tail-recursive methods is safe and, on the other hard, their code looks more readable.
  */
 
-import fxcalculator.logic.Preprocessor.Flags
-import fxcalculator.logic.expressions.{Error, Variable}
-import fxcalculator.logic.expressions.Error.PreprocessorError
-import fxcalculator.logic.Parser.isOperator
-import fxcalculator.logic.Dictionary.isValidName
 import fxcalculator.logic.ParsedFunction.LineSide
+import fxcalculator.logic.Parser.isOperator
+import fxcalculator.logic.Preprocessor.Flags
+import fxcalculator.logic.expressions.Error.PreprocessorError
+import fxcalculator.logic.expressions.{Error, Variable}
 
-import scala.annotation.tailrec
 import scala.util.chaining.scalaUtilChainingOps
 
 trait Preprocessor {
@@ -172,15 +170,22 @@ object Preprocessor:
           }
         )
 
-  private def findClosingParens(expr: String): Option[Int] =
-    if expr.isEmpty then
-      None
-    else
-      val (index, counter) = expr.drop(1).foldLeft((0, 1)) {
-        case ((index, 0), _)                         => (index, 0)
-        case ((index, counter), '(')                 => (index + 1, counter + 1)
-        case ((index, counter), ')') if counter == 0 => (index, counter - 1)
-        case ((index, counter), ')')                 => (index + 1, counter - 1)
-        case ((index, counter), _)                   => (index + 1, counter)
+  /**
+   * For an input string (called expr) which starts with an opening parenthesis, the method finds a matching closing
+   * parenthesis. If the string contains more opening and closing parenthesis pairs, the method will skip over them.
+   * @param expr The string with the expression. It starts with an opening parenthesis.
+   * @return An option of the index of expr with the matching closing parenthesis or None if a matching parenthesis is 
+   *         not found.
+   */
+  private def findClosingParens(expr: String): Option[Int] = {
+    def loop(expr: String, opened: Int, currentPosition: Int): Option[Int] = {
+      expr.headOption match {
+        case Some('(') => loop(expr.tail, opened + 1, currentPosition + 1)
+        case Some(')') => if (opened == 1) Some(currentPosition) else loop(expr.tail, opened - 1, currentPosition + 1)
+        case Some(_) => loop(expr.tail, opened, currentPosition + 1)
+        case None => None
       }
-      if counter == 0 then Some(index) else None
+    }
+
+    if (expr.isEmpty || expr.head != '(') None else loop(expr.tail, 1, 1)
+  }

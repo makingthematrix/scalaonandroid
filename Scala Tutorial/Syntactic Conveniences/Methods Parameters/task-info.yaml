@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: SmwbPOqcRExfz8lzx8L+NE3fcsBFI3+u7adpSidySgbXTuiZT0EUGOSpmsfkOERUtmvU7+FCn752s+YpuhRBE0wu0qNFVg0ZvmUuBg7cgb1/eg+CVezlWQ3xLXUGzXHasEuXOWU4GQhyLWFEE2LGqUgalZxbDiW92iRHlnc4ykmwz3lWfGY67QqXLr/7w4ACQO/9Tn5RJdPfX88UvmepowWy3BjwUsjR33Ei5c+VEC9PTAQZl84VOTMtvUiC0LwEVDZU5Fcsp57DJQS+Ga0EvOybyqtzE9HMsCluVZ2KSfTJH6EU96nZUQ5lCFC2ro9FywZpiKzpjZzjQ/+YRFEY25Max9Zj9VxNeY0w6HpOMh4=
+  learner_created: false
+- name: src/SyntacticConveniences.scala
+  visible: true
+  placeholders:
+  - offset: 83
+    length: 45
+    placeholder_text: "/*add a default parameter, so the step is 1*/"
+    initial_state:
+      length: 45
+      offset: 83
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: nzE3VIJtz5Aq0fH8BKUFww==
+  - offset: 158
+    length: 48
+    placeholder_text: /*add an expression for the repeated parameter*/
+    initial_state:
+      length: 48
+      offset: 158
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: Un5GlrrYTJ123EeAjfe/DA==
+  - offset: 303
+    length: 61
+    placeholder_text: /*the output result of the divide should be a tuple of Ints*/
+    initial_state:
+      length: 61
+      offset: 303
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: gg77ww/+5mTo7AxeO88JAw==
+  encrypted_text: jJUx1tpukjcrBtxswiSML0+6cmdIDt63RugV2sE5IvZ1q95wQoZ8UusqYmVbE/WvstIBCfKwlLkiwgUcN7sL97gq3OwCJ/x0ukubOQGKIMuWTg91BGV1emozzEaVqGf1DjlWaSRbBlNBSLrjaWAQXprrZMOBfZw7Qa3ih+tvFBYgwoCMqzN83t6nEgen0aehcFDu/oFvqFbdNbZM2wY0cVVOMDRCyhpHplnbFPVhcw2nkF+f0aHCUnpwd+U+u8qSC5ygCpNQY8Y2EA5vGSMUGptPzDyBwNgPF9dLnhwuvJ+iNASEHGhVyR85Lc4dBkDYKRnvkq2yC5JrSyVPNbzhfySJBP9gFmSr+FiLHhytLa3SL89kg5O9vjwOGdqrfl8Kk88YxaXblymTrhRUFAvy4lE9yUrDXLWD21MJn5zoaiDOqKWRMK7YSoWrw7mDPdd7LizaFN7fYpa8ahW53ZexePcDeelYx+/mSt7mJG/wuJ1onuZ3MHokNamZB9rYt1042BAsamhFHUwG4d8ARYeGKt5uF3KpGSCbu363HNcQ0/h1AqFfMCWCIDUvfEmzkbLhU6fdzqCHE0F6TlE5TZGBvAHZ+TjPpPmQdEi4i2J/jNcxG9gWRDwBEF92G3fYd1oNeIjMI58hAGXHgTot7VaXilDSTU4CraDMF9M1S1DALC+qsSCGj61xDRm8CLVIQlCUUYltrumkQN9ApIpfHykDUR38okR/Di5/KV68MPhj0H0IHu2fyKRvuvnVVATd0MPqetCofvSLUOrV4trILa9593DfdPKSQFSEFpc4P6VT8imfthr25fGNLtLeEtwtXSWF8+TIqElFGXOm2Vuf2R8EOqx88q1RLBoN9wIGVWBA69A8gw07Z7IUtTTeKkbnrBY1Pai/FXN/kVzt6/64ZDJ8SDN6HVCvzRnQLhFQXuZFyfuZHhzWRgyveh+Mnd56w+hnnwzCi11LqOin3QdTSLmfMFNpg+/Q4S/9kT4DYdBRS9kTi7ztY0tJQF2tCI3QokWAmCPriDktxxoHtH6DVg53i7PNCo9xFVe2b7lRt8hMfjBzWBO4bIuKUbQRtY5YsNbhnCbtaHVG5DymNbqj7o18GGxGIr2d+QR/HRYaXTzD661Bbxus1UXmOJ0ydHZHCbyk
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: RBYDZJpMl32g1z4pTEZ9A58PrpPipbIJNMYVbmLL01mRQ/JvM8ZLsZeDgCTpYw68tLkjO9+IGFifpm0ijOLxECmAlC+4NXL6rlcecKNIl3oYZ93zGZ1INrNdcZ5crM3SrN/iAikH9DxMi83BmDv7zP4bQSQYk2qULrIWNY2LHtftK5S7GbrNVK8Myz3QDj5FQY8VTUqEQEHjrF4V3RfELssHE4HeQaGdelOqlknIJaR8TjhInBNgCHDk/Wl8yR8Ug6qdC/W2XRnsaKV1QLYzzqWsJF6AipjMzYBptgDxJW73Ur8r1BBNkwX8AX3gpFt7Ycsj6b5L+CG0IZ3UGFBv1XHv8bup6rqMVMnALXipzU88uiah2eeYgj2qOzn0JoBFfTxvSxcd3jDg7xVb/qfsDlW8+619sdT8epFt/CizuIkLtE98uQewzaytMINQbjf/ldLPkQCzhcJPhfWiJwMRU04iWXv/w/0wT+7qq69rfkD+ZDG8lq0r4MXGXKmPCKwMv7wFoBUKPaROq1/G3ASeSpyXAzf4DKvdcicQWyyTuWsR6QCZFySiqmHI7nYvTQuW6xbvGmCEM5lKnaJfz1KY5c7y/dfZLF89cwt+DQL4HrJ0WR45+0PEH4BbBBwh1VBmG7+/tp/VDFmm0i7EVrbk/dA5qTJ2TqFsWGC/0MbZReB3TQ9lzZqmCt5lbR9T4/lj8uDC/vfghRJ0sMES4MMhHSDQICfcwwqsfGq0WPdjxsBtnHnckRaurtEY0LDdJ7t+8VeVBlhmHSG+YeMBNIDyWOyFFmC01U9qGKZCfq616jHK7Z/Ol6aMqfYHT3P17OjP
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Syntactic+Conveniences+/+Methods+Parameters
+status: Unchecked
+record: -1

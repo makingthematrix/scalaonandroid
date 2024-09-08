@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: CQMpO1tQSyw5ET8p7+memaLMwQ9hiZKn1co2CCoD87xc1amraBRarmMjrQ/WNA2scJpxx0aBF343WcwHkFBWVE7/5fxYZJtYQ1zdEv8UYHQW/7xVNNunxc9kZGQIho52MRUyVZi5iQfgkakTf4eAwiQcEEeiuQ4T/XDetgUnr6dkUfj4iuXcB5HAMJ933g8GnDzUKNtYWAJzSfCW9sIvmT2lIIXY0UCAdb6ABtJ/EypNTyo2EKntfkFWrmYxa84U0E/uWovt90yQawnsp+A9aZxs1PJvWfS/A8TJzQ+mDxU25sYItvVAKbb6H5pXBP4FzC+hkQJOB3WlIrvZgd2k6PRgExVhFqBBnWXXQfONuOU=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: RBYDZJpMl32g1z4pTEZ9AxR07rmD7hYa2Fvj31DtbSrtC9WdnQYYCHdoUed9nvuCboZhOpvf/VRoZIPYsbiEv6AZ2//QnD1pH0ojaxfuyj4qoWGZL0L8oes3XCgoLpiSXzINVSb9g/bi16poV8faBCbYMQRcYjgc7WaC/CRXfb/ZNJRasICRvlodtnBBkzjJR+8rtdi2WMELCReAfHPFmaEPy75bJVCSsYvnCbGRP6timpY5uMtJsZ3c5LhTw80GhQ6YoENiLNjL95AwmRNJqKZjLe6xdUh0rpI70nZlHiEShv0R5PiFFI1DCKqf3LBWeq2ddCrUc/0xyPSZop9hVcbh2RGvX5vYcFLWcu7uZu8JV/Jqh6yHgIShEzMP2Hbjtz9VnXRX6wMLb8X9bELWwGsW0kpCjeFUWCCYlWEfTqDE+wJjiuEtxIKsRDOBrcXJ
+  learner_created: false
+- name: src/SyntacticConveniences.scala
+  visible: true
+  placeholders:
+  - offset: 70
+    length: 34
+    placeholder_text: /*insert the correct prefix here*/
+    initial_state:
+      length: 34
+      offset: 70
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: rqbhRCXJaYOZ4zV7OHjfrg==
+  - offset: 176
+    length: 58
+    placeholder_text: /*introduce the dynamic value here and make it uppercase*/
+    initial_state:
+      length: 58
+      offset: 176
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: zW8S4e4Qdm7dinxXAkefllszwA1IFRSZGA05ct30+3c=
+  encrypted_text: jJUx1tpukjcrBtxswiSML98F3Rw5dJgYelkzjKXrMqSyLNg3bzAjLmEk1SuoQWLEqhE0gq3XrZXKB3APmPLgGWeKsn7EOlZ9Tm6vE6TBuVbdXfk8t8iQcnUD5uL+7i4QrI0VlKMB4RPMRAGM0AcBAMo4WzpWg6u+V93yx060H6+SZ/29xpZkZ7EpjtianrOUXnoK5ThWSxCyCId8JNyxOSd8nMRiFOhIdG4mzYzN2qUitSu0XjQHPJv43uXkhyQvuEuknjhPuSBddM0OE/MihmNj45pnjn1XKPhAhALlZ2DmVeWq2q61ClCscoUrGHl4Q83TG6jUAkDfYaIusJ0lSZIRzOqjq1xPc6mY/iKf0QBIzgG1h00qTDX7P8wUlk9YaR/c0Vg3IMt7Viq8rU+PxmyxLqORkvkUKDo4hWWLRKAnuqX8BFYl1JvCVOcfxuiPxE9bRkP1UsBPLra9Zc1atMalSs9rHUfE1HPWkcows9sZOq/8CTjFo+R7dq+1TwtAXB8q06oLkSRO+mf6NTT+zA==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Syntactic+Conveniences+/+String+Interpolation
+status: Unchecked
+record: -1

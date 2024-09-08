@@ -1,0 +1,48 @@
+type: edu
+files:
+- name: src/StructuringInformation.scala
+  visible: true
+  placeholders:
+  - offset: 243
+    length: 37
+    placeholder_text: //extend the sealed trait Symbol here
+    initial_state:
+      length: 37
+      offset: 243
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: ++pv2HZtMqME22NBAVWUEw==
+  - offset: 389
+    length: 47
+    placeholder_text: //we need to return a similar to the Rest field
+    initial_state:
+      length: 47
+      offset: 389
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: vlMuL551nY3uEq5wZk+GxQ==
+  - offset: 546
+    length: 40
+    placeholder_text: //return a result of equality check here
+    initial_state:
+      length: 40
+      offset: 546
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: 06HeS00YzN06pXEY3DrPk5aKHCSWxZ7zdyr0PzgXs1s=
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPlpRhGTNy0Iswqstf9vSFtPO79d+F8uK3vJrTfycW9x/0PjrFe1WnU4U7JywT91l3VfA8wZoQNHwzqCPrTIEKD+nYb2oaCQkXDJF2+/cY0KSFnuWexM0a77TJ+RFx5hkKbOuUQkTT/yYSuCHi0hApb5m6yknrqMSeE1+S2dB2YfhiIlTet+LWHT3tOSJfs95tLGhBU7Y7qzoY8ZwMGE7D2iEpxThy5H1IbrrvXhGaogo1iaGPo/CvOIbh+cj2lukBIWFAe2HSzk/RGhLTTHBkjjNTtATe6mFIy9h2CogA4Ij5n+hFSbi+k7gQVY1U3I1+U8KMHWmYQ/fcdBwqDgJypDLNuJkKU+IDWNKTL446Pap8SpYBOFRLjz/KnTFLRB29nbEN4pEM/bsKp/AgWiD8BhixX0Tdt9HJXeOEFN351T1UDxxOajylvAm9c+UhXup3AX4aLBQoxbAVbr+9Tcn+itN91f348mf9IlUeKg1aXyTUnScsAl1xEv1pFH5KkFriCIQdUBzNDZciKzKT/sZfTZUDELo50NxCVxHrzBlfHaFEgI3+JupQqbbg3JKZAndzRmxKT4IFdvfz4EZuuxXMV0BasTE2KaPMM7R6yo/AjMDckPYlLRDQLOlibHUsD3qOGxbYvATqPTRxG1SCB6NPZwbd8F27ZeVvT6wY2XzBeFgr9yRhhaseZ0kB2+fmjidKgPF8y1mf7dSQIHbLrTysj4SMaq0Fk0PiqVAuOoSIpgpEvzHx6na0/BFjns5w8GyZYkUCqJDWA0KyYxrNMbBaeJruuv/Z5QKaS9SYAI0OzDCi699VopQCQWveHjtaMcTZkyctfutWxKhcaDa81hwmHUWoylggwriY3akgZGtf//8+mnMjEl1E2ArvEhXJ2xbecRNC+X5CdRpIdn4F0EmsW8qmrSl0cbCZ5hJBZ/6OGSjegwTcYp57ugl7QWO+kqckzIOKnd+Gkv8pE9dXWUPnNZJpzaxXrfVCQ59OPwpFx7NvE9g3d7Zums32xYNNhu1ZkVx1k70fM9kAVBVw1riuOhZno0fVzz1KweakWUHsfZ1XFpYWJiqFRFrlwOJxa8/kGxtmPcgSrCmD028Y4DBh5KZK46x+JDDZkbOYTLnxHulGh6beG0CTn+IP3JfZ6R1BYFqShfchzAFiSDYzYst4prFduV5nA7rIcRLv2lXwxKPGhP7MBbeuKLbtDmj0/L301i29OrBgrK3/YO78U17P0lsPbCxOl6JBeYZyG1qox2C8FPl/IN5sj4w/e8e/vFI0bAWBcy3Qz39ouYFJ47Er7AhpFa5zr6yQkwWzxhfsYtOJC4qJlbnVMmOM130NN4a2isNKbasXcNXg6uXOaY26Gw==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: D7Kqws90SXHbWhE+rSs+NZjfFcTSbDrVSVuVFq1I/dCBku6eFfbYZPzSjD8Tqop35HbrSl7C73ep+ZM0p6YGVSiCW24cpA4Pu7qtMpOwQ38wb9C/CRoxu/DHL9KjCGap9BT4PSN0wXssBiZrM/Qfb8lb78FBHd1q7cUyt/MhrQFnaFhMnVCuwR50VdapxKylHe6dmISJhacHQxTD7lLIciAae/j/35sRnW5yaWI364tBtJO+ISJ0qBTqu275LNdWq1f9n31r8hr90BGaw4avvIZi1eWSLcxnO77EHLkqycBOQChXfXavBr69+bag6BDt38KVhSSd1FyKkBoq6ghyjgwEw39FNqMSqJsD98FfOm1UsjgAl0NnIF09WdI11ygpiTMQxa1biCa8ktkE6E4cCqpbHPv0kRZuxJ0okpx5LjcdwDnHl85jmDAIjFkSXwgQeWCmws9PEW2Q25TuK/Nvu4V9ODPqJfyPE8CJlejw0F9n3p9ZG2/cODoVurhQj4G9O4gbxnwGcCS7iiGL0eKEKJ9QeJo8/ZtHcAnoOr1x42Dv6G5h49CsHxbBnh6knQqYluv/IkgqoCQBaWOjnXhJ48DsleH3FgVAKDgW8hBERkXVHbihYGtICefM2ta84YqrWzRLl+81S0bb3N8b8H45VLJE5rKz2fLYviekbWohAcUPdPNw3JZYCas8JlTVmoF9t4omBgzemA9kJuVCnj4hD0o9xzbPTzbwH4emJ+a9PBWOEYJmK4TrgnLWuls92f6vieNI4eMroaSWY5gj3LMrdkQz5XiS8wPv40YSaNnzWXz9kOWF9Mk4zgEx5SZkxcHj4OB0GVmEkcQ08XDPcGoa8Sybek3bw+zhFr4Z8eMi33aJhYK81ormnmgcj781MQT7kupD84kD6MKxNdf3rApUP2jZBoOTlXFtyJbyiGpJAp0XI+wrfG/SXRcTfr/eS/yQFQLj8O9S6yPwjaX0Ym+YB5lNDdUrbW9OT8RVfInwygtxZmLFF4sIm23VzYuzI6emRhbdzMzRgK84mEm4+WyHCGbFrKwI/Z8i4sqWKJtngxcN0I/Ny8t6fKVSIOBYswni
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: Ee7xFWeqasIzcsMY4YHS5sfFDMchFi4mHVBWaJxwnH+Eq2mgYcefnLeBm8P4vMVXhKZlTgiEJoXnhQtiuolP1ZCDke8MmPJ/FWMP6dZF2GNfyYloBkvkHJws63Pu+6Nk1tNmdq1YW1j+7kdlJdi/yPGVpMH9NhD38dvrNOs5LlLdvNZ6AU4Y3o9WlozH5FXGFUOS7DYUvD/WfDUghwvJ+xwRd7M38KnaYljq/avJbFcsZVuMqvktsiMpGdhNF05qI8ONqcPN4a88GsuO7AFr/YQEJUcfXJVOAP4Dyax7G/f94MJ222F9O27cdJgaBo1zaX4dDyGAfouky5KhaUljC+YjjRnSDkgoa6KuqBpkRwuWsW1eILLGLbXiFvN8b0bU
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Structuring+Information+/+Defining+Alternatives+With+Sealed+Traits
+status: Unchecked
+record: -1

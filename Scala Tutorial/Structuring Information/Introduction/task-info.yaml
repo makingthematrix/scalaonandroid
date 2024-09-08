@@ -1,0 +1,32 @@
+type: edu
+files:
+- name: music_sheet.png
+  visible: false
+  learner_created: false
+- name: src/StructuringInformation.scala
+  visible: true
+  placeholders:
+  - offset: 129
+    length: 91
+    placeholder_text: "//the function should return a new note with name C, duration\
+      \ of quarter and a third octave"
+    initial_state:
+      length: 91
+      offset: 129
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: /xnNPHbaAb2XQF0ajzVJ7lO77nL0NasC5LxXuJC7c9I=
+  encrypted_text: TPEnFR8EB1svuAco+Gs9u+MZ83+Pb58cxezii5e18vyBUfzjJudW9CGj3LXGj0QYvscWUPheZo5FJJdrm+ryLODS/x/CmVjUZZhB+0YhuDzpQceSqZUknGhWzbhVf48efPjv4sDRo4J2VozZNatGocibqy0lBlPRSi7za9nsq9cJL+3t1M3KuIYew9oerkcD86MTOiiPF9cnxcdobFdOOh6ndDhFfUw/8ymwnhZkyOyV31f4OIANsuMRa/NIumX0fKfQSJ9PclY69IvgL/VXVUaZGzoJOIdSoUdYCPhC/oTLOTqBBjlsmSfJcG+qxki0DjVPZsOMonCPUrJepDOjwVUCh0w2bEaU1pFyVeAtqjTNOC43xlYFmbX8h4Z7BOLQCO7Zz396iSVyDOIlH7wue6MRw7W5OxNinyLpo2XIG2CMb7s4R5LuNcajkFc48TyWtFUVbBru/QKUYaVBV+Us6/tnCEyYAVYRY3CsgN43rthRXrLnRi+uRlznB2k4IoYtOOYA93LFDwRZyA3SkIr5A2quzkA0yLs4oOvsfTAcszo=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66tm/7EWkIwioPWUlUpsRQe6dui5Q5tvDroyCcCPMOKHg/BrmYDdSGw5CttFc98RwivfaYZDNGqDRmSjN1Kf67cIXdqr2mh1dyDiB6CGIh5iDU6b2YCV8eMBQQWhZ4UlPrpWVaSCxq+whyqqBzatxWJSxLHQNnzxx73psX+P1nNySxkAMpVUmnLwHRN0IEe1HBMNkAEmr/wQEK8yP21Ix+nqsE4P6jlL1dhVjr7zAI2kvQegir5v6+YSAobj8pZUDEIHmIbTQlv2pjtvO1KasHQ1Y+WpcbbT6J3MIL5mTMiJARfl8UTKe/k1PZghsBdxOWSY4EVoVOQy45xKu0SDOJ1JCuNrG7QQEFIiWjRMmtodrVm8+7gC1sVhjVtSwCtUjLYCSWEWY03UD0ofKsbtXQ34fH/sGRhei687GT8+xt29sJMF9bZU+1BWYRSbPHGVklgXxGoeKbGjhTaNH4qtWa1W6ffTr4CG97m4uJuLOB5zM=
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: n7t7IRJAHsNCUBWWY8PI0oRLtFkYaOHYgY9dhY0l0SMaNyHJ8w0Y3j/3sXdHyPLlCmUgeLGY+KzKJ1y6zPxklaI5/3O0OdnyJ80RVXqmLG1S9Io7K3XgYig7KqyatbufV/fP3L9cLGQMcTG9b+FrbvrTMNnc4uR65ALbHSy4L7+CLqPexbJHZhNlarpN50f/qBFCKKURs2ouS6+rvvr9qk2kV8DGQYuDghPC4F0jud5L6e1s6jdr9h+ESbD3KTcZl4vo/BsAnTz/1c5J0Znf5wkEkfXeBHVBLvTPVTbwj7oBabGwNkPefDzPzfg2bGp5rrjzQWKW99TmI92XSehT9Q==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Structuring+Information+/+Introduction
+status: Unchecked
+record: -1

@@ -1,0 +1,41 @@
+type: theory
+files:
+- name: src/Main.scala
+  visible: true
+  encrypted_text: cHBmRtEewKkCYuG2g9CW/EeMQN6J8nJXrg76vMcM1HTYF/WKE6P0y7YATY6xwp88Kw19TRYgYNkIxwcKvswI+2If01ULw4N++AVu55DorQzaD3nIKE4vVFR5tfU3sQGI1U/IalYyhDrVayebin68/Q==
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: JVBictFpeXOXzjsA/fI0PAC5fRmIwah4l+XHdwejyBhvtN4NCa1ykB35eUIzKP2i9/WC+8lVe2mvIS/tuUtbxC9xIg5jl0UZpkzG7tp2gGPYZbIqVywblQPSTAMfEPdKAOPBBafAaGeEiUBOQjk4CysiWtCgkePQ/6PQuEsmV4i6Ys6vIWaBK3raJhXdf745rLren1AVIkHdb4tIVVEiWoQxwZpI4cR60XiCKVTF7lc2ITaAdV4NMPEu+tZIGjxItHUkwxAKzPFqhAfNWoRVeLd4oAckX3Dotoo/cEceflUTJuCkbesH820p3Cj5WZAR15VDA2SuvR8KrgGkvd47wA==
+  learner_created: false
+- name: images/back.svg
+  visible: false
+  learner_created: false
+- name: images/gear.svg
+  visible: false
+  learner_created: false
+- name: images/reset.svg
+  visible: false
+  learner_created: false
+- name: images/forward.svg
+  visible: false
+  learner_created: false
+- name: images/commentTask.svg
+  visible: false
+  learner_created: false
+- name: images/hideToolWindow.svg
+  visible: false
+  learner_created: false
+- name: images/edu_next_button.png
+  visible: false
+  learner_created: false
+- name: images/edu_peek_solution.png
+  visible: false
+  learner_created: false
+- name: images/edu_task_description_window_settings.png
+  visible: false
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Navigating+Around+/+Task+Description
+status: Solved
+record: -1
+post_submission_on_open: true

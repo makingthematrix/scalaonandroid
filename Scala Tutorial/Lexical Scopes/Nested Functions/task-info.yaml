@@ -1,0 +1,38 @@
+type: edu
+files:
+- name: src/LexicalScopes.scala
+  visible: true
+  placeholders:
+  - offset: 75
+    length: 40
+    placeholder_text: /*declare a name for the function here*/
+    initial_state:
+      length: 40
+      offset: 75
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: rxvvmJnGmFJs6e9ca6fFaw==
+  - offset: 166
+    length: 40
+    placeholder_text: /*use the name you declared previously*/
+    initial_state:
+      length: 40
+      offset: 166
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: rxvvmJnGmFJs6e9ca6fFaw==
+  encrypted_text: G+i86Zxqw1bIIj/9dIj4dlXCfhikjXvGwnB9N1EdpuiANzpRKlZv/FJS6BVBm9WEz/N9XoX+cL2I5KDd/kpILjWsITbEM2VTQmnmrdrKZHfMp2ry8NQbbbWddGmhbekHoatlWgofvHEWyQSoKhzIkzih55+s9qNKclDy+Fm62Q46KM87IZsQ9GXrJGUvO9UFwbEiqKyQFeshCOoeDOBPmgFfBf86pS2Mf1FAq7UMp357MK+I0UMa9bVpMW21uzD14OKwQp8u7iltzdrCFnKOv+AWupDajZV13v0dctqFNjACVZavFBcq9kSpr6obStSOhjS9IZFwX1MAZ9EQ2Ch/fV5b9aVWLm8X+1rG5USTGbrlRc+m9SHHMIVJA7FsKXfrqtjVx76Srx+RZLzSosWZeR2JrntER+cf3uFl2+WGywh+GTDBu8Dvolt88BcRIyDZ
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvuU4X+G56yM9IZDVutl6r4GO3BICZF0WoUkUP6ExRNN+JoIKCJJdDrpU7U2leen02QkLi/gKtsc4g/lKjyA9syzMm0ZboBKMtc2OJ0VM8T66oso28gfKVT+VBKAtLQux6qh7WHs2TkZIfdRdk/XQn5xqjVALQOXslooEBue+Asjy/dv9eziuud0yhdv0zSl9vKC0i8/xxLIEe6rYfsxDZfF1MzmSB6h16YL9M0k3YnK2rGG4iSe9ydsbGR1ArxSoyLwsukLetxRs4bw4qtqIXRZ7aXaIga28M2gq7lQX6Qjp44B75IfbPe5eVK2CAYJyS3u9MtGIbX5bwsROh51SZiitmFkxZeVLzdQeJ49LLbXsMSGgsuMLmmYoEUqj0RdxLKFLbeUVf5kQP729AnYrfdRCVYsgxG/oP/zR5h2J208S
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: 4UhlP2/0tRGoBAy9yK2InIhFJmSTAmQ6aR7rBFZOKwmaeLXHdLXkfsEaa+bNvJZzKmk9rzucYQrMmCVN+fCAid8L4AX/S0tV3vKTgHbSF84IHYoZRP1NF0/9CLSNzNi84gmgQL+2ZqqcqlHnllkVhvnDwbhDNRh0TfHfr1bojJVYhgCSpBzhPDLw29jbngCNHpWyrf4mU0+VZvDjlZ0iVIHx26lu0GbCmbv1iDv+Ph5LBz5W833TzZIOI+VjLEkqqaa3j8IlIdk6erO2Yj16MOdPF4dAMSNeyga/xyfWjDWO+F+O1rN3xalR4jjo0XHeEoTjq9eNFEd/RKhHDsMU3w==
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Lexical+Scopes+/+Nested+Functions
+status: Unchecked
+record: -1

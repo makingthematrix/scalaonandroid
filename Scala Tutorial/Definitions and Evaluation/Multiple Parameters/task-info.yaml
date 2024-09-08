@@ -1,0 +1,28 @@
+type: edu
+files:
+- name: src/DefinitionsAndEvaluation.scala
+  visible: true
+  placeholders:
+  - offset: 174
+    length: 46
+    placeholder_text: /*insert an expression using both parameters*/
+    initial_state:
+      length: 46
+      offset: 174
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: QrDpMSo1rPxuvyONkffeBA==
+  encrypted_text: xn0/4d0Q9hMIRxVa/IDuvpR1qRUCYv/UfMreEFKrG2dQrS07wqtshyGzP5CCtSNPA/S0JAAGha4nKUe25sN0rmpXs6Eg8bnI0aEsLlbtex36gH7ZJ2pBpz/2lanLvH9jHaxpwsajMlhG+34xIe/2WZ/zP0Oc7fwACi0ZIA5dOL4kpN2fpwQYXxJMCh9S/oAF0izCuep92ad5przoezoL63ZtgmleES8OHYxQqdr7mzuMPiPOzRAlCi52Rh72eoxask5AcyN5m7PjhQwdSczrSc7fci68veX1gDwBmX0TEpRwJ0COQEskxdaZwE4WkYE56bXQJ64NbTY37JXZ4Hlecne8Tc6c+C3obSLWXhn69JZGY9kqAK3Ck6x/JAuPDmk7oJFNaycK9FnEipXYhnIsbn5gbEvZXhvLnDnkNIMNXl8=
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: O1IRlHi2fciJ3j7Tu/p5owe22BsaoZOIfylscKnY8GbRfgg0UTinfhtDNMjJJg80FfyRnE3vgEwYzNSQ6MdbyL6NWlLqTMvxKm9Ta4Yo5WnSJDSzPW7coess52kqX+kHWKGYMTw4LpE5hUx9vRIYv86m1AknmG7KQxV9GFP2fVFe5FdbFqRd3JGWvdOgloUjt1tteIRbGBlhICT4FBeRYaproQKVVJtr+NIbpdsxXY3KUXI/tXI8xPPzBKrV9cKI56Ep1CrAsJQ8wxzRoonTICiDMg2/RojzcppIb0/74EFR4YLVMhrpT65CtVHAd38zL1byW1pByplNHjUFkcX1t88usyLSqMJ5+CBgN7/2wSWYGnBYYhg04hF6fg3wUGTo
+  learner_created: false
+- name: build.sbt
+  visible: false
+  encrypted_text: G5vLzyQFtv6HnOoyJ25SaCfChiIiQkMX6Z/weRgznsl5Epw7PAeWXdNTOCti7kEIm4Etsdg18BkMYwbWFewwgqjB2bfhlr8ycGvxgxUaRYb/uah1d5ckohbseDUSQdUa47wPWcDPwMIdnPoLqavrqeSjyvqILu2tyonfC8BxCaDsw4hzXMkfWfIjwEkPUoAOob9IAY1Lz+KbbhcP4JADZ9/CFLN70yC8B0aYrC+UozuhWSoEaqkPOcujTIrALUuEUDixcWL5Irw8NeDN8ZFhgDSBzcV6htSlF5WLSwQl4ypWe7UYNrPfd6f64YFMg+fpLfcAk+ZK7wEkmjvqmenSpJaqWUy1PlY6gQqnZIXGvi0=
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Definitions+and+Evaluation+/+Multiple+Parameters
+status: Unchecked
+record: -1

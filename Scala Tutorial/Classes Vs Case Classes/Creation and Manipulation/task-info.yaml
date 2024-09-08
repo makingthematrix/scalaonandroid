@@ -1,0 +1,46 @@
+type: edu
+files:
+- name: build.sbt
+  visible: false
+  encrypted_text: o6rihVeATvWtXricfjTjxWuXDvKNfeKiaL+fAbjqUN+uQrihRe4M3nQdgH7sW/xC+KuZcaaNyYyMZn0hx2oygMl892myfZmUUrvb1GY6GvkzRaiRn4z/plbsyIrWyH2j4xq4/n+5SjIZ6nnGr5zfvFnwfBfJlJXgKjLjFfqQPyqtfw3oGIHq9UfVjC334UnwPaEH7dvgiyea6spijNCd5x/MVg+uBoohYEbOkkrsOUmnjysFppkrXqxtIt9ZF0oFizbDJftLlEjp64UnSgMdW9Ncs73O42XH8BSU/NQE0XbNKPUBDTSRWTJ/eNWFFd2te3xDKLWBI8YgL1I94b18MUqW8CTAg+hDesgZ/6Sd6uE=
+  learner_created: false
+- name: src/ClassesVsCaseClasses.scala
+  visible: true
+  placeholders:
+  - offset: 69
+    length: 38
+    placeholder_text: /*deposit 100 on the Alice's account*/
+    initial_state:
+      length: 38
+      offset: 69
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: wPikY5TWUNEf3ZcnVqV/BMoA48UGJXy1l9uGVW+xNTU=
+  - offset: 119
+    length: 44
+    placeholder_text: /*create a c3 note with a quarter duration*/
+    initial_state:
+      length: 44
+      offset: 119
+    initialized_from_dependency: false
+    selected: false
+    status: Unchecked
+    encrypted_possible_answer: /xnNPHbaAb2XQF0ajzVJ7lO77nL0NasC5LxXuJC7c9I=
+  encrypted_text: 0MGrmWNGmk/nEffREwqgN3QxgfN/oUyTqHsTgL9guoIRiZ2NfiTbNb2WPG64kjF3FgXB4/p3uvYhSHT4pdFzn8qJ6TC1Qx1cbGKsPB86xDH6M3g+qQ/m1AxsMjShKx3poHdLH0jfe6MbFb+Jef1sU/Rmc4c8O3mGB3UPrBuMoChSU7zxSnL6MP6/bGmG1GQMxFuOkjWg86OrLyhLdNk2RNDZwBPysgKidheFl5Zdxpw9B31AsXbuJE3uaI/eDandrAX49uA47vKq0EoStB703Iu6eNmDT0jHDzL7URE8lrryoyau/vUbkhBgKGniasUlA5GmAi2ang/mya8MmUkerRC9MueMudC6h1tdI9wChpH/k5+1PYcepPik5yhvCA03
+  learner_created: false
+- name: src/BankAccount.scala
+  visible: true
+  encrypted_text: z0tFZ8HhYOILK8nNqh4vGL2tIWWJ39p0XGis9JdMRpXj8Dbdl+dBHOHOJgRWOutK07bM9hutRG54hD4+4MDIApwYu5lSgphJcP/piZIkhfP75z48OI4T5ZJx8J0tycIKt2mmKEEHoXoxLnAwfk5M3wAmYNzt34zgelAXmzQMMKHrcQPiXJsp03Wh7mpBXr4JgJR3CFc0MxWjKqLqad3MUOECLYOJahpOOIv7pnMvK+TnPLWpCnFs4s6V47oFSUGL80pfY8Jm0jP8PgIvd1R3k7XOLGfMvDn/ZF5aluGVWDCQaxTc8o1elqAYXuui8IWaR3XoZ4AfD5AgXouJYp9MuxMNVNQopc+UogbWumTG+a8kb9vPoJ0FCa60bSaARuDnBIWBYwvm7QWrIvivdBV7suVlPN66FYSXHKgkM9Cyqy0=
+  learner_created: false
+- name: src/Note.scala
+  visible: true
+  encrypted_text: 02bDg2ELV+BWCjPe2uNtyCtAELsTwAek3R0o5zw6RSEbjxSDWYjJK9N67FnX4q+nWUtf6Utl4nuGY+K+dh+9bw==
+  learner_created: false
+- name: test/Test.scala
+  visible: false
+  encrypted_text: NAWzTr5C3v+ck0OGNW8EklYT5LDvFASTIQ0CcyJpnx7tEpJh/XzxK9rPt0Qp7FHodKp3p4nFSj/NjZ2h/xQ4smKk4BlPMuM0gsh7XntaNGZQRDZmBEWt7KxMwEAB5dlwKmEIM0mra6ebnR8xGlje5ue8l4ZiUVV9pJK97CBIIVudqgCQFqd1hGOPP7v5i5jwR4CXXVnBTMPSLsNagb6uaDSzN4pLUnfORKqLSLh640aivCxPasQITAAylHtNH1zhxZ8m+vBbKptqvDWrQJ3Nvgos+IiXaBpknLpDkc+cCFv1LfDNG61ldqjro7CGyEVal3wiA3IIIvzrECJRrrMNR6ivaindD0mQwuI1RrUB+MFmtm6ockwPEvSU9ctmxWAc
+  learner_created: false
+feedback_link: https://docs.google.com/forms/d/e/1FAIpQLScjhcYFPpvouPszTzh1ePod4-mJkYZcrA5iiGjH4nybtiNEvQ/viewform?usp=pp_url&entry.2103429047=Classes+vs+Case+Classes+/+Creation+and+Manipulation
+status: Unchecked
+record: -1
