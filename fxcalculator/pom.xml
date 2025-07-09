@@ -16,7 +16,7 @@
         <javafx.version>20.0.1</javafx.version>
         <javafx.plugin.version>0.0.8</javafx.plugin.version>
         <!-- Works with GraalVM CE Java 17 22.1.0, but not higher -->
-        <gluonfx.maven.plugin.version>1.0.19</gluonfx.maven.plugin.version>
+        <gluonfx.maven.plugin.version>1.0.23</gluonfx.maven.plugin.version>
         <charm.version>6.2.2</charm.version>
         <attach.version>4.0.16</attach.version>
         <main.class>fxcalculator.Main</main.class>
@@ -25,6 +25,7 @@
         <scala.version>3.3.3</scala.version>
         <scala.compat.version>3</scala.compat.version>
         <munit.version>1.0.0</munit.version>
+        <maven.plugin.version>3.10.1</maven.plugin.version>
     </properties>
 
     <dependencies>
@@ -162,7 +163,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
+                <version>${maven.plugin.version}</version>
                 <configuration>
                     <release>17</release>
                 </configuration>

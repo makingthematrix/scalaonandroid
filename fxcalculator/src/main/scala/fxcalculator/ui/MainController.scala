@@ -71,7 +71,7 @@ final class MainController extends Initializable:
       case _ =>
 
   def onNumber(event: ActionEvent): Unit =
-    idsToSigns.get(event.getSource.asInstanceOf[Button].getId).foreach(updateExpression(_))
+    idsToSigns.get(event.getSource.asInstanceOf[Button].getId).foreach(updateExpression)
 
   def onPoint(event: ActionEvent): Unit =
     if isPointAllowed then updateExpression('.')
